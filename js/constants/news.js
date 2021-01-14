@@ -111,54 +111,54 @@ const NEWS_DATA = {
 	d2: [
 		"The world is your pebble",
 		function () {
-			return player.distance.gte(DISTANCES.ly);
+			return player.distance.gte(DISTANCES.光年);
 		}
 	],
 	d3: [
 		"I guess multiple universes exist then",
 		function () {
-			return player.distance.gte(DISTANCES.uni);
+			return player.distance.gte(DISTANCES.宇宙);
 		}
 	],
 	d4: [
 		"To Infinity and beyond!",
 		function () {
-			return player.distance.gte(ExpantaNum.mul(DISTANCES.uni, Number.MAX_VALUE));
+			return player.distance.gte(ExpantaNum.mul(DISTANCES.宇宙, Number.MAX_VALUE));
 		}
 	],
 	d5: [
 		"You are a very dedicated addict",
 		function () {
-			return player.distance.gte(ExpantaNum.mul(DISTANCES.uni, "1e100000"));
+			return player.distance.gte(ExpantaNum.mul(DISTANCES.宇宙, "1e100000"));
 		}
 	],
 	d6: [
 		"Stop grinding or you'll go insane within the next 5 hours!",
 		function () {
-			return player.distance.gte(ExpantaNum.mul(DISTANCES.uni, "1e2000000"));
+			return player.distance.gte(ExpantaNum.mul(DISTANCES.宇宙, "1e2000000"));
 		}
 	],
 	d7: [
 		"Uni sounds like a prestige currency",
 		function () {
-			return player.distance.gte(ExpantaNum.mul(DISTANCES.uni, 5));
+			return player.distance.gte(ExpantaNum.mul(DISTANCES.宇宙, 5));
 		}
 	],
 	d8: [
 		"Welcome to the Fome Club...",
 		function() {
-			return player.distance.gte(ExpantaNum.mul(DISTANCES.uni, "1e42000000"));
+			return player.distance.gte(ExpantaNum.mul(DISTANCES.宇宙, "1e42000000"));
 		}
 	],
 	d9: [
 		"Heya. You've been busy, huh? So, i've got a question for ya. Do you think even the worst person can change? That everybody can be a good person, if they just try? Heh heh heh he... All right. Well here's a better question. Do you wanna have a bad time? 'Cause if you take another step forward... You are REALLY not going to like what happens next. Welp. Sorry, old lady. This is why i never make promises.",
 		function() {
-			return player.distance.gte(ExpantaNum.mul(DISTANCES.uni, "1e108000000"));
+			return player.distance.gte(ExpantaNum.mul(DISTANCES.宇宙, "1e108000000"));
 		}
 	],
 	d10: [
 		"The multiverse isn't enough for you, is it?",
-		function() { return player.distance.gte(DISTANCES.mlt) },
+		function() { return player.distance.gte(DISTANCES.多宇宙) },
 	],
 
 	// Mode-based Conditions
@@ -470,7 +470,7 @@ const NEWS_DATA = {
 	],
 	s29: [
 		"This message started at the exact moment you reached the end of the multiverse!",
-		function() { return !player.ended&&player.distance.gte(DISTANCES.mlt) },
+		function() { return !player.ended&&player.distance.gte(DISTANCES.多宇宙) },
 	],
 	s30: [
 		"Wow you completed TV20, a completely meaningless quest that got you no reward. How do you feel now?",

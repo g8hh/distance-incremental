@@ -253,7 +253,7 @@ const HIGGS_UPGS = {
 	},
 }
 
-const THEORY_REQ = [new ExpantaNum("1e4000000").times(DISTANCES.uni), new ExpantaNum(1000)]
+const THEORY_REQ = [new ExpantaNum("1e4000000").times(DISTANCES.宇宙), new ExpantaNum(1000)]
 
 const TH_TABS = {
 	tv: function () {
@@ -654,7 +654,7 @@ const STR_REQS = {
 	4: new ExpantaNum(1e4),
 	5: new ExpantaNum(1e7),
 	6: new ExpantaNum(1e14),
-	7: new ExpantaNum(DISTANCES.pc),
+	7: new ExpantaNum(DISTANCES.秒差距),
 }
 const STR_NAMES = {
 	1: "Primary",
@@ -682,7 +682,7 @@ const DARK_EXPANDER_DESCS = {
 	5: "Unlock new Theory Tree Upgrades, and the Theoretical Boost formula is much slower.",
 }
 
-const HC_REQ = [new ExpantaNum("e2e7").times(DISTANCES.uni), new ExpantaNum(64)]
+const HC_REQ = [new ExpantaNum("e2e7").times(DISTANCES.宇宙), new ExpantaNum(64)]
 const HC_DATA = {
 	goal: ["text", [Number.MAX_VALUE, "e1e7"], "main"],
 	noTRU: ["checkbox", undefined, "pre"],

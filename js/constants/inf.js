@@ -1,5 +1,5 @@
 // Infinity
-const INF_UNL = new ExpantaNum(Number.MAX_VALUE).times(DISTANCES.uni);
+const INF_UNL = new ExpantaNum(Number.MAX_VALUE).times(DISTANCES.宇宙);
 const INF_UPGS = {
 	rows: 10,
 	cols: 10,
@@ -840,52 +840,52 @@ const STADIUM_REWARDS = {
 };
 const STADIUM_GOALS = {
 	spaceon: [
-		new ExpantaNum("1e800").times(DISTANCES.uni),
-		new ExpantaNum(1e100).times(DISTANCES.uni),
-		new ExpantaNum(1e96).times(DISTANCES.uni),
-		new ExpantaNum(1e128).times(DISTANCES.uni),
-		new ExpantaNum(1e240).times(DISTANCES.uni),
-		new ExpantaNum("1e300").times(DISTANCES.uni)
+		new ExpantaNum("1e800").times(DISTANCES.宇宙),
+		new ExpantaNum(1e100).times(DISTANCES.宇宙),
+		new ExpantaNum(1e96).times(DISTANCES.宇宙),
+		new ExpantaNum(1e128).times(DISTANCES.宇宙),
+		new ExpantaNum(1e240).times(DISTANCES.宇宙),
+		new ExpantaNum("1e300").times(DISTANCES.宇宙)
 	],
 	solaris: [
-		new ExpantaNum(1e20).times(DISTANCES.uni),
-		new ExpantaNum("1e365").times(DISTANCES.uni),
-		new ExpantaNum("1e450").times(DISTANCES.uni),
-		new ExpantaNum("1e500").times(DISTANCES.uni),
-		new ExpantaNum(1.11e111).times(DISTANCES.uni),
-		new ExpantaNum(1e180).times(DISTANCES.uni)
+		new ExpantaNum(1e20).times(DISTANCES.宇宙),
+		new ExpantaNum("1e365").times(DISTANCES.宇宙),
+		new ExpantaNum("1e450").times(DISTANCES.宇宙),
+		new ExpantaNum("1e500").times(DISTANCES.宇宙),
+		new ExpantaNum(1.11e111).times(DISTANCES.宇宙),
+		new ExpantaNum(1e180).times(DISTANCES.宇宙)
 	],
 	infinity: [
-		new ExpantaNum("1e1500").times(DISTANCES.uni),
-		new ExpantaNum("1e125").times(DISTANCES.uni),
-		new ExpantaNum("1e480").times(DISTANCES.uni),
-		new ExpantaNum("1e640").times(DISTANCES.uni),
-		new ExpantaNum("1e1000").times(DISTANCES.uni),
-		new ExpantaNum("1e1200").times(DISTANCES.uni)
+		new ExpantaNum("1e1500").times(DISTANCES.宇宙),
+		new ExpantaNum("1e125").times(DISTANCES.宇宙),
+		new ExpantaNum("1e480").times(DISTANCES.宇宙),
+		new ExpantaNum("1e640").times(DISTANCES.宇宙),
+		new ExpantaNum("1e1000").times(DISTANCES.宇宙),
+		new ExpantaNum("1e1200").times(DISTANCES.宇宙)
 	],
 	eternity: [
-		new ExpantaNum("1e260").times(DISTANCES.uni),
-		new ExpantaNum("1e250").times(DISTANCES.uni),
-		new ExpantaNum("1e295").times(DISTANCES.uni),
-		new ExpantaNum(Number.MAX_VALUE).times(DISTANCES.uni),
-		new ExpantaNum("1e350").times(DISTANCES.uni),
-		new ExpantaNum("1e375").times(DISTANCES.uni)
+		new ExpantaNum("1e260").times(DISTANCES.宇宙),
+		new ExpantaNum("1e250").times(DISTANCES.宇宙),
+		new ExpantaNum("1e295").times(DISTANCES.宇宙),
+		new ExpantaNum(Number.MAX_VALUE).times(DISTANCES.宇宙),
+		new ExpantaNum("1e350").times(DISTANCES.宇宙),
+		new ExpantaNum("1e375").times(DISTANCES.宇宙)
 	],
 	reality: [
-		new ExpantaNum(10).times(DISTANCES.uni),
-		new ExpantaNum(100).times(DISTANCES.pc),
-		new ExpantaNum(3).times(DISTANCES.ly),
-		new ExpantaNum(800).times(DISTANCES.Gm),
+		new ExpantaNum(10).times(DISTANCES.宇宙),
+		new ExpantaNum(100).times(DISTANCES.秒差距),
+		new ExpantaNum(3).times(DISTANCES.光年),
+		new ExpantaNum(800).times(DISTANCES.吉米),
 		new ExpantaNum(250),
 		new ExpantaNum(150)
 	],
 	drigganiz: [
-		new ExpantaNum(1e16).times(DISTANCES.uni),
-		new ExpantaNum(1e10).times(DISTANCES.uni),
-		new ExpantaNum(1e25).times(DISTANCES.uni),
-		new ExpantaNum(1e40).times(DISTANCES.uni),
-		new ExpantaNum(1e150).times(DISTANCES.uni),
-		new ExpantaNum(1e200).times(DISTANCES.uni)
+		new ExpantaNum(1e16).times(DISTANCES.宇宙),
+		new ExpantaNum(1e10).times(DISTANCES.宇宙),
+		new ExpantaNum(1e25).times(DISTANCES.宇宙),
+		new ExpantaNum(1e40).times(DISTANCES.宇宙),
+		new ExpantaNum(1e150).times(DISTANCES.宇宙),
+		new ExpantaNum(1e200).times(DISTANCES.宇宙)
 	]
 };
 
@@ -901,12 +901,12 @@ const EXTREME_STADIUM_DATA = {
 		],
 		reward: "Superscaled Rank Cheapener scaling is 90% weaker.",
 		goals: [
-			new ExpantaNum("1e1600").times(DISTANCES.uni),
-			new ExpantaNum("1e1750").times(DISTANCES.uni),
-			new ExpantaNum("1e1950").times(DISTANCES.uni),
-			new ExpantaNum("1e2000").times(DISTANCES.uni),
-			new ExpantaNum("1e2500").times(DISTANCES.uni),
-			new ExpantaNum("1e2600").times(DISTANCES.uni),
+			new ExpantaNum("1e1600").times(DISTANCES.宇宙),
+			new ExpantaNum("1e1750").times(DISTANCES.宇宙),
+			new ExpantaNum("1e1950").times(DISTANCES.宇宙),
+			new ExpantaNum("1e2000").times(DISTANCES.宇宙),
+			new ExpantaNum("1e2500").times(DISTANCES.宇宙),
+			new ExpantaNum("1e2600").times(DISTANCES.宇宙),
 		],
 	},
 	cranius: {
@@ -920,12 +920,12 @@ const EXTREME_STADIUM_DATA = {
 		],
 		reward: "Knowledge gain is boosted by second row Stadium Completions.",
 		goals: [
-			new ExpantaNum("1e1390").times(DISTANCES.uni),
-			new ExpantaNum("1e1500").times(DISTANCES.uni),
-			new ExpantaNum("1e1600").times(DISTANCES.uni),
-			new ExpantaNum("1e1750").times(DISTANCES.uni),
-			new ExpantaNum("1e2000").times(DISTANCES.uni),
-			new ExpantaNum("1e2050").times(DISTANCES.uni),
+			new ExpantaNum("1e1390").times(DISTANCES.宇宙),
+			new ExpantaNum("1e1500").times(DISTANCES.宇宙),
+			new ExpantaNum("1e1600").times(DISTANCES.宇宙),
+			new ExpantaNum("1e1750").times(DISTANCES.宇宙),
+			new ExpantaNum("1e2000").times(DISTANCES.宇宙),
+			new ExpantaNum("1e2050").times(DISTANCES.宇宙),
 		],
 		effect: function() { 
 			let x = (player.extremeStad||[]).length
@@ -946,12 +946,12 @@ const EXTREME_STADIUM_DATA = {
 		],
 		reward: "Rank Cheapeners use a weaker cost formula based on their amount.",
 		goals: [
-			new ExpantaNum("1e3200").times(DISTANCES.uni),
-			new ExpantaNum("1e3750").times(DISTANCES.uni),
-			new ExpantaNum("1e4000").times(DISTANCES.uni),
-			new ExpantaNum("1e4125").times(DISTANCES.uni),
-			new ExpantaNum("1e4500").times(DISTANCES.uni),
-			new ExpantaNum("1e4650").times(DISTANCES.uni),
+			new ExpantaNum("1e3200").times(DISTANCES.宇宙),
+			new ExpantaNum("1e3750").times(DISTANCES.宇宙),
+			new ExpantaNum("1e4000").times(DISTANCES.宇宙),
+			new ExpantaNum("1e4125").times(DISTANCES.宇宙),
+			new ExpantaNum("1e4500").times(DISTANCES.宇宙),
+			new ExpantaNum("1e4650").times(DISTANCES.宇宙),
 		],
 		effect: function() { return player.rankCheap.times(tmp.rankCheap.manPow).times(tmp.rankCheap.pow).pow(0.4).plus(1) },
 		disp: function() { return showNum(EXTREME_STADIUM_DATA.spectra.effect())+"x weaker" },
@@ -967,12 +967,12 @@ const EXTREME_STADIUM_DATA = {
 		],
 		reward: "All pre-Infinity resources are generated 3x faster.",
 		goals: [
-			new ExpantaNum("1e1500").times(DISTANCES.uni),
-			new ExpantaNum("1e1625").times(DISTANCES.uni),
-			new ExpantaNum("1e1700").times(DISTANCES.uni),
-			new ExpantaNum("1e1800").times(DISTANCES.uni),
-			new ExpantaNum("1e2000").times(DISTANCES.uni),
-			new ExpantaNum("1e2050").times(DISTANCES.uni),
+			new ExpantaNum("1e1500").times(DISTANCES.宇宙),
+			new ExpantaNum("1e1625").times(DISTANCES.宇宙),
+			new ExpantaNum("1e1700").times(DISTANCES.宇宙),
+			new ExpantaNum("1e1800").times(DISTANCES.宇宙),
+			new ExpantaNum("1e2000").times(DISTANCES.宇宙),
+			new ExpantaNum("1e2050").times(DISTANCES.宇宙),
 		],
 	},
 	nullum: {
@@ -986,12 +986,12 @@ const EXTREME_STADIUM_DATA = {
 		],
 		reward: "All perks are 25% stronger.",
 		goals: [
-			new ExpantaNum("1e2000").times(DISTANCES.uni),
-			new ExpantaNum("1e2250").times(DISTANCES.uni),
-			new ExpantaNum("1e2325").times(DISTANCES.uni),
-			new ExpantaNum("1e2500").times(DISTANCES.uni),
-			new ExpantaNum("1e2645").times(DISTANCES.uni),
-			new ExpantaNum("1e2650").times(DISTANCES.uni),
+			new ExpantaNum("1e2000").times(DISTANCES.宇宙),
+			new ExpantaNum("1e2250").times(DISTANCES.宇宙),
+			new ExpantaNum("1e2325").times(DISTANCES.宇宙),
+			new ExpantaNum("1e2500").times(DISTANCES.宇宙),
+			new ExpantaNum("1e2645").times(DISTANCES.宇宙),
+			new ExpantaNum("1e2650").times(DISTANCES.宇宙),
 		],
 	},
 	quantron: {
@@ -1005,12 +1005,12 @@ const EXTREME_STADIUM_DATA = {
 		],
 		reward: "Pathogen Upgrades are stronger based on your Coal.",
 		goals: [
-			new ExpantaNum("1e3000").times(DISTANCES.uni),
-			new ExpantaNum("1e3100").times(DISTANCES.uni),
-			new ExpantaNum("1e2900").times(DISTANCES.uni),
-			new ExpantaNum("1e3200").times(DISTANCES.uni),
-			new ExpantaNum("1e2800").times(DISTANCES.uni),
-			new ExpantaNum("1e720").times(DISTANCES.uni),
+			new ExpantaNum("1e3000").times(DISTANCES.宇宙),
+			new ExpantaNum("1e3100").times(DISTANCES.宇宙),
+			new ExpantaNum("1e2900").times(DISTANCES.宇宙),
+			new ExpantaNum("1e3200").times(DISTANCES.宇宙),
+			new ExpantaNum("1e2800").times(DISTANCES.宇宙),
+			new ExpantaNum("1e720").times(DISTANCES.宇宙),
 		],
 		effect: function() { 
 			let ret = player.furnace.coal.plus(1).log10().plus(1).log10().div(6.09);

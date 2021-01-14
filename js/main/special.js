@@ -32,14 +32,14 @@ function loadTempFeatures() {
 		}),
 		"time reversal": new Feature({
 			name: "time reversal",
-			req: function() { return new ExpantaNum(DISTANCES.ly) },
+			req: function() { return new ExpantaNum(DISTANCES.光年) },
 			res: "distance",
 			display: formatDistance,
 			reached: function() { return player.tr.unl },
 			progress: function () {
 				if (player.options.featPerc=="logarithm") {
-					return player.distance.max(1).log10().div(new ExpantaNum(DISTANCES.ly).log10());
-				} else return ExpantaNum.div(DISTANCES.ly, player.distance).pow(-1)
+					return player.distance.max(1).log10().div(new ExpantaNum(DISTANCES.光年).log10());
+				} else return ExpantaNum.div(DISTANCES.光年, player.distance).pow(-1)
 			}
 		}),
 		collapse: new Feature({
@@ -133,13 +133,13 @@ function loadTempFeatures() {
 		}),
 		derivatives: new Feature({
 			name: "derivatives",
-			req: function() { return ExpantaNum.mul(DISTANCES.uni, "1e90000") },
+			req: function() { return ExpantaNum.mul(DISTANCES.宇宙, "1e90000") },
 			res: "distance",
 			display: formatDistance,
 			reached: function() { return player.inf.derivatives.unl },
 			progress: function () {
-				if (player.options.featPerc=="logarithm") return player.distance.max(1).log10().div(ExpantaNum.mul(DISTANCES.uni, "1e90000").log10());
-				else return player.distance.div(ExpantaNum.mul(DISTANCES.uni, "1e90000"))
+				if (player.options.featPerc=="logarithm") return player.distance.max(1).log10().div(ExpantaNum.mul(DISTANCES.宇宙, "1e90000").log10());
+				else return player.distance.div(ExpantaNum.mul(DISTANCES.宇宙, "1e90000"))
 			}
 		}),
 		elementary: new Feature({
@@ -211,8 +211,8 @@ function loadTempFeatures() {
 			display: formatDistance,
 			reached: function() { return player.elementary.foam.unl },
 			progress: function () {
-				if (player.options.featPerc=="logarithm") return player.distance.max(1).log10().div(ExpantaNum.mul(DISTANCES.uni, FOAM_REQ).log10());
-				else return player.distance.div(ExpantaNum.mul(DISTANCES.uni, FOAM_REQ))
+				if (player.options.featPerc=="logarithm") return player.distance.max(1).log10().div(ExpantaNum.mul(DISTANCES.宇宙, FOAM_REQ).log10());
+				else return player.distance.div(ExpantaNum.mul(DISTANCES.宇宙, FOAM_REQ))
 			}
 		}),
 		skyrmions: new Feature({

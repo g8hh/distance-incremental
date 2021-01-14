@@ -93,9 +93,9 @@ function tickWithTR(diff) {
 	player.distance = player.distance.plus(adjustGen(player.velocity, "dist").times(modeActive("hikers_dream")?tmp.hd.enEff:1).times(diff)).max(0);
 	let fc = futureCapped()
 	if (fc) {
-		player.velocity = player.velocity.min(DISTANCES.mlt)
-		player.distance = player.distance.min(DISTANCES.mlt)
-		if (player.distance.gte(DISTANCES.mlt)) end1point9()
+		player.velocity = player.velocity.min(DISTANCES.多宇宙)
+		player.distance = player.distance.min(DISTANCES.多宇宙)
+		if (player.distance.gte(DISTANCES.多宇宙)) end1point9()
 	}
 	player.inf.bestDist = player.inf.bestDist.max(player.distance)
 	player.bestDistance = player.bestDistance.max(player.distance)

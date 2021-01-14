@@ -327,12 +327,12 @@ function updateAfterTick() {
 
 function updateUnlocks() {
 	if (player.distance.gte(ExpantaNum.mul(AUTO_UNL, tmp.auto.lrm))) player.automation.unl = true;
-	if (player.distance.gte(DISTANCES.ly)) player.tr.unl = true;
+	if (player.distance.gte(DISTANCES.光年)) player.tr.unl = true;
 	if (player.distance.gte(ExpantaNum.mul(COLLAPSE_UNL, tmp.collapse.lrm))) player.collapse.unl = true;
 	if (player.collapse.cadavers.gte(ExpantaNum.mul(PATHOGENS_UNL, tmp.pathogens.lrm))) player.pathogens.unl = true;
 	if (player.distance.gte(ExpantaNum.mul(DC_UNL, tmp.dc.lrm))) player.dc.unl = true;
 	if (tmp.inf.can && !infActive && player.inf.endorsements.lt(10)) tmp.inf.forceReset();
-	if (player.distance.gte(ExpantaNum.mul(DISTANCES.uni, "1e90000"))) player.inf.derivatives.unl = true;
+	if (player.distance.gte(ExpantaNum.mul(DISTANCES.宇宙, "1e90000"))) player.inf.derivatives.unl = true;
 	if ((player.distance.gte(THEORY_REQ[0]) && player.bestEP.gte(THEORY_REQ[1])) || player.elementary.theory.unl) player.elementary.theory.unl = true;
 	if (player.distance.gte(HC_REQ[0]) && player.inf.endorsements.gte(HC_REQ[1])) player.elementary.hc.unl = true
 	if (player.distance.gte(FOAM_REQ)) player.elementary.foam.unl = true

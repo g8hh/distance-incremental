@@ -1,4 +1,4 @@
-const COLLAPSE_UNL = new ExpantaNum(50 * DISTANCES.Mpc);
+const COLLAPSE_UNL = new ExpantaNum(50 * DISTANCES.兆秒差距);
 const ESSENCE_MILESTONES = {
 	1: {
 		req: new ExpantaNum(1),

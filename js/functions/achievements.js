@@ -32,7 +32,7 @@ function checkR3Ach(){
 }
 
 function checkR4Ach(){
-	if (player.distance.gte(10 * DISTANCES.pc)) tmp.ach[41].grant();
+	if (player.distance.gte(10 * DISTANCES.秒差距)) tmp.ach[41].grant();
 	if (player.rank.gte(20)) tmp.ach[42].grant();
 	if (player.tier.gte(5)) tmp.ach[43].grant();
 	if (player.rockets.gte(1e5)) tmp.ach[44].grant();
@@ -43,14 +43,14 @@ function checkR4Ach(){
 }
 
 function checkR5Ach(){
-	if (player.distance.gte(DISTANCES.uni)) tmp.ach[51].grant();
+	if (player.distance.gte(DISTANCES.宇宙)) tmp.ach[51].grant();
 	if (player.rockets.gte(1e8)) tmp.ach[52].grant();
 	if (player.rf.gte(10)) tmp.ach[53].grant();
 	if (player.tr.cubes.gte(1e7)) tmp.ach[54].grant();
 	if (tmp.timeSpeed.gte(1e5)) tmp.ach[55].grant();
 	if (Object.keys(player.automation.robots).includes("fuelbot")) tmp.ach[56].grant();
 	if (player.tr.cubes.gte(9e15)) tmp.ach[57].grant();
-	if (player.distance.gte(2.22e22 * DISTANCES.uni)) tmp.ach[58].grant();
+	if (player.distance.gte(2.22e22 * DISTANCES.宇宙)) tmp.ach[58].grant();
 }
 
 function checkR6Ach(){
@@ -60,7 +60,7 @@ function checkR6Ach(){
 	if (player.rank.gte(50)) tmp.ach[64].grant();
 	if (player.collapse.cadavers.gte(5e7)) tmp.ach[65].grant();
 	if (tmp.auto.fuelbot.interval.lte(120)) tmp.ach[66].grant();
-	if (player.distance.gte(1e80 * DISTANCES.uni)) tmp.ach[67].grant();
+	if (player.distance.gte(1e80 * DISTANCES.宇宙)) tmp.ach[67].grant();
 	let bool = true;
 	for (let i = 1; i <= PTH_AMT; i++) if (player.pathogens.upgrades[i].eq(0)) if (i <= 10) bool = false;
 	if (bool) tmp.ach[68].grant();
@@ -69,7 +69,7 @@ function checkR6Ach(){
 function checkR7Ach(){
 	if (player.dc.unl) tmp.ach[71].grant();
 	if (player.dc.matter.gte(50)) tmp.ach[72].grant();
-	if (player.distance.gte(ExpantaNum.mul(1e140, DISTANCES.uni))) tmp.ach[73].grant();
+	if (player.distance.gte(ExpantaNum.mul(1e140, DISTANCES.宇宙))) tmp.ach[73].grant();
 	if (player.rockets.gte(1e60)) tmp.ach[74].grant();
 	if (player.dc.cores.gte(5)) tmp.ach[75].grant();
 	if (player.rockets.gte(1e100)) tmp.ach[76].grant();
@@ -184,7 +184,7 @@ function checkR17Ach(){
 	if (player.distance.gte("4.4e222222248") && player.elementary.entropy.best.eq(0) && player.elementary.foam.maxDepth.lte(1) && player.elementary.bosons.gauge.photons.upgrades.reduce((a,c) => ExpantaNum.add(a, c)).eq(0) && Object.values(player.elementary.bosons.gauge.gluons).every(obj => obj.upgrades.reduce((a,c) => ExpantaNum.add(a, c)).eq(0))) tmp.ach[175].grant();
 	if (player.elementary.theory.depth.gte(20)) tmp.ach[176].grant();
 	if (tmp.pathogens) if (tmp.pathogens.upgPow.gte(16.25)) tmp.ach[177].grant();
-	if (player.distance.gte(DISTANCES.mlt)) tmp.ach[178].grant();
+	if (player.distance.gte(DISTANCES.多宇宙)) tmp.ach[178].grant();
 }
 
 function updateAchievements() {

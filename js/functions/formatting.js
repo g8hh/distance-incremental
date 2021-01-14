@@ -83,8 +83,8 @@ function formatDistance(x) {
 		let val = new ExpantaNum(DISTANCES[name]);
 		if (x.lt(val) && i > 0) continue;
 		if (name=="mlt"&&fc) {
-			if (x.eq(val)) return showNum(x.div(DISTANCES.uni)) + " uni";
-			return "??? uni"
+			if (x.eq(val)) return showNum(x.div(DISTANCES.宇宙)) + " 宇宙";
+			return "??? 宇宙"
 		}
 		if (DISTANCE_TYPES[name]=="log") return showNum(x.log10().div(val.log10())) + " " + name; 
 		return showNum(x.div(val)) + " " + name;

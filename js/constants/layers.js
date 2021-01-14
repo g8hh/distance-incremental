@@ -38,8 +38,8 @@ const LAYER_REQS = {
 	tier: ["rank", 3],
 	rockets: ["distance", 5e7],
 	rf: ["rockets", 25],
-	collapse: ["distance", 50 * DISTANCES.Mpc],
-	inf: ["distance", new ExpantaNum(Number.MAX_VALUE).times(DISTANCES.uni)],
+	collapse: ["distance", 50 * DISTANCES.兆秒差距],
+	inf: ["distance", new ExpantaNum(Number.MAX_VALUE).times(DISTANCES.宇宙)],
 	elementary: [
 		["rockets", new ExpantaNum("1e300000")],
 		["cadavers", new ExpantaNum("1e30000")],

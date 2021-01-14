@@ -117,7 +117,7 @@ function updateHCSelector(name) {
 }
 
 function canCompleteHC() {
-	return (!(!player.elementary.hc.active)) && player.distance.gte(ExpantaNum.mul(getHCSelector("goal"), DISTANCES.uni))
+	return (!(!player.elementary.hc.active)) && player.distance.gte(ExpantaNum.mul(getHCSelector("goal"), DISTANCES.宇宙))
 }
 
 function updateHCSelectorInputs(reset=false) {
