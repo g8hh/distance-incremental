@@ -797,7 +797,7 @@ function updateMagma() {
 		tmp.el.magmaReformReq.setTxt(showNum(req2));
 		tmp.el.magmaReformReq2.setTxt(showNum(req2b));
 		tmp.el.rMagmaAmt.setTxt(showNum(player.magma.ref));
-		tmp.el.rMagmaEff.setHTML("<span class='magmaTxt'>"+showNum(tmp.fn.magma.eff2)+"x</span>"+(player.elementary.theory.tree.unl?(" (boosted by unspent Theory Points"+(player.elementary.theory.depth.gte(6)?(" and Primary String length)"):")")):""));
+		tmp.el.rMagmaEff.setHTML("<span class='magmaTxt'>"+showNum(tmp.fn.magma.eff2)+"</span>"+(player.elementary.theory.tree.unl?(" (boosted by unspent Theory Points"+(player.elementary.theory.depth.gte(6)?(" and Primary String length)"):")")):""));
 	}
 }
 

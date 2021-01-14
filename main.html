@@ -781,38 +781,38 @@
 				id="rt"
 				class="btn rt"
 				onclick="reverseTime()"
-				widetooltip="Once you reverse time, all previous resources will be lost over time instead of being generated! In return, you gain Time Cubes over time."
+				widetooltip="当进行时间反演时，所有之前的资源从产生资源改为失去资源！但您可以获得时间方盒。"
 			></button
 			><br /><br />
-			You have <span id="tc"></span>, translated to <span id="frf"></span> free rocket fuel
+			您拥有 <span id="tc"></span> ，因此相当于额外有 <span id="frf"></span> 点火箭燃料生效
 			<span id="timeCubeEffSC"></span><br /><br />
 			<table id="trTable"></table>
 			<br>
 		</div>
 		<div id="collapse" class="tab" style="display: none;">
 			<button id="collapseReset" class="btn locked" onclick="tmp.collapse.layer.reset()">
-				Reset all previous progress to gain <span id="cadaverGain" class="dead"></span> cadavers
+				重置之前的全部进度，并获得 <span id="cadaverGain" class="dead"></span> 残骸
 				<span id="cadaverGainSC"></span></button
 			><br /><br />
-			You have <span id="cadavers"></span>, which make time go <span id="cadaverEff" class="dead"></span>x faster
+			您拥有 <span id="cadavers"></span> ，因此时间速度变为 <span id="cadaverEff" class="dead"></span> 倍
 			<span id="cadaverEffSC"></span><br /><br />
 			<button id="sacrificeCadavers" class="btn locked" onclick="sacrificeToLifeEssence()">
 				Sacrifice all your cadavers into life essence.</button
 			><br /><br />
-			You have <span id="lifeEssence"></span>.<br /><br />
+			您拥有 <span id="lifeEssence"></span>.<br /><br />
 			<table id="cmTable"></table>
 			<br /><br />
 		</div>
 		<div id="pathogens" class="tab" style="display: none;">
 			<span id="tdeEff"></span>
-			You have <span id="pathogensAmt"></span> <span id="pthGainSC"></span><br /><br />
+			您拥有 <span id="pathogensAmt"></span> <span id="pthGainSC"></span><br /><br />
 			<button class="btn gross" onclick="tmp.pathogens.maxAll()">Max All</button><br /><br />
 			<span id="pthUpgPow" class="grosstxt"></span>
 			<div id="pthUpgs"></div>
 			<br /><br />
 		</div>
 		<div id="dc" class="tab" style="display: none;">
-			Dark Flow: <span id="darkFlow" style="font-weight: bold;"></span>x<br />
+			黑暗流: <span id="darkFlow" style="font-weight: bold;"></span> 倍<br />
 			<table>
 				<tr>
 					<td class="darkcircleHidden"></td>
@@ -837,7 +837,7 @@
 						id="darkCore"
 						class="darkcore locked inactive"
 						onclick="tmp.dc.buyCore(true)"
-						widetooltip="Generation in the Dark Circle is shown by the arrows. For example, Dark Cores generate Dark Matter, which is indicated by the above arrow."
+						widetooltip="黑暗圆环中产生物质的情况以箭头表示。例如，黑暗核心产生黑暗物质，以向上的箭头表示。"
 					></button></td>
 					<td class="darkcircleHidden"></td>
 					<td class="darkcircleHidden"></td>
@@ -855,12 +855,12 @@
 		<div id="inf" class="tab" style="display: none;">
 			<div id="forceInf">
 				<button class="btn inf" onclick="tmp.inf.layer.reset(true)">
-					Get <span class="infinity">Infinity</span> to reset you for no reward.</button
+					进行 <span class="infinity">Infinity</span> 重置且不获得任何奖励。</button
 				><br /><br />
 			</div>
 			<div id="endorsementManual">
 				<button id="emInner" class="btn inf" onclick="tmp.inf.manualReset()">
-					Allow <span class="infinity">Infinity</span> to endorse you.</button
+					允许 <span class="infinity">Infinity</span> 认可你。</button
 				><br /><br />
 			</div>
 			<div class="band or">
@@ -904,11 +904,11 @@
 			</div>
 			<div id="infinity" class="inftab">
 				<span id="endorsementName"></span>Endorsements:
-				<span id="endorsements" style="font-size: 25px;"></span>, which has created a base knowledge gain of
-				<span id="knowledgeBase" style="font-size: 25px;"></span>.<br />
-				Reach <span id="nextEndorsement" style="font-size: 25px;"></span> to be endorsed again.<br /><br />
+				<span id="endorsements" style="font-size: 25px;"></span> ，因此产生了 
+				<span id="knowledgeBase" style="font-size: 25px;"></span> 基础知识<br />
+				到达 <span id="nextEndorsement" style="font-size: 25px;"></span> 后可以再度被认可。<br /><br />
 				<span id="tudeEff"></span>
-				You have <span id="knowledge" style="font-size: 25px;"></span> knowledge
+				您拥有 <span id="knowledge" style="font-size: 25px;"></span> 知识
 				<span style="font-size: 25px;"><span id="knowledgeGain"></span></span>.<br /><br />
 				<button class="btn inf" onclick="tmp.inf.upgs.reset()">Reset Infinity Upgrades</button><br /><br />
 				<div id="infUpgData" class="bandBig or"></div>
@@ -963,14 +963,14 @@
 						</td>
 					</tr>
 					<tr>
-						<td>Dark Flow is <span id="perkEff1" style="font-size: 25px;"></span>x as fast.</td>
+						<td>黑暗流变为 <span id="perkEff1" style="font-size: 25px;"></span> 倍。</td>
 						<td>
-							Get <span id="perkEff2" style="font-size: 25px;"></span> of each Pathogen upgrade for free.
+							使每个病原体升级额外增加 <span id="perkEff2" style="font-size: 25px;"></span> 级。
 						</td>
 						<td>
-							The Cadaver effect softcaps <span id="perkEff3" style="font-size: 25px;"></span>x later.
+							残骸效果软上限延迟 <span id="perkEff3" style="font-size: 25px;"></span> 倍。
 						</td>
-						<td>Cadaver gain softcaps <span id="perkEff4" style="font-size: 25px;"></span>x later.</td>
+						<td>残骸获取量软上限延迟 <span id="perkEff4" style="font-size: 25px;"></span> 倍。</td>
 					</tr>
 				</table>
 				<br /><br />
@@ -979,24 +979,20 @@
 				<table>
 					<tr>
 						<td>
-							You have <span id="enl1" style="font-size: 25px;"></span>
-							<span id="enlScale1"></span>Godhood Enlightenments, translated to a
-							<span id="enleff1" style="font-size: 25px;"></span>% increase in Godhood Perk power.
+							您拥有 <span id="enl1" style="font-size: 25px;"></span> 
+							<span id="enlScale1"></span>神格启迪，因此神格特权效果加强 
+							<span id="enleff1" style="font-size: 25px;"></span>%。
 						</td>
 						<td>
-							You have <span id="enl2" style="font-size: 25px;"></span> <span id="enlScale2"></span>Holy
-							Enlightenments, translated to a <span id="enleff2" style="font-size: 25px;"></span>%
-							increase in Holy Perk power.
+							您拥有 <span id="enl2" style="font-size: 25px;"></span> <span id="enlScale2"></span>神圣启迪，因此神圣特权效果加强 <span id="enleff2" style="font-size: 25px;"></span>%。
 						</td>
 						<td>
-							You have <span id="enl3" style="font-size: 25px;"></span>
-							<span id="enlScale3"></span>Sainthood Enlightenments, translated to a
-							<span id="enleff3" style="font-size: 25px;"></span>% increase in Sainthood Perk power.
+							您拥有 <span id="enl3" style="font-size: 25px;"></span> 
+							<span id="enlScale3"></span>圣徒启迪，因此圣徒特权效果加强 
+							<span id="enleff3" style="font-size: 25px;"></span>%。
 						</td>
 						<td>
-							You have <span id="enl4" style="font-size: 25px;"></span> <span id="enlScale4"></span>Glory
-							Enlightenments, translated to a <span id="enleff4" style="font-size: 25px;"></span>%
-							increase in Glory Perk power.
+							您拥有 <span id="enl4" style="font-size: 25px;"></span> <span id="enlScale4"></span>荣光启迪，因此荣光特权效果加强 <span id="enleff4" style="font-size: 25px;"></span>%。
 						</td>
 					</tr>
 					<tr>
