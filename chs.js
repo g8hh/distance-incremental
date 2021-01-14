@@ -116,7 +116,7 @@ var cnItems = {
     'Notice: You are currently playing in v': '注意: 您目前的游戏版本为v',
     '. This game was inspired by ': '。此游戏的灵感来自于',
     'Antimatter Dimensions': '反物质维度',
-    ' by    Hevipelle, and it uses ': '(作者Hevipelle)，并使用了',
+    ' by     Hevipelle, and it uses ': ' (作者Hevipelle)，并使用了',
     '': '',
     '': '',
     '': '',
