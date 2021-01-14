@@ -96,14 +96,14 @@
 					<td>
 						<span id="rankName"></span> <span id="rank"></span>:
 						<button id="rankUp" class="btn locked" onclick="tmp.ranks.layer.reset(false, false)">
-							重置旅程，但<span id="rankDesc" class="based"></span><br />需要:
+							重置旅程，但<span id="rankDesc" class="based"></span><br />Req:
 							<span id="rankReq" class="based"></span>。
 						</button>
 					</td>
 					<td id="rankCheapDiv">
 						&nbsp;&nbsp;&nbsp;<span id="rankCheapName"></span> <span id="rankCheap"></span>:
 						<button id="rankCheapUp" class="btn locked" onclick="tmp.rankCheap.layer.reset(false, false)">
-							重置旅程，但使级别的需求公式变得更容易。<br />需要:
+							重置旅程，但使级别的需求公式变得更好。<br />Req:
 							<span id="rankCheapReq" class="based"></span>。
 						</button>
 					</td>
@@ -112,7 +112,7 @@
 			<br /><br />
 			<span id="tierName"></span> <span id="tier"></span>:
 			<button id="tierUp" class="btn locked" onclick="tmp.tiers.layer.reset(false, false)">
-				重置级别，但<span id="tierDesc" class="based"></span><br />需要: 级别
+				重置级别，但<span id="tierDesc" class="based"></span><br />Req: Rank
 				<span id="tierReq" class="based"></span>。
 			</button><br><br>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id="quickReset" class="btn" onclick="quickReset()" style="min-width: 200px;" tooltip="进行一次级别重置(无奖励)">快速重置</button><br><br><br>
@@ -397,7 +397,7 @@
 			><br /><br />
 			您有 <span id="rocketsAmt"></span>，因此加速度和最大速度能够以此公式强化自己：(log(x+1)<sup><span id="rocketsEff"></span></sup>) <span id="rocketEffSC"></span><br /><br />
 			<button id="rfReset" class="btn locked" onclick="tmp.rf.layer.reset(false, false)">
-				重置火箭以获得1点火箭燃料<br />需要:
+				重置火箭以获得1点火箭燃料<br />Req:
 				<span id="rfReq" class="based"></span> 火箭。</button
 			><br /><br />
 			您拥有 <span id="rf"></span> <span id="rfName"></span> ，因此火箭的效果加强了 <span id="rfEff"></span> %，并且相当于额外有 <span id="rf2"></span> 个火箭生效。
@@ -481,7 +481,7 @@
 								onclick="tmp.fn.upgs[4].buy()"
 								style="min-height: 100px; max-height: 100px;"
 							>
-								使熔炉升级1的效果变为原来的 <span id="fnu4eff"></span> 指数<br />Cost: <span id="fnu4cost"></span> Coal<br /><span
+								使熔炉升级 1的效果变为原来的 <span id="fnu4eff"></span> 指数<br />Cost: <span id="fnu4cost"></span> Coal<br /><span
 									id="fnu4name"
 								></span
 								>Level: <span id="fnu4lvl"></span>
@@ -506,10 +506,9 @@
 				<button id="bf" class="btn locked" onclick="tmp.fn.bfReset()">
 					Reset all Furnace progress to gain a Blue Flame<br />Req: <span id="bfReq"></span> Coal</button
 				><br /><br />
-				You have <span id="bfAmt" class="blfl"></span> <span id="blueFlameName"></span>Blue Flame, which makes the cost of all Furnace Upgrades
-				scale <span id="bfEff" class="blfl"></span>% slower.<br><br><br>
+				您拥有 <span id="bfAmt" class="blfl"></span> <span id="blueFlameName"></span> 蓝色火焰，因此所有熔炉升级花费的提升速度减缓 <span id="bfEff" class="blfl"></span>%。<br><br><br>
 				<div id="furnChalls">
-					Notice: Furnace Challenges will perform a Collapse reset. When in a Furnace Challenge, Furnace Upgrade 4 <span id="fu4dc">does nothing</span>.<br>
+					Notice: Furnace Challenges will perform a Collapse reset. When in a Furnace Challenge, Furnace Upgrade 4<span id="fu4dc">does nothing</span>.<br>
 					<table><tr>
 						<td class="furnChall"><br><b>Blue Flame does nothing.</b><br>Goal: <span id="fnc1goal"></span> Blue Flame<br><button id="fns1" class="btn fn" onclick="startFurnChall(1)"></button><br><br>Reward: Superscaled & Hyper Furnace Upgrade scalings are 90% weaker.<br><br></td>
 						<td id="fnc2" class="furnChall"><br><b>Coal gain is raised to the power of 0.075 (before reduction)</b><br>Goal: <span id="fnc2goal"></span> Blue Flame<br><button id="fns2" class="btn fn" onclick="startFurnChall(2)"></button><br><br>Reward: Furnace Upgrade 1's effect is increased by 25x.<br><br></td>
