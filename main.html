@@ -86,25 +86,25 @@
 		<div id="main" class="tab">
 			<span id="ts"></span>
 			<span id="incline"></span>
-			You have gone a total of <span id="distance"></span>.<br />
-			Your current velocity is <span id="velocity"></span> (<span id="mvName"></span>
-			<span id="maxVel"></span>/s).<br />
-			Your current acceleration is <span id="acceleration"></span>/s<sup>2</sup
-			><span id="accEn"></span>.<br /><br />
+			您已经走了 <span id="distance"></span>。<br />
+			您目前的速度为 <span id="velocity"></span> (<span id="mvName"></span>
+			<span id="maxVel"></span>/秒)。<br />
+			您目前的加速度为 <span id="acceleration"></span>/秒<sup>2</sup
+			><span id="accEn"></span>。<br /><br />
 			<table>
 				<tr>
 					<td>
 						<span id="rankName"></span> <span id="rank"></span>:
 						<button id="rankUp" class="btn locked" onclick="tmp.ranks.layer.reset(false, false)">
-							Reset your journey, but <span id="rankDesc" class="based"></span><br />Req:
-							<span id="rankReq" class="based"></span>.
+							重置旅程，但<span id="rankDesc" class="based"></span><br />需要:
+							<span id="rankReq" class="based"></span>。
 						</button>
 					</td>
 					<td id="rankCheapDiv">
 						&nbsp;&nbsp;&nbsp;<span id="rankCheapName"></span> <span id="rankCheap"></span>:
 						<button id="rankCheapUp" class="btn locked" onclick="tmp.rankCheap.layer.reset(false, false)">
-							Reset your journey, but weaken the rank requirement formula.<br />Req:
-							<span id="rankCheapReq" class="based"></span>.
+							重置旅程，但使级别的需求公式变得更容易。<br />需要:
+							<span id="rankCheapReq" class="based"></span>。
 						</button>
 					</td>
 				</tr>
@@ -112,10 +112,10 @@
 			<br /><br />
 			<span id="tierName"></span> <span id="tier"></span>:
 			<button id="tierUp" class="btn locked" onclick="tmp.tiers.layer.reset(false, false)">
-				Reset your ranks, but <span id="tierDesc" class="based"></span><br />Req: Rank
-				<span id="tierReq" class="based"></span>.
+				重置级别，但<span id="tierDesc" class="based"></span><br />需要: 级别
+				<span id="tierReq" class="based"></span>。
 			</button><br><br>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id="quickReset" class="btn" onclick="quickReset()" style="min-width: 200px;" tooltip="Performs a Rank reset (without the reward)">Quick Reset</button><br><br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id="quickReset" class="btn" onclick="quickReset()" style="min-width: 200px;" tooltip="进行一次级别重置(无奖励)">快速重置</button><br><br><br>
 		</div>
 		<div id="options" class="tab" style="display: none;">
 			<table>
