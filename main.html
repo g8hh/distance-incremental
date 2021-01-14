@@ -928,7 +928,7 @@
 								onclick="tmp.inf.asc.activatePerk(1)"
 								style="min-height: 40px !important;"
 							>
-								Godhood Perk
+								神格特权
 							</button>
 						</td>
 						<td>
@@ -938,7 +938,7 @@
 								onclick="tmp.inf.asc.activatePerk(2)"
 								style="min-height: 40px !important;"
 							>
-								Holy Perk
+								神圣特权
 							</button>
 						</td>
 						<td>
@@ -948,7 +948,7 @@
 								onclick="tmp.inf.asc.activatePerk(3)"
 								style="min-height: 40px !important;"
 							>
-								Sainthood Perk
+								圣徒特权
 							</button>
 						</td>
 						<td>
@@ -958,7 +958,7 @@
 								onclick="tmp.inf.asc.activatePerk(4)"
 								style="min-height: 40px !important;"
 							>
-								Glory Perk
+								荣光特权
 							</button>
 						</td>
 					</tr>
@@ -1010,8 +1010,7 @@
 				<button id="exitStad" class="btn inf" onclick="tmp.inf.stadium.exit()">Exit Stadium Challenge</button
 				><br /><br />
 				Note: Perks do nothing in Stadium Challenges<br />
-				Note 2: Each Challenge completion makes the others<span id="extremeStadDesc"></span> harder, with the exception being Reality, which
-				actually gets easier.<br />
+				Note 2: Each Challenge completion makes the others<span id="extremeStadDesc"></span> harder, with the exception being Reality, which actually gets easier.<br />
 				<span id="stadiumProg"></span><br><br>
 				<table>
 					<tr>
@@ -1129,8 +1128,7 @@
 				</table>
 			</div>
 			<div id="pantheon" class="inftab">
-				You have <span id="spectralGems" class="spectral"></span> <span id="spectralGemName"></span> Spectral
-				Gems. Next at <span id="nextSpectralGem" class="spectral"></span> Endorsements.<br /><br />
+				您拥有 <span id="spectralGems" class="spectral"></span> <span id="spectralGemName"></span> 幽冥宝石。可以在 <span id="nextSpectralGem" class="spectral"></span> 认可时获得下一块。<br /><br />
 				<button id="respecSpectralGems" class="btn locked" onclick="tmp.inf.pantheon.respec()">
 					Respec Angels & Demons back into Spectral Gems</button
 				><br /><br />
@@ -1138,10 +1136,10 @@
 					<br /><button id="transferAngels" class="btn locked" onclick="tmp.inf.pantheon.transfer('angels')">
 						Transform one Spectral Gem into an Angel</button
 					><br /><br />
-					You have <span id="angels" class="spectral"></span> Angels.<br /><br />
-					You have <span id="chips" class="spectral"></span> Heavenly Chips
-					<span id="chipGain" style="color: #9fc4bc; font-weight: bold;"></span>, translated to a
-					<span id="chipBoost" class="spectral"></span>% boost to the rewards of Spaceon, Solaris, & Eternity, but they also make Demonic Souls in their effect divide by
+					您拥有 <span id="angels" class="spectral"></span> 天使。<br /><br />
+					您拥有 <span id="chips" class="spectral"></span> 天堂碎片
+					<span id="chipGain" style="color: #9fc4bc; font-weight: bold;"></span> ，因此使天奥，索拉里斯和永恒的奖励加强 
+					<span id="chipBoost" class="spectral"></span> %，但它们也使恶魔灵魂的效果除以 
 					<span id="chipNerf" class="spectral"></span>.
 					<br /><br /><br />
 				</div>
@@ -1149,10 +1147,10 @@
 					<br /><button id="transferDemons" class="btn locked" onclick="tmp.inf.pantheon.transfer('demons')">
 						Transform one Spectral Gem into a Demon</button
 					><br /><br />
-					You have <span id="demons" class="spectral"></span> Demons.<br /><br />
-					You have <span id="souls" class="spectral"></span> Demonic Souls
-					<span id="soulGain" style="color: #9fc4bc; font-weight: bold;"></span>, translated to a
-					<span id="soulBoost" class="spectral"></span>% increase to Perk Strength, but they also make Heavenly Chips in their effect divide by 
+					您拥有 <span id="demons" class="spectral"></span> 恶魔。<br /><br />
+					您拥有 <span id="souls" class="spectral"></span> 恶魔灵魂
+					<span id="soulGain" style="color: #9fc4bc; font-weight: bold;"></span> ，因此使特权效果加强
+					<span id="soulBoost" class="spectral"></span> %，但它们也使天堂碎片的效果除以 
 					<span id="soulNerf" class="spectral"></span>.
 					<br /><br /><br />
 				</div>
@@ -1161,12 +1159,11 @@
 						id="purgeBtn"
 						class="btn purge"
 						onclick="tmp.inf.pantheon.startPurge()"
-						tooltip="Starting a Purge run performs an Infinity reset, disables Pantheon features, and traps you in all Stadium Challenges except Reality (at difficulty level 1). In addition, velocity gain is cube rooted."
+						tooltip="进行净化后将同时进行一次无限重置，无法使用病原体，同时启用所有除了现实以外的竞技场挑战效果(难度为1级)。另外，速度获取量变为原来的立方根。"
 					></button
 					><br /><br />
-					You have <span id="purgePower" class="spectral"></span> Purge Power, which makes the cancelling out
-					of Heavenly Chips & Demonic Souls raised to the power of
-					<span id="purgePowerEff" class="spectral"></span>. <br /><br /><br /><br />
+					您拥有 <span id="purgePower" class="spectral"></span> 净化能量，因此天堂碎片和恶魔灵魂彼此效果削弱程度变为原来的 
+					<span id="purgePowerEff" class="spectral"></span> 次幂。<br /><br /><br /><br />
 				</div>
 			</div>
 			<div id="derivatives" class="inftab">
