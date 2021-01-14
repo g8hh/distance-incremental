@@ -395,7 +395,7 @@
 				重置之前的全部进度，获得 <span id="rocketGain" class="based2"></span> 火箭
 				<span id="rocketGainSC"></span></button
 			><br /><br />
-			您有 <span id="rocketsAmt"></span>，因此加速度和最大速度能够以此公式强化自己：(log(x+1)<sup><span id="rocketsEff"></span></sup>) <span id="rocketEffSC"></span><br /><br />
+			您有 <span id="rocketsAmt"></span> ，因此加速度和最大速度能够以此公式强化自己：(log(x+1)<sup><span id="rocketsEff"></span></sup>) <span id="rocketEffSC"></span><br /><br />
 			<button id="rfReset" class="btn locked" onclick="tmp.rf.layer.reset(false, false)">
 				重置火箭以获得1点火箭燃料<br />Req:
 				<span id="rfReq" class="based"></span> 火箭。</button
@@ -1261,7 +1261,7 @@
 				<button id="transfer100pBosons" class="btn locked" onclick="tmp.elm.bos.transfer(1)">
 					Transform 100% of your Elementary Particles into Bosons
 				</button>
-				<br /><br />You have <span id="bosonsamt" class="elmp"></span> Bosons.<br /><br />
+				<br /><br />您拥有 <span id="bosonsamt" class="elmp"></span> 玻色子。<br /><br />
 				<div class="band or">
 					<table>
 						<tr>
@@ -1282,15 +1282,14 @@
 					</table>
 				</div>
 				<div id="gauge" class="bostab" style="min-height: 400px;">
-					Your Bosons & Ascension Power are generating you <span id="gaugeGain" class="gauge"></span> Gauge
-					Bosons/sec.<br />
-					You have <span id="gaugeAmt" class="gauge"></span> Gauge Bosons.<br />
-					You have <span id="gaugeForce" class="gauge"></span> Gauge Force <span id="gaugeForceGain"></span
-					>, which is making the below resources generate at
-					<span id="gaugeForceEff" class="gauge"></span>x speed.<br /><br />
+					您从玻色子和飞升能量上每秒获得了 <span id="gaugeGain" class="gauge"></span> 规范玻色子。<br />
+					您拥有 <span id="gaugeAmt" class="gauge"></span> 规范玻色子。<br />
+					您拥有 <span id="gaugeForce" class="gauge"></span> 规范作用力 <span id="gaugeForceGain"></span
+					> ，因此下方资源的产生速度变为 
+					<span id="gaugeForceEff" class="gauge"></span> 倍。<br /><br />
 					<div style="width: 50%; min-height: 300px; background-color: #f9ff8f; float: left; color: black;">
 						<br />
-						You have <span id="photons" class="gauge"></span> Photons <span
+						您拥有 <span id="photons" class="gauge"></span> 光子 <span
 							id="photonGain"
 							style="color: black;"
 						></span
@@ -1334,18 +1333,18 @@
 					</div>
 					<div style="width: 50%; min-height: 300px; background-color: #9d3bff; float: right; color: black;">
 						<br />
-						You have <span id="w" class="gauge"></span> W Bosons <span
+						您拥有 <span id="w" class="gauge"></span> W玻色子 <span
 							id="wg"
 							style="color: black;"
 						></span
-						>, translated to a <span id="w1" class="gauge"></span>x multiplier to Z Boson gain and a
-						<span id="w2" class="gauge"></span>x multiplier to Ascension Power gain.<br /><br />
-						You have <span id="z" class="gauge"></span> Z Bosons <span
+						>，因此Z玻色子的获取量变为 <span id="w1" class="gauge"></span> 倍，并且飞升能量获取量变为 
+						<span id="w2" class="gauge"></span> 倍。<br /><br />
+						您拥有 <span id="z" class="gauge"></span> Z玻色子 <span
 							id="zg"
 							style="color: black;"
 						></span
-						>, translated to a <span id="z1" class="gauge"></span>x multiplier to W Boson gain and a
-						<span id="z2" class="gauge"></span>x multiplier to Dark Flow.
+						>，因此W玻色子的获取量变为 <span id="z1" class="gauge"></span> 倍，并且黑暗流变为 
+						<span id="z2" class="gauge"></span> 倍。
 					</div>
 					<br />
 					<div style="width: 50%; min-height: 300px; background-color: #38003b; float: left; color: white;">
@@ -1385,7 +1384,7 @@
 						</table>
 						<div id="r" class="gluontab">
 							<br />
-							You have <b><span id="rg" style="color: red;"></span></b> Red Gluons <span
+							您拥有 <b><span id="rg" style="color: red;"></span></b> 红胶子 <span
 								id="rgg"
 								style="color: red;"
 							></span
@@ -1394,7 +1393,7 @@
 						</div>
 						<div id="g" class="gluontab" style="display: none;">
 							<br />
-							You have <b><span id="gg" style="color: green;"></span></b> Green Gluons <span
+							您拥有 <b><span id="gg" style="color: green;"></span></b> 绿胶子 <span
 								id="ggg"
 								style="color: green;"
 							></span
@@ -1403,7 +1402,7 @@
 						</div>
 						<div id="b" class="gluontab" style="display: none;">
 							<br />
-							You have <b><span id="bg" style="color: #6e72ff;"></span></b> Blue Gluons <span
+							您拥有 <b><span id="bg" style="color: #6e72ff;"></span></b> 蓝胶子 <span
 								id="bgg"
 								style="color: #6e72ff;"
 							></span
@@ -1412,37 +1411,32 @@
 						</div>
 						<div id="ar" class="gluontab" style="display: none;">
 							<br />
-							You have <b><span id="arg" style="color: red; filter: invert(1);"></span></b> Anti-Red
-							Gluons <span id="argg" style="color: red; filter: invert(1);"></span>.<br /><br />
+							您拥有 <b><span id="arg" style="color: red; filter: invert(1);"></span></b> 反红胶子 <span id="argg" style="color: red; filter: invert(1);"></span>.<br /><br />
 							<table id="ar_table"></table>
 						</div>
 						<div id="ag" class="gluontab" style="display: none;">
 							<br />
-							You have <b><span id="agg" style="color: green; filter: invert(1);"></span></b> Anti-Green
-							Gluons <span id="aggg" style="color: green; filter: invert(1);"></span>.<br /><br />
+							您拥有 <b><span id="agg" style="color: green; filter: invert(1);"></span></b> 反绿胶子 <span id="aggg" style="color: green; filter: invert(1);"></span>.<br /><br />
 							<table id="ag_table"></table>
 						</div>
 						<div id="ab" class="gluontab" style="display: none;">
 							<br />
-							You have <b><span id="abg" style="color: blue; filter: invert(1);"></span></b> Anti-Blue
-							Gluons <span id="abgg" style="color: blue; filter: invert(1);"></span>.<br /><br />
+							您拥有 <b><span id="abg" style="color: blue; filter: invert(1);"></span></b> 反蓝胶子 <span id="abgg" style="color: blue; filter: invert(1);"></span>.<br /><br />
 							<table id="ab_table"></table>
 						</div>
 					</div>
 					<div style="width: 50%; min-height: 300px; background-color: #595959; float: right; color: white;">
 						<br />
-						You have <span id="grav" class="gauge"></span> Gravitons <span id="gravGain"></span>,
-						translated to a <span id="gravMult" class="gauge"></span>x multiplier to Gauge Force gain
-						(boosted by Elementaries).<br><br>
+						您拥有 <span id="grav" class="gauge"></span> 引力子 <span id="gravGain"></span> ，因此规范作用力获取量变为 <span id="gravMult" class="gauge"></span> 倍(受到基本重置数值的加成)。<br><br>
 						<div id="gravBoostDiv">
-							Your Gravitons have gathered you <span id="gravBoosts" class="gauge"></span> Graviton Boosts (next at <span id="gravBoostNext" class="gauge"></span>), which are making you gain <span id="gravBoostMult" class="gauge"></span>x as many Elementaries on reset. (Mult per Graviton Boost: <span id="gravBoostEach" class="gauge"></span>)
+							您从引力子上获得了 <span id="gravBoosts" class="gauge"></span> 引力子加成 (下次加成于 <span id="gravBoostNext" class="gauge"></span>)，因此重置时基本粒子获取量变为 <span id="gravBoostMult" class="gauge"></span> 倍。(每次引力子加成的倍率: <span id="gravBoostEach" class="gauge"></span>)
 						</div>
 					</div>
 				</div>
 				<div id="scalar" class="bostab" style="display: none; min-height: 400px;">
-					Your Bosons are generating you <span id="scalarGain" class="scalar"></span> Scalar Bosons/sec.<br />
-					You have <span id="scalarAmt" class="scalar"></span> Scalar Bosons.<br><br>
-					You have <span id="higgs" class="scalar"></span> Higgs Bosons <span id="higgsGain"></span>.<br><br>
+					您从玻色子上每秒获得了 <span id="scalarGain" class="scalar"></span> 标量玻色子。<br />
+					您拥有 <span id="scalarAmt" class="scalar"></span> 标量玻色子。<br><br>
+					您拥有 <span id="higgs" class="scalar"></span> 希格斯玻色子 <span id="higgsGain"></span>.<br><br>
 					<div style="overflow-x: auto;"><table>
 						<tr>
 							<td><button id="higgs2;2;2" class="btn higgsL" onclick="tmp.elm.bos.buyHiggs('2;2;2')"></button></td>
@@ -1533,7 +1527,7 @@
 				</div>
 			</div>
 			<div id="theory" class="elmtab" style="display: none;">
-				You have <span id="thp" class='thp'>1</span> Theory Points.
+				您拥有 <span id="thp" class='thp'>1</span> 学说点数。
 				<br><br>
 				<div class="band or">
 					<table>
@@ -1587,11 +1581,11 @@
 					<br>
 					<button id="ssUnl" class="btn th" onclick="tmp.elm.theory.ss.unl()">Unlock Supersymmetry<br>Cost: 1 Theory Point</button>
 					<div id="ssDiv">
-						You have <span id="squarks" class="thp"></span> Squarks <span id="squarkGain"></span>, translated to a <span id="squarkEff" class="thp"></span>x multiplier to Quark gain.<br><br>
-						You have <span id="sleptons" class="thp"></span> Sleptons <span id="sleptonGain"></span>, translated to a <span id="sleptonEff" class="thp"></span>x multiplier to Lepton gain.<br><br>
-						You have <span id="neutralinos" class="thp"></span> Neutralinos <span id="neutralinoGain"></span>, translated to a <span id="neutralinoEff" class="thp"></span>x multiplier to Graviton gain.<br><br>
-						You have <span id="charginos" class="thp"></span> Charginos <span id="charginoGain"></span>, translated to a <span id="charginoEff" class="thp"></span>x multiplier to Photon gain.<br><br><br><br>
-						Your Supersymmetric Particles have provided you with a Supersymmetric Wave with a length of <span id="wavelength" class="thp"></span>, translated to a <span id="waveEff" class="thp"></span>x multiplier to all pre-Elementary resources.<br><br>
+						您拥有 <span id="squarks" class="thp"></span> 超夸克 <span id="squarkGain"></span> ，因此夸克获取量变为 <span id="squarkEff" class="thp"></span> 倍。<br><br>
+						您拥有 <span id="sleptons" class="thp"></span> 超轻子 <span id="sleptonGain"></span> ，因此轻子获取量变为 <span id="sleptonEff" class="thp"></span> 倍。<br><br>
+						您拥有 <span id="neutralinos" class="thp"></span> 超中性子 <span id="neutralinoGain"></span> ，因此引力子获取量变为 <span id="neutralinoEff" class="thp"></span> 倍。<br><br>
+						您拥有 <span id="charginos" class="thp"></span> 带电微子 <span id="charginoGain"></span> ，因此光子获取量变为 <span id="charginoEff" class="thp"></span> 倍。<br><br><br><br>
+						您从超对称粒子中获得了 <span id="wavelength" class="thp"></span> 长度的超对称波，因此所有基本之前的资源获取量变为 <span id="waveEff" class="thp"></span> 倍。<br><br>
 					</div>
 				</div>
 				<div id="tree" class="theorytab">
