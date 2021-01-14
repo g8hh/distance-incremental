@@ -718,7 +718,7 @@
 				<br><br>
 				您每秒产生1个等离子体，您的斯格明子将等离子体变为原来的 <span id="plasmaExp" class="plasmaTxt"></span> 次幂。<br><br>
 				您拥有 <span id="plasmaAmt" class="plasmaTxt"></span> 等离子体。<br><br><br>
-				您从等离子体和蓝色火焰上获得了 <span id="whiteFlameAmt" class="whiteFlame"></span> 白色火焰 <span id="whiteFlameGen"></span><br><br>
+				您从等离子体和蓝色火焰上获得 <span id="whiteFlameAmt" class="whiteFlame"></span> 白色火焰 <span id="whiteFlameGen"></span><br><br>
 				<button id="plasmaBoostBtn" class="btn locked" onclick="buyPlasmaBoost()"></button><br><br>
 				<div id="plasmaBoosts" class="flexContainer"></div><br><br>
 			</div>
@@ -1231,7 +1231,7 @@
 				</button>
 				<br /><br />您拥有 <span id="fermionsamt" class="elmp"></span> 费米子。<br /><br />
 				<div style="width: 50%; min-height: 300px; background-color: #964035; float: left;">
-					您从费米子和认可上每秒获得了 
+					您从费米子和认可上每秒获得 
 					<span id="quarkGain" class="quark"></span> 夸克。<br />
 					您拥有 <span id="quarks" class="quark"></span>.<br /><br />
 					<button id="quarkRewards" class="btn elm" onclick="tmp.elm.ferm.changeQuark()">
@@ -1239,7 +1239,7 @@
 					</button>
 				</div>
 				<div style="width: 50%; min-height: 300px; background-color: #e34430; float: right; color: black;">
-					您从费米子和幽冥宝石总量上每秒获得了 
+					您从费米子和幽冥宝石总量上每秒获得 
 					<span id="leptonGain" class="lepton"></span> 轻子。<br />
 					您拥有 <span id="leptons" class="lepton"></span>.<br /><br />
 					<button id="leptonRewards" class="btn elm" onclick="tmp.elm.ferm.changeLepton()">
@@ -1282,7 +1282,7 @@
 					</table>
 				</div>
 				<div id="gauge" class="bostab" style="min-height: 400px;">
-					您从玻色子和飞升能量上每秒获得了 <span id="gaugeGain" class="gauge"></span> 规范玻色子。<br />
+					您从玻色子和飞升能量上每秒获得 <span id="gaugeGain" class="gauge"></span> 规范玻色子。<br />
 					您拥有 <span id="gaugeAmt" class="gauge"></span> 规范玻色子。<br />
 					您拥有 <span id="gaugeForce" class="gauge"></span> 规范作用力 <span id="gaugeForceGain"></span
 					> ，因此下方资源的产生速度变为 
@@ -1434,7 +1434,7 @@
 					</div>
 				</div>
 				<div id="scalar" class="bostab" style="display: none; min-height: 400px;">
-					您从玻色子上每秒获得了 <span id="scalarGain" class="scalar"></span> 标量玻色子。<br />
+					您从玻色子上每秒获得 <span id="scalarGain" class="scalar"></span> 标量玻色子。<br />
 					您拥有 <span id="scalarAmt" class="scalar"></span> 标量玻色子。<br><br>
 					您拥有 <span id="higgs" class="scalar"></span> 希格斯玻色子 <span id="higgsGain"></span>.<br><br>
 					<div style="overflow-x: auto;"><table>
@@ -1836,14 +1836,14 @@
 					<button id="stringsUnl" class="btn th" onclick="unlockStrings()">Unlock Strings<br>Cost: 7 Theory Points</button>
 					<div id="stringsDiv">
 						<span id="nextStr"></span><br><br>
-						You have a Primary String with a length of <span id="str1amt" class="thp"></span> <span id="str1gain"></span>, translated to a <span id="str1eff" class="thp"></span>x multiplier to Supersymmetric Particle gain.<br><br>
-						<span id="str2" style="display: none">You have a Secondary String with a length of <span id="str2amt" class="thp"></span> <span id="str2gain"></span>, translated to a <span id="str2eff" class="thp"></span>x multiplier to Primary String gain.<br><br></span>
-						<span id="str3" style="display: none">You have a Tertiary String with a length of <span id="str3amt" class="thp"></span> <span id="str3gain"></span>, translated to a <span id="str3eff" class="thp"></span>x multiplier to Secondary String gain.<br><br></span>
-						<span id="str4" style="display: none">You have a Quaternary String with a length of <span id="str4amt" class="thp"></span> <span id="str4gain"></span>, translated to a <span id="str4eff" class="thp"></span>x multiplier to Tertiary String gain.<br><br></span>
-						<span id="str5" style="display: none">You have a Quinary String with a length of <span id="str5amt" class="thp"></span> <span id="str5gain"></span>, translated to a <span id="str5eff" class="thp"></span>x multiplier to Quaternary String gain.<br><br></span>
-						<span id="str6" style="display: none">You have a Senary String with a length of <span id="str6amt" class="thp"></span> <span id="str6gain"></span>, translated to a <span id="str6eff" class="thp"></span>x multiplier to Quinary String gain.<br><br></span>
-						<span id="str7" style="display: none">You have a Septenary String with a length of <span id="str7amt" class="thp"></span> <span id="str7gain"></span>, translated to a <span id="str7eff" class="thp"></span>x multiplier to Senary String gain.<br><br></span>
-						<br><br><span id="entangleDiv"><button id="entangle" class="btn th" onclick="entangleStrings()"></button><br><br>You have <span id="entangleAmt" class="thp"></span> of Entangled Strings, translated to a <span id="entangleEff" class="thp"></span>x multiplier to the generation speed of all Strings.<br><br></span>
+						您的第一弦长度为 <span id="str1amt" class="thp"></span> <span id="str1gain"></span> ，因此超对称粒子的获取量变为 <span id="str1eff" class="thp"></span> 倍。<br><br>
+						<span id="str2" style="display: none">您的第二弦长度为 <span id="str2amt" class="thp"></span> <span id="str2gain"></span> ，因此第一弦的获取量变为 <span id="str2eff" class="thp"></span> 倍。<br><br></span>
+						<span id="str3" style="display: none">您的第三弦长度为 <span id="str3amt" class="thp"></span> <span id="str3gain"></span> ，因此第二弦的获取量变为 <span id="str3eff" class="thp"></span> 倍。<br><br></span>
+						<span id="str4" style="display: none">您的第四弦长度为 <span id="str4amt" class="thp"></span> <span id="str4gain"></span> ，因此第三弦的获取量变为 <span id="str4eff" class="thp"></span> 倍。<br><br></span>
+						<span id="str5" style="display: none">您的第五弦长度为 <span id="str5amt" class="thp"></span> <span id="str5gain"></span> ，因此第四弦的获取量变为 <span id="str5eff" class="thp"></span> 倍。<br><br></span>
+						<span id="str6" style="display: none">您的第六弦长度为 <span id="str6amt" class="thp"></span> <span id="str6gain"></span> ，因此第五弦的获取量变为 <span id="str6eff" class="thp"></span> 倍。<br><br></span>
+						<span id="str7" style="display: none">您的第七弦长度为 <span id="str7amt" class="thp"></span> <span id="str7gain"></span> ，因此第六弦的获取量变为 <span id="str7eff" class="thp"></span> 倍。<br><br></span>
+						<br><br><span id="entangleDiv"><button id="entangle" class="btn th" onclick="entangleStrings()"></button><br><br>您拥有 <span id="entangleAmt" class="thp"></span> 纠缠弦，因此所有弦的产量变为 <span id="entangleEff" class="thp"></span> 倍。<br><br></span>
 					</div>
 				</div>
 				<div id="preons" class="theorytab">
