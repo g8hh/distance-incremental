@@ -86,25 +86,25 @@
 		<div id="main" class="tab">
 			<span id="ts"></span>
 			<span id="incline"></span>
-			您已经走了 <span id="distance"></span>。<br />
+			您已经走了 <span id="distance"></span>.<br />
 			您目前的速度为 <span id="velocity"></span> (<span id="mvName"></span>
 			<span id="maxVel"></span>/秒)。<br />
 			您目前的加速度为 <span id="acceleration"></span>/秒<sup>2</sup
-			><span id="accEn"></span>。<br /><br />
+			><span id="accEn"></span>.<br /><br />
 			<table>
 				<tr>
 					<td>
 						<span id="rankName"></span> <span id="rank"></span>:
 						<button id="rankUp" class="btn locked" onclick="tmp.ranks.layer.reset(false, false)">
 							重置旅程，但<span id="rankDesc" class="based"></span><br />Req:
-							<span id="rankReq" class="based"></span>。
+							<span id="rankReq" class="based"></span>.
 						</button>
 					</td>
 					<td id="rankCheapDiv">
 						&nbsp;&nbsp;&nbsp;<span id="rankCheapName"></span> <span id="rankCheap"></span>:
 						<button id="rankCheapUp" class="btn locked" onclick="tmp.rankCheap.layer.reset(false, false)">
 							重置旅程，但使级别的需求公式变得更好。<br />Req:
-							<span id="rankCheapReq" class="based"></span>。
+							<span id="rankCheapReq" class="based"></span>.
 						</button>
 					</td>
 				</tr>
@@ -113,7 +113,7 @@
 			<span id="tierName"></span> <span id="tier"></span>:
 			<button id="tierUp" class="btn locked" onclick="tmp.tiers.layer.reset(false, false)">
 				重置级别，但<span id="tierDesc" class="based"></span><br />Req: Rank
-				<span id="tierReq" class="based"></span>。
+				<span id="tierReq" class="based"></span>.
 			</button><br><br>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id="quickReset" class="btn" onclick="quickReset()" style="min-width: 200px;" tooltip="进行一次级别重置(无奖励)">快速重置</button><br><br><br>
 		</div>
@@ -701,7 +701,7 @@
 					</tr>
 					</tr>
 				</table><br><br>
-				<span id="moltBr">Your Enhanced Coal has granted you <span id="moltBrAmt" class="char"></span> Molten Bricks, which boost Pathogen gain & Enhanced Coal gain by <span id="moltBrEff" class="char"></span>x, and boost Knowledge gain by <span id="moltBrEff2" class="char"></span>x</span><br><br>
+				<span id="moltBr">您从强化煤上获得了 <span id="moltBrAmt" class="char"></span> 熔融砖块，因此病原体和强化煤的获取量变为 <span id="moltBrEff" class="char"></span> 倍，并且知识获取量变为 <span id="moltBrEff2" class="char"></span> 倍</span><br><br>
 			</div>
 			<div id="magma" class="furnaceTab" style="display: none;">
 				<br><br><table>
@@ -710,15 +710,15 @@
 						<td><button id="reformMagma" class="btn locked" onclick="reformMagma()" style="min-height: 150px; max-height: 150px;"><h2>Reform your Magma</h2><br>Req: <span id="magmaReformReq"></span> Magma & <span id="magmaReformReq2"></span> Knowledge</button></td>
 					</tr>
 				</table><br><br>
-				You have <span id="magmaAmt" class="magmaTxt"></span> Magma, which is making Furnace & Enhanced Furnace Upgrades <span id="magmaEff" class="magmaTxt"></span>% stronger<br><br>
-				You have <span id="rMagmaAmt" class="magmaTxt"></span> Reformed Magma, which is multiplying your Molten Bricks by <span id="rMagmaEff"></span><br><br>
+				您拥有 <span id="magmaAmt" class="magmaTxt"></span> 岩浆，因此熔炉和强化熔炉的升级效果加强 <span id="magmaEff" class="magmaTxt"></span>%<br><br>
+				您拥有 <span id="rMagmaAmt" class="magmaTxt"></span> 重构岩浆，因此熔融砖块数值变为 <span id="rMagmaEff"></span> 倍<br><br>
 				Note: This does not reset on Elementary.
 			</div>
 			<div id="plasma" class="furnaceTab" style="display: none;">
 				<br><br>
-				You are generating 1 Plasma every second, and your Skyrmions are raising your Plasma to the power of <span id="plasmaExp" class="plasmaTxt"></span>.<br><br>
-				You have <span id="plasmaAmt" class="plasmaTxt"></span> Plasma.<br><br><br>
-				Your Plasma & Blue Flame have generated <span id="whiteFlameAmt" class="whiteFlame"></span> White Flame <span id="whiteFlameGen"></span><br><br>
+				您每秒产生1个等离子体，您的斯格明子将等离子体变为原来的 <span id="plasmaExp" class="plasmaTxt"></span> 次幂。<br><br>
+				您拥有 <span id="plasmaAmt" class="plasmaTxt"></span> 等离子体。<br><br><br>
+				您从等离子体和蓝色火焰上获得了 <span id="whiteFlameAmt" class="whiteFlame"></span> 白色火焰 <span id="whiteFlameGen"></span><br><br>
 				<button id="plasmaBoostBtn" class="btn locked" onclick="buyPlasmaBoost()"></button><br><br>
 				<div id="plasmaBoosts" class="flexContainer"></div><br><br>
 			</div>
@@ -726,9 +726,9 @@
 		<div id="auto" class="tab" style="display: none;">
 			<table>
 				<tr>
-					<td>You have <span id="scraps"></span>.</td>
+					<td>您拥有 <span id="scraps"></span>.</td>
 					<td>&emsp;</td>
-					<td>You have <span id="intAmt"></span>.</td>
+					<td>您拥有 <span id="intAmt"></span>.</td>
 				</tr>
 			</table>
 			<table>
@@ -758,7 +758,7 @@
 								id="buyRobotInterval"
 								class="btn locked"
 								onclick="tmp.auto[player.automation.open].buy(0)"
-								tooltip="The interval is how quickly the robot can purchase their designated upgrade."
+								tooltip="间隔为机器人购买升级的间隔时间。"
 							></button>
 						</td>
 						<td>
@@ -766,7 +766,7 @@
 								id="buyRobotMagnitude"
 								class="btn locked"
 								onclick="tmp.auto[player.automation.open].buy(1)"
-								tooltip="The magnitude is how many the robot can purchase at once."
+								tooltip="数量为机器人一次购买的升级数量。"
 							></button>
 						</td>
 					</tr>
