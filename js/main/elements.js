@@ -1332,7 +1332,7 @@ function updateOverallElementaryHTML(){
 
 function updateMiscHTML(){
 	tmp.el.ts.setHTML(
-		tmp.timeSpeed.eq(1) || nerfActive("noTS") ? "" : "Time Speed: " + showNum(tmp.timeSpeed) + "x<br>"
+		tmp.timeSpeed.eq(1) || nerfActive("noTS") ? "" : "时间速度: " + showNum(tmp.timeSpeed) + "倍<br>"
 	);
 	tmp.el.body.changeStyle("background", tmp.bc);
 	let root = document.documentElement;
