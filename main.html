@@ -372,37 +372,35 @@
 						<td><button id="energyUpg22" class="btn locked" onclick="buyEnergyUpg(22)"><h2>Omnipotence III</h2><br><b>Omnipotence II</b> is stronger based on your Super-Energy<br><br>Cost: <span id="energyUpg22Cost"></span> Motive<br>Currently: <span id="energyUpg22Current"></span>% stronger<br></button></td>
 						<td><button id="energyUpg23" class="btn locked" onclick="buyEnergyUpg(23)"><h2>Omnipotence IV</h2><br><b>Omnipotence II</b> and <b>Omnipotence III</b> are stronger based on your Super-Energy<br><br>Cost: <span id="energyUpg23Cost"></span> Motive<br>Currently: <span id="energyUpg23Current"></span>% stronger<br></button></td>
 						<td><button id="energyUpg24" class="btn locked" onclick="buyEnergyUpg(24)"><h2>Consistency</h2><br>Your Motive cannot be lower than X, which is based on your Best-Ever Motive<br><br>Cost: <span id="energyUpg24Cost"></span> Motive<br>Currently: <span id="energyUpg24Current"></span><br></button></td>
-						<td><button id="energyUpg25" class="btn locked" onclick="buyEnergyUpg(25)"><h2>Storage</h2><br>The Energy cap is increased based on your Best-Ever Motive<br><br>Cost: <span id="energyUpg25Cost"></span> Motive<br>Currently: <span id="energyUpg25Current"></span>x<br></button></td>
+						<td><button id="energyUpg25" class="btn locked" onclick="buyEnergyUpg(25)"><h2>Storage</h2><br>The Energy cap is increased based on your Best-Ever Motive<br><br>Cost: <span id="energyUpg25Cost"></span> Motive<br>Currently: <span id="energyUpg25Current"></span>倍<br></button></td>
 					</tr>
 					<tr>
 						<td><button id="energyUpg29" class="btn locked" onclick="buyEnergyUpg(29)"><h2>Energy Evolution</h2><br>The Super Energy amount & first effect are raised to an exponent based on your Energy<br><br>Cost: <span id="energyUpg29Cost"></span> Motive<br>Currently: ^<span id="energyUpg29Current"></span></button></td>
 						<td><button id="energyUpg27" class="btn locked" onclick="buyEnergyUpg(27)"><h2>Godlike</h2><br>Your Best Hadronic Score powers Optimization I and multiplies hadron gain<br><br>Cost: <span id="energyUpg27Cost"></span> Motive<br>Currently: <span id="energyUpg27Current"></span></button></td>
 						<td><button id="energyUpg26" class="btn locked" onclick="buyEnergyUpg(26)"><h2>Meta Omnipotence</h2><br>Super-Energy's second effect is stronger based on your Best-Ever Motive<br><br>Cost: <span id="energyUpg26Cost"></span> Motive<br>Currently: <span id="energyUpg26Current"></span>% stronger<br></button></td>
-						<td><button id="energyUpg28" class="btn locked" onclick="buyEnergyUpg(28)"><h2>Super-Confidence</h2><br>Your Motive is multiplied by your Hadrons<br><br>Cost: <span id="energyUpg28Cost"></span> Motive<br>Currently: <span id="energyUpg28Current"></span>x</button></td>
+						<td><button id="energyUpg28" class="btn locked" onclick="buyEnergyUpg(28)"><h2>Super-Confidence</h2><br>Your Motive is multiplied by your Hadrons<br><br>Cost: <span id="energyUpg28Cost"></span> Motive<br>Currently: <span id="energyUpg28Current"></span>倍</button></td>
 						<td><button id="energyUpg30" class="btn locked" onclick="buyEnergyUpg(30)"><h2>Omnipotence V</h2><br><b>Omnipotence I-IV</b> are stronger based on your Best Entropy<br><br>Cost: <span id="energyUpg30Cost"></span> Motive<br>Currently: <span id="energyUpg30Current"></span>% stronger</button></td>
 					</tr>
 				</table><br><br><br>
 			</div><div id="generator" class="enTab">
-				<br><br>The <span id="geners"></span> currently at Level <span id="genLvl" class="energy"></span>, and so it is generating <span id="energyGen" class="energy"></span> Energy/sec, with a limit of <span id="energyLim" class="energy"></span> Energy<br><br>
-				The Generators have also granted you <span id="superEn" class="energy"></span> Super-Energy, which makes you get <span id="superEnEff" class="energy"></span>x more Motive.<br>
-				<span id="superEnEff2Div">Your Super Energy is also making the first 25 Energy Upgrades <span id="superEnEff2" class="energy"></span>% stronger.</span><br><br>
+				<br><br><span id="geners"></span>目前为等级 <span id="genLvl" class="energy"></span> ，因此每秒可以产生 <span id="energyGen" class="energy"></span> 能量，上限为 <span id="energyLim" class="energy"></span> 能量<br><br>
+				您同时还从发生器上获得了 <span id="superEn" class="energy"></span> 超级能量，因此您可以获得 <span id="superEnEff" class="energy"></span> 倍的动力。<br>
+				<span id="superEnEff2Div">您的超级能量同时还使前25个能量升级效果加强了 <span id="superEnEff2" class="energy"></span>%。</span><br><br>
 				<button class="btn en" onclick="respecGens()">Respec The Generators</button><br><br>
 				<button id="buyGen" class="btn locked" onclick="buyGen()"><h2>Upgrade Generators</h2><br><h3>Cost: <span id="genCost"></span> Motive</h3></button>&nbsp;&nbsp;&nbsp;<button id="newGen" class="btn locked" onclick="newGen()"><h2>Buy a new Generator</h2><br><h3>Cost: <span id="newGenCost"></span> Motive</h3></button><br><br>
 			</div>
 		</div>
 		<div id="rockets" class="tab" style="display: none;">
 			<button id="rocketReset" class="btn locked" onclick="tmp.rockets.layer.reset()">
-				Reset all previous progress to gain <span id="rocketGain" class="based2"></span> rockets
+				重置之前的全部进度，获得 <span id="rocketGain" class="based2"></span> 火箭
 				<span id="rocketGainSC"></span></button
 			><br /><br />
-			You have <span id="rocketsAmt"></span>, which are making your acceleration & maximum velocity boost
-			themselves (log(x+1)<sup><span id="rocketsEff"></span></sup>) <span id="rocketEffSC"></span><br /><br />
+			您有 <span id="rocketsAmt"></span>，因此加速度和最大速度能够以此公式强化自己：(log(x+1)<sup><span id="rocketsEff"></span></sup>) <span id="rocketEffSC"></span><br /><br />
 			<button id="rfReset" class="btn locked" onclick="tmp.rf.layer.reset(false, false)">
-				Reset your rockets to get 1 rocket fuel<br />Req:
-				<span id="rfReq" class="based"></span> rockets.</button
+				重置火箭以获得1点火箭燃料<br />需要:
+				<span id="rfReq" class="based"></span> 火箭。</button
 			><br /><br />
-			You have <span id="rf"></span> <span id="rfName"></span>, which boosts the effect of rockets by
-			<span id="rfEff"></span>%, and adds <span id="rf2"></span> additional rockets to their effect.
+			您拥有 <span id="rf"></span> <span id="rfName"></span> ，因此火箭的效果加强了 <span id="rfEff"></span> %，并且相当于额外有 <span id="rf2"></span> 个火箭生效。
 		</div>
 		<div id="furnace" class="tab" style="display: none;">
 			<div class="band or">
