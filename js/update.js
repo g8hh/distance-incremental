@@ -188,7 +188,7 @@ function setupHTML() {
 	data = "<br>";
 	for (let i = 0; i < DERV.length; i++) {
 		let name = DERV[i];
-		let suffix = i == 0 ? "" : "/s" + (i == 1 ? "" : "<sup>" + i + "</sup>");
+		let suffix = i == 0 ? "" : "/秒" + (i == 1 ? "" : "<sup>" + i + "</sup>");
 		data +=
 			"<div id='dervDiv" +
 			name +

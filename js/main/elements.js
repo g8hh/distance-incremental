@@ -90,7 +90,7 @@ function updatePreRanksHTML(){
 	);
 	tmp.el.velocity.setTxt(
 		formatDistance(player.velocity.times(modeActive("hikers_dream")?tmp.hd.enEff:1)) +
-			"/s " + formatGain(player.velocity.times(modeActive("hikers_dream")?tmp.hd.enEff:1), tmp.acc.times(nerfActive("noTS") ? 1 : tmp.timeSpeed), "vel", true)
+			"/秒 " + formatGain(player.velocity.times(modeActive("hikers_dream")?tmp.hd.enEff:1), tmp.acc.times(nerfActive("noTS") ? 1 : tmp.timeSpeed), "vel", true)
 	);
 	tmp.el.maxVel.setTxt(formatDistance(tmp.maxVel));
 	tmp.el.acceleration.setTxt(formatDistance(tmp.acc));
@@ -119,7 +119,7 @@ function updateMainHTML(){
 		updateTiersHTML()
 		// Misc
 		tmp.el.mvName.setTxt(nerfActive("maxVelActive") ? "Maximum Velocity:" : "Velocital Energy:");
-		tmp.el.accEn.setHTML(tmp.accEn.gt(0) ? " (Accelerational Energy: " + formatDistance(tmp.accEn) + "/s<sup>2</sup>)" : "");
+		tmp.el.accEn.setHTML(tmp.accEn.gt(0) ? " (Accelerational Energy: " + formatDistance(tmp.accEn) + "/秒<sup>2</sup>)" : "");
 		
 		// Hiker's Dream
 		let t = ""
@@ -398,7 +398,7 @@ function updateDarkCircleRssHTML(){
 			showNum(player.dc.energy) +
 			"<br>Gain: " +
 			formatGain(player.dc.energy, tmp.dc.deGain, "dc", false, tmp.dc.flow) +
-			"/s<br>Effect: You gain " +
+			"/秒<br>Effect: You gain " +
 			showNum(tmp.dc.deEff) +
 			"x as many Time Cubes."
 	);
@@ -407,7 +407,7 @@ function updateDarkCircleRssHTML(){
 			showNum(player.dc.fluid) +
 			"<br>Gain: " +
 			formatGain(player.dc.fluid, tmp.dc.dfGain, "dc", false, tmp.dc.flow) +
-			"/s<br>Effect: Scaled Rocket Fuel scaling starts " +
+			"/秒<br>Effect: Scaled Rocket Fuel scaling starts " +
 			showNum(tmp.dc.dfEff) +
 			" Rocket Fuel later."
 	);
@@ -848,8 +848,8 @@ function updateStatisticsHTML(){
 		updateStatTabs();
 		if (statTab == "mainStats") {
 			tmp.el.best.setTxt(formatDistance(player.bestDistance))
-			tmp.el.bestV.setTxt(formatDistance(player.bestV)+"/s")
-			tmp.el.bestA.setHTML(formatDistance(player.bestA)+"/s<sup>2</sup>")
+			tmp.el.bestV.setTxt(formatDistance(player.bestV)+"/秒")
+			tmp.el.bestA.setHTML(formatDistance(player.bestA)+"/秒<sup>2</sup>")
 			tmp.el.maxEnd.setTxt(player.bestEnd.eq(0)?"":("Best-Ever Endorsements: "+showNum(player.bestEnd)))
 			tmp.el.maxEP.setTxt(player.bestEP.eq(0)?"":("Best-Ever Elementary Point gain in one reset: "+showNum(player.bestEP)))
 		} 
