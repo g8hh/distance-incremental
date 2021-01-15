@@ -986,7 +986,7 @@ const SKY_FIELDS = {
 	},
 	9: {
 		req: 750,
-		pionDesc: 'The "Time Doesnt Exist" effect is raised to an exponent.',
+		pionDesc: 'The "时骨无存" effect is raised to an exponent.',
 		spinorDesc: "The Entropy effect is raised to an exponent.",
 		baseCost: new ExpantaNum(1e24),
 		costMult: new ExpantaNum(1e6),

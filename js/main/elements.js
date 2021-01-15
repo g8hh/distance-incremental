@@ -364,9 +364,9 @@ function upadtePathogenHTML(){
 		);
 		tmp.el.tdeEff.setHTML(
 			tmp.ach[63].has
-				? "Time Doesn't Exist multiplier: " +
+				? "时骨无存倍率：" +
 					showNum(ach63Eff()) +
-					"x " +
+					" 倍 " +
 					(ach63Eff().gte(ach63SC()) ? "<span class='sc'>(softcapped)</span>" : "") +
 					"<br><br>"
 				: ""
@@ -491,7 +491,7 @@ function updateInfinitySubtabHTML(){
 		
 		let ach112 = ach112Eff()
 		tmp.el.tudeEff.setHTML(
-			tmp.ach[112].has ? "The Universe Doesn't Exist multiplier: " + showNum(ach112) + "x"+(ach112.gte(1e160)?" <span class='sc'>(softcapped)</span>":"")+"<br><br>" : ""
+			tmp.ach[112].has ? "宇之不存倍率：" + showNum(ach112) + " 倍"+(ach112.gte(1e160)?" <span class='sc'>(softcapped)</span>":"")+"<br><br>" : ""
 		);
 	}
 }

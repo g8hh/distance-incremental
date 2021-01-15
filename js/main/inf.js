@@ -267,11 +267,11 @@ function updateTempInfLayer() {
 		infActive = true;
 		let amActive = player.inf.endorsements.eq(9);
 		let message =
-			"The High God <span class='infinity'>Infinity</span> has seen your power, and would like to endorse you" +
+			"至高神<span class='infinity'>Infinity</span> has seen your power, and would like to endorse you" +
 			".<br><button class='btn inf' onclick='tmp.inf.layer.reset(false, false)'>Allow <span class='infinity'>Infinity</span> to endorse you</button>";
 		if (amActive)
 			message =
-				"The High God <span class='infinity'>Infinity</span> has admired your prowess, and would like to give you the ability to ascend this world and become a High God yourself.<br><button class='btn inf' onclick='tmp.inf.layer.reset(false, false)'>Allow <span class='infinity'>Infinity</span> to endorse you and turn you into a High God</button>";
+				"至高神<span class='infinity'>Infinity</span> has admired your prowess, and would like to give you the ability to ascend this world and become a 至高神 yourself.<br><button class='btn inf' onclick='tmp.inf.layer.reset(false, false)'>Allow <span class='infinity'>Infinity</span> to endorse you and turn you into a 至高神</button>";
 		showHiddenDiv({
 			color: "orange",
 			title: "You have reached <span class='infinity'>Infinity</span>!",

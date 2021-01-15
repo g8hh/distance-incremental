@@ -244,7 +244,7 @@ const TR_UPGS = {
 			return showNum(x) + "x";
 		}
 	},
-	24: { cost: function(){return new ExpantaNum(1.2e30)}, desc: "The 'Time Doesnt Exist' achievement effect is 75% stronger." },
+	24: { cost: function(){return new ExpantaNum(1.2e30)}, desc: "The '时骨无存' achievement effect is 75% stronger." },
 	25: { cost: function(){return new ExpantaNum(1e32)}, desc: "Double the Coal effect, and quintuple Pathogen gain." },
 	26: {
 		cost: function(){

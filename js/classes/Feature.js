@@ -67,7 +67,7 @@ class Feature {
 				? ""
 				: "到达" +
 						this.display(this.req()) +
-						" " +
+						"" +
 						(this.res == "distance" ? "" : this.dispAmt()) +
 						"以解锁" +
 						this.disp +

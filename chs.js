@@ -258,6 +258,11 @@ var cnItems = {
     //熔炉结束
 
     //自动化
+    'Close up this robot.': '关闭此机器人。',
+    'Open up Rankbot for improvements.': '开启级别机器人菜单。',
+    'Open up Rank Cheapener-bot for improvements.': '开启级别降价器机器人菜单。',
+    'Open up Tierbot for improvements.': '开启阶层机器人菜单。',
+    'Open up fuelbot for improvements.': '开启燃料机器人菜单。',
     'Max All': '最大化所有',
     'Interval': '间隔',
     'Magnitude': '数量',
@@ -603,5 +608,8 @@ var cnExcludePostfix = [
 //小数点：([\d\.]+)
 //原样输出的字段：(.+)
 var cnRegReplace = new Map([
-    [/^(.d+)Just make up for the space(\d+)$/, '纯举例用意'],
+    [/^Purchase the Rankbot for (.*) scraps.$/, '花费$1碎屑购买级别机器人'], //自动化
+    [/^Purchase the Rank Cheapener-bot for (.*) scraps.$/, '花费$1碎屑购买级别降价器机器人'], //自动化
+    [/^Purchase the Tierbot for (.*) scraps.$/, '花费$1碎屑购买阶层机器人'], //自动化
+    [/^Purchase the Fuelbot for (.*) scraps.$/, '花费$1碎屑购买燃料机器人'], //自动化
 ]);
