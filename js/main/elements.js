@@ -360,7 +360,7 @@ function upadtePathogenHTML(){
 		);
 		upadtePathogenUpgradesHTML()
 		tmp.el.pthUpgPow.setHTML(
-			!tmp.pathogens.upgPow.eq(1) ? ("Upgrade Power: " + showNum(tmp.pathogens.upgPow.times(100)) + "%"+(tmp.pathogens.upgPow.gte(10)?" <span class='sc'>(softcapped)</span>":"")+"<br>") : ""
+			!tmp.pathogens.upgPow.eq(1) ? ("升级效果：" + showNum(tmp.pathogens.upgPow.times(100)) + "%"+(tmp.pathogens.upgPow.gte(10)?" <span class='sc'>(softcapped)</span>":"")+"<br>") : ""
 		);
 		tmp.el.tdeEff.setHTML(
 			tmp.ach[63].has
@@ -424,7 +424,7 @@ function updateDarkCircleHTML(){
 				showNum(tmp.dc.coreCost) +
 				" Cadavers" +
 				(tmp.dc.coreEff.gt(0)
-					? "<br>Effect: +" + showNum(tmp.dc.coreEff.times(100)) + "% Pathogen Upgrade Power"
+					? "<br>Effect: +" + showNum(tmp.dc.coreEff.times(100)) + "% Pathogen Upgrade 效果"
 					: "")
 		);
 		tmp.el.darkMatter.setClasses({darkcircle: true, dcAnim: player.options.dcPulse})

@@ -263,7 +263,7 @@ const TR_UPGS = {
 		cost: function(){
 			return new ExpantaNum(1e136)
 		},
-		desc: "Coal boosts Pathogen Upgrade Power.",
+		desc: "Coal boosts Pathogen Upgrade 效果。",
 		current: function () {
 			let ret = player.furnace.coal.plus(1).times(10).slog(10).sub(1).div(5).max(0);
 			if (player.tr.upgrades.includes(32)) return player.furnace.coal.plus(1).log10().plus(1).log10().div(7.5).max(ret).times(1.04);

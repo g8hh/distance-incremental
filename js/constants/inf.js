@@ -979,7 +979,7 @@ const EXTREME_STADIUM_DATA = {
 		descs: [
 			"60% of the exponent of your acceleration is nullified (increases by 5% for each difficulty level after 1)",
 			"10% of the exponent of your maximum velocity is nullified (increases by 2% for each difficulty level after 2)",
-			"20% of your Pathogen Upgrade Power is nullified",
+			"20% of your Pathogen Upgrade 效果 is nullified",
 			"25% of the exponent of your Rockets is nullified",
 			"Furnace Upgrade 4 does nothing",
 			"You are trapped in Reality's Stadium Challenge at its set difficulty.",
