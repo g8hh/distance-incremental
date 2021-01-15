@@ -15,6 +15,10 @@ var cnItems = {
     '.': '。',
     //标点符号结束
 
+    //滚动新闻
+    'Sorry, we are out of news for the day... try again later?': '抱歉，目前没有什么新闻……之后再来看看吧？',
+    //滚动新闻结束
+
     //主菜单等
     'Loading...': '读取中……',
     'Help': '帮助(Discord频道)',
@@ -140,6 +144,10 @@ var cnItems = {
     'Hyper ': '究级折算',
     'Atomic ': '原子折算',
     //统计结束
+
+    //成就
+    'Not currently implemented.': '目前还未引入。',
+    //成就结束
 
     //能量
     'The Generators': '发生器',
@@ -389,6 +397,7 @@ var cnItems = {
     'Collapse Selectors': '坍缩选择器',
     'Infinity Selectors': '无限选择器',
     'Elementary Selectors': '基本选择器',
+    'hover for info': '鼠标停留此处以查看详情',
     'Boosts': '加成',
     'Entropy': '熵',
     'Enlarge Quantum Foam by 1m in height': '将量子泡沫加高1米',

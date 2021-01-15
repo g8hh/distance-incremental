@@ -281,7 +281,7 @@ function setupHTML() {
 	
 	// Main Link
 	let span = new Element("linkToGame")
-	span.setHTML((betaID==""&&!window.location.href.includes(correctLink))?"Please migrate to <a href='http://"+correctLink+"/DistInc.github.io/main.html'>"+correctLink+"</a><br>":"")
+	span.setHTML((betaID==""&&!window.location.href.includes(correctLink))?"原版游戏地址：<a href='http://"+correctLink+"/DistInc.github.io/main.html'>"+correctLink+"</a><br>":"")
 	
 	// Element Setup
 	tmp.el = {}

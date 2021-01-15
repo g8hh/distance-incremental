@@ -56,7 +56,7 @@ class Achievement {
 				? this.parse(ACH_DATA.descs[this.name])
 				: "Not currently implemented.") +
 			"\n" +
-			(this.reward === "" ? "" : "Reward: " + this.reward)
+			(this.reward === "" ? "" : "奖励：" + this.reward)
 		);
 	}
 
@@ -67,7 +67,7 @@ class Achievement {
 	grant() {
 		if (!player.achievements.includes(this.name) && getAllAchievements().includes(this.name)) {
 			player.achievements.push(this.name);
-			notifier.success("Achievement gotten: " + ACH_DATA.names[this.name]);
+			notifier.success("成就已获得：" + ACH_DATA.names[this.name]);
 		}
 	}
 	
