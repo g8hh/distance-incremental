@@ -25,7 +25,7 @@ function getCadaverEff() {
 			.pow(scp.pow(-1))
 			.times(scs.div(scs.log10().pow(scp.pow(-1))));
 	eff = eff.pow(
-		tmp.elm && player.elementary.times.gt(0) ? tmp.elm.ferm.leptonR("muon").max(1) : 1
+		tmp.elm && player.elementary.times.gt(0) ? tmp.elm.ferm.leptonR("缪").max(1) : 1
 	);
 	if (player.elementary.sky.unl && tmp.elm) eff = eff.pow(tmp.elm.sky.pionEff[4])
 	if (player.elementary.sky.unl && tmp.elm) eff = eff.pow(tmp.elm.sky.pionEff[12])
@@ -123,6 +123,6 @@ function getCadaverGainMult() {
 	if (modeActive("extreme") && FCComp(5)) mult = mult.times(ExpantaNum.pow(2, player.furnace.upgrades[4].times(tmp.fn ? tmp.fn.upgPow : 1)))
 	if (tmp.ach[68].has && modeActive("extreme")) mult = mult.times(5);
 	if (tmp.collapse) if (modeActive("easy")) mult = mult.times(3);
-	if (tmp.elm) if (player.elementary.times.gt(0)) mult = mult.times(tmp.elm.ferm.quarkR("down").max(1));
+	if (tmp.elm) if (player.elementary.times.gt(0)) mult = mult.times(tmp.elm.ferm.quarkR("下").max(1));
 	return mult
 }

@@ -19,24 +19,24 @@ const ELM_TABS = {
 	},
 };
 
-const QUARK_NAMES = ["up", "down", "charm", "strange", "top", "bottom"];
+const QUARK_NAMES = ["上", "下", "粲", "奇", "顶", "底"];
 const QUARK_DESCS = {
-	up: "Rocket gain is stronger.",
-	down: "Cadaver gain is stronger.",
-	charm: "Knowledge gain is stronger.",
-	strange: "Pathogen gain is boosted by your Fermions.",
-	top: "Lepton gain is faster.",
-	bottom: "Ascension Power gain is faster."
+	上: "增加火箭获取量。",
+	下: "增加残骸获取量。",
+	粲: "增加知识获取量。",
+	奇: "根据费米子数值，增加病原体获取量。",
+	顶: "增加轻子获取量。",
+	底: "增加飞升能量获取量。"
 };
 
-const LEPTON_NAMES = ["electron", "muon", "tau", "netrion", "vibrino", "psi"];
+const LEPTON_NAMES = ["电", "缪", "陶", "中微", "振荡", "普西"];
 const LEPTON_DESCS = {
-	electron: "Perks are stronger.",
-	muon: "The Cadaver effect is boosted.",
-	tau: "Knowledge boosts Knowledge gain.",
-	netrion: "Pathogen Upgrades are stronger.",
-	vibrino: "Derivative Boosts are stronger.",
-	psi: "Quark gain is faster."
+	电: "增加特权效果。",
+	缪: "增加残骸效果。",
+	陶: "根据知识数值，增加知识获取量。",
+	中微: "增加病原体升级效果。",
+	振荡: "增加导数提升效果。",
+	普西: "增加夸克获取量。"
 };
 
 const PHOTON_UPGS = 4;

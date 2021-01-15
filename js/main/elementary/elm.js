@@ -110,7 +110,7 @@ function updateElementaryLayer() {
 }
 
 function setTempElementaryStuff() {
-	tmp.psiEff = tmp.elm.ferm.leptonR("psi");
+	tmp.psiEff = tmp.elm.ferm.leptonR("普西");
 	tmp.z1 = tmp.elm.bos.z1;
 	tmp.glu2 = tmp.elm.bos.gluon2total;
 	tmp.gravEff = tmp.elm.bos.gravEff;

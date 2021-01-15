@@ -28,7 +28,7 @@ function updatePathogensGain(){
 	if (player.tr.upgrades.includes(25)&&modeActive("extreme")) tmp.pathogens.gain = tmp.pathogens.gain.times(5)
 	if (tmp.elm)
 		if (player.elementary.times.gt(0))
-			tmp.pathogens.gain = tmp.pathogens.gain.times(tmp.elm.ferm.quarkR("strange").max(1));
+			tmp.pathogens.gain = tmp.pathogens.gain.times(tmp.elm.ferm.quarkR("奇").max(1));
 	if (tmp.elm) tmp.pathogens.gain = tmp.pathogens.gain.times(tmp.elm.bos.photonEff(1).max(1));
 	if (tmp.inf) if (tmp.inf.upgs.has("5;10")) tmp.pathogens.gain = tmp.pathogens.gain.times(INF_UPGS.effects["5;10"]().pth)
 	if (tmp.inf) if (tmp.inf.upgs.has("10;5")) tmp.pathogens.gain = tmp.pathogens.gain.times(INF_UPGS.effects["10;5"]())
@@ -65,7 +65,7 @@ function updateTempPathogens() {
 	if (extremeStadiumComplete("quantron")) tmp.pathogens.upgPow = tmp.pathogens.upgPow.plus(EXTREME_STADIUM_DATA.quantron.effect());
 	if (tmp.elm)
 		if (player.elementary.times.gt(0))
-			tmp.pathogens.upgPow = tmp.pathogens.upgPow.plus(tmp.elm.ferm.leptonR("netrion"));
+			tmp.pathogens.upgPow = tmp.pathogens.upgPow.plus(tmp.elm.ferm.leptonR("中微"));
 	if (tmp.inf) if (tmp.inf.upgs.has("9;10")) tmp.pathogens.upgPow = tmp.pathogens.upgPow.plus(INF_UPGS.effects["9;10"]().sub(1).max(0))
 	if (player.elementary.theory.tree.unl) tmp.pathogens.upgPow = tmp.pathogens.upgPow.plus(TREE_UPGS[13].effect(player.elementary.theory.tree.upgrades[13]||0))
 	if (hasDE(5)) if ((player.elementary.theory.tree.upgrades[25]||new ExpantaNum(0)).gte(1)) tmp.pathogens.upgPow = tmp.pathogens.upgPow.plus(1.5)

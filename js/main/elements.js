@@ -918,24 +918,24 @@ function updateFermionsHTML(){
 
 function updateQuarksHTML(){
 	tmp.el.quarks.setHTML(
-		showNum(player.elementary.fermions.quarks.amount) + " " + tmp.elm.ferm.quarkName() + " Quarks"
+		showNum(player.elementary.fermions.quarks.amount) + " " + tmp.elm.ferm.quarkName() + "夸克"
 	);
 	tmp.el.quarkGain.setTxt(showNum(adjustGen(tmp.elm.ferm.quarkGain, "quarks")));
 	tmp.el.quarkRewards.setTooltip(
 		tmp.elm.ferm.quarkName(true) +
-			" Quarks: " +
+			"夸克：" +
 			tmp.elm.ferm.quarkDesc(QUARK_NAMES[player.elementary.fermions.quarks.type - 1])
 	);
 }
 
 function updateLeptonsHTML(){
 	tmp.el.leptons.setHTML(
-		showNum(player.elementary.fermions.leptons.amount) + " " + tmp.elm.ferm.leptonName() + " Leptons"
+		showNum(player.elementary.fermions.leptons.amount) + " " + tmp.elm.ferm.leptonName() + "轻子"
 	);
 	tmp.el.leptonGain.setTxt(showNum(adjustGen(tmp.elm.ferm.leptonGain, "leptons")));
 	tmp.el.leptonRewards.setTooltip(
 		tmp.elm.ferm.leptonName(true) +
-			" Leptons: " +
+			"轻子：" +
 			tmp.elm.ferm.leptonDesc(LEPTON_NAMES[player.elementary.fermions.leptons.type - 1])
 	);
 }

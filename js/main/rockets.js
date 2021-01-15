@@ -59,7 +59,7 @@ function getRocketGainMult() {
 			mult = mult.times(c.max(1));
 		}
 	if (tmp.elm)
-		if (player.elementary.times.gt(0)) mult = mult.times(tmp.elm.ferm.quarkR("up").max(1));
+		if (player.elementary.times.gt(0)) mult = mult.times(tmp.elm.ferm.quarkR("上").max(1));
 	if (mult.eq(0)) mult = new ExpantaNum(1)
 	return mult
 }

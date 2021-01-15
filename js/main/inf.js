@@ -181,8 +181,8 @@ function calcKnowledgeGain(){
 	if (FCComp(3)) tmp.inf.knowledgeGain = tmp.inf.knowledgeGain.times(3.2);
 	if (extremeStadiumComplete("cranius")) tmp.inf.knowledgeGain = tmp.inf.knowledgeGain.times(EXTREME_STADIUM_DATA.cranius.effect())
 	if (tmp.elm && player.elementary.times.gt(0)) {
-		tmp.inf.knowledgeGain = tmp.inf.knowledgeGain.times(tmp.elm.ferm.quarkR("charm").max(1));
-		tmp.inf.knowledgeGain = tmp.inf.knowledgeGain.times(tmp.elm.ferm.leptonR("tau").max(1));
+		tmp.inf.knowledgeGain = tmp.inf.knowledgeGain.times(tmp.elm.ferm.quarkR("粲").max(1));
+		tmp.inf.knowledgeGain = tmp.inf.knowledgeGain.times(tmp.elm.ferm.leptonR("陶").max(1));
 	}
 	if (tmp.elm) tmp.inf.knowledgeGain = tmp.inf.knowledgeGain.times(tmp.elm.bos.photonEff(2).max(1));
 	if (tmp.elm) if (tmp.elm.bos.hasHiggs("0;0;3")) tmp.inf.knowledgeGain = tmp.inf.knowledgeGain.times(3)
@@ -372,7 +372,7 @@ function updateTempAscension() {
 	tmp.inf.asc.perkStrength = tmp.inf.asc.perkStrength.times(tmp.soulBoost ? tmp.soulBoost : 1);
 	if (tmp.elm)
 		if (player.elementary.times.gt(0))
-			tmp.inf.asc.perkStrength = tmp.inf.asc.perkStrength.times(tmp.elm.ferm.leptonR("electron").plus(1));
+			tmp.inf.asc.perkStrength = tmp.inf.asc.perkStrength.times(tmp.elm.ferm.leptonR("电").plus(1));
 	if (tmp.elm) if (tmp.elm.pa.active) tmp.inf.asc.perkStrength = tmp.inf.asc.perkStrength.times(tmp.elm.pa.boost.max(1))
 	if (modeActive('easy')) tmp.inf.asc.perkStrength = tmp.inf.asc.perkStrength.times(1.2)
 	tmp.inf.asc.perkPower = [
@@ -403,7 +403,7 @@ function updateTempAscension() {
 	if (tmp.inf.upgs.has("8;9")) tmp.inf.asc.powerGain = tmp.inf.asc.powerGain.times(10);
 	if (tmp.elm)
 		if (player.elementary.times.gt(0))
-			tmp.inf.asc.powerGain = tmp.inf.asc.powerGain.times(tmp.elm.ferm.quarkR("bottom").max(1));
+			tmp.inf.asc.powerGain = tmp.inf.asc.powerGain.times(tmp.elm.ferm.quarkR("底").max(1));
 	if (tmp.elm) {
 		if (player.elementary.times.gt(0)) tmp.inf.asc.powerGain = tmp.inf.asc.powerGain.times(tmp.elm.bos.w2.max(1));
 		if (tmp.elm.bos.hasHiggs("0;0;4")) tmp.inf.asc.powerGain = tmp.inf.asc.powerGain.times(tmp.elm.bos["higgs_0;0;4"]())
@@ -891,7 +891,7 @@ function updateTempDerivatives() {
 	tmp.inf.derv.boostPow = new ExpantaNum(1)
 	if (modeActive('extreme')) tmp.inf.derv.boostPow = tmp.inf.derv.boostPow.times(1.03)
 	if (tmp.elm) if (player.elementary.times.gt(0)) {
-		tmp.inf.derv.boostPow = tmp.inf.derv.boostPow.times(tmp.elm.ferm.leptonR("vibrino").plus(1))
+		tmp.inf.derv.boostPow = tmp.inf.derv.boostPow.times(tmp.elm.ferm.leptonR("振荡").plus(1))
 		tmp.inf.derv.boostPow = tmp.inf.derv.boostPow.times(tmp.elm.bos["higgs_0;2;1"]().div(100).plus(1))
 	}
 	tmp.inf.derv.boostMult = new ExpantaNum(Number.MAX_VALUE);
