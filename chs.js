@@ -262,7 +262,7 @@ var cnItems = {
     'Open up Rankbot for improvements.': '开启级别机器人菜单。',
     'Open up Rank Cheapener-bot for improvements.': '开启级别降价器机器人菜单。',
     'Open up Tierbot for improvements.': '开启阶层机器人菜单。',
-    'Open up fuelbot for improvements.': '开启燃料机器人菜单。',
+    'Open up Fuelbot for improvements.': '开启燃料机器人菜单。',
     'Max All': '最大化所有',
     'Interval': '间隔',
     'Magnitude': '数量',

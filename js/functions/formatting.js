@@ -105,7 +105,7 @@ function formatTime(x) {
 		let name = Object.keys(TIMES)[i];
 		let val = TIMES[name];
 		if (x.lt(val) && i > 0) continue;
-		return showNum(x.div(val)) + " " + name;
+		return showNum(x.div(val)) + name;
 	}
 }
 
