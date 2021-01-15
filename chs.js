@@ -435,10 +435,10 @@ var cnItems = {
     'Gain more of all types of Foam based on your Theoriverse completions': '根据学说宇宙的完成次数，增加所有类型的泡沫获取量',
     'Rocket Fuel boosts Entropy Gain': '根据火箭燃料数值，增加熵获取量',
     'Hyper Pathogen Upgrade scaling starts later based on your Ω Particles': '根据Ω 粒子数值，使病原体升级究级折算延迟出现',
-    'Magma makes the Entropy effect stronger': '根据岩浆数值，增加熵的效果',
+    'Magma makes the Entropy effect stronger': '根据岩浆数值，加强熵的效果',
     'Theoretical Boosters make Ω Particles require less Entropy': '根据学说增强器数值，使Ω 粒子需要更少的熵来获取',
     'The "Actually Useless Theories" achievement reward uses a better formula': '“完全无用的学说”成就奖励的公式变得更好',
-    'Ω Particles are stronger based on your Hadrons': '根据强子数值，增加Ω 粒子的效果',
+    'Ω Particles are stronger based on your Hadrons': '根据强子数值，加强Ω 粒子的效果',
     'Accelerons & Inflatons boost Entropy gain': '根据加速子和暴胀子数值，增加熵获取量',
     'The Fermion Boost & the Inflaton Boost are 8.5% stronger': '费米子加成和暴胀子加成的效果增加8.5%',
     'Skyrmions make Ω Particles require less Entropy': '根据斯格明子数值，使Ω 粒子需要更少的熵来获取',
@@ -582,8 +582,14 @@ var cnExcludeWhole = [
     /^(.*)将(.*)$/, //不抓取的内容
     /^(.*)点(.*)$/, //不抓取的内容
     /^(.*)子(.*)$/, //不抓取的内容
+    /^(.*)为(.*)$/, //不抓取的内容
     /^ ，因此(.*)$/, //不抓取的内容
     /^到达(.*)$/, //不抓取的内容
+    /^无限(.*)$/, //不抓取的内容
+    /^重置(.*)$/, //不抓取的内容
+    /^(.*)的(.*)$/, //不抓取的内容
+    /^(.*)地(.*)$/, //不抓取的内容
+    /^(.*)得(.*)$/, //不抓取的内容
     /^(.*)倍(.*)$/, //不抓取的内容
     /^(.*)级(.*)$/, //不抓取的内容
     /^(.*)次(.*)$/, //不抓取的内容
