@@ -118,7 +118,7 @@ var cnItems = {
     'Notice: You are currently playing in v': '注意: 您目前的游戏版本为v',
     '. This game was inspired by ': '。此游戏的灵感来自于',
     'Antimatter Dimensions': '反物质维度',
-    ' by Hevipelle, and it uses ': ' (作者Hevipelle)，并使用了',
+    ' by Hevipelle, and it uses ': '(作者Hevipelle)，并使用了',
     ', none of which I take credit for. If you would like to create a mod of this game, that\'s fine, just give credit, let me know in the discord (preferrably with a game link), and name it something slightly different (like Distance Incremental NG+ or something of the sort)...': '，以上都是来自他人的成果。如果您想要制作本游戏的MOD，这是完全没问题的，您只需要保留原始作者的信息，在Discord内联系我(有游戏链接更佳)，并起个不同的名字(例如距离增量NG+或者其他什么的)即可……',
     'Changelog': '更新日志',
     'Distances': '距离单位',
@@ -364,6 +364,39 @@ var cnItems = {
     'Collapse Selectors': '坍缩选择器',
     'Infinity Selectors': '无限选择器',
     'Elementary Selectors': '基本选择器',
+    'Boosts': '加成',
+    'Entropy': '熵',
+    'Enlarge Quantum Foam by 1m in height': '将量子泡沫加高1米',
+    'Enlarge Quantum Foam by 1m in width': '将量子泡沫加宽1米',
+    'Enlarge Quantum Foam by 1m in depth': '将量子泡沫加深1米',
+    'Unlock a new type of Foam': '解锁一种新的泡沫',
+    'Enlarge Subplanck Foam by 1m in height': '将亚普朗克泡沫加高1米',
+    'Enlarge Subplanck Foam by 1m in width': '将亚普朗克泡沫加宽1米',
+    'Enlarge Subplanck Foam by 1m in depth': '将亚普朗克泡沫加深1米',
+    'Enlarge Subspatial Foam by 1m in height': '将子空间泡沫加高1米',
+    'Enlarge Subspatial Foam by 1m in width': '将子空间泡沫加宽1米',
+    'Enlarge Subspatial Foam by 1m in depth': '将子空间泡沫加深1米',
+    'Enlarge Infinitesimal Foam by 1m in height': '将无穷小泡沫加高1米',
+    'Enlarge Infinitesimal Foam by 1m in width': '将无穷小泡沫加宽1米',
+    'Enlarge Infinitesimal Foam by 1m in depth': '将无穷小泡沫加深1米',
+    'Enlarge Protoversal Foam by 1m in height': '将太初泡沫加高1米',
+    'Enlarge Protoversal Foam by 1m in width': '将太初泡沫加宽1米',
+    'Enlarge Protoversal Foam by 1m in depth': '将太初泡沫加深1米',
+    'Re-form your Protoversal Foam': '重构太初泡沫',
+    ' Quantum Foam': ' 量子泡沫',
+    ' Subplanck Foam': ' 亚普朗克泡沫',
+    ' Subspatial Foam': ' 子空间泡沫',
+    ' Infinitesimal Foam': ' 无穷小泡沫',
+    ' Protoversal Foam': ' 太初泡沫',
+    'Height': '高度',
+    'Width': '宽度',
+    'Depth': '深度',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
     '': '',
     '': '',
     '': '',
@@ -459,6 +492,7 @@ var cnPostfix = {
 var cnExcludeWhole = [
     /^x?\d+(\.\d+)?(e[+\-]?\d+)?\s*$/, //12.34e+4
     /^\s*$/, //纯空格
+    /^\d+(\.\d+)?\s\+$/, //处理数字
     /^打开微信扫一扫$/, //不抓取的内容
     /^点击加群$/, //不抓取的内容
     /^更多同类游戏$/, //不抓取的内容
@@ -468,6 +502,11 @@ var cnExcludeWhole = [
     /^Git游戏$/, //不抓取的内容
     /^QQ群号$/, //不抓取的内容
     /^帮助(.*)$/, //不抓取的内容
+    /^(.*)您(.*)$/, //不抓取的内容
+    /^(.*)特权(.*)$/, //不抓取的内容
+    /^(.*)启迪(.*)$/, //不抓取的内容
+    /^(.*)使(.*)$/, //不抓取的内容
+    /^(.*)将(.*)$/, //不抓取的内容
     /^(.*)倍(.*)$/, //不抓取的内容
     /^(.*)米(.*)$/, //不抓取的内容
     /^(.*)宇宙(.*)$/, //不抓取的内容

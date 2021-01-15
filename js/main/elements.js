@@ -1165,7 +1165,7 @@ function updateAcceleronsHTML(){
 		tmp.el.accelGain.setTxt(showNum(adjustGen(gain, "accelerons")))
 		tmp.el.accelerSC.setHTML(gain.gte(1e6)?"<span class='sc'>(softcapped)</span>":"")
 		let accEff = getAccelEff()
-		tmp.el.accelEff.setHTML("<span class='thp'>"+showNum(accEff)+"</span>x later"+(accEff.gte(2)?" <span class='sc'>(softcapped)</span>":""))
+		tmp.el.accelEff.setHTML("<span class='thp'>"+showNum(accEff)+"</span> 倍出现"+(accEff.gte(2)?" <span class='sc'>(softcapped)</span>":""))
 		let next = player.elementary.theory.accelerons.expanders.toNumber()+1
 		tmp.el.darkExp.setClasses({btn: true, locked: (player.elementary.theory.accelerons.amount.lt(DARK_EXPANDER_COSTS[next])||next-1>=MAX_DARK_EXPANDERS), th: (!(player.elementary.theory.accelerons.amount.lt(DARK_EXPANDER_COSTS[next])||next-1>=MAX_DARK_EXPANDERS))})
 		tmp.el.darkExp.setHTML((next-1>=MAX_DARK_EXPANDERS)?"MAXED":(DARK_EXPANDER_DESCS[next]+"<br>Cost: "+showNum(DARK_EXPANDER_COSTS[next])+" Accelerons"))

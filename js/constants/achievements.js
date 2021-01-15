@@ -129,7 +129,7 @@ const ACH_DATA = {
 		148: "The Impossible Task",
 		
 		151: "An infinity smaller than your fingertip",
-		152: "Useless Theories",
+		152: "无用的学说",
 		153: "There is a tree",
 		154: "What even are Hadrons?",
 		155: "Real Growth",
@@ -138,7 +138,7 @@ const ACH_DATA = {
 		158: "The Repetition Continues",
 		
 		161: "We're kids again",
-		162: "Actually Useless Theories",
+		162: "完全无用的学说",
 		163: "String Clickers",
 		164: "There are only so many",
 		165: "Is there even a point to these anymore?",
