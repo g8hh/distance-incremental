@@ -34,6 +34,9 @@ var cnItems = {
     'Elementary': '基本',
     'Req': '需要',
     'Req: Rank': '需要：级别',
+    //主菜单等结束
+
+    //选项
     'Saving': '保存选项',
     'Modes': '模式',
     'In-game': '游戏内',
@@ -122,6 +125,9 @@ var cnItems = {
     'Hotkeys': '快捷键',
     'Discord': 'Discord频道',
     'Donate': '捐赠赞助',
+    //选项结束
+
+    //统计
     'Scalings': '折算',
     'Rank/Tier Rewards': '级别/阶层的奖励',
     'Scaling Levels': '折算等级',
@@ -133,6 +139,9 @@ var cnItems = {
     'Superscaled ': '超级折算',
     'Hyper ': '究级折算',
     'Atomic ': '原子折算',
+    //统计结束
+
+    //能量
     'The Generators': '发生器',
     'Cost': '花费',
     ' Motive': ' 动力',
@@ -200,6 +209,9 @@ var cnItems = {
     'Respec The Generators': '洗点发生器',
     'Upgrade Generators': '升级发生器',
     'Buy a new Generator': '购买1个新的发生器',
+    //能量结束
+
+    //熔炉
     'Enhanced Furnace': '强化熔炉',
     'Magma Search': '岩浆搜索',
     'Plasma': '等离子体',
@@ -235,10 +247,28 @@ var cnItems = {
     ' Magma & ': ' 岩浆及 ',
     ' Knowledge': ' 知识',
     'Note: This does not reset on Elementary.': '注意：这在基本重置时仍然保留。',
+    //熔炉结束
+
+    //自动化
     'Max All': '最大化所有',
     'Interval': '间隔',
     'Magnitude': '数量',
+    //自动化结束
+
+    //时间反演
+    //时间反演结束
+
+    //全体坍缩
     'Sacrifice all your cadavers into life essence.': '将所有残骸转化为生命精华。',
+    //全体坍缩结束
+
+    //病原体
+    //病原体结束
+
+    //黑暗圆环
+    //黑暗圆环结束
+
+    //无限
     'Ascension': '飞升',
     'The Stadium': '竞技场',
     'The Pantheon': '万神殿',
@@ -266,6 +296,9 @@ var cnItems = {
     'Respec Angels & Demons back into Spectral Gems': '洗点天使和恶魔变回幽冥宝石',
     'Transform one Spectral Gem into an Angel': '将1块幽冥宝石变为1个天使',
     'Transform one Spectral Gem into a Demon': '将1块幽冥宝石变为1个恶魔',
+    //无限结束
+
+    //基本
     'Fermions': '费米子',
     'Bosons': '玻色子',
     'Theories': '学说',
@@ -319,14 +352,23 @@ var cnItems = {
     'Misc.': '杂项',
     'Unlock Strings': '解锁弦',
     'Cost: 7 Theory Points': '花费：7 学说点数',
+    'Unlock Preons': '解锁前子',
+    'Cost: 10 Theory Points': '花费：10 学说点数',
+    'Unlock Accelerons': '解锁加速子',
+    'Cost: 84 Theory Points': '花费：84 学说点数',
+    'Unlock Inflatons': '解锁暴胀子',
+    'Cost: 1,600 Theory Points': '花费：1600 学说点数',
+    'Clear Selector Data': '清除选择器数据',
+    'Main Selectors': '主要选择器',
+    'Pre-Collapse Selectors': '坍缩前选择器',
+    'Collapse Selectors': '坍缩选择器',
+    'Infinity Selectors': '无限选择器',
+    'Elementary Selectors': '基本选择器',
     '': '',
     '': '',
     '': '',
     '': '',
-    '': '',
-    '': '',
-    '': '',
-    //主菜单等结束
+    //基本结束
 
     //原样
     '': '',
