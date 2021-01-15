@@ -506,7 +506,7 @@
 				<button id="bf" class="btn locked" onclick="tmp.fn.bfReset()">
 					Reset all Furnace progress to gain a Blue Flame<br />Req: <span id="bfReq"></span> Coal</button
 				><br /><br />
-				您拥有 <span id="bfAmt" class="blfl"></span> <span id="blueFlameName"></span>蓝色火焰，因此所有熔炉升级花费的提升速度减缓 <span id="bfEff" class="blfl"></span> %。<br><br><br>
+				您拥有 <span id="bfAmt" class="blfl"></span> <span id="blueFlameName"></span>蓝色火焰，因此所有熔炉升级花费的提升速度减少 <span id="bfEff" class="blfl"></span> %。<br><br><br>
 				<div id="furnChalls">
 					Notice: Furnace Challenges will perform a Collapse reset. When in a Furnace Challenge, Furnace Upgrade 4<span id="fu4dc">does nothing</span>.<br>
 					<table><tr>
@@ -2133,7 +2133,7 @@
 						</tr>
 						<tr>
 							<td><button id="entropy17" class="btn locked" onclick="buyEntropyUpg(17)" style="min-height: 200px;">Unlock Auto-Theoretical Boosters, and Theoretical Boosters give many more Theory Points, but Theoretical Boosters are reset on Skyrmion reset (kept on Skyrmion reset)<br>Cost: <span id="entropyCost17" style="color: black;"></span> Entropy</button></td>
-							<td><button id="entropy18" class="btn locked" onclick="buyEntropyUpg(18)" style="min-height: 200px;">The Primary String effect is raised to the power of 5<br>Cost: <span id="entropyCost18" style="color: black;"></span> Entropy</button></td>
+							<td><button id="entropy18" class="btn locked" onclick="buyEntropyUpg(18)" style="min-height: 200px;">一维弦的效果变为原来的5次方<br>Cost: <span id="entropyCost18" style="color: black;"></span> Entropy</button></td>
 							<td><button id="entropy19" class="btn locked" onclick="buyEntropyUpg(19)" style="min-height: 200px;">The Perk Accelerator never goes Weakened or Broken, and the Hadron effect interval is smaller based on your Hadrons<br>Cost: <span id="entropyCost19" style="color: black;"></span> Entropy<br>Currently: <span id="entropyEff19" style="color: black;"></span>th root</button></td>
 							<td><button id="entropy20" class="btn locked" onclick="buyEntropyUpg(20)" style="min-height: 200px;">The first Inflaton effect uses a better formula, Pions & Spinors do not make each other increase in cost, and you can buy max Pion/Spinor Fields (kept on Skyrmion reset)<br>Cost: <span id="entropyCost20" style="color: black;"></span> Entropy</button></td>
 							<td><button id="entropy25" class="btn locked" onclick="buyEntropyUpg(25)" style="min-height: 200px;">FU4 & EFU3 also multiply the upgrade's effect (but only at 20% upgrade power).<br>Cost: <span id="entropyCost25" style="color: black;"></span> Entropy</button></td>
@@ -2169,13 +2169,13 @@
 				</div>
 				<br><br>
 				<div id="skyrmions" class="skyTab">
-					Destabilizing the topology of your multiverse will force an Entropy & Elementary reset, and will also reset your Purge Power, Elementary Particles, Fermions, Bosons, Photon & Gluon Upgrades, Supersymmetric Particles, Theory Tree Upgrades, Strings (and Entangled Strings), Preon amount, Acceleron amount, Inflatons, Hadrons, Entropy, & Entropy Upgrades (except the first one).<br><br>
-					<button id="skyrmionReset" class="btn locked" onclick="skyrmionReset()">Destabilize the topology of your multiverse to gain <span id="skyrmionGain"></span> Skyrmions</button><br><br>
-					You have <span id="skyrmionAmt" class="skytxt"></span> Skyrmions, which multiply the Quark/Lepton exponents by <span id="skyrmionEff" class="skytxt"></span><br><br>
+					动摇多宇宙的拓扑结构将强制进行一次熵和基本重置，您的净化能量，基本粒子，费米子，玻色子，光子和胶子的升级，超对称粒子，学说树升级，弦(及纠缠弦)，前子数量，加速子数量，暴胀子，强子，熵及熵升级(除了第1个以外)将全部被重置。<br><br>
+					<button id="skyrmionReset" class="btn locked" onclick="skyrmionReset()">动摇多宇宙的拓扑结构并获得 <span id="skyrmionGain"></span> 斯格明子</button><br><br>
+					您拥有 <span id="skyrmionAmt" class="skytxt"></span> 斯格明子，因此夸克和轻子的指数变为 <span id="skyrmionEff" class="skytxt"></span> 倍<br><br>
 					<button onclick="respecBothFields()" class="btn sky">Reset Pion & Spinor Fields</button>
 				</div>
 				<div id="pions" class="skyTab" style="display: none;">
-					You have <span id="pionAmt" class="skytxt"></span> Pions <span id="pionGain"></span><br><br>
+					您拥有 <span id="pionAmt" class="skytxt"></span> π介子 <span id="pionGain"></span><br><br>
 					<div id="pionData" class="bandBig lb"></div><br>
 					<div id="nextPionUpgs"></div><br>
 					<button onclick="respecField('pions')" class="btn sky">Reset Pion Field</button>&nbsp;&nbsp;<button id="maxPion" onclick="maxField('pions')" class="btn sky">Max Pion Field</button><br><br>
@@ -2183,7 +2183,7 @@
 					<div id="pionField"></div>
 				</div>
 				<div id="spinors" class="skyTab" style="display: none;">
-					You have <span id="spinorAmt" class="skytxt"></span> Spinors <span id="spinorGain"></span><br><br>
+					您拥有 <span id="spinorAmt" class="skytxt"></span> 旋量 <span id="spinorGain"></span><br><br>
 					<div id="spinorData" class="bandBig lb"></div><br>
 					<div id="nextSpinorUpgs"></div><br>
 					<button onclick="respecField('spinors')" class="btn sky">Reset Spinor Field</button>&nbsp;&nbsp;<button id="maxSpinor" onclick="maxField('spinors')" class="btn sky">Max Spinor Field</button><br><br>

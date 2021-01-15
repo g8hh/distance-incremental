@@ -155,7 +155,7 @@ var cnItems = {
     'Thrusters': '推进器',
     'Hill-Bending': '山脉倾斜',
     'The energy effect is boosted by your Motive': '根据动力数值，加强能量的效果',
-    'Energy decreases slower based on your Motive': '根据动力数值，使能量减缓得更慢',
+    'Energy decreases slower based on your Motive': '根据动力数值，使能量减少得更慢',
     'Your Motive is higher based on the Incline': '根据斜度数值，使动力变得更高',
     'The Incline nerf to max velocity & acceleration is reduced based on your Rockets': '根据火箭数值，减少斜度对最大速度和加速度的惩罚',
     'All Energy Upgrades that are based on The Incline have a better incline in their effect': '“根据斜度数值”的所有能量升级中，斜度视为增加一定数值',
@@ -233,9 +233,9 @@ var cnItems = {
     'Exit': '退出',
     'Finished': '已完成',
     'Start': '开始',
-    'Reward: Superscaled & Hyper Furnace Upgrade scalings are 90% weaker.': '奖励：超级折算及究级折算的熔炉升级花费提升速度减缓90%。',
+    'Reward: Superscaled & Hyper Furnace Upgrade scalings are 90% weaker.': '奖励：超级折算及究级折算的熔炉升级花费提升速度减少90%。',
     'Reward: Furnace Upgrade 1\'s effect is increased by 25x.': '奖励：熔炉升级 1的效果变为25倍。',
-    'Reward: Scaled Rank Cheapener scaling is 90% weaker, and Knowledge gain is 3.2x faster.': '奖励：折算的级别降价器花费提升速度减缓90%，知识获取量变为3.2倍。',
+    'Reward: Scaled Rank Cheapener scaling is 90% weaker, and Knowledge gain is 3.2x faster.': '奖励：折算的级别降价器花费提升速度减少90%，知识获取量变为3.2倍。',
     'Reward: The Extreme Mode reduction to pre-Infinity generation is less lethal (^0.75 -> ^': '奖励：极限模式无限之前内容的产量减成变得更缓和(从^0.75变为^',
     'Reward: Furnace Upgrade 4\'s effect is increased by 0.0001x for each Furnace Upgrade 1 bought, and unlock Furnace Upgrade': '奖励：每购买1次熔炉升级 1，熔炉升级 4的效果就增加0.0001倍，并解锁熔炉升级 ',
     'Reward: Blue Flame affects Enhanced Furnace Upgrades at a reduced rate': '奖励：蓝色火焰能够以较低的倍率使强化熔炉升级变得更强',
@@ -395,26 +395,46 @@ var cnItems = {
     'Unlock Auto-Foam Unlocks (in automation tab': '解锁自动泡沫(在自动化页面',
     'Gain more of all types of Foam based on your Theoriverse completions': '根据学说宇宙的完成次数，增加所有类型的泡沫获取量',
     'Rocket Fuel boosts Entropy Gain': '根据火箭燃料数值，增加熵获取量',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
+    'Hyper Pathogen Upgrade scaling starts later based on your Ω Particles': '根据Ω 粒子数值，使病原体升级究级折算延迟出现',
+    'Magma makes the Entropy effect stronger': '根据岩浆数值，增加熵的效果',
+    'Theoretical Boosters make Ω Particles require less Entropy': '根据学说增强器数值，使Ω 粒子需要更少的熵来获取',
+    'The "Actually Useless Theories" achievement reward uses a better formula': '“完全无用的学说”成就奖励的公式变得更好',
+    'Ω Particles are stronger based on your Hadrons': '根据强子数值，增加Ω 粒子的效果',
+    'Accelerons & Inflatons boost Entropy gain': '根据加速子和暴胀子数值，增加熵获取量',
+    'The Fermion Boost & the Inflaton Boost are 8.5% stronger': '费米子加成和暴胀子加成的效果增加8.5%',
+    'Skyrmions make Ω Particles require less Entropy': '根据斯格明子数值，使Ω 粒子需要更少的熵来获取',
+    'Unlock Auto-Entropy, and gain 50% more Entropy (kept on Skyrmion reset': '解锁自动熵，并且熵获取量增加50%(斯格明子重置时保留',
+    'Unlock Auto-Entropy Upgrades, and all Foam types are gained 10x faster (kept on Skyrmion reset': '解锁自动熵升级，所有类型的泡沫获取量变为10倍(斯格明子重置时保留',
+    'Gain 1% of Elementary Particle, Fermion, & Boson gain every second (kept on Skyrmion reset': '每秒获得当前产量1%的基本例子，费米子和玻色子(斯格明子重置时保留',
+    'The Extreme mode nerf to pre-Infinity production is less lethal (^0.825 ->': '极限模式无限之前内容的产量减成变得更缓和(从^0.825变为^',
+    'Buying Theory Tree Upgrades does not spend Theory Points, and the last Inflaton effect does not become extremely softcapped (kept on Skyrmion reset': '购买学说树升级不再消耗学说点数，暴胀子的最后一个效果不再变为极端软上限(斯格明子重置时保留',
+    'Entropy boosts Skyrmion gain': '根据熵数值，增加斯格明子获取量',
+    'Gauge Force\'s effect uses a much better formula': '规范作用力的效果公式变得更好',
+    'Pions & Spinors make each other increase in cost 75% less (kept on Skyrmion reset': 'π介子和旋量使彼此的花费增加速度减少75%(斯格明子重置时保留',
+    'The Plasma Exponent is boosted by your Best Entropy': '根据最高熵数值，增加等离子体的指数',
+    'Unlock Auto-Theoretical Boosters, and Theoretical Boosters give many more Theory Points, but Theoretical Boosters are reset on Skyrmion reset (kept on Skyrmion reset': '解锁自动学说增强器，可以从学说增强器中获得更多学说点数，但学说增强器还是会在斯格明子重置时被重置的(斯格明子重置时保留',
+    'The Perk Accelerator never goes Weakened or Broken, and the Hadron effect interval is smaller based on your Hadrons': '特权加速器不再有加速效果和中止效果，并且根据强子的数值，减少强子获取学说点数的间隔',
+    'The first Inflaton effect uses a better formula, Pions & Spinors do not make each other increase in cost, and you can buy max Pion/Spinor Fields (kept on Skyrmion reset': '暴胀子的第一个效果公式变得更好，π介子和旋量不再使彼此的花费增加，您可以最大化购买π介子场和旋量场(斯格明子重置时保留',
+    'FU4 & EFU3 also multiply the upgrade\'s effect (but only at 20% upgrade power).': '熔炉升级 4和强化熔炉升级 3变为自身效果一定倍率(倍率为升级效果幂的20%)。',
     ' Entropy': ' 熵',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
+    'Pions': 'π介子',
+    'Spinors': '旋量',
+    'Reset Pion & Spinor Fields': '重置π介子场和旋量场',
+    'Reset Pion Field': '重置π介子场',
+    'Max Pion Field': '最大化π介子场',
+    'Import Pion Field': '导入π介子场',
+    'Export Pion Field': '导出π介子场',
+    'Reset Spinor Field': '重置旋量场',
+    'Max Spinor Field': '最大化旋量场',
+    'Import Spinor Field': '导入旋量场',
+    'Export Spinor Field': '导出旋量场',
+    'Dear Player,': '亲爱的玩家，',
+    'Welp you\'ve done it, you\'ve reached the end of the multiverse!': '很好，您终于到达了多宇宙的终点！',
+    'Sadly, more content won\'t be available for the time being...': '很遗憾的是，目前没有更多新内容了……',
+    'For now, just try another mode or something, I dunno.': '现在，您可以考虑换个模式接着玩，或者是干脆换游戏，怎么样都行。',
+    'Thanks for playing my game!': '总之，感谢您游玩我的游戏！',
+    'From Jacorb': 'Jacord敬上',
+    'P.S: If you\'re wondering why I put this message here, it\'s because it\'s prep for future content and because v2.0 may not be out for a while...': '如果您想知道这里为什么会有这么一条消息，原因是为了之后内容做准备，而且v2.0可能没那么快推出……',
     //基本结束
 
     //原样
@@ -521,7 +541,14 @@ var cnExcludeWhole = [
     /^(.*)启迪(.*)$/, //不抓取的内容
     /^(.*)使(.*)$/, //不抓取的内容
     /^(.*)将(.*)$/, //不抓取的内容
+    /^(.*)点(.*)$/, //不抓取的内容
+    /^(.*)子(.*)$/, //不抓取的内容
+    /^ ，因此(.*)$/, //不抓取的内容
+    /^到达(.*)$/, //不抓取的内容
     /^(.*)倍(.*)$/, //不抓取的内容
+    /^(.*)级(.*)$/, //不抓取的内容
+    /^(.*)次(.*)$/, //不抓取的内容
+    /^(.*)个(.*)$/, //不抓取的内容
     /^(.*)米(.*)$/, //不抓取的内容
     /^(.*)宇宙(.*)$/, //不抓取的内容
     /^(.*)秒(.*)$/, //不抓取的内容
