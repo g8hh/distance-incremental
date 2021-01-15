@@ -226,9 +226,9 @@ function setupHTML() {
 			col +
 			"Upg2' class='btn locked' onclick='tmp.elm.bos.buy(&quot;" +
 			col +
-			"&quot;, 2)'>Increase Quark & Lepton gain by " +
+			"&quot;, 2)'>将夸克和轻子的获取量增加 " +
 			showNum(10) +
-			"%.<br>Level: <span id='" +
+			"%。<br>Level: <span id='" +
 			col +
 			"Lvl2'></span><br>Currently: <span id='" +
 			col +

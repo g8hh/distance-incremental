@@ -271,8 +271,9 @@ var cnItems = {
     'Auto-Foam Unlocks': '自动泡沫解锁',
     'Auto-Entropy': '自动熵',
     'Auto-Entropy Upgrades': '自动熵升级',
-    'Mode: AMOUNT': '模式：数量',
-    'Mode: TIME': '模式：时间',
+    'Mode': '模式',
+    'AMOUNT': '数量',
+    'TIME': '时间',
     //自动化结束
 
     //时间反演
@@ -350,6 +351,10 @@ var cnItems = {
     'Anti-Red': '反红',
     'Anti-Green': '反绿',
     'Anti-Blue': '反蓝',
+    'Double gain of the anti version of this colour.': '将此颜色反色的获取量翻倍',
+    'Get ten free Theory Points.': '额外获得10点学说点数。',
+    'Total: +': '合计：+',
+    ' of these Gluons.': '该胶子。',
     'The Theoriverse': '学说宇宙',
     'Supersymmetry': '超对称理论',
     'The Theory Tree': '学说树',
