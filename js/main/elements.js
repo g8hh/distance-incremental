@@ -1427,7 +1427,7 @@ function updateQFHTML() {
 				locked: entGain.lt(1),
 			})
 			tmp.el.entropyGain.setTxt(showNum(entGain))
-			tmp.el.entropyNext.setTxt(entGain.lt(1e3)?("Next at "+showNum(getEntropyNext())+" Quantum Foam"):"")
+			tmp.el.entropyNext.setTxt(entGain.lt(1e3)?("到达 "+showNum(getEntropyNext())+" 量子泡沫后可获取下一个熵"):"")
 			tmp.el.entropyAmt.setTxt(showNum(player.elementary.entropy.amount))
 			tmp.el.entropyBest.setTxt(showNum(player.elementary.entropy.best))
 			tmp.el.entropyEff.setTxt(showNum(tmp.elm.entropy.eff))
