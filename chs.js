@@ -294,6 +294,18 @@ var cnItems = {
 
     //全体坍缩
     'Sacrifice all your cadavers into life essence.': '将所有残骸转化为生命精华。',
+    'Time goes by 100x faster, but this gets weaker the further you go (minimum 2x, at 50Mpc).': '时间加快100倍，但随着游戏进度效果减少(最少为2倍，在50兆秒差距时达到此数值)。',
+    'Time goes by faster.': '时间加快。',
+    'Start with 10 Rockets on reset.': '重置时直接获得10个火箭。',
+    'Start with 1 Rocket Fuel on reset.': '重置时直接获得1点火箭燃料',
+    'Unlock Fuelbot, and Cadaver gain is boosted by Time Cubes.': '解锁燃料机器人，根据时间方盒数值，增加残骸获取量。',
+    'Gain 10x more Rockets.': '火箭获取量变为10倍。',
+    'Keep Time Reversal upgrades on reset.': '重置时保留时间反演升级。',
+    'Time Speed multiplies Rocket gain at a reduced rate.': '时间速度以较低的倍率增加火箭获取量。',
+    'Gain 1% of Rocket gain every second (unaffected by Time Speed).': '每秒获得当前产量1%的火箭(不受时间速度影响)。',
+    'Life Essence boosts Cadaver gain.': '根据生命精华数值，增加残骸获取量。',
+    'Tiers do not reset Ranks.': '阶层不再重置级别。',
+    'Ranks do not reset anything.': '级别不再重置任何东西。',
     //全体坍缩结束
 
     //病原体

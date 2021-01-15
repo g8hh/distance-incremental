@@ -4,14 +4,14 @@ const ESSENCE_MILESTONES = {
 		req: new ExpantaNum(1),
 		desc: "Time goes by 100x faster, but this gets weaker the further you go (minimum 2x, at 50Mpc).",
 		disp: function () {
-			return showNum(collapseMile1Eff()) + "x";
+			return showNum(collapseMile1Eff()) + "倍";
 		}
 	},
 	2: { 
 		req: new ExpantaNum(2),
 		desc: "Time goes by faster.",
 		disp: function() {
-			return showNum(modeActive("extreme")?2:5)+"x"
+			return showNum(modeActive("extreme")?2:5)+"倍"
 		},
 	},
 	3: { req: new ExpantaNum(3), desc: "Start with 10 Rockets on reset." },
@@ -20,7 +20,7 @@ const ESSENCE_MILESTONES = {
 		req: new ExpantaNum(10),
 		desc: "Unlock Fuelbot, and Cadaver gain is boosted by Time Cubes.",
 		disp: function () {
-			return showNum(collapseMile5Eff()) + "x";
+			return showNum(collapseMile5Eff()) + "倍";
 		}
 	},
 	6: { req: new ExpantaNum(15), desc: "Gain 10x more Rockets." },
@@ -29,7 +29,7 @@ const ESSENCE_MILESTONES = {
 		req: new ExpantaNum(50),
 		desc: "Time Speed multiplies Rocket gain at a reduced rate.",
 		disp: function () {
-			return showNum(collapseMile8Eff()) + "x";
+			return showNum(collapseMile8Eff()) + "倍";
 		}
 	},
 	9: {
@@ -40,7 +40,7 @@ const ESSENCE_MILESTONES = {
 		req: new ExpantaNum(100),
 		desc: "Life Essence boosts Cadaver gain.",
 		disp: function () {
-			return showNum(collapseMile10Eff()) + "x";
+			return showNum(collapseMile10Eff()) + "倍";
 		}
 	},
 	11: { req: new ExpantaNum(1000), desc: "Tiers do not reset Ranks." },
