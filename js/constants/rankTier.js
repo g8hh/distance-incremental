@@ -1,42 +1,42 @@
 // Ranks
 
 const RANK_DESCS = {
-	1: "increase the maximum velocity by 1m/s.",
-	2: "increase the acceleration and maximum velocity by 10% for each rank up.",
-	3: "double your acceleration.",
-	4: "triple your acceleration & maximum velocity for each tier up.",
-	5: "increase the acceleration and maximum velocity by 97.5% for each rank up.",
-	8: "increase your maximum velocity by 10% for each rank up.",
-	10: "double your acceleration.",
-	14: "multiply your acceleration & maximum velocity by (n+1)^1.6, where n is your rocket fuel.",
-	15: "quadruple your acceleration.",
-	20: "double intelligence gain.",
-	25: "multiply your acceleration by 10.",
-	30: "triple intelligence gain.",
-	35: "time goes by 50% faster.",
-	40: "multiply intelligence gain by the number of primes less than or equal to your scrap amount (minimum 1, softcaps after 1,000,000,000 primes).",
-	45: "time goes by 80% faster.",
-	50: "multiply your acceleration by 15.",
-	55: "double your maximum velocity for each rank up.",
-	60: "double scrap gain.",
-	70: "time goes by 40% faster.",
-	75: "multiply your acceleration by 25.",
-	80: "time goes by 50% faster.",
-	90: "time goes by 75% faster.",
-	100: "double rocket gain.",
-	111: "double intelligence gain for each rank up.",
-	125: "time goes by 50% faster.",
-	150: "time goes by 55% faster.",
-	175: "time goes by 60% faster.",
-	200: "time goes by 70% faster.",
-	250: "time goes by 80% faster.",
-	300: "time goes by 90% faster.",
-	500: "time goes by 95% faster.",
-	1000: "time goes by 98% faster.",
-	10000: "time goes by 100% faster."
+	1: "最大速度增加1米/秒。",
+	2: "每次提升级别都使加速度和最大速度增加10%。",
+	3: "使加速度翻倍。",
+	4: "每次提升阶层都使加速度和最大速度变为原来的3倍。",
+	5: "每次提升级别都使加速度和最大速度增加97.5%。",
+	8: "每次提升级别都使最大速度增加10%。",
+	10: "使加速度翻倍。",
+	14: "加速度和最大速度变为某个数值的倍率，此数值为(n+1)^1.6，其中n为火箭燃料数值。",
+	15: "使加速度变为原来的4倍。",
+	20: "智慧的获取量翻倍。",
+	25: "使加速度变为原来的10倍。",
+	30: "智慧的获取量变为原来的3倍。",
+	35: "时间加快50%。",
+	40: "使智慧的获取量变为某个数值的倍率，此数值为不大于碎屑数值的质数数量(最小为1，在1000000000个质数后到达软上限)。",
+	45: "时间加快80%。",
+	50: "使加速度变为原来的15倍。",
+	55: "每次提升级别都使最大速度翻倍。",
+	60: "碎屑的获取量翻倍。",
+	70: "时间加快40%。",
+	75: "使加速度变为原来的25倍。",
+	80: "时间加快50%。",
+	90: "时间加快75%。",
+	100: "火箭的获取量翻倍。",
+	111: "每次提升级别都使智慧的获取量翻倍。",
+	125: "时间加快50%。",
+	150: "时间加快55%。",
+	175: "时间加快60%。",
+	200: "时间加快70%。",
+	250: "时间加快80%。",
+	300: "时间加快90%。",
+	500: "时间加快95%。",
+	1000: "时间加快98%。",
+	10000: "时间加快100%。"
 };
 
-const DEFAULT_RANK_DESC = "rank up.";
+const DEFAULT_RANK_DESC = "提升级别。";
 
 // Tiers
 
@@ -60,4 +60,4 @@ const TIER_DESCS = {
 	20: "time goes by 100% faster."
 };
 
-const DEFAULT_TIER_DESC = "tier up.";
+const DEFAULT_TIER_DESC = "提升阶层。";

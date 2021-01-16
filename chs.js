@@ -316,6 +316,20 @@ var cnItems = {
 
     //病原体
     'Time Reversal Upgrade 2 is boosted by your Pathogens.': '根据病原体数值，使时间反演升级 2的效果变得更好。',
+    'Rocket gain is boosted by your Cadavers.': '根据残骸数值，增加火箭的获取量。',
+    'Time Cube gain is boosted by your Cadavers.': '根据残骸数值，增加时间方盒的获取量。',
+    'Maximum Velocity is boosted by your Pathogens.': '根据病原体数值，加强最大速度的效果。',
+    'Boost Pathogen gain.': '增加病原体的获取量。',
+    'The transfer from Cadavers to Life Essence is more efficient.': '将残骸转换为生命精华的转换率变得更高。',
+    'The rocket gain softcap starts later.': '火箭获取量的软上限延迟出现。',
+    'The rocket effect softcap starts later.': '火箭效果的软上限延迟出现。',
+    'The cadaver gain softcap starts later.': '残骸获取量的软上限延迟出现。',
+    'The cadaver effect softcap starts later.': '残骸效果的软上限延迟出现。',
+    'Superscaled Rocket Fuel scaling starts later based on your Pathogens.': '根据病原体数值，使超级折算的火箭燃料延迟出现。',
+    'Scaled Dark Core scaling starts later based on your Rocket Fuel.': '根据火箭燃料数值，使折算的黑暗核心延迟出现。',
+    'Pathogen Upgrade 5 gets 2 extra Levels.': '病原体升级 5额外获得2级。',
+    'Scaled & Superscaled Rank scalings are weaker based on your Dark Cores.': '根据黑暗核心数值，使折算和超级折算的级别花费提升速度减少。',
+    'Scaled Endorsement scaling is slightly weaker.': '折算的认可花费提升速度略微减少。',
     //病原体结束
 
     //黑暗圆环
@@ -413,8 +427,8 @@ var cnItems = {
     'Pathogen Upgrades are 1% stronger for every Endorsement you have.': '每有1认可，病原体升级的效果就增加1%。',
     'Superscaled Rank & Tier scalings are weaker based on your Demonic Souls.': '根据恶魔灵魂数值，使超级折算的级别和阶层花费提升速度减少。',
     'Derivative Boosts give a better boost to Derivatives based on your Rank.': '根据级别数值，使导数提升的效果变得更好。',
-    'Rocket gain is multiplied by (n+1)^0.1, where n is your Time Cubes (softcaps at higher values).': '火箭获取量变为某个数值的倍率，此数值为(n+1)^0.1，其中n为时间方盒数值(在较高数值时达到软上限)。',
-    'Knowledge gain is multiplied by (n+1)^0.2, where n is your Ascension Power.': '知识获取量变为某个数值的倍率，此数值为(n+1)^0.2，其中n为飞升能量数值。',
+    'Rocket gain is multiplied by (n+1)^0.1, where n is your Time Cubes (softcaps at higher values).': '火箭的获取量变为某个数值的倍率，此数值为(n+1)^0.1，其中n为时间方盒数值(在较高数值时达到软上限)。',
+    'Knowledge gain is multiplied by (n+1)^0.2, where n is your Ascension Power.': '知识的获取量变为某个数值的倍率，此数值为(n+1)^0.2，其中n为飞升能量数值。',
     'Pathogen Upgrades are stronger based on your Scalar Bosons.': '根据标量玻色子数值，使病原体升级的效果变得更好。',
     'Superscaled Pathogen Upgrade scaling is weaker based on your Ascension Power, and Distance produces Snap at a reduced rate (unaffected by Time Speed).': '根据飞升能量数值，使超级折算的病原体升级花费提升速度减少。距离能够以较低的倍率产生加加加速度(不受时间速度的影响)。',
     'Velocital Energy boosts your Accelerational Energy at a reduced rate, and inf7;7\'s boost to Velocital Energy uses a better formula.': '速度能量能够以较低的倍率使加速能量的效果变得更好。无限7;7升级中，增加速度能量效果的公式变得更好。',
@@ -424,7 +438,7 @@ var cnItems = {
     'Leptons make Perks last longer.': '根据轻子数值，使特权持续更久。',
     'Hyper Rocket Fuel scaling starts 20 later.': '究级折算的火箭燃料延迟20次出现。',
     'The Perk Accelerator\'s boost to Perk Power uses a better formula.': '特权加速器增加特权效果的公式变得更好。',
-    'Gravitons are gained 100x as fast.': '引力子获取量变为100倍。',
+    'Gravitons are gained 100x as fast.': '引力子的获取量变为100倍。',
     'Dark Flow & Pathogen gain are increased by 90% for every Rank you have & by 750% for every Tier you have.': '黑暗流和病原体的获取量按以下规则获得提升：每有1级别增加90%，每有1阶层增加750%。',
     'Reset Stadium completions': '重置竞技场完成情况',
     'Reset Second-Row Stadium completions': '重置第二行竞技场完成情况',
