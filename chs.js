@@ -232,7 +232,7 @@ var cnItems = {
     'Blue Flame does nothing.': '蓝色火焰没有效果。',
     'Coal gain is raised to the power of 0.075 (before reduction': '煤的获取量变为原来的^0.075(在减成之前生效',
     'Time Reversal Upgrade 16 does not affect Coal gain, and Hyper Furnace Upgrade scaling is stuck at 9,999% strength': '时间反演升级 16不影响煤的获取量，并且究级折算的熔炉升级一直为9999%的折算倍率',
-    'Furnace Upgrade 1 does nothing, and the Blue Flame cost formula is faster': '熔炉升级 1没有效果，蓝色火焰的花费公式变得更糟糕',
+    'Furnace Upgrade 1 does nothing, and the Blue Flame cost formula is faster': '熔炉升级 1没有效果，蓝色火焰花费的公式变得更糟糕',
     'All Coal generation boosts from outside The Furnace is disabled (which includes Time Speed), and Blue Flame is weaker': '所有除了熔炉以外能够加成煤产量的因子都没有效果(包括时间速度)，蓝色火焰效果变得更弱',
     'Furnace Upgrades are 99.99% weaker, Enhanced Furnace Upgrades are 50% weaker, and Blue Flame & Enhanced Furnace Upgrades cost scale much faster. This challenge forces an Elementary reset instead of a Collapse reset.': '熔炉升级效果减弱99.99%，强化熔炉升级效果减弱50%，蓝色火焰和强化熔炉升级的花费提升速度变得更快。进行此挑战将同时进行一次基本重置，而不是坍缩重置。',
     'Goal': '目标',
@@ -412,10 +412,10 @@ var cnItems = {
     'Gain 666x more Gluons.': '胶子的获取量变为原来的666倍。',
     'The softcap to Pathogen Upgrade 1\'s effect is nerfed, and Pathogen Upgrade 1\'s formula is better.': '病原体升级 1的软上限效果减少，且病原体升级 1的公式变得更好。',
     'Unlock a new Furnace Challenge.': '解锁一个新的熔炉挑战。',
-    'Both Molten Brick effects use better formulas.': '熔融砖块的两个效果公式变得更好。',
+    'Both Molten Brick effects use better formulas.': '熔融砖块两个效果的公式变得更好。',
     'The final Enhanced Furnace Upgrade is stronger based on its level.': '根据强化熔炉的最后一个升级等级数值，使它的效果变得更好。',
     'Your Molten Bricks are doubled.': '熔融砖块翻倍。',
-    'The Magma Search requirement scales half as fast, and Magma\'s effect uses a better formula.': '岩浆搜索的需求增长速度减半，岩浆的效果公式变得更好。',
+    'The Magma Search requirement scales half as fast, and Magma\'s effect uses a better formula.': '岩浆搜索的需求增长速度减半，岩浆效果的公式变得更好。',
     'Raise Optimization effect to the power of the number of Higgs Boson upgrades and energy multiples Knowledge gain.': '将 优化 升级的效果变为一个数值的幂，此数值为希格斯玻色子升级数量，且根据能量数值，使知识的获取量乘以相应数值。',
     'Raise Storage to the tenth power and it also boosts Motivation.': '将 存储 升级变为原来的十次方，且它还可以使动力的效果变得更好。',
     'Square each Omnipotence and Storage': '使每个 全能 升级和 存储 升级变为原来的平方',
@@ -439,33 +439,6 @@ var cnItems = {
     'Hadrons': '强子',
     'Magma': '岩浆',
     'Misc.': '杂项',
-    'Supersymmetric Particles are gained faster based on your Higgs Bosons.': '根据希格斯玻色子数值，增加超对称粒子的获取量。',
-    'Boost Knowledge gain & Higgs Boson gain.': '增加知识的获取量和希格斯玻色子的获取量。',
-    'inf4;10 is stronger based on your # of achievements gotten.': '根据成就完成数量，使无限4;10升级的效果变得更好',
-    'The Theoriverse\'s nerf is weakened.': '使学说宇宙的减成更加缓和。',
-    'Triple Supersymmetric Particle gain.': '超对称粒子的获取量变为三倍。',
-    'Entangled String gain is boosted by your Elementaries.': '根据基本重置次数，增加纠缠弦的获取量',
-    'Scaled Endorsement scaling starts later based on your Primary Strings, and Knowledge gain is boosted in Theoriverse runs.': '根据一维弦数值，使折算的认可延迟出现，且在学说宇宙中增加知识的获取量。',
-    'Superscaled Rocket Fuel scaling is weaker.': '超级折算的火箭燃料花费提升速度减少。',
-    'Preons are gained faster based on your Fermions.': '根据费米子数值，增加前子的获取量。',
-    'Theoretical Boosters cost less.': '学说增强器花费更少。',
-    'The above upgrade gets extra levels added to its effect based on your Preons.': '上方的升级根据前子数值，额外增加效果的等级。',
-    'Accelerons are generated faster based on your Supersymmetric Wave length.': '根据超对称波长度，增加加速子的产量。',
-    'Pathogen Upgrades are stronger based on your Bosons.': '根据玻色子数值，使病原体升级的效果变得更好。',
-    'The Secondary String effect is stronger.': '增加二维弦的效果。',
-    'The Tertiary String effect is stronger.': '增加三维弦的效果。',
-    'The Quaternary String effect is stronger.': '增加四维弦的效果。',
-    'The Quinary String effect is stronger.': '增加五维弦的效果。',
-    'The Senary String effect is stronger.': '增加六维弦的效果。',
-    'The Septenary String effect is stronger.': '增加七维弦的效果。',
-    'The EP gain softcap is 50% weaker.': '基本粒子获取量软上限效果减少50%。',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
     'Unlock Strings': '解锁弦',
     'Cost: 7 Theory Points': '花费：7 学说点数',
     'Unlock Preons': '解锁前子',
@@ -526,12 +499,12 @@ var cnItems = {
     'The Extreme mode nerf to pre-Infinity production is less lethal (^0.825 ->': '极限模式无限之前内容的产量减成变得更缓和(从^0.825变为^',
     'Buying Theory Tree Upgrades does not spend Theory Points, and the last Inflaton effect does not become extremely softcapped (kept on Skyrmion reset': '购买学说树升级不再花费学说点数，暴胀子的最后一个效果不再变为极端软上限(斯格明子重置时保留',
     'Entropy boosts Skyrmion gain': '根据熵数值，增加斯格明子的获取量',
-    'Gauge Force\'s effect uses a much better formula': '规范作用力的效果公式变得更好',
+    'Gauge Force\'s effect uses a much better formula': '规范作用力效果的公式变得更好',
     'Pions & Spinors make each other increase in cost 75% less (kept on Skyrmion reset': 'π介子和旋量使彼此的花费增加速度减少75%(斯格明子重置时保留',
     'The Plasma Exponent is boosted by your Best Entropy': '根据最高熵数值，增加等离子体的指数',
     'Unlock Auto-Theoretical Boosters, and Theoretical Boosters give many more Theory Points, but Theoretical Boosters are reset on Skyrmion reset (kept on Skyrmion reset': '解锁自动学说增强器，可以从学说增强器中获得更多学说点数，但学说增强器还是会在斯格明子重置时被重置的(斯格明子重置时保留',
     'The Perk Accelerator never goes Weakened or Broken, and the Hadron effect interval is smaller based on your Hadrons': '特权加速器不再有加速效果和中止效果，并且根据强子数值，减少强子获取学说点数的间隔',
-    'The first Inflaton effect uses a better formula, Pions & Spinors do not make each other increase in cost, and you can buy max Pion/Spinor Fields (kept on Skyrmion reset': '暴胀子的第一个效果公式变得更好，π介子和旋量不再使彼此的花费增加，您可以最大化购买π介子场和旋量场(斯格明子重置时保留',
+    'The first Inflaton effect uses a better formula, Pions & Spinors do not make each other increase in cost, and you can buy max Pion/Spinor Fields (kept on Skyrmion reset': '暴胀子第一个效果的公式变得更好，π介子和旋量不再使彼此的花费增加，您可以最大化购买π介子场和旋量场(斯格明子重置时保留',
     'FU4 & EFU3 also multiply the upgrade\'s effect (but only at 20% upgrade power).': '熔炉升级 4和强化熔炉升级 3变为自身效果一定倍率(倍率为升级效果幂的20%)。',
     ' Entropy': ' 熵',
     'Pions': 'π介子',
@@ -662,6 +635,18 @@ var cnExcludeWhole = [
     /^(.*)子(.*)$/, //不抓取的内容
     /^(.*)为(.*)$/, //不抓取的内容
     /^(.*)加(.*)$/, //不抓取的内容
+    /^(.*)上(.*)$/, //不抓取的内容
+    /^(.*)下(.*)$/, //不抓取的内容
+    /^(.*)粲(.*)$/, //不抓取的内容
+    /^(.*)奇(.*)$/, //不抓取的内容
+    /^(.*)顶(.*)$/, //不抓取的内容
+    /^(.*)底(.*)$/, //不抓取的内容
+    /^(.*)电(.*)$/, //不抓取的内容
+    /^(.*)缪(.*)$/, //不抓取的内容
+    /^(.*)陶(.*)$/, //不抓取的内容
+    /^(.*)中微(.*)$/, //不抓取的内容
+    /^(.*)振荡(.*)$/, //不抓取的内容
+    /^(.*)普西(.*)$/, //不抓取的内容
     /^ ，因此(.*)$/, //不抓取的内容
     /^到达(.*)$/, //不抓取的内容
     /^无限(.*)$/, //不抓取的内容
