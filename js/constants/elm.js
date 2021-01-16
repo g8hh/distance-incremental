@@ -922,7 +922,7 @@ const SKY_FIELDS = {
 		costMult: new ExpantaNum(20),
 		pionEff(bought) { return ExpantaNum.mul(ExpantaNum.sqrt(bought), 0.15).plus(1).pow(0.8) },
 		spinorEff(bought) { return ExpantaNum.mul(ExpantaNum.sqrt(bought), 0.4).plus(1).pow(0.9) },
-		desc(eff) { return showNum(eff.sub(1).times(100))+"% stronger" },
+		desc(eff) { return "增加"+showNum(eff.sub(1).times(100))+"%" },
 	},
 	3: {
 		req: 5,
@@ -932,7 +932,7 @@ const SKY_FIELDS = {
 		costMult: new ExpantaNum(100),
 		pionEff(bought) { return player.elementary.sky.amount.plus(1).log10().plus(1).log10().times(ExpantaNum.sqrt(bought)).sqrt().plus(1) },
 		spinorEff(bought) { return player.elementary.sky.amount.plus(1).log10().times(ExpantaNum.sqrt(bought)).plus(1).sqrt() },
-		desc(eff) { return showNum(eff)+"x" },
+		desc(eff) { return showNum(eff)+"倍" },
 	},
 	4: {
 		req: 20,
@@ -942,7 +942,7 @@ const SKY_FIELDS = {
 		costMult: new ExpantaNum(10),
 		pionEff(bought) { return ExpantaNum.mul(ExpantaNum.sqrt(bought), .2).plus(1) },
 		spinorEff(bought) { return ExpantaNum.mul(ExpantaNum.pow(bought, .4), .25).plus(1) },
-		desc(eff) { return showNum(eff.sub(1).times(100))+"% stronger" },
+		desc(eff) { return "增加"+showNum(eff.sub(1).times(100))+"%" },
 	},
 	5: {
 		req: 20,
@@ -952,7 +952,7 @@ const SKY_FIELDS = {
 		costMult: new ExpantaNum(10),
 		pionEff(bought) { return player.elementary.sky.amount.plus(1).pow(bought).pow(400) },
 		spinorEff(bought) { return player.elementary.sky.amount.plus(1).pow(bought).pow(10) },
-		desc(eff) { return showNum(eff)+"x" },
+		desc(eff) { return showNum(eff)+"倍" },
 	},
 	6: {
 		req: 100,
@@ -962,7 +962,7 @@ const SKY_FIELDS = {
 		costMult: new ExpantaNum(1e3),
 		pionEff(bought) { return player.rank.max(1).pow(bought) },
 		spinorEff(bought) { return player.elementary.particles.plus(1).log10().times(50).plus(1).pow(bought) },
-		desc(eff) { return showNum(eff)+"x" },
+		desc(eff) { return showNum(eff)+"倍" },
 	},
 	7: {
 		req: 100,
@@ -972,7 +972,7 @@ const SKY_FIELDS = {
 		costMult: new ExpantaNum(15),
 		pionEff(bought) { return player.inf.derivatives.unlocks.div(10).times(bought).plus(1).sqrt() },
 		spinorEff(bought) { return tmp.elm.entropy.omega.div(10).times(bought).plus(1).sqrt() },
-		desc(eff) { return showNum(eff.sub(1).times(100))+"% stronger" },
+		desc(eff) { return "增加"+showNum(eff.sub(1).times(100))+"%" },
 	},
 	8: {
 		req: 750,
@@ -982,11 +982,11 @@ const SKY_FIELDS = {
 		costMult: new ExpantaNum(1e5),
 		pionEff(bought) { return ExpantaNum.pow(100, bought) },
 		spinorEff(bought) { return ExpantaNum.pow(100, bought) },
-		desc(eff) { return showNum(eff)+"x cheaper" },
+		desc(eff) { return "便宜"+showNum(eff)+"倍" },
 	},
 	9: {
 		req: 750,
-		pionDesc: 'The "时骨无存" effect is raised to an exponent.',
+		pionDesc: 'The "Time Doesnt Exist" effect is raised to an exponent.',
 		spinorDesc: "The Entropy effect is raised to an exponent.",
 		baseCost: new ExpantaNum(1e24),
 		costMult: new ExpantaNum(1e6),
@@ -1002,7 +1002,7 @@ const SKY_FIELDS = {
 		costMult: new ExpantaNum(1e5),
 		pionEff(bought) { return ExpantaNum.sub(.8, ExpantaNum.div(.8, ExpantaNum.add(ExpantaNum.mul(bought, 2), 1).log10().div(2).plus(1))) },
 		spinorEff(bought) { return ExpantaNum.sub(.75, ExpantaNum.div(.75, ExpantaNum.add(ExpantaNum.mul(bought, 2), 1).log10().plus(1))) },
-		desc(eff) { return showNum(eff.times(100))+"% weaker" },
+		desc(eff) { return "缓和"+showNum(eff.times(100))+"%" },
 	},
 	11: {
 		req: 2500,
@@ -1032,7 +1032,7 @@ const SKY_FIELDS = {
 		costMult: new ExpantaNum(1e12),
 		pionEff(bought) { return player.elementary.theory.inflatons.amount.plus(1).log10().div(1e3).sqrt().times(bought).plus(1).root(5) },
 		spinorEff(bought) { return player.inf.ascension.power.plus(1).log10().div(1e3).sqrt().times(bought).plus(1).sqrt() },
-		desc(eff) { return showNum(eff.sub(1).times(100))+"% stronger" },
+		desc(eff) { return "增加"+showNum(eff.sub(1).times(100))+"%" },
 	},
 }
 const GREEK_LETTERS = [null, "alpha", "beta", "gamma", "delta", "epsilon", "zeta", "eta", "theta", "iota", "kappa", "lambda", "mu", "nu", "xi", "omicron", "pi", "rho", "sigmaf", "sigma", "tau", "upsilon", "phi", "chi", "psi", "omega"];
