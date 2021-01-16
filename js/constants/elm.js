@@ -21,22 +21,22 @@ const ELM_TABS = {
 
 const QUARK_NAMES = ["上", "下", "粲", "奇", "顶", "底"];
 const QUARK_DESCS = {
-	上: "增加火箭获取量。",
-	下: "增加残骸获取量。",
-	粲: "增加知识获取量。",
-	奇: "根据费米子数值，增加病原体获取量。",
-	顶: "增加轻子获取量。",
-	底: "增加飞升能量获取量。"
+	上: "增加火箭的获取量。",
+	下: "增加残骸的获取量。",
+	粲: "增加知识的获取量。",
+	奇: "根据费米子数值，增加病原体的获取量。",
+	顶: "增加轻子的获取量。",
+	底: "增加飞升能量的获取量。"
 };
 
 const LEPTON_NAMES = ["电", "缪", "陶", "中微", "振荡", "普西"];
 const LEPTON_DESCS = {
 	电: "增加特权效果。",
 	缪: "增加残骸效果。",
-	陶: "根据知识数值，增加知识获取量。",
+	陶: "根据知识数值，增加知识的获取量。",
 	中微: "增加病原体升级效果。",
 	振荡: "增加导数提升效果。",
-	普西: "增加夸克获取量。"
+	普西: "增加夸克的获取量。"
 };
 
 const PHOTON_UPGS = 4;
@@ -293,7 +293,7 @@ const TREE_UPGS = {
 			if (ret.gte(100)) ret = ret.log10().pow(new ExpantaNum(100).logBase(2)).min(ret.cbrt().times(Math.pow(100, 2/3)))
 			return ret
 		},
-		effD: function(e) { return showNum(e)+"x" },
+		effD: function(e) { return showNum(e)+"倍" },
 	},
 	2: {
 		cost: function(bought) { return bought.pow(2).plus(1) },
@@ -301,7 +301,7 @@ const TREE_UPGS = {
 		cap: new ExpantaNum(50),
 		desc: "Boost Knowledge gain & Higgs Boson gain.",
 		effect: function(bought) { return ExpantaNum.pow(100, new ExpantaNum(bought).sqrt()) },
-		effD: function(e) { return showNum(e)+"x" },
+		effD: function(e) { return showNum(e)+"倍" },
 	},
 	3: {
 		cost: function(bought) { return bought.pow(3).plus(1) },
@@ -309,7 +309,7 @@ const TREE_UPGS = {
 		cap: new ExpantaNum(20),
 		desc: "inf4;10 is stronger based on your # of achievements gotten.",
 		effect: function(bought) { return ExpantaNum.mul(player.achievements.length, ExpantaNum.mul(0.0001, bought)) },
-		effD: function(e) { return "Exponent of effect: "+showNum(5)+" -> "+showNum(e.plus(5)) },
+		effD: function(e) { return "效果指数："+showNum(5)+" -> "+showNum(e.plus(5)) },
 	},
 	4: {
 		cost: function(bought) { return ExpantaNum.pow(5, bought).times(4) },
@@ -317,7 +317,7 @@ const TREE_UPGS = {
 		cap: new ExpantaNum(10),
 		desc: "The Theoriverse's nerf is weakened.",
 		effect: function(bought) { return new ExpantaNum(bought).plus(1).times(10).slog(10).sub(1).times(7.6).max(0) },
-		effD: function(e) { return "-"+showNum(e)+" Depths" },
+		effD: function(e) { return "-"+showNum(e)+"深度" },
 	},
 	5: {
 		cost: function(bought) { return ExpantaNum.pow(2, bought).times(4) },
@@ -325,7 +325,7 @@ const TREE_UPGS = {
 		cap: new ExpantaNum(15),
 		desc: "Triple Supersymmetric Particle gain.",
 		effect: function(bought) { return ExpantaNum.pow(3, bought) },
-		effD: function(e) { return showNum(e)+"x" },
+		effD: function(e) { return showNum(e)+"倍" },
 	},
 	6: {
 		unl: function() { return player.elementary.theory.strings.unl },
@@ -334,7 +334,7 @@ const TREE_UPGS = {
 		cap: new ExpantaNum(40),
 		desc: "Entangled String gain is boosted by your Elementaries.",
 		effect: function(bought) { return player.elementary.times.plus(1).pow(new ExpantaNum(bought).pow(0.15).div(5)) },
-		effD: function(e) { return showNum(e)+"x" },
+		effD: function(e) { return showNum(e)+"倍" },
 	},
 	7: {
 		unl: function() { return player.elementary.theory.strings.unl },
@@ -343,7 +343,7 @@ const TREE_UPGS = {
 		cap: new ExpantaNum(5),
 		desc: "Scaled Endorsement scaling starts later based on your Primary Strings, and Knowledge gain is boosted in Theoriverse runs.",
 		effect: function(bought) { return player.elementary.theory.strings.amounts[0].plus(1).times(10).slog(10).log10().div(5).times(new ExpantaNum(bought).times(75)) },
-		effD: function(e) { return "Scaling: "+showNum(e)+" later, Knowledge gain: "+showNum(e.plus(1).pow(10))+"x" },
+		effD: function(e) { return "延迟："+showNum(e)+"次出现，知识的获取量："+showNum(e.plus(1).pow(10))+"倍" },
 	},
 	8: {
 		unl: function() { return player.elementary.theory.preons.unl },
@@ -355,7 +355,7 @@ const TREE_UPGS = {
 			if (new ExpantaNum(bought).gte(16)) bought = ExpantaNum.sub(20, ExpantaNum.div(20, ExpantaNum.sub(bought, 11)));
 			return ExpantaNum.mul(0.05, bought) 
 		},
-		effD: function(e) { return showNum(e.times(100))+"% weaker" },
+		effD: function(e) { return "减少"+showNum(e.times(100))+"%" },
 	},
 	9: {
 		unl: function() { return player.elementary.theory.preons.unl },
@@ -364,7 +364,7 @@ const TREE_UPGS = {
 		cap: new ExpantaNum(90),
 		desc: "Preons are gained faster based on your Fermions.",
 		effect: function(bought) { return player.elementary.fermions.amount.pow(0.2).times(new ExpantaNum(bought).pow(2)).plus(1) },
-		effD: function(e) { return showNum(e)+"x" },
+		effD: function(e) { return showNum(e)+"倍" },
 	},
 	10: {
 		unl: function() { return player.elementary.theory.preons.unl },
@@ -373,7 +373,7 @@ const TREE_UPGS = {
 		cap: new ExpantaNum(10),
 		desc: "Theoretical Boosters cost less.",
 		effect: function(bought) { return ExpantaNum.pow(ExpantaNum.add(bought, 1), 3) },
-		effD: function(e) { return showNum(e)+"x cheaper" },
+		effD: function(e) { return "便宜"+showNum(e)+"倍" },
 	},
 	11: {
 		unl: function() { return player.elementary.theory.preons.unl },
@@ -382,7 +382,7 @@ const TREE_UPGS = {
 		cap: new ExpantaNum(5),
 		desc: "The above upgrade gets extra levels added to its effect based on your Preons.",
 		effect: function(bought) { return player.elementary.theory.preons.amount.plus(1).times(10).slog(10).times(bought) },
-		effD: function(e) { return showNum(e)+" extra levels" },
+		effD: function(e) { return "额外"+showNum(e)+"级" },
 	},
 	12: {
 		unl: function() { return player.elementary.theory.accelerons.unl },
@@ -391,7 +391,7 @@ const TREE_UPGS = {
 		cap: new ExpantaNum(12),
 		desc: "Accelerons are generated faster based on your Supersymmetric Wave length.",
 		effect: function(bought) { return tmp.elm.theory.ss.wavelength.plus(1).pow(0.04).pow(bought) },
-		effD: function(e) { return showNum(e)+"x" },
+		effD: function(e) { return showNum(e)+"倍" },
 	},
 	13: {
 		unl: function() { return player.elementary.theory.accelerons.unl },
@@ -462,7 +462,7 @@ const TREE_UPGS = {
 		cap: new ExpantaNum(1),
 		desc: "The EP gain softcap is 50% weaker.",
 		effect: function(bought) { return new ExpantaNum(0.5).times(bought) },
-		effD: function(e) { return showNum(e.times(100))+"% weaker" },
+		effD: function(e) { return "减少"+showNum(e.times(100))+"%" },
 	},
 	21: {
 		unl: function() { return hasDE(5) },
