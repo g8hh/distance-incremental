@@ -389,7 +389,7 @@ const TREE_UPGS = {
 		cost: function(bought) { return ExpantaNum.mul(100, bought.sqrt().plus(1)).floor() },
 		target: function(points) { return points.div(100).sub(1).pow(2).plus(1).floor() },
 		cap: new ExpantaNum(12),
-		desc: "根据超对称波长度，增加加速子的产量。",
+		desc: "根据超对称波长度，使加速子的产量变得更多。",
 		effect: function(bought) { return tmp.elm.theory.ss.wavelength.plus(1).pow(0.04).pow(bought) },
 		effD: function(e) { return showNum(e)+"倍" },
 	},

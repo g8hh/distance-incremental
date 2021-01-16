@@ -736,52 +736,52 @@ const PERK_NAMES = ["神格", "神圣", "圣徒", "荣光"];
 // The Stadium
 const STADIUM_DESCS = {
 	spaceon: [
-		"You cannot gain Rockets",
-		"Time Speed is raised to the power of 0.1",
-		"You cannot gain Life Essence",
-		"inf1;1 does nothing",
-		"The base cost of Ranks is much higher",
-		"The base cost of Tiers is much higher"
+		"无法获得火箭",
+		"时间速度变为原来的0.1次方",
+		"无法获得生命精华",
+		"无限1;1失效",
+		"级别的基础花费增加很多",
+		"阶层的基础花费增加很多"
 	],
 	solaris: [
-		"You cannot gain Cadavers",
-		"Scaled Rocket Fuel scaling starts instantly",
-		"Scaled Rank scaling starts instantly",
-		"Scaled Rank scaling is 500% stronger",
-		"The base cost of Tiers is much higher",
-		"The base cost of Ranks is much higher"
+		"无法获得残骸",
+		"折算的火箭燃料立刻出现",
+		"折算的级别立刻出现",
+		"折算的级别花费提升速度增加500%",
+		"阶层的基础花费增加很多",
+		"级别的基础花费增加很多"
 	],
 	infinity: [
-		"You cannot Rank or Tier up",
-		"Maximum Velocity is raised to the power of 0.1",
-		"Rocket Fuel does nothing",
-		"Scaled Pathogen Upgrade scaling is 500% stronger",
-		"Pathogen Upgrades are 90% weaker",
-		"You do not gain Time Cubes"
+		"无法提升级别和阶层",
+		"最大速度变为原来的0.1次方",
+		"火箭燃料失效",
+		"折算的病原体升级花费提升速度增加500%",
+		"病原体升级的效果减少90%",
+		"无法获得时间方盒"
 	],
 	eternity: [
-		"Time Speed does nothing",
-		"Dark Flow is always 0x",
-		"Pathogen Upgrades are 90% weaker",
-		"Scaled Tier scaling is 500% stronger",
-		"You do not gain Time Cubes",
-		"Pathogen Upgrades do nothing"
+		"时间速度失效",
+		"黑暗流永远为0倍",
+		"病原体升级的效果减少90%",
+		"折算的阶层花费提升速度增加500%",
+		"无法获得时间方盒",
+		"病原体升级失效"
 	],
 	reality: [
-		"All resource gain before Infinity is raised to the power of 0.1",
-		"Time Speed does nothing",
-		"Maximum Velocity is raised to the power of 0.1",
-		"Acceleration is raised to the power of 0.1",
-		"You cannot buy Dark Cores",
-		"Pathogen Upgrades do nothing"
+		"无限之前的所有资源获取量变为原来的0.1次方",
+		"时间速度失效",
+		"最大速度变为原来的0.1次方",
+		"加速度变为原来的0.1次方",
+		"无法购买黑暗核心",
+		"病原体升级失效"
 	],
 	drigganiz: [
-		"Pathogen Upgrades do nothing & Time Speed is raised to the power of 0.1",
-		"Scaled Rank scaling starts instantly",
-		"Scaled Tier scaling starts instantly",
-		"Scaled Rank & Scaled Tier scalings are 500% stronger",
-		"You do not gain Rockets or Cadavers",
-		"You cannot buy Dark Cores"
+		"病原体升级失效，时间速度变为原来的0.1次方",
+		"折算的级别立刻出现",
+		"折算的阶层立刻出现",
+		"折算的级别和阶层花费提升速度增加500%",
+		"无法获得火箭和残骸",
+		"无法购买黑暗核心"
 	]
 };
 const STADIUM_REWARDS = {
