@@ -731,7 +731,7 @@ const INF_TABS = {
 
 // Ascension
 const BASE_PERK_TIME = new ExpantaNum(12);
-const PERK_NAMES = ["godhood", "holy", "sainthood", "glory"];
+const PERK_NAMES = ["神格", "神圣", "圣徒", "荣光"];
 
 // The Stadium
 const STADIUM_DESCS = {

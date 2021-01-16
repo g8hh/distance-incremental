@@ -507,7 +507,7 @@ function updateAscensionHTML(){
 				});
 				tmp.el["perk" + i].setHTML(
 					capitalFirst(PERK_NAMES[i - 1]) +
-						" Perk" +
+						"特权" +
 						(tmp.inf.asc.perkActive(i) ? (": " + formatTime(player.inf.ascension.time[i - 1])+(player.automators["perks"]?"":"<br>(click to disable)")) : "")
 				);
 				tmp.el["perkEff" + i].setTxt(showNum(tmp.inf.asc.perkEff(i)));
