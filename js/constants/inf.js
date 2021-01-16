@@ -785,12 +785,12 @@ const STADIUM_DESCS = {
 	]
 };
 const STADIUM_REWARDS = {
-	spaceon: "inf1;1 is stronger based on your Rockets.",
-	solaris: "Superscaled Rank scaling starts later based on your Cadavers.",
-	infinity: "The Rocket Fuel effect is twice as powerful.",
-	eternity: "Endorsements & Ascension Power make Ranks boost Time Speed.",
-	reality: "Time Cubes are thrice as powerful.",
-	drigganiz: "Pathogen Upgrades are 0.75% stronger for every achievement you have.",
+	spaceon: "根据火箭数值，使无限1;1升级的效果变得更好。",
+	solaris: "根据残骸数值，使超级折算的级别延迟出现。",
+	infinity: "火箭燃料的效果翻倍。",
+	eternity: "根据认可和飞升能量数值，使级别可以加快时间速度。",
+	reality: "时间方盒的效果变为三倍。",
+	drigganiz: "每获得一个成就，病原体升级的效果就增加0.75%。",
 	effects: {
 		spaceon: function () {
 			let mult = tmp.inf.pantheon.chipBoost;
@@ -831,7 +831,7 @@ const STADIUM_REWARDS = {
 			return "+" + showNum(STADIUM_REWARDS.effects.solaris());
 		},
 		eternity: function () {
-			return "x" + showNum(STADIUM_REWARDS.effects.eternity());
+			return showNum(STADIUM_REWARDS.effects.eternity()) + "倍";
 		},
 		drigganiz: function () {
 			return "+" + showNum(STADIUM_REWARDS.effects.drigganiz().times(100)) + "%";
@@ -892,14 +892,14 @@ const STADIUM_GOALS = {
 const EXTREME_STADIUM_DATA = {
 	flamis: {
 		descs: [
-			"Rank Cheapeners & Furnace Challenge rewards do nothing",
-			"Time Reversal Upgrade 30 does nothing",
-			"Pathogen Upgrades are half as strong",
-			"Furnace Upgrade 4 does nothing",
-			"Coal gain is raised to the power of 0.2",
-			"You are trapped in Spaceon's Stadium Challenge at its set difficulty.",
+			"级别降价器和熔炉挑战的奖励失效",
+			"时间反演升级 30失效",
+			"病原体升级的效果减半",
+			"熔炉升级 4失效",
+			"煤的获取量变为原来的0.2次方",
+			"强制以设定的难度等级进行天奥竞技场挑战。",
 		],
-		reward: "Superscaled Rank Cheapener scaling is 90% weaker.",
+		reward: "超级折算的级别降价器花费提升速度减少90%。",
 		goals: [
 			new ExpantaNum("1e1600").times(DISTANCES.宇宙),
 			new ExpantaNum("1e1750").times(DISTANCES.宇宙),
@@ -911,14 +911,14 @@ const EXTREME_STADIUM_DATA = {
 	},
 	cranius: {
 		descs: [
-			"You are trapped in all Furnace Challenges at once",
-			"You get 90% less Free Rank Cheapeners",
-			"Time Reversal Upgrades do nothing",
-			"Pathogen Upgrades are weaker based on your Tier",
-			"Rank Cheapeners make Tiers more expensive",
-			"You are trapped in Solaris's Stadium Challenge at its set difficulty.",
+			"强制同时进行所有熔炉挑战",
+			"额外级别降价器的数量减少90%",
+			"时间反演升级失效",
+			"根据阶层数值，使病原体升级的效果变得更弱",
+			"级别降价器使级别花费更高",
+			"强制以设定的难度等级进行索拉里斯竞技场挑战。",
 		],
-		reward: "Knowledge gain is boosted by second row Stadium Completions.",
+		reward: "根据第二行竞技场挑战的完成数量，增加知识的获取量。",
 		goals: [
 			new ExpantaNum("1e1390").times(DISTANCES.宇宙),
 			new ExpantaNum("1e1500").times(DISTANCES.宇宙),
@@ -933,18 +933,18 @@ const EXTREME_STADIUM_DATA = {
 			let ret = ExpantaNum.pow(4.8, x);
 			return ret;
 		},
-		disp: function() { return showNum(EXTREME_STADIUM_DATA.cranius.effect())+"x" },
+		disp: function() { return showNum(EXTREME_STADIUM_DATA.cranius.effect())+"倍" },
 	},
 	spectra: {
 		descs: [
-			"The Extreme mode reduction to pre-Infinity resource gain is twice as lethal",
-			"Coal does nothing",
-			"All Stadium Challenge rewards do nothing",
-			"Dark Fluid does nothing",
-			"inf1;1 does nothing",
-			"You are trapped in Infinity's Stadium Challenge at its set difficulty.",
+			"极限模式无限之前内容的产量减成翻倍",
+			"煤失效",
+			"所有竞技场挑战的奖励失效",
+			"黑暗流体失效",
+			"无限1;1升级失效",
+			"强制以设定的难度等级进行无限竞技场挑战。",
 		],
-		reward: "Rank Cheapeners use a weaker cost formula based on their amount.",
+		reward: "级别降价器基于自身的数量，花费公式变得更缓和。",
 		goals: [
 			new ExpantaNum("1e3200").times(DISTANCES.宇宙),
 			new ExpantaNum("1e3750").times(DISTANCES.宇宙),
@@ -954,18 +954,18 @@ const EXTREME_STADIUM_DATA = {
 			new ExpantaNum("1e4650").times(DISTANCES.宇宙),
 		],
 		effect: function() { return player.rankCheap.times(tmp.rankCheap.manPow).times(tmp.rankCheap.pow).pow(0.4).plus(1) },
-		disp: function() { return showNum(EXTREME_STADIUM_DATA.spectra.effect())+"x weaker" },
+		disp: function() { return "减少"+showNum(EXTREME_STADIUM_DATA.spectra.effect())+"倍" },
 	},
 	aqualon: {
 		descs: [
-			"All pre-Infinity resource generation is divided by 9e15",
-			"You cannot buy Rocket Fuel",
-			"Pathogen Upgrades are weaker based on your Rank",
-			"You cannot Tier up",
-			"Time Speed is raised to the power of 0.1",
-			"You are trapped in Eternity's Stadium Challenge at its set difficulty.",
+			"无限之前的所有资源获取量除以9e15",
+			"无法购买火箭燃料",
+			"根据级别数值，使病原体升级的效果变得更弱",
+			"无法提升阶层",
+			"时间速度变为原来的0.1次方",
+			"强制以设定的难度等级进行永恒竞技场挑战。",
 		],
-		reward: "All pre-Infinity resources are generated 3x faster.",
+		reward: "无限之前的所有资源获取量变为3倍。",
 		goals: [
 			new ExpantaNum("1e1500").times(DISTANCES.宇宙),
 			new ExpantaNum("1e1625").times(DISTANCES.宇宙),
@@ -977,14 +977,14 @@ const EXTREME_STADIUM_DATA = {
 	},
 	nullum: {
 		descs: [
-			"60% of the exponent of your acceleration is nullified (increases by 5% for each difficulty level after 1)",
-			"10% of the exponent of your maximum velocity is nullified (increases by 2% for each difficulty level after 2)",
-			"20% of your Pathogen Upgrade 效果 is nullified",
-			"25% of the exponent of your Rockets is nullified",
-			"Furnace Upgrade 4 does nothing",
-			"You are trapped in Reality's Stadium Challenge at its set difficulty.",
+			"加速度60%的指数被无效(难度等级从1级开始，每增加1级再增加5%)",
+			"最大速度10%的指数被无效(难度等级从2级开始，每增加1级再增加2%)",
+			"病原体升级效果20%的指数被无效",
+			"火箭25%的指数被无效",
+			"熔炉升级 4失效",
+			"强制以设定的难度等级进行现实竞技场挑战。",
 		],
-		reward: "All perks are 25% stronger.",
+		reward: "所有特权的效果增加25%。",
 		goals: [
 			new ExpantaNum("1e2000").times(DISTANCES.宇宙),
 			new ExpantaNum("1e2250").times(DISTANCES.宇宙),
@@ -996,14 +996,14 @@ const EXTREME_STADIUM_DATA = {
 	},
 	quantron: {
 		descs: [
-			"Pathogen Upgrades are slightly weaker",
-			"Blue Flame is slightly weaker",
-			"Furnace Upgrade 4 does nothing",
-			"Furnace Upgrade 1 is weaker",
-			"Dark Flow is slightly weaker",
-			"You are trapped in Drigganiz's Stadium Challenge at its set difficulty.",
+			"病原体升级的效果略微减少",
+			"蓝色火焰的效果略微减少",
+			"熔炉升级 4失效",
+			"熔炉升级 1效果减少",
+			"黑暗流的效果略微减少",
+			"强制以设定的难度等级进行德里格尼兹竞技场挑战。",
 		],
-		reward: "Pathogen Upgrades are stronger based on your Coal.",
+		reward: "根据煤数值，使病原体升级的效果变得更好。",
 		goals: [
 			new ExpantaNum("1e3000").times(DISTANCES.宇宙),
 			new ExpantaNum("1e3100").times(DISTANCES.宇宙),

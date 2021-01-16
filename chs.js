@@ -440,6 +440,11 @@ var cnItems = {
     'Respec Angels & Demons back into Spectral Gems': '洗点天使和恶魔变回幽冥宝石',
     'Transform one Spectral Gem into an Angel': '将1块幽冥宝石变为1个天使',
     'Transform one Spectral Gem into a Demon': '将1块幽冥宝石变为1个恶魔',
+    'Distance': '距离',
+    'Velocity': '速度',
+    'Acceleration': '加速度',
+    'Jerk': '加加速度',
+    'Snap': '加加加速度',
     //无限结束
 
     //基本粒子
