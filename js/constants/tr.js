@@ -8,7 +8,7 @@ const TR_UPGS = {
 			return tr1Eff();
 		},
 		disp: function (x) {
-			return showNum(x) + "x";
+			return showNum(x) + "倍";
 		}
 	},
 	2: {
@@ -20,7 +20,7 @@ const TR_UPGS = {
 			return tr2Eff();
 		},
 		disp: function (x) {
-			return showNum(x) + "x";
+			return showNum(x) + "倍";
 		}
 	},
 	3: { cost: function(){return new ExpantaNum(1000)}, desc: "The Rank requirement formula is 10% slower." },
