@@ -35,7 +35,7 @@ var cnItems = {
     'Pathogens': '病原体',
     'Dark Circle': '黑暗圆环',
     'Infinity': '无限',
-    'Elementary': '基本',
+    'Elementary': '基本粒子',
     'Req': '需要',
     'Req: Rank': '需要：级别',
     //主菜单等结束
@@ -227,13 +227,13 @@ var cnItems = {
     'Level': '等级',
     'Reset all Furnace progress to gain a Blue Flame': '重置熔炉所有进度，获得1朵蓝色火焰',
     'Notice: Furnace Challenges will perform a Collapse reset. When in a Furnace Challenge, Furnace Upgrade': '注意：进行熔炉挑战将同时进行一次坍缩重置。在熔炉挑战中，熔炉升级',
-    'does nothing': '没有效果',
+    'does nothing': '失效',
     'is weaker': '效果减弱',
-    'Blue Flame does nothing.': '蓝色火焰没有效果。',
+    'Blue Flame does nothing.': '蓝色火焰失效。',
     'Coal gain is raised to the power of 0.075 (before reduction': '煤的获取量变为原来的^0.075(在减成之前生效',
     'Time Reversal Upgrade 16 does not affect Coal gain, and Hyper Furnace Upgrade scaling is stuck at 9,999% strength': '时间反演升级 16不影响煤的获取量，并且究级折算的熔炉升级一直为9999%的折算倍率',
-    'Furnace Upgrade 1 does nothing, and the Blue Flame cost formula is faster': '熔炉升级 1没有效果，蓝色火焰花费的公式变得更糟糕',
-    'All Coal generation boosts from outside The Furnace is disabled (which includes Time Speed), and Blue Flame is weaker': '所有除了熔炉以外能够加成煤产量的因子都没有效果(包括时间速度)，蓝色火焰效果变得更弱',
+    'Furnace Upgrade 1 does nothing, and the Blue Flame cost formula is faster': '熔炉升级 1失效，蓝色火焰花费的公式变得更糟糕',
+    'All Coal generation boosts from outside The Furnace is disabled (which includes Time Speed), and Blue Flame is weaker': '所有除了熔炉以外能够加成煤产量的因子都失效(包括时间速度)，蓝色火焰效果变得更弱',
     'Furnace Upgrades are 99.99% weaker, Enhanced Furnace Upgrades are 50% weaker, and Blue Flame & Enhanced Furnace Upgrades cost scale much faster. This challenge forces an Elementary reset instead of a Collapse reset.': '熔炉升级效果减弱99.99%，强化熔炉升级效果减弱50%，蓝色火焰和强化熔炉升级的花费提升速度变得更快。进行此挑战将同时进行一次基本重置，而不是坍缩重置。',
     'Goal': '目标',
     ' Blue Flame': ' 蓝色火焰',
@@ -324,7 +324,7 @@ var cnItems = {
     'Reset Stadium completions': '重置竞技场完成情况',
     'Reset Second-Row Stadium completions': '重置第二行竞技场完成情况',
     'Exit Stadium Challenge': '退出竞技场挑战',
-    'Note: Perks do nothing in Stadium Challenges': '注意：竞技场中特权没有效果',
+    'Note: Perks do nothing in Stadium Challenges': '注意：竞技场中特权失效',
     'Note 2: Each Challenge completion makes the others': '注意2：每完成一个挑战，都会使',
     ' in the same row': '同一行的',
     ' harder, with the exception being Reality, which actually gets easier.': '其他挑战变得更难，只有 现实 例外，它会变得更容易。',
@@ -344,7 +344,7 @@ var cnItems = {
     'Transform one Spectral Gem into a Demon': '将1块幽冥宝石变为1个恶魔',
     //无限结束
 
-    //基本
+    //基本粒子
     'Fermions': '费米子',
     'Bosons': '玻色子',
     'Theories': '学说',
@@ -452,7 +452,7 @@ var cnItems = {
     'Pre-Collapse Selectors': '坍缩前选择器',
     'Collapse Selectors': '坍缩选择器',
     'Infinity Selectors': '无限选择器',
-    'Elementary Selectors': '基本选择器',
+    'Elementary Selectors': '基本粒子选择器',
     'hover for info': '鼠标停留此处以查看详情',
     'Boosts': '加成',
     'Entropy': '熵',
@@ -495,7 +495,7 @@ var cnItems = {
     'Skyrmions make Ω Particles require less Entropy': '根据斯格明子数值，使Ω 粒子需要更少的熵来获取',
     'Unlock Auto-Entropy, and gain 50% more Entropy (kept on Skyrmion reset': '解锁自动熵，并且熵的获取量增加50%(斯格明子重置时保留',
     'Unlock Auto-Entropy Upgrades, and all Foam types are gained 10x faster (kept on Skyrmion reset': '解锁自动熵升级，所有类型的泡沫获取量变为10倍(斯格明子重置时保留',
-    'Gain 1% of Elementary Particle, Fermion, & Boson gain every second (kept on Skyrmion reset': '每秒获得当前产量1%的基本例子，费米子和玻色子(斯格明子重置时保留',
+    'Gain 1% of Elementary Particle, Fermion, & Boson gain every second (kept on Skyrmion reset': '每秒获得当前产量1%的基本粒子，费米子和玻色子(斯格明子重置时保留',
     'The Extreme mode nerf to pre-Infinity production is less lethal (^0.825 ->': '极限模式无限之前内容的产量减成变得更缓和(从^0.825变为^',
     'Buying Theory Tree Upgrades does not spend Theory Points, and the last Inflaton effect does not become extremely softcapped (kept on Skyrmion reset': '购买学说树升级不再花费学说点数，暴胀子的最后一个效果不再变为极端软上限(斯格明子重置时保留',
     'Entropy boosts Skyrmion gain': '根据熵数值，增加斯格明子的获取量',
@@ -518,6 +518,7 @@ var cnItems = {
     'Max Spinor Field': '最大化旋量场',
     'Import Spinor Field': '导入旋量场',
     'Export Spinor Field': '导出旋量场',
+    'All Rank/Tier scalings start later based on your Pions.': '根据π介子数值，使所有类型折算的级别和阶层延迟出现。',
     'Dear Player,': '亲爱的玩家，',
     'Welp you\'ve done it, you\'ve reached the end of the multiverse!': '很好，您终于到达了多宇宙的终点！',
     'Sadly, more content won\'t be available for the time being...': '很遗憾的是，目前没有更多新内容了……',
@@ -525,7 +526,7 @@ var cnItems = {
     'Thanks for playing my game!': '总之，感谢您游玩我的游戏！',
     'From Jacorb': 'Jacord敬上',
     'P.S: If you\'re wondering why I put this message here, it\'s because it\'s prep for future content and because v2.0 may not be out for a while...': '如果您想知道这里为什么会有这么一条消息，原因是为了之后内容做准备，而且v2.0可能没那么快推出……',
-    //基本结束
+    //基本粒子结束
 
     //原样
     '': '',
