@@ -360,7 +360,7 @@ const ACH_DATA = {
 		83: "黑暗流加快showNum(20)%。",
 		84: "黑暗流影响病原体的获取量，在showNum(50)倍以后效果减少。",
 		85: "boolean(hard+hikers_dream,您可以随时复原能量)boolean(extreme+hikers_dream,，且使 持久性 升级变为原来的平方)boolean(hard+hikers_dream,。)",
-		86: "boolean(extreme+hikers_dream,根据病原体数值，使时间方盒的获取量变为相应倍数，并使 信心 升级软上限的起始值变为原来的平方。)",
+		86: "boolean(extreme+hikers_dream,使时间方盒的获取量变为病原体数值的倍数，并使 信心 升级软上限的起始值变为原来的平方。)",
 		87: "boolean(extreme+hikers_dream,移除动力的基础软上限)boolean(hard+hikers_dream,，且根据时间方盒数值，加强病原体的效果。)",
 		88: "购买病原体升级不再花费病原体boolean(extreme,，且解锁熔炉挑战)。",
 
@@ -371,7 +371,7 @@ const ACH_DATA = {
 		96: "每秒获得当前产量showNum(100)%的残骸。",
 		97: "每秒将showNum(100)%数值的残骸转化为生命精华boolean(extreme+hikers_dream,，且根据 优化 升级数值，增加 信心 升级软上限的起始值)。",
 
-		102: "boolean(extreme+hikers_dream,根据认可数值，将 信心 升级软上限的起始值变为相应倍数。)",
+		102: "boolean(extreme+hikers_dream,将 信心 升级软上限的起始值变为认可数值的倍数。)",
 		103: "可以多激活一个特权。",
 		105: "加速度增加showNum(300)%boolean(extreme,，且级别机器人和阶层机器人的数量受间隔加成的效果变得更好)。",
 		108: "知识的获取量增加showNum(50)%boolean(extreme,，且折算的认可延迟2次出现)。",
