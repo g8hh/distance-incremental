@@ -460,7 +460,7 @@ const TREE_UPGS = {
 		unl: function() { return hasDE(5) },
 		cost: function(bought) { return new ExpantaNum(240) },
 		cap: new ExpantaNum(1),
-		desc: "基本粒子获取量软上限效果减少50%。",
+		desc: "基本粒子获取量的软上限效果减少50%。",
 		effect: function(bought) { return new ExpantaNum(0.5).times(bought) },
 		effD: function(e) { return "减少"+showNum(e.times(100))+"%" },
 	},
