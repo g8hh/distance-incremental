@@ -315,6 +315,7 @@ var cnItems = {
     //全体坍缩结束
 
     //病原体
+    'Time Reversal Upgrade 2 is boosted by your Pathogens.': '根据病原体数值，使时间反演升级 2的效果变得更好。',
     //病原体结束
 
     //黑暗圆环

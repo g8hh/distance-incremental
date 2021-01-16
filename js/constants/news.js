@@ -355,7 +355,7 @@ const NEWS_DATA = {
 		}
 	],
 	s8: [
-		"我们不是早在用这些了吗？",
+		"我们不是早就在用这些了吗？",
 		function () {
 			return player.rockets.gt(0);
 		}
