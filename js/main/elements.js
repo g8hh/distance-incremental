@@ -314,7 +314,7 @@ function updateCollpaseHTML(){
 		);
 		for (let i = 1; i <= EM_AMT; i++) {
 			let ms = ESSENCE_MILESTONES[i];
-			tmp.el["lem" + i].setHTML(ms.desc + "<br>需要：" + showNum(ms.req) + "生命精华。");
+			tmp.el["lem" + i].setHTML(ms.desc + "<br>需要： " + showNum(ms.req) + " 生命精华。");
 			if (ms.disp !== undefined) tmp.el["lem" + i].setTooltip("目前： " + ms.disp());
 			tmp.el["lem" + i].setClasses({ msCont: true, r: !hasCollapseMilestone(i) });
 		}
@@ -1182,7 +1182,7 @@ function updateInfatonsHTML(){
 		tmp.el.inflatonsDiv.setDisplay(player.elementary.theory.inflatons.unl)
 		tmp.el.inflatonAmt.setTxt(showNum(player.elementary.theory.inflatons.amount))
 		let state = tmp.elm.hc.infState
-		tmp.el.inflatonPerc.setTxt(state>=0?(showNum(state*100)+"% Inflated"):(showNum(state*(-100))+"% Deflated"))
+		tmp.el.inflatonPerc.setTxt(state>=0?(showNum(state*100)+"% 已暴胀"):(showNum(state*(-100))+"% 已收缩"))
 		tmp.el.inflatonGain.setTxt(showNum(adjustGen(tmp.elm.hc.infGain, "inflatons")))
 		tmp.el.inflaton1.setTxt(showNum(getInflatonEff1()))
 		let eff2 = getInflatonEff2()
@@ -1218,8 +1218,8 @@ function updateTheoryverseMainHTML(){
 	if (elmTab=="theory") {
 		tmp.el.thp.setTxt(showNum(player.elementary.theory.points))
 		if (thTab=="tv") {
-			tmp.el.theoriverse.setTxt(HCTVal("tv").gt(-1)?"Trapped in the Theoriverse!":player.elementary.theory.active?("Exit The Theoriverse early for no reward."):("Enter The Theoriverse at Depth "+showNum(player.elementary.theory.depth)))
-			tmp.el.theoriverse.setTooltip("Entering The Theoriverse does an Elementary reset, and puts you in The Theoriverse, which will make all pre-Elementary resource generation (x^"+showNum(tmp.elm.theory.nerf)+")")
+			tmp.el.theoriverse.setTxt(HCTVal("tv").gt(-1)?"Trapped in the Theoriverse!":player.elementary.theory.active?("Exit The Theoriverse early for no reward."):("进入学说宇宙深度 "+showNum(player.elementary.theory.depth)))
+			tmp.el.theoriverse.setTooltip("进入学说宇宙时将强制进行一次基本重置，在学说宇宙中所有基本粒子之前的资源获取量变为 (x^"+showNum(tmp.elm.theory.nerf)+")")
 		}
 		updateSuperSymetryHTML()
 		updateTheoryTreeHTML()
@@ -1242,19 +1242,19 @@ function updateHadronicChallenges(){
 		tmp.el.hadEffBulk.setTxt(showNum(tmp.elm.hc.hadronBulk))
 		for (let i=0;i<6;i++) {
 			let x = ""
-			for (let j=0;j<6;j++) x += "Difficulty Level "+(j+1)+": "+STADIUM_DESCS[HC_CHALLS[i]][j]+".\n\n"
+			for (let j=0;j<6;j++) x += "难度等级"+(j+1)+"："+STADIUM_DESCS[HC_CHALLS[i]][j]+"。\n\n"
 			tmp.el["hcChall"+HC_CHALLS[i]].setTooltip(x)
 			tmp.el["hcSelectorSpan"+HC_CHALLS[i]].setDisplay(player.elementary.theory.inflatons.unl)
-			tmp.el["hcCurrent"+HC_CHALLS[i]].setTxt("Currently: "+showNum(getHCSelector(HC_CHALLS[i])))
+			tmp.el["hcCurrent"+HC_CHALLS[i]].setTxt("目前："+showNum(getHCSelector(HC_CHALLS[i])))
 			
 			x = ""
-			for (let j=0;j<6;j++) x += "Difficulty Level "+(j+1)+": "+EXTREME_STADIUM_DATA[HC_EXTREME_CHALLS[i]].descs[j]+".\n\n"
+			for (let j=0;j<6;j++) x += "难度等级"+(j+1)+"："+EXTREME_STADIUM_DATA[HC_EXTREME_CHALLS[i]].descs[j]+"。\n\n"
 			tmp.el["hcExtrChall"+HC_EXTREME_CHALLS[i]].setTooltip(x)
 			tmp.el["hcSelectorSpan"+HC_EXTREME_CHALLS[i]].setDisplay(player.elementary.theory.inflatons.unl&&modeActive("extreme"))
-			tmp.el["hcCurrent"+HC_EXTREME_CHALLS[i]].setTxt("Currently: "+showNum(getHCSelector(HC_EXTREME_CHALLS[i])))
+			tmp.el["hcCurrent"+HC_EXTREME_CHALLS[i]].setTxt("目前："+showNum(getHCSelector(HC_EXTREME_CHALLS[i])))
 		}
-		tmp.el["hcCurrenttv"].setTxt("Currently: "+showNum(getHCSelector("tv")))
-		tmp.el.hcPerc.setTxt(player.elementary.hc.active?(showNum(tmp.elm.hc.complPerc.times(100).max(0))+"% complete"):"")
+		tmp.el["hcCurrenttv"].setTxt("目前："+showNum(getHCSelector("tv")))
+		tmp.el.hcPerc.setTxt(player.elementary.hc.active?("已完成 "+showNum(tmp.elm.hc.complPerc.times(100).max(0))+"%"):"")
 	}
 }
 
@@ -1270,7 +1270,7 @@ function updateMainEnergyTabHTML(){
 			locked: !player.canRefill,
 		})
 		tmp.el.motive.setTxt(showNum(tmp.hd.motive))
-		tmp.el.nextMotive.setHTML(tmp.hd.motive.lte(((player.energyUpgs.includes(24)) ? (tmp.hd.enerUpgs ? tmp.hd.enerUpgs[24] : new ExpantaNum(0)) : new ExpantaNum(0)).max(0))?("[<span class='energy'>"+showNum(player.spentMotive.plus(player.spentMotiveGens).sub(tmp.hd.totalMotive).plus((player.energyUpgs.includes(24)) ? (tmp.hd.enerUpgs ? tmp.hd.enerUpgs[24] : new ExpantaNum(0)) : new ExpantaNum(0)).max(0))+"</span> left]"):"")
+		tmp.el.nextMotive.setHTML(tmp.hd.motive.lte(((player.energyUpgs.includes(24)) ? (tmp.hd.enerUpgs ? tmp.hd.enerUpgs[24] : new ExpantaNum(0)) : new ExpantaNum(0)).max(0))?("[剩下 <span class='energy'>"+showNum(player.spentMotive.plus(player.spentMotiveGens).sub(tmp.hd.totalMotive).plus((player.energyUpgs.includes(24)) ? (tmp.hd.enerUpgs ? tmp.hd.enerUpgs[24] : new ExpantaNum(0)) : new ExpantaNum(0)).max(0))+"</span>]"):"")
 		for (let i=1;i<=30;i++) {
 			let cost = getEnergyUpgCost(i)
 			tmp.el["energyUpg"+i].setClasses({
@@ -1290,7 +1290,7 @@ function updateMainEnergyTabHTML(){
 function updateGeneratorsHTML(){
 	if (enTab=="generator") {
 		let plural = player.geners.gt(1)
-		tmp.el.geners.setHTML(plural?("<span class='energy'>"+showNum(player.geners)+"</span> Generators are"):"Generator is")
+		tmp.el.geners.setHTML(plural?("共有 <span class='energy'>"+showNum(player.geners)+"</span> 个发生器，"):"发生器")
 		tmp.el.genLvl.setTxt(showNum(player.genLvl))
 		tmp.el.energyGen.setTxt(showNum(tmp.hd.energyGen))
 		tmp.el.energyLim.setTxt(showNum(getEnergyLim()))
