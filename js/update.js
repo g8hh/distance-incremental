@@ -51,7 +51,7 @@ function setupHTML() {
 		let ranks = Object.keys(RANK_DESCS)[i]
 		table += "<div id='rankReward"+ranks+"' class='rtReward'>"
 		table += "级别"+showNum(parseInt(ranks)+1)+": "+(RANK_DESCS[ranks][0].toUpperCase() + RANK_DESCS[ranks].slice(1))
-		if (window["rank"+ranks+"Eff"]) table += "<br>Currently: <b><span id='rankEff"+ranks+"'></span></b>x"
+		if (window["rank"+ranks+"Eff"]) table += "<br>Currently: <b><span id='rankEff"+ranks+"'></span></b>倍"
 		table += "</div>"
 	}
 	table += "</div><div class='flexContainer'>"
@@ -59,7 +59,7 @@ function setupHTML() {
 		let tiers = Object.keys(TIER_DESCS)[i]
 		table += "<div id='tierReward"+tiers+"' class='rtReward'>"
 		table += "阶层"+showNum(parseInt(tiers)+1)+": "+(TIER_DESCS[tiers][0].toUpperCase() + TIER_DESCS[tiers].slice(1))
-		if (window["tier"+tiers+"Eff"]) table += "<br>Currently: <b><span id='tierEff"+tiers+"'></span></b>x"
+		if (window["tier"+tiers+"Eff"]) table += "<br>Currently: <b><span id='tierEff"+tiers+"'></span></b>倍"
 		table += "</div>"
 	}
 	table += "</div></div>"

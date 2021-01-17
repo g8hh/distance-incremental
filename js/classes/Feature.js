@@ -52,9 +52,17 @@ class Feature {
 			let desc = "到达";
 			if (!this.reached) {
 				for (let i = 1; i <= this.res_amt; i++) {
+					let chs = "";
+					chs = this.dispAmt(i);
+					chs = chs.replace("Cadavers","残骸");
+					chs = chs.replace("Rockets","火箭");
+					chs = chs.replace("Endorsements","认可");
+					chs = chs.replace("EP in one run","基本粒子于一次基本重置中");
+					chs = chs.replace("Quarks","夸克");
+					chs = chs.replace("Leptons","轻子");
 					desc +=
 						this.display[i - 1](this.req[i - 1]) +
-						(this.res[i - 1] == "distance" ? "" : (" "+this.dispAmt(i)));
+						(this.res[i - 1] == "distance" ? "" : chs);
 					if (i == this.res_amt - 1) desc += "，及";
 					else if (i < this.res_amt - 1) desc += "，";
 				}
@@ -63,12 +71,16 @@ class Feature {
 				return desc;
 			} else return "";
 		} else {
+			let chs = "";
+			chs = this.dispAmt();
+			chs = chs.replace("Cadavers","残骸");
+			chs = chs.replace("Endorsements","认可");
 			return this.reached
 				? ""
 				: "到达" +
 						this.display(this.req()) +
 						"" +
-						(this.res == "distance" ? "" : this.dispAmt()) +
+						(this.res == "distance" ? "" : chs) +
 						"以解锁" +
 						this.disp +
 						"(" +

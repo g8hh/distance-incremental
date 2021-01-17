@@ -2,6 +2,7 @@ function loadTempFeatures() {
 	tmp.features = {
 		rockets: new Feature({
 			name: "rockets",
+			displayName: "火箭",
 			req: function() { return ExpantaNum.mul(LAYER_REQS["rockets"][1], tmp.rockets.lrm) },
 			res: "distance",
 			display: formatDistance,
@@ -17,6 +18,7 @@ function loadTempFeatures() {
 		}),
 		automation: new Feature({
 			name: "automation",
+			displayName: "自动化",
 			req: function() { return ExpantaNum.mul(AUTO_UNL, tmp.auto ? tmp.auto.lrm : 10) },
 			res: "distance",
 			display: formatDistance,
@@ -32,6 +34,7 @@ function loadTempFeatures() {
 		}),
 		"time reversal": new Feature({
 			name: "time reversal",
+			displayName: "时间反演",
 			req: function() { return new ExpantaNum(DISTANCES.光年) },
 			res: "distance",
 			display: formatDistance,
@@ -44,6 +47,7 @@ function loadTempFeatures() {
 		}),
 		collapse: new Feature({
 			name: "collapse",
+			displayName: "坍缩",
 			req: function() { return new ExpantaNum(COLLAPSE_UNL).times(tmp.collapse ? tmp.collapse.lrm : 1) },
 			res: "distance",
 			display: formatDistance,
@@ -59,6 +63,7 @@ function loadTempFeatures() {
 		}),
 		pathogens: new Feature({
 			name: "pathogens",
+			displayName: "病原体",
 			req: function() { return new ExpantaNum(PATHOGENS_UNL).times(tmp.pathogens ? tmp.pathogens.lrm : 1) },
 			res: ["collapse", "cadavers"],
 			display: showNum,
@@ -78,7 +83,7 @@ function loadTempFeatures() {
 			res: "distance",
 			display: formatDistance,
 			reached: function() { return player.dc.unl },
-			displayName: "dark circles",
+			displayName: "黑暗圆环",
 			progress: function () {
 				if (player.options.featPerc=="logarithm") {
 					return player.distance
@@ -90,6 +95,7 @@ function loadTempFeatures() {
 		}),
 		infinity: new Feature({
 			name: "infinity",
+			displayName: "无限",
 			req: function() { return new ExpantaNum(INF_UNL) },
 			res: "distance",
 			display: formatDistance,
@@ -101,6 +107,7 @@ function loadTempFeatures() {
 		}),
 		ascension: new Feature({
 			name: "ascension",
+			displayName: "飞升",
 			req: function() { return new ExpantaNum(10) },
 			res: ["inf", "endorsements"],
 			display: showNum,
@@ -115,7 +122,7 @@ function loadTempFeatures() {
 			res: ["inf", "endorsements"],
 			display: showNum,
 			reached: function() { return player.inf.endorsements.gte(15) },
-			displayName: "the stadium",
+			displayName: "竞技场",
 			progress: function () {
 				return player.inf.endorsements.div(15);
 			}
@@ -126,13 +133,14 @@ function loadTempFeatures() {
 			res: ["inf", "endorsements"],
 			display: showNum,
 			reached: function() { return player.inf.endorsements.gte(21) },
-			displayName: "the pantheon",
+			displayName: "万神殿",
 			progress: function () {
 				return player.inf.endorsements.div(21);
 			}
 		}),
 		derivatives: new Feature({
 			name: "derivatives",
+			displayName: "导数",
 			req: function() { return ExpantaNum.mul(DISTANCES.宇宙, "1e90000") },
 			res: "distance",
 			display: formatDistance,
@@ -144,6 +152,7 @@ function loadTempFeatures() {
 		}),
 		elementary: new Feature({
 			name: "elementary",
+			displayName: "基本粒子",
 			res_amt: 3,
 			req: [
 				new ExpantaNum(LAYER_REQS.elementary[0][1]),
@@ -174,6 +183,7 @@ function loadTempFeatures() {
 		}),
 		theory: new Feature({
 			name: "theory",
+			displayName: "学说",
 			res_amt: 2,
 			req: [
 				new ExpantaNum(THEORY_REQ[0]),
@@ -190,6 +200,7 @@ function loadTempFeatures() {
 		}),
 		"hadronic challenge": new Feature({
 			name: "hadronic challenge",
+			displayName: "强子挑战",
 			res_amt: 2,
 			req: [
 				new ExpantaNum(HC_REQ[0]),
@@ -206,6 +217,7 @@ function loadTempFeatures() {
 		}),
 		"quantum foam": new Feature({
 			name: "quantum foam",
+			displayName: "量子泡沫",
 			req: function() { return new ExpantaNum(FOAM_REQ) },
 			res: "distance",
 			display: formatDistance,
@@ -217,6 +229,7 @@ function loadTempFeatures() {
 		}),
 		skyrmions: new Feature({
 			name: "skyrmions",
+			displayName: "斯格明子",
 			res_amt: 3,
 			req: [
 				new ExpantaNum(SKY_REQ[0]),
