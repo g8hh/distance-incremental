@@ -183,11 +183,11 @@ function updateAchievementsHTML(){
 function updateRobotsHTML(){
 	tmp.el.scraps.setTxt(
 		showNum(player.automation.scraps) +
-			" scraps " + formatGain(player.automation.scraps, getScrapGain().times(nerfActive("noTS") ? 1 : tmp.timeSpeed), "scraps")
+			" 碎屑 " + formatGain(player.automation.scraps, getScrapGain().times(nerfActive("noTS") ? 1 : tmp.timeSpeed), "scraps")
 	);
 	tmp.el.intAmt.setTxt(
 		showNum(player.automation.intelligence) +
-			" intelligence " + formatGain(player.automation.intelligence, getIntelligenceGain().times(nerfActive("noTS") ? 1 : tmp.timeSpeed), "intel")
+			" 智慧 " + formatGain(player.automation.intelligence, getIntelligenceGain().times(nerfActive("noTS") ? 1 : tmp.timeSpeed), "intel")
 	);
 	for (let i = 0; i < Object.keys(ROBOT_REQS).length; i++) {
 		tmp.el[Object.keys(ROBOT_REQS)[i]].setTxt(tmp.auto[Object.keys(ROBOT_REQS)[i]].btnTxt);
@@ -220,12 +220,12 @@ function updateRobotsHTML(){
 	tmp.el.buyRobotInterval.setHTML(
 		player.automation.open == "none"
 			? ""
-			: "Upgrade Interval<br>Cost: " + showNum(tmp.auto[player.automation.open].intCost) + " intelligence."
+			: "Upgrade Interval<br>花费：" + showNum(tmp.auto[player.automation.open].intCost) + "智慧。"
 	);
 	tmp.el.buyRobotMagnitude.setHTML(
 		player.automation.open == "none"
 			? ""
-			: "Upgrade Magnitude<br>Cost: " + showNum(tmp.auto[player.automation.open].magCost) + " intelligence."
+			: "Upgrade Magnitude<br>花费：" + showNum(tmp.auto[player.automation.open].magCost) + "智慧。"
 	);
 	if (player.automation.open != "none") {
 		tmp.el.buyRobotInterval.setClasses({

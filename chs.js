@@ -149,6 +149,7 @@ var cnItems = {
 
     //成就
     'Not currently implemented.': '目前还未引入。',
+    'All Achievements are completed!': '已经完成了所有成就！',
     //成就结束
 
     //能量
@@ -265,9 +266,17 @@ var cnItems = {
     'Open up Rank Cheapener-bot for improvements.': '开启级别降价器机器人菜单。',
     'Open up Tierbot for improvements.': '开启阶层机器人菜单。',
     'Open up Fuelbot for improvements.': '开启燃料机器人菜单。',
+    'Rankbot': '级别机器人',
+    'Rank Cheapener-bot': '级别降价器机器人',
+    'Tierbot': '阶层机器人',
+    'Fuelbot': '燃料机器人',
     'Max All': '最大化所有',
     'Interval': '间隔',
     'Magnitude': '数量',
+    'Upgrade Interval': '升级间隔',
+    'Upgrade Magnitude': '升级数量',
+    'Currently: Active': '目前：已激活',
+    'Currently: Inactive': '目前：未激活',
     'Auto-Furnace': '自动熔炉',
     'Auto-Pathogens': '自动病原体升级',
     'Auto-Cores': '自动黑暗核心',
