@@ -276,7 +276,7 @@ function loads() {
 		if (all[x] === undefined || all[x] === null) continue;
 		let active = player.saveID == all[x].saveID && player.savePos == all[x].savePos;
 		let name =
-			all[x].options.name == "存档 #"
+			all[x].options.name == "Save #"
 				? "存档 #" + (all[x].savePos ? all[x].savePos : "???")
 				: all[x].options.name;
 		els[x] = {

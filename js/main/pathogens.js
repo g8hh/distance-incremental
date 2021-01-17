@@ -215,18 +215,18 @@ function updateTempPathogens() {
 	if (!tmp.pathogens.disp) tmp.pathogens.disp = function (n) {
 		let eff = tmp.pathogens.eff(n);
 		if (n == 1) return "+" + showNum(eff.sub(1).times(100)) + "%";
-		else if (n == 2) return showNum(eff) + "x";
-		else if (n == 3) return showNum(eff) + "x";
-		else if (n == 4) return showNum(eff) + "x";
-		else if (n == 5) return showNum(eff) + "x";
+		else if (n == 2) return showNum(eff) + " 倍";
+		else if (n == 3) return showNum(eff) + " 倍";
+		else if (n == 4) return showNum(eff) + " 倍";
+		else if (n == 5) return showNum(eff) + " 倍";
 		else if (n == 6) return "+" + showNum(eff.sub(1).times(100)) + "%";
-		else if (n == 7) return showNum(eff) + "x later";
-		else if (n == 8) return showNum(eff) + " later";
-		else if (n == 9) return showNum(eff) + "x later";
-		else if (n == 10) return showNum(eff) + "x later";
-		else if (n == 11 || n == 12) return showNum(eff) + " later";
-		else if (n == 13) return "+" + showNum(eff) + " Levels";
-		else if (n == 14 || n == 15) return showNum(eff.times(100)) + "% weaker";
+		else if (n == 7) return "延迟 " + showNum(eff) + " 倍";
+		else if (n == 8) return "延迟 " + showNum(eff);
+		else if (n == 9) return "延迟 " + showNum(eff) + " 倍";
+		else if (n == 10) return "延迟 " + showNum(eff) + " 倍";
+		else if (n == 11 || n == 12) return "延迟 " + showNum(eff);
+		else if (n == 13) return "+" + showNum(eff) + " 级";
+		else if (n == 14 || n == 15) return "减少 " + showNum(eff.times(100)) + "%";
 		else return "???";
 	};
 	for (let i = 1; i <= PTH_AMT; i++) {

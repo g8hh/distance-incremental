@@ -9,7 +9,7 @@ const DEFAULT_START = {
 		sf: 5,
 		not: "scientific",
 		theme: "dark",
-		name: "存档 #",
+		name: "Save #",
 		autoSave: true,
 		newst: true,
 		elc: true,
