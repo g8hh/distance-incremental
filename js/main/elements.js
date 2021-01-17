@@ -220,12 +220,12 @@ function updateRobotsHTML(){
 	tmp.el.buyRobotInterval.setHTML(
 		player.automation.open == "none"
 			? ""
-			: "Upgrade Interval<br>花费：" + showNum(tmp.auto[player.automation.open].intCost) + "智慧。"
+			: "Upgrade Interval<br>花费： " + showNum(tmp.auto[player.automation.open].intCost) + "智慧。"
 	);
 	tmp.el.buyRobotMagnitude.setHTML(
 		player.automation.open == "none"
 			? ""
-			: "Upgrade Magnitude<br>花费：" + showNum(tmp.auto[player.automation.open].magCost) + "智慧。"
+			: "Upgrade Magnitude<br>花费： " + showNum(tmp.auto[player.automation.open].magCost) + "智慧。"
 	);
 	if (player.automation.open != "none") {
 		tmp.el.buyRobotInterval.setClasses({
@@ -271,9 +271,9 @@ function updateTimeReversalHTML(){
 			if (!tr2Pow().eq(1) && i == 2) desc += "<span class='grossminitxt'>(^" + showNum(tr2Pow()) + ")</span>";
 			if (!tr11Pow().eq(1) && i == 11)
 				desc += "<span class='grossminitxt'>(^" + showNum(tr11Pow()) + ")</span>";
-			tmp.el["tr" + i].setHTML(desc + "<br>花费：" + showNum(upg.cost()) + "时间方盒。");
+			tmp.el["tr" + i].setHTML(desc + "<br>花费： " + showNum(upg.cost()) + "时间方盒。");
 			if (upg.current !== undefined && (i > 15 ? modeActive("extreme") : true))
-				tmp.el["tr" + i].setTooltip("目前：" + upg.disp(upg.current()));
+				tmp.el["tr" + i].setTooltip("目前： " + upg.disp(upg.current()));
 			tmp.el["tr" + i].setClasses({
 				btn: true,
 				locked: !player.tr.upgrades.includes(i) && player.tr.cubes.lt(upg.cost()),
@@ -315,7 +315,7 @@ function updateCollpaseHTML(){
 		for (let i = 1; i <= EM_AMT; i++) {
 			let ms = ESSENCE_MILESTONES[i];
 			tmp.el["lem" + i].setHTML(ms.desc + "<br>需要：" + showNum(ms.req) + "生命精华。");
-			if (ms.disp !== undefined) tmp.el["lem" + i].setTooltip("目前：" + ms.disp());
+			if (ms.disp !== undefined) tmp.el["lem" + i].setTooltip("目前： " + ms.disp());
 			tmp.el["lem" + i].setClasses({ msCont: true, r: !hasCollapseMilestone(i) });
 		}
 	}
@@ -334,17 +334,17 @@ function upadtePathogenUpgradesHTML(){
 			PTH_UPGS[i].desc +
 				"<br>" +
 				getScalingName("pathogenUpg", i) +
-				"Level: " +
+				"等级： " +
 				showNum(player.pathogens.upgrades[i]) +
 				(tmp.pathogens.extra(i).gt(0) ? " + " + showNum(tmp.pathogens.extra(i)) : "") +
-				"<br>Currently: " +
+				"<br>目前： " +
 				tmp.pathogens.disp(i) +
 				(player.pathogens.upgrades[i].gte(getPathogenUpgSoftcapStart(i))
-					? "<span class='sc'>(softcapped)</span>"
+					? "<span class='sc'>(已达软上限)</span>"
 					: "") +
-				"<br>Cost: " +
+				"<br>花费： " +
 				showNum(tmp.pathogens[i].cost) +
-				" Pathogens."
+				"病原体。"
 		);
 	}
 }
@@ -354,20 +354,20 @@ function upadtePathogenHTML(){
 		tmp.el.pathogensAmt.setHTML(
 			"<span class='grosstxt'>" +
 				showNum(player.pathogens.amount) +
-				"</span> Pathogens <span class='grosstxt'>" +
+				"</span> 病原体 <span class='grosstxt'>" +
 				formatGain(player.pathogens.amount, tmp.pathogens.gain, "pathogens") +
 				"</span>"
 		);
 		upadtePathogenUpgradesHTML()
 		tmp.el.pthUpgPow.setHTML(
-			!tmp.pathogens.upgPow.eq(1) ? ("升级效果：" + showNum(tmp.pathogens.upgPow.times(100)) + "%"+(tmp.pathogens.upgPow.gte(10)?" <span class='sc'>(softcapped)</span>":"")+"<br>") : ""
+			!tmp.pathogens.upgPow.eq(1) ? ("升级效果：" + showNum(tmp.pathogens.upgPow.times(100)) + "%"+(tmp.pathogens.upgPow.gte(10)?" <span class='sc'>(已达软上限)</span>":"")+"<br>") : ""
 		);
 		tmp.el.tdeEff.setHTML(
 			tmp.ach[63].has
 				? "时骨无存倍率：" +
 					showNum(ach63Eff()) +
 					" 倍 " +
-					(ach63Eff().gte(ach63SC()) ? "<span class='sc'>(softcapped)</span>" : "") +
+					(ach63Eff().gte(ach63SC()) ? "<span class='sc'>(已达软上限)</span>" : "") +
 					"<br><br>"
 				: ""
 		);
@@ -378,38 +378,38 @@ function updateSoftcapsHTML(){
 	for (let i = 0; i < Object.keys(tmp.sc).length; i++) {
 		let name = Object.keys(tmp.sc)[i];
 		let reached = Object.values(tmp.sc)[i];
-		tmp.el[name + "SC"].setTxt(reached ? "(softcapped)" : "");
+		tmp.el[name + "SC"].setTxt(reached ? "(已达软上限)" : "");
 		tmp.el[name + "SC"].setClasses({ sc: true });
 	}
 }
 
 function updateDarkCircleRssHTML(){
 	tmp.el.darkMatter.setHTML(
-		"Dark Matter<br>Amount: " +
+		"Dark Matter<br>数量： " +
 			showNum(player.dc.matter) +
-			"<br>Gain: " +
+			"<br>获取量： " +
 			formatGain(player.dc.matter, tmp.dc.dmGain, "dc", false, tmp.dc.flow) +
-			"<br>Effect: You gain " +
+			"<br>效果：多获取 " +
 			showNum(tmp.dc.dmEff) +
-			"x as many Rockets."
+			" 倍火箭。"
 	);
 	tmp.el.darkEnergy.setHTML(
-		"Dark Energy<br>Amount: " +
+		"Dark Energy<br>数量： " +
 			showNum(player.dc.energy) +
-			"<br>Gain: " +
+			"<br>获取量： " +
 			formatGain(player.dc.energy, tmp.dc.deGain, "dc", false, tmp.dc.flow) +
-			"/秒<br>Effect: You gain " +
+			"<br>效果：多获取 " +
 			showNum(tmp.dc.deEff) +
-			"x as many Time Cubes."
+			" 倍时间方盒。"
 	);
 	tmp.el.darkFluid.setHTML(
-		"Dark Fluid<br>Amount: " +
+		"Dark Fluid<br>数量： " +
 			showNum(player.dc.fluid) +
-			"<br>Gain: " +
+			"<br>获取量： " +
 			formatGain(player.dc.fluid, tmp.dc.dfGain, "dc", false, tmp.dc.flow) +
-			"/秒<br>Effect: Scaled Rocket Fuel scaling starts " +
+			"<br>效果：折算的火箭燃料延迟 " +
 			showNum(tmp.dc.dfEff) +
-			" Rocket Fuel later."
+			" 火箭燃料出现。"
 	);
 }
 
@@ -418,13 +418,13 @@ function updateDarkCircleHTML(){
 		updateDarkCircleRssHTML()
 		tmp.el.darkCore.setHTML(
 			getScalingName("darkCore") +
-				"Dark Cores<br>Amount: " +
+				"黑暗核心<br>数量： " +
 				showNum(player.dc.cores) +
-				"<br>Cost: " +
+				"<br>花费： " +
 				showNum(tmp.dc.coreCost) +
-				" Cadavers" +
+				" 残骸" +
 				(tmp.dc.coreEff.gt(0)
-					? "<br>Effect: +" + showNum(tmp.dc.coreEff.times(100)) + "% Pathogen Upgrade 效果"
+					? "<br>效果：+" + showNum(tmp.dc.coreEff.times(100)) + "%病原体升级的效果"
 					: "")
 		);
 		tmp.el.darkMatter.setClasses({darkcircle: true, dcAnim: player.options.dcPulse})
@@ -448,7 +448,7 @@ function updateInfinityEndorsementStuffHTML(){
 	tmp.el.emInner.setHTML(
 		tmp.inf.stadium.canComplete
 			? "Complete this Stadium challenge."
-			: 'Allow <span class="infinity">Infinity</span> to endorse you.'
+			: '允许 <span class="infinity">Infinity</span> 认可您。'
 	);
 	let nextUnl;
 	for (let i=0;i<Object.keys(INF_UPGS.dispReqs).length;i++) {
@@ -458,7 +458,7 @@ function updateInfinityEndorsementStuffHTML(){
 			break;
 		}
 	}
-	tmp.el.nextIUs.setTxt(nextUnl ? ("Next set of Infinity Upgrades at Endorsement "+showNum(INF_UPGS.dispReqs[nextUnl])+".") : "")
+	tmp.el.nextIUs.setTxt(nextUnl ? ("到达认可 "+showNum(INF_UPGS.dispReqs[nextUnl])+" 后可解锁下一组无限升级。") : "")
 	tmp.el.forceInf.setDisplay(player.inf.endorsements.gte(10));
 }
 
@@ -491,7 +491,7 @@ function updateInfinitySubtabHTML(){
 		
 		let ach112 = ach112Eff()
 		tmp.el.tudeEff.setHTML(
-			tmp.ach[112].has ? "宇之不存倍率：" + showNum(ach112) + " 倍"+(ach112.gte(1e160)?" <span class='sc'>(softcapped)</span>":"")+"<br><br>" : ""
+			tmp.ach[112].has ? "宇之不存倍率：" + showNum(ach112) + " 倍"+(ach112.gte(1e160)?" <span class='sc'>(已达软上限)</span>":"")+"<br><br>" : ""
 		);
 	}
 }
@@ -612,7 +612,7 @@ function updatePurgeHTML(){
 					" to gain more Purge Power.")
 			: "Start Purge run")
 	);
-	tmp.el.purgePower.setTxt(showNum(player.inf.pantheon.purge.power)+(player.inf.pantheon.purge.power.gte(600)?(" (softcapped)"):""));
+	tmp.el.purgePower.setTxt(showNum(player.inf.pantheon.purge.power)+(player.inf.pantheon.purge.power.gte(600)?(" (已达软上限)"):""));
 	tmp.el.purgePowerEff.setTxt(showNum(tmp.inf.pantheon.ppe));
 }
 
@@ -1051,14 +1051,14 @@ function updateScalarBosonsHTML(){
 			}
 			tmp.el["higgs"+name].setHTML(text+"<br>Cost: "+showNum(data.cost)+" Higgs Bosons.")
 		}
-		tmp.el["higgs1;1;0"].setTooltip("Currently: "+showNum(tmp.elm.bos["higgs_1;1;0"](true))+"x")
-		tmp.el["higgs0;1;1"].setTooltip("Currently: "+showNum(tmp.elm.bos["higgs_0;1;1"](true))+"x")
-		tmp.el["higgs3;0;0"].setTooltip("Currently: "+showNum(tmp.elm.bos["higgs_3;0;0"](true))+"x")
-		tmp.el["higgs0;2;1"].setTooltip("Currently: +"+showNum(tmp.elm.bos["higgs_0;2;1"](true))+"%")
-		tmp.el["higgs0;0;4"].setTooltip("Currently: "+showNum(tmp.elm.bos["higgs_0;0;4"](true))+"x")
-		tmp.el["higgs1;3;0"].setTooltip("Currently: "+showNum(tmp.elm.bos["higgs_1;3;0"](true))+"x")
-		tmp.el["higgs0;3;1"].setTooltip("Currently: "+showNum(tmp.elm.bos["higgs_0;3;1"](true))+"x")
-		tmp.el["higgs0;0;5"].setTooltip("Currently: "+showNum(tmp.elm.bos["higgs_0;0;5"](true))+" later")
+		tmp.el["higgs1;1;0"].setTooltip("目前： "+showNum(tmp.elm.bos["higgs_1;1;0"](true))+"倍")
+		tmp.el["higgs0;1;1"].setTooltip("目前： "+showNum(tmp.elm.bos["higgs_0;1;1"](true))+"倍")
+		tmp.el["higgs3;0;0"].setTooltip("目前： "+showNum(tmp.elm.bos["higgs_3;0;0"](true))+"倍")
+		tmp.el["higgs0;2;1"].setTooltip("目前：+"+showNum(tmp.elm.bos["higgs_0;2;1"](true))+"%")
+		tmp.el["higgs0;0;4"].setTooltip("目前： "+showNum(tmp.elm.bos["higgs_0;0;4"](true))+"倍")
+		tmp.el["higgs1;3;0"].setTooltip("目前： "+showNum(tmp.elm.bos["higgs_1;3;0"](true))+"倍")
+		tmp.el["higgs0;3;1"].setTooltip("目前： "+showNum(tmp.elm.bos["higgs_0;3;1"](true))+"倍")
+		tmp.el["higgs0;0;5"].setTooltip("目前： "+showNum(tmp.elm.bos["higgs_0;0;5"](true))+"次延迟")
 	}
 }
 
@@ -1066,7 +1066,7 @@ function updateElementaryMainDisplaysHTML(){
 	tmp.el.elmReset.setHTML(
 		player.elementary.theory.active?(tmp.elm.can?("Exit The Theoriverse to gain "+showNum(tmp.elm.theory.gain)+" Theory Points."):"Reach the end of this Elementary run to gain Theory Points."):("Reset all previous progress to gain <span class='eltxt'>" +
 			showNum(tmp.elm.layer.gain) +
-			"</span> Elementary Particles."+(tmp.elm.layer.gain.gte(tmp.elm.softcap)?"<span class='sc'>(softcapped)</span>":""))
+			"</span> Elementary Particles."+(tmp.elm.layer.gain.gte(tmp.elm.softcap)?"<span class='sc'>(已达软上限)</span>":""))
 	);
 	tmp.el.elmReset.setClasses({ btn: true, locked: !tmp.elm.can, elm: (tmp.elm.can&&!player.elementary.theory.active), th: (tmp.elm.can&&player.elementary.theory.active) });
 	tmp.el.elmt.setTxt(showNum(player.elementary.times));
@@ -1163,9 +1163,9 @@ function updateAcceleronsHTML(){
 		tmp.el.accel.setTxt(showNum(player.elementary.theory.accelerons.amount))
 		let gain = getAccelGain()
 		tmp.el.accelGain.setTxt(showNum(adjustGen(gain, "accelerons")))
-		tmp.el.accelerSC.setHTML(gain.gte(1e6)?"<span class='sc'>(softcapped)</span>":"")
+		tmp.el.accelerSC.setHTML(gain.gte(1e6)?"<span class='sc'>(已达软上限)</span>":"")
 		let accEff = getAccelEff()
-		tmp.el.accelEff.setHTML("<span class='thp'>"+showNum(accEff)+"</span> 倍出现"+(accEff.gte(2)?" <span class='sc'>(softcapped)</span>":""))
+		tmp.el.accelEff.setHTML("<span class='thp'>"+showNum(accEff)+"</span> 倍出现"+(accEff.gte(2)?" <span class='sc'>(已达软上限)</span>":""))
 		let next = player.elementary.theory.accelerons.expanders.toNumber()+1
 		tmp.el.darkExp.setClasses({btn: true, locked: (player.elementary.theory.accelerons.amount.lt(DARK_EXPANDER_COSTS[next])||next-1>=MAX_DARK_EXPANDERS), th: (!(player.elementary.theory.accelerons.amount.lt(DARK_EXPANDER_COSTS[next])||next-1>=MAX_DARK_EXPANDERS))})
 		tmp.el.darkExp.setHTML((next-1>=MAX_DARK_EXPANDERS)?"MAXED":(DARK_EXPANDER_DESCS[next]+"<br>Cost: "+showNum(DARK_EXPANDER_COSTS[next])+" Accelerons"))
@@ -1187,8 +1187,8 @@ function updateInfatonsHTML(){
 		tmp.el.inflaton1.setTxt(showNum(getInflatonEff1()))
 		let eff2 = getInflatonEff2()
 		tmp.el.inflaton2.setTxt(showNum(eff2))
-		tmp.el.inflatonSC.setTxt(tmp.elm.hc.infGain.gte(5e4)?" (softcapped)":"")
-		tmp.el.inflaton2sc.setTxt((eff2.gte(5)&&!player.elementary.entropy.upgrades.includes(13))?"(extremely softcapped)":"")
+		tmp.el.inflatonSC.setTxt(tmp.elm.hc.infGain.gte(5e4)?" (已达软上限)":"")
+		tmp.el.inflaton2sc.setTxt((eff2.gte(5)&&!player.elementary.entropy.upgrades.includes(13))?"(已达极端软上限)":"")
 	}
 }
 

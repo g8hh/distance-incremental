@@ -373,6 +373,9 @@ var cnItems = {
     //病原体结束
 
     //黑暗圆环
+    'Dark Matter': '黑暗物质',
+    'Dark Energy': '黑暗能量',
+    'Dark Fluid': '黑暗流体',
     //黑暗圆环结束
 
     //无限
@@ -480,6 +483,7 @@ var cnItems = {
     'The Perk Accelerator\'s boost to Perk Power uses a better formula.': '特权加速器增加特权效果的公式变得更好。',
     'Gravitons are gained 100x as fast.': '引力子的获取量变为100倍。',
     'Dark Flow & Pathogen gain are increased by 90% for every Rank you have & by 750% for every Tier you have.': '黑暗流和病原体的获取量按以下规则获得提升：每有1级别增加90%，每有1阶层增加750%。',
+    'Complete this Stadium challenge.': '完成此竞技场挑战。',
     'Reset Stadium completions': '重置竞技场完成情况',
     'Reset Second-Row Stadium completions': '重置第二行竞技场完成情况',
     'Exit Stadium Challenge': '退出竞技场挑战',
