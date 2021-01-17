@@ -4,7 +4,7 @@ function updateTempPlasma() {
 	tmp.fn.pl.exp = getPlasmaExp()
 	tmp.fn.pl.wfGain = getWhiteFlameGain()
 	if (!tmp.fn.pl.boosts) tmp.fn.pl.boosts = {};
-	for (let i=1;i<=PLASMA_BOOSTS.upgs;i++) tmp.fn.pl.boosts[i] = player.plasma.boosts.gte(i)?PLASMA_BOOSTS[i].eff(player.plasma[PLASMA_BOOSTS[i].type=="plasmic"?"amount":"whiteFlame"].pow((i<9&&tmp.fn.pl.boosts[9])?tmp.fn.pl.boosts[9]:1)):PLASMA_BOOSTS[i].baseEff;
+	for (let i=1;i<=PLASMA_BOOSTS.upgs;i++) tmp.fn.pl.boosts[i] = player.plasma.boosts.gte(i)?PLASMA_BOOSTS[i].eff(player.plasma[PLASMA_BOOSTS[i].type=="等离子"?"amount":"whiteFlame"].pow((i<9&&tmp.fn.pl.boosts[9])?tmp.fn.pl.boosts[9]:1)):PLASMA_BOOSTS[i].baseEff;
 }
 
 function getPlasmaExp() {
@@ -53,63 +53,63 @@ const PLASMA_BOOSTS = {
 	rows: 3,
 	cols: 3,
 	1: {
-		type: "plasmic",
+		type: "等离子",
 		desc: "The Extreme mode nerf to Foam gain starts later.",
 		baseEff: new ExpantaNum(1),
 		eff: function(amt) { return amt.plus(1).log10().times(tmp.fn.pl.exp).plus(1).pow(3) },
-		effD: function(e) { return showNum(e)+"x later" },
+		effD: function(e) { return "延迟 "+showNum(e)+" 倍" },
 	},
 	2: {
-		type: "gleaming",
+		type: "闪光",
 		desc: "Boost the Plasma Exponent.",
 		baseEff: new ExpantaNum(1),
 		eff: function(amt) { return amt.plus(1).log10().sqrt().div(2).plus(1) },
-		effD: function(e) { return showNum(e)+"x" },
+		effD: function(e) { return showNum(e)+" 倍" },
 	},
 	3: {
-		type: "plasmic",
+		type: "等离子",
 		desc: "All Pion/Spinor Upgrades are stronger.",
 		baseEff: new ExpantaNum(1),
 		eff: function(amt) { return ExpantaNum.sub(1.5, ExpantaNum.div(1, amt.plus(1).log10().plus(1).log10().plus(1).pow(2))) },
-		effD: function(e) { return showNum(e.sub(1).times(100))+"% stronger" },
+		effD: function(e) { return "增加 "+showNum(e.sub(1).times(100))+"%" },
 	},
 	4: {
-		type: "gleaming",
+		type: "闪光",
 		desc: "Make all Rank Cheapener cost scalings start later.",
 		baseEff: new ExpantaNum(0),
 		eff: function(amt) { return amt.plus(1).log10().plus(1).log10().times(250) },
-		effD: function(e) { return showNum(e)+" later" },
+		effD: function(e) { return "延迟 "+showNum(e) },
 	},
 	5: {
-		type: "plasmic",
+		type: "等离子",
 		desc: "Boost Pion/Spinor gain.",
 		baseEff: new ExpantaNum(1),
 		eff: function(amt) { return amt.plus(1).root(10) },
-		effD: function(e) { return showNum(e)+"x" },
+		effD: function(e) { return showNum(e)+" 倍" },
 	},
 	6: {
-		type: "gleaming",
+		type: "闪光",
 		desc: "Multiply the Derivative Boost Base.",
 		baseEff: new ExpantaNum(1),
 		eff: function(amt) { return amt.plus(1).pow(1e4) },
-		effD: function(e) { return showNum(e)+"x" },
+		effD: function(e) { return showNum(e)+" 倍" },
 	},
 	7: {
-		type: "plasmic",
+		type: "等离子",
 		desc: "EFU1 & EFU3 use stronger multipliers.",
 		baseEff: new ExpantaNum(1),
 		eff: function(amt) { return amt.plus(1).root(200) },
-		effD: function(e) { return showNum(e)+"x" },
+		effD: function(e) { return showNum(e)+" 倍" },
 	},
 	8: {
-		type: "gleaming",
+		type: "闪光",
 		desc: "EFU13's first effect & Skyrmion gain are buffed.",
 		baseEff: new ExpantaNum(1),
 		eff: function(amt) { return amt.plus(1).log10().plus(1).log10().plus(1).sqrt() },
-		effD: function(e) { return showNum(e)+"x" },
+		effD: function(e) { return showNum(e)+" 倍" },
 	},
 	9: {
-		type: "plasmic",
+		type: "等离子",
 		desc: "All previous Plasmic & Gleaming Boosts use their respective resource more effectively.",
 		baseEff: new ExpantaNum(1),
 		eff: function(amt) { return amt.plus(1).times(10).slog(10).div(1.75).plus(1) },
@@ -129,7 +129,7 @@ function setupPlasmaBoosts() {
 			if (!cd) continue;
 			html += "<div id='plB"+current+"' class='plB "+cd.type+"'><span class='plBCont'>"
 			html += cd.desc+"<br><br>"
-			html += "Currently: <span id='plB"+current+"Curr'></span>"
+			html += "目前： <span id='plB"+current+"Curr'></span>"
 			html += "</span></div>"
 			current++;
 		}

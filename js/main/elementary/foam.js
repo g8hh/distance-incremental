@@ -300,7 +300,7 @@ function entropyReset() {
 }
 
 function forceEntropyReset(trueForce=false) {
-	if (!trueForce) if (!confirm("Are you sure you want to force an Entropy reset? You won't get anything out of it!")) return;
+	if (!trueForce) if (!confirm("您确定要强制熵重置吗？您不会获得任何东西的！")) return;
 	player.elementary.foam.amounts = [new ExpantaNum(0), new ExpantaNum(0), new ExpantaNum(0), new ExpantaNum(0), new ExpantaNum(0)]
 	player.elementary.foam.maxDepth = new ExpantaNum(1)
 	player.elementary.foam.upgrades = [new ExpantaNum(0), new ExpantaNum(0), new ExpantaNum(0), new ExpantaNum(0), new ExpantaNum(0), new ExpantaNum(0), new ExpantaNum(0), new ExpantaNum(0), new ExpantaNum(0), new ExpantaNum(0), new ExpantaNum(0), new ExpantaNum(0), new ExpantaNum(0), new ExpantaNum(0), new ExpantaNum(0)]

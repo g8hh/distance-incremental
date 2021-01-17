@@ -4,7 +4,7 @@ function extremeStadiumTooltip(name) {
 	let l = Math.min(player.extremeStad.length + 1, Object.keys(EXTREME_STADIUM_DATA).length);
 	if (player.extremeStad.includes(name))
 		l = Math.min(player.extremeStad.indexOf(name) + 1, l);
-	let tooltip = "Difficulty Level "+l+"\n";
+	let tooltip = "难度等级"+l+"\n";
 	for (let i = 0; i < l; i++) {
 		tooltip += descs[i];
 		if (i < l - 1) tooltip += ", ";
@@ -54,7 +54,7 @@ function extremeStadiumComplete(name) {
 
 function resetExtremeStad() {
 	if (!modeActive("extreme")) return;
-	if (!confirm("Are you sure you want to do this? You will need to do the second row all again!")) return
+	if (!confirm("您确定要这么做吗？您将需要重新完成第二行的所有挑战！")) return
 	player.extremeStad = []
 	tmp.inf.reset(true)
 }

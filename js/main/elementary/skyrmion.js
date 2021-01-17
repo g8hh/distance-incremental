@@ -214,7 +214,7 @@ function buySkyUpg(type, id) {
 
 function respecBothFields() {
 	if ((Object.keys(player.elementary.sky.pions.field).length+Object.keys(player.elementary.sky.spinors.field).length)==0) return;
-	if (!confirm("Are you sure you want to reset both fields? This will also force a Skyrmion reset!")) return;
+	if (!confirm("您确定要重置两个场吗？这将强制进行一次斯格明子重置！")) return;
 	player.elementary.sky.pions.field = {}
 	player.elementary.sky.spinors.field = {}
 	skyrmionReset(true)
@@ -222,7 +222,7 @@ function respecBothFields() {
 
 function respecField(type) {
 	if (Object.keys(player.elementary.sky[type].field).length==0) return;
-	if (!confirm("Are you sure you want to reset this field? This will also force a Skyrmion reset!")) return;
+	if (!confirm("您确认要重置这个场吗？这将强制进行一次斯格明子重置！")) return;
 	player.elementary.sky[type].field = {}
 	skyrmionReset(true)
 }
@@ -243,12 +243,12 @@ function maxField(type, lims={}, ignoreUpgReq=false) {
 
 function exportField(type) {
 	let data = JSON.stringify(player.elementary.sky[type].field);
-	notifier.info("Field exported!")
+	notifier.info("场数据已导出！")
 	copyToClipboard(data)
 }
 
 function importField(type) {
-	let input = prompt("Paste your exported field data here.")
+	let input = prompt("在此处粘贴场数据。")
 	try {
 		let data = JSON.parse(input)
 		if (Object.keys(data).length==0) return;
@@ -258,6 +258,6 @@ function importField(type) {
 		}
 		maxField(type, data, true)
 	} catch(e) {
-		notifier.error("Invalid field")
+		notifier.error("场数据无法识别")
 	}
 }

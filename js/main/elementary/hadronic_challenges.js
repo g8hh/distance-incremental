@@ -22,7 +22,7 @@ function updateTempHC() {
 }
 
 function clearHCData() {
-	if (!confirm("Are you sure you want to reset your Hadronic Challenge inputs?")) return;
+	if (!confirm("您确定要重置强子挑战的项目吗？")) return;
 	updateHCSelectorInputs(true);
 }
 
@@ -110,7 +110,7 @@ function updateHCSelector(name) {
 			player.elementary.hc.selectors[name] = num
 			el.el.value = disp(num, 8, 3, 10)
 		} catch(e) {
-			notifier.warn("Improper Hadronic Challenge input")
+			notifier.warn("强子挑战项目输入错误")
 			console.log(e)
 		}
 	}
@@ -137,12 +137,12 @@ function startHC() {
 	if (!player.elementary.hc.unl) return
 	if (player.elementary.hc.active) {
 		if (canCompleteHC()) player.elementary.hc.best = player.elementary.hc.best.max(getProjectedHadronicScore())
-		else if (player.options.hcc) if (!confirm("Are you sure you want to exit the challenge early?")) return
+		else if (player.options.hcc) if (!confirm("您确定要提前退出挑战吗？")) return
 	} else if (getProjectedHadronicScore().lte(0)) {
-		alert("You cannot start a Hadronic Challenge with a Projected Hadronic Score of 0!")
+		alert("您无法在预计强子分数为0的情况下开始强子挑战！")
 		return
 	} else if (player.elementary.theory.active) {
-		alert("You cannot start a Hadronic Challenge while in a Theoriverse run!")
+		alert("您无法在学说宇宙中开始强子挑战！")
 		return
 	}
 	player.elementary.hc.active = !player.elementary.hc.active
@@ -169,21 +169,21 @@ function claimHadronEff() {
 
 function exportHC() {
 	let data = btoa(JSON.stringify(player.elementary.hc.selectors))
-	notifier.info("Hadronic Challenge data exported!")
+	notifier.info("强子挑战数据已导出！")
 	copyToClipboard(data)
 }
 
 function importHC() {
 	if (player.elementary.hc.active) {
-		notifier.warn("You cannot import a Hadronic Challenge while in one!")
+		notifier.warn("退出强子挑战后才可以使用导入功能！")
 		return;
 	}
-	let toImport = prompt("Paste Hadronic Challenge data here.")
+	let toImport = prompt("在此处强子挑战数据。")
 	try {
 		let data = JSON.parse(atob(toImport))
 		player.elementary.hc.selectors = data
 		updateHCSelectorInputs()
 	} catch(e) {
-		notifier.warn("Invalid Hadronic Challenge data!")
+		notifier.warn("强子挑战数据无法识别！")
 	}
 }

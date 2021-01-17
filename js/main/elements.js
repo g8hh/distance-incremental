@@ -1156,7 +1156,7 @@ function updateTheoryTreeHTML(){
 				tmp.el["gTreeSect"+i].setDisplay(unl)
 			}
 		}
-		tmp.el.treeRespec.setTxt("重置学说树的升级(且强制进行一次基本重置)并退还 "+showNum(player.elementary.theory.tree.spent)+" 学说点数。")
+		tmp.el.treeRespec.setTxt("重置学说树的升级(且强制进行一次基本重置)并返还 "+showNum(player.elementary.theory.tree.spent)+" 学说点数。")
 		tmp.el.ach152Eff.setHTML(tmp.ach[152].has?('“无用的学说”效果：升级便宜 '+showNum(ach152Eff())+' 倍。<br><br>'):"")
 	}
 }

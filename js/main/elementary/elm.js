@@ -91,7 +91,7 @@ function updateElementaryLayer() {
 	if (!tmp.elm.doGain) tmp.elm.doGain = function (auto=false) {
 		// Gains
 		if (player.options.elc && !auto) {
-			if (!confirm("Are you sure you want to do this? It will take some time for you to get back here!")) return "NO";
+			if (!confirm("您确定要这么做吗？您需要一些时间才能回到这里的！")) return "NO";
 		}
 		if (player.elementary.theory.active) {
 			player.elementary.theory.points = player.elementary.theory.points.plus(tmp.thGain?tmp.thGain:new ExpantaNum(0))
@@ -166,8 +166,8 @@ function updateTempPerkAccelerator() {
 	tmp.elm.pa.speedBoost = tmp.inf.asc.perkTimeO.div(10)
 	if (tmp.elm.pa.speedBoost.gte(tmp.elm.pa.stateStarts.weakened)) tmp.elm.pa.state = "弱化"
 	if (tmp.elm.pa.speedBoost.gte(tmp.elm.pa.stateStarts.broken)) tmp.elm.pa.state = "破碎"
-	if (tmp.elm.pa.state=="weakened") tmp.elm.pa.speedBoost = tmp.elm.pa.speedBoost.sqrt().times(ExpantaNum.sqrt(tmp.elm.pa.stateStarts.weakened))
-	if (tmp.elm.pa.state=="broken") tmp.elm.pa.speedBoost = tmp.elm.pa.speedBoost.cbrt().times(ExpantaNum.pow(tmp.elm.pa.stateStarts.broken, 2/3))
+	if (tmp.elm.pa.state=="弱化") tmp.elm.pa.speedBoost = tmp.elm.pa.speedBoost.sqrt().times(ExpantaNum.sqrt(tmp.elm.pa.stateStarts.weakened))
+	if (tmp.elm.pa.state=="破碎") tmp.elm.pa.speedBoost = tmp.elm.pa.speedBoost.cbrt().times(ExpantaNum.pow(tmp.elm.pa.stateStarts.broken, 2/3))
 	tmp.elm.pa.boost = tmp.inf.asc.perkTimeO.div(10).pow(0.07)
 	if (tmp.inf.upgs.has("10;8")) tmp.elm.pa.boost = tmp.elm.pa.boost.max(tmp.inf.asc.perkTimeO.div(10).pow(0.2))
 	if (tmp.elm.pa.boost.gte(6.75)) tmp.elm.pa.boost = tmp.elm.pa.boost.logBase(6.75).plus(5.75)

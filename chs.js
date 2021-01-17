@@ -259,6 +259,15 @@ var cnItems = {
     ' Magma & ': ' 岩浆及 ',
     ' Knowledge': ' 知识',
     'Note: This does not reset on Elementary.': '注意：这在基本重置时仍然保留。',
+    'The Extreme mode nerf to Foam gain starts later.': '极限模式对泡沫获取量的减成延迟出现。',
+    'Boost the Plasma Exponent.': '增加等离子体的幂。',
+    'All Pion/Spinor Upgrades are stronger.': '所有π介子和旋量的升级效果变得更好。',
+    'Make all Rank Cheapener cost scalings start later.': '使所有类型折算的级别降价器延迟出现。',
+    'Boost Pion/Spinor gain.': '增加π介子和旋量的获取量。',
+    'Multiply the Derivative Boost Base.': '使导数提升的基础值变为某个数值的倍率。',
+    'EFU1 & EFU3 use stronger multipliers.': '使强化熔炉升级 1和强化熔炉升级 3的倍率变得更多。',
+    'EFU13\'s first effect & Skyrmion gain are buffed.': '使强化熔炉升级 13的第一个效果变得更好，增加斯格明子的获取量。',
+    'All previous Plasmic & Gleaming Boosts use their respective resource more effectively.': '使之前的等离子和闪光升级更有效地利用相对应的资源。',
     //熔炉结束
 
     //自动化

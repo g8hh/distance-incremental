@@ -133,7 +133,7 @@ function resetTheoryTree(force=false) {
 	if (!force) {
 		if (!player.elementary.theory.unl) return
 		if (!player.elementary.theory.tree.unl) return
-		if (!confirm("Are you sure you want to reset your tree to get Theory Points back?")) return
+		if (!confirm("您确定要重置学说树以获得学说点数返还吗？")) return
 	}
 	player.elementary.theory.points = player.elementary.theory.points.plus(player.elementary.theory.tree.spent)
 	player.elementary.theory.tree.spent = new ExpantaNum(0)
@@ -148,7 +148,7 @@ function unlockStrings() {
 	if (!player.elementary.theory.tree.unl) return
 	if (player.elementary.theory.strings.unl) return
 	if (player.elementary.theory.points.lt(7)) return
-	if (!confirm("Are you sure you want to unlock Strings? You will not be able to get your Theory Points back!")) return
+	if (!confirm("您确定要解锁弦吗？花费的学说点数无法返还！")) return
 	player.elementary.theory.points = player.elementary.theory.points.sub(7).max(0)
 	player.elementary.theory.strings.unl = true
 }
@@ -217,7 +217,7 @@ function unlockPreons() {
 	if (!player.elementary.theory.strings.unl) return
 	if (player.elementary.theory.preons.unl) return
 	if (player.elementary.theory.points.lt(10)) return
-	if (!confirm("Are you sure you want to unlock Preons? You will not be able to get your Theory Points back!")) return
+	if (!confirm("您确定要解锁前子吗？花费的学说点数无法返还！")) return
 	player.elementary.theory.points = player.elementary.theory.points.sub(10).max(0)
 	player.elementary.theory.preons.unl = true
 }
@@ -293,7 +293,7 @@ function unlockAccelerons() {
 	if (!player.elementary.theory.preons.unl) return
 	if (player.elementary.theory.accelerons.unl) return
 	if (player.elementary.theory.points.lt(84)) return
-	if (!confirm("Are you sure you want to unlock Accelerons? You won't be able to get your Theory Points back!")) return
+	if (!confirm("您确定要解锁加速子吗？花费的学说点数无法返还！")) return
 	player.elementary.theory.points = player.elementary.theory.points.sub(84).max(0)
 	player.elementary.theory.accelerons.unl = true
 }
@@ -344,12 +344,12 @@ function exportTree() {
 		parsedUpgs[key] = upgs[key].toString();
 	}
 	let tree = JSON.stringify(parsedUpgs)
-	notifier.info("Tree exported!")
+	notifier.info("学说树数据已导出！")
 	copyToClipboard(tree)
 }
 
 function importTree() {
-	let input = prompt("Paste your exported Theory Tree here.")
+	let input = prompt("在此处粘贴您的学说树数据。")
 	try {
 		let upgs = JSON.parse(input)
 		let plyr = player.elementary.theory.tree.upgrades
@@ -368,11 +368,11 @@ function importTree() {
 						player.elementary.theory.tree.spent = player.elementary.theory.tree.spent.plus(totalCost)
 					}
 					player.elementary.theory.tree.upgrades[key] = ExpantaNum.min(upgs[key], cap)
-				} else notifier.warn("You could not afford some of your requested Tree upgrades!")
+				} else notifier.warn("您的学说点数不够，无法购买部分学说树升级！")
 			}
 		}
 	} catch(e) {
-		notifier.error("Invalid tree")
+		notifier.error("学说树数据无法识别")
 	}
 }
 
@@ -384,7 +384,7 @@ function unlockInflatons() {
 	} else if (!(player.elementary.hc.unl&&player.elementary.theory.accelerons.unl)) return;
 	if (player.elementary.theory.inflatons.unl) return
 	if (player.elementary.theory.points.lt(1600)) return
-	if (!confirm("Are you sure you want to unlock Inflatons? You won't be able to get your Theory Points back!")) return
+	if (!confirm("您确定要解锁暴胀子吗？花费的学说点数无法返还！")) return
 	player.elementary.theory.points = player.elementary.theory.points.sub(1600).max(0)
 	player.elementary.theory.inflatons.unl = true
 }
