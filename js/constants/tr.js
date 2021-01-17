@@ -229,7 +229,7 @@ const TR_UPGS = {
 			return player.collapse.cadavers.plus(1).times(10).slog(10).sqrt();
 		},
 		disp: function (x) {
-			return showNum(x) + "x";
+			return showNum(x) + "倍";
 		}
 	},
 	23: {
@@ -241,10 +241,10 @@ const TR_UPGS = {
 			return ExpantaNum.pow(2.5, player.furnace.blueFlame);
 		},
 		disp: function (x) {
-			return showNum(x) + "x";
+			return showNum(x) + "倍";
 		}
 	},
-	24: { cost: function(){return new ExpantaNum(1.2e30)}, desc: "The '时骨无存' achievement effect is 75% stronger." },
+	24: { cost: function(){return new ExpantaNum(1.2e30)}, desc: "The 'Time Doesnt Exist' achievement effect is 75% stronger." },
 	25: { cost: function(){return new ExpantaNum(1e32)}, desc: "Double the Coal effect, and quintuple Pathogen gain." },
 	26: {
 		cost: function(){
@@ -256,14 +256,14 @@ const TR_UPGS = {
 			return ret;
 		},
 		disp: function (x) {
-			return showNum(x) + "x";
+			return showNum(x) + "倍";
 		}
 	},
 	27: {
 		cost: function(){
 			return new ExpantaNum(1e136)
 		},
-		desc: "Coal boosts Pathogen Upgrade 效果。",
+		desc: "Coal boosts Pathogen Upgrade Power.",
 		current: function () {
 			let ret = player.furnace.coal.plus(1).times(10).slog(10).sub(1).div(5).max(0);
 			if (player.tr.upgrades.includes(32)) return player.furnace.coal.plus(1).log10().plus(1).log10().div(7.5).max(ret).times(1.04);
@@ -282,7 +282,7 @@ const TR_UPGS = {
 			return player.furnace.coal.plus(1).pow(0.15);
 		},
 		disp: function (x) {
-			return showNum(x) + "x";
+			return showNum(x) + "倍";
 		}
 	},
 	29: {
@@ -294,7 +294,7 @@ const TR_UPGS = {
 			return player.rockets.plus(1).logBase(2).pow(player.dc.fluid.plus(1).times(10).slog(10).pow(2).max(1));
 		},
 		disp: function (x) {
-			return showNum(x) + "x";
+			return showNum(x) + "倍";
 		}
 	},
 	30: {
@@ -331,7 +331,7 @@ const TR_UPGS = {
 			return ExpantaNum.pow(10, player.furnace.blueFlame.pow(1.725));
 		},
 		disp: function(x) {
-			return showNum(x)+"x"
+			return showNum(x)+"倍"
 		},
 	},
 	35: { 

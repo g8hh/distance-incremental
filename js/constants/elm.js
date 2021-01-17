@@ -380,7 +380,7 @@ const TREE_UPGS = {
 		cost: function(bought) { return ExpantaNum.mul(20, bought.div(2).plus(1)) },
 		target: function(points) { return points.div(20).sub(1).times(2).plus(1).floor() },
 		cap: new ExpantaNum(5),
-		desc: "上方的升级根据前子数值，额外增加其生效的等级。",
+		desc: "使上方的升级根据前子数值，额外增加其生效的等级。",
 		effect: function(bought) { return player.elementary.theory.preons.amount.plus(1).times(10).slog(10).times(bought) },
 		effD: function(e) { return "额外"+showNum(e)+"级" },
 	},
