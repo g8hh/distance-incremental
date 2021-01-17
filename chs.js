@@ -551,6 +551,7 @@ var cnItems = {
     'Get ten free Theory Points.': '额外获得10点学说点数。',
     'Total: +': '合计：+',
     ' of these Gluons.': '该胶子。',
+    'Reach the end of this Elementary run to gain Theory Points.': '到达基本粒子以获取学说点数。',
     'Always keep TR Upgrades, the Pathogen Upgrade automator, the Dark Core automator, & Furnace Challenge completions. You also start with Automation unlocked.': '永远保留时间反演升级，自动病原体，自动黑暗核心和熔炉挑战完成情况。自动化直接解锁。',
     'Always keep TR Upgrades, the Pathogen Upgrade automator, the Dark Core automator, and all energy upgrades. You also start with Automation unlocked.': '永远保留时间反演升级，自动病原体，自动黑暗核心和所有能量升级。自动化直接解锁。',
     'Unlock Auto-Robots, and your best motivation is not reset upon elementary.': '解锁自动机器人，基本重置不再重置最高动力。',

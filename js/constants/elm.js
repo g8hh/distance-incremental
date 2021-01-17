@@ -293,7 +293,7 @@ const TREE_UPGS = {
 			if (ret.gte(100)) ret = ret.log10().pow(new ExpantaNum(100).logBase(2)).min(ret.cbrt().times(Math.pow(100, 2/3)))
 			return ret
 		},
-		effD: function(e) { return showNum(e)+"倍" },
+		effD: function(e) { return showNum(e)+" 倍" },
 	},
 	2: {
 		cost: function(bought) { return bought.pow(2).plus(1) },
@@ -301,7 +301,7 @@ const TREE_UPGS = {
 		cap: new ExpantaNum(50),
 		desc: "增加知识的获取量和希格斯玻色子的获取量。",
 		effect: function(bought) { return ExpantaNum.pow(100, new ExpantaNum(bought).sqrt()) },
-		effD: function(e) { return showNum(e)+"倍" },
+		effD: function(e) { return showNum(e)+" 倍" },
 	},
 	3: {
 		cost: function(bought) { return bought.pow(3).plus(1) },
@@ -317,7 +317,7 @@ const TREE_UPGS = {
 		cap: new ExpantaNum(10),
 		desc: "使学说宇宙的减成更加缓和。",
 		effect: function(bought) { return new ExpantaNum(bought).plus(1).times(10).slog(10).sub(1).times(7.6).max(0) },
-		effD: function(e) { return "-"+showNum(e)+"深度" },
+		effD: function(e) { return "-"+showNum(e)+" 深度" },
 	},
 	5: {
 		cost: function(bought) { return ExpantaNum.pow(2, bought).times(4) },
@@ -325,7 +325,7 @@ const TREE_UPGS = {
 		cap: new ExpantaNum(15),
 		desc: "超对称粒子的获取量变为三倍。",
 		effect: function(bought) { return ExpantaNum.pow(3, bought) },
-		effD: function(e) { return showNum(e)+"倍" },
+		effD: function(e) { return showNum(e)+" 倍" },
 	},
 	6: {
 		unl: function() { return player.elementary.theory.strings.unl },
@@ -334,7 +334,7 @@ const TREE_UPGS = {
 		cap: new ExpantaNum(40),
 		desc: "根据基本重置次数，增加纠缠弦的获取量。",
 		effect: function(bought) { return player.elementary.times.plus(1).pow(new ExpantaNum(bought).pow(0.15).div(5)) },
-		effD: function(e) { return showNum(e)+"倍" },
+		effD: function(e) { return showNum(e)+" 倍" },
 	},
 	7: {
 		unl: function() { return player.elementary.theory.strings.unl },
@@ -343,7 +343,7 @@ const TREE_UPGS = {
 		cap: new ExpantaNum(5),
 		desc: "根据一维弦数值，使折算的认可延迟出现，且在学说宇宙中增加知识的获取量。",
 		effect: function(bought) { return player.elementary.theory.strings.amounts[0].plus(1).times(10).slog(10).log10().div(5).times(new ExpantaNum(bought).times(75)) },
-		effD: function(e) { return "延迟："+showNum(e)+"次出现，知识的获取量："+showNum(e.plus(1).pow(10))+"倍" },
+		effD: function(e) { return "延迟："+showNum(e)+" 次出现，知识的获取量："+showNum(e.plus(1).pow(10))+" 倍" },
 	},
 	8: {
 		unl: function() { return player.elementary.theory.preons.unl },
@@ -355,7 +355,7 @@ const TREE_UPGS = {
 			if (new ExpantaNum(bought).gte(16)) bought = ExpantaNum.sub(20, ExpantaNum.div(20, ExpantaNum.sub(bought, 11)));
 			return ExpantaNum.mul(0.05, bought) 
 		},
-		effD: function(e) { return "减少"+showNum(e.times(100))+"%" },
+		effD: function(e) { return "减少 "+showNum(e.times(100))+"%" },
 	},
 	9: {
 		unl: function() { return player.elementary.theory.preons.unl },
@@ -364,7 +364,7 @@ const TREE_UPGS = {
 		cap: new ExpantaNum(90),
 		desc: "根据费米子数值，增加前子的获取量。",
 		effect: function(bought) { return player.elementary.fermions.amount.pow(0.2).times(new ExpantaNum(bought).pow(2)).plus(1) },
-		effD: function(e) { return showNum(e)+"倍" },
+		effD: function(e) { return showNum(e)+" 倍" },
 	},
 	10: {
 		unl: function() { return player.elementary.theory.preons.unl },
@@ -373,7 +373,7 @@ const TREE_UPGS = {
 		cap: new ExpantaNum(10),
 		desc: "学说增强器花费更少。",
 		effect: function(bought) { return ExpantaNum.pow(ExpantaNum.add(bought, 1), 3) },
-		effD: function(e) { return "便宜"+showNum(e)+"倍" },
+		effD: function(e) { return "便宜 "+showNum(e)+" 倍" },
 	},
 	11: {
 		unl: function() { return player.elementary.theory.preons.unl },
@@ -382,7 +382,7 @@ const TREE_UPGS = {
 		cap: new ExpantaNum(5),
 		desc: "使上方的升级根据前子数值，额外增加其生效的等级。",
 		effect: function(bought) { return player.elementary.theory.preons.amount.plus(1).times(10).slog(10).times(bought) },
-		effD: function(e) { return "额外"+showNum(e)+"级" },
+		effD: function(e) { return "额外 "+showNum(e)+" 级" },
 	},
 	12: {
 		unl: function() { return player.elementary.theory.accelerons.unl },
@@ -391,7 +391,7 @@ const TREE_UPGS = {
 		cap: new ExpantaNum(12),
 		desc: "根据超对称波长度，使加速子的产量变得更多。",
 		effect: function(bought) { return tmp.elm.theory.ss.wavelength.plus(1).pow(0.04).pow(bought) },
-		effD: function(e) { return showNum(e)+"倍" },
+		effD: function(e) { return showNum(e)+" 倍" },
 	},
 	13: {
 		unl: function() { return player.elementary.theory.accelerons.unl },
@@ -462,7 +462,7 @@ const TREE_UPGS = {
 		cap: new ExpantaNum(1),
 		desc: "基本粒子获取量的软上限效果减少50%。",
 		effect: function(bought) { return new ExpantaNum(0.5).times(bought) },
-		effD: function(e) { return "减少"+showNum(e.times(100))+"%" },
+		effD: function(e) { return "减少 "+showNum(e.times(100))+"%" },
 	},
 	21: {
 		unl: function() { return hasDE(5) },
@@ -470,7 +470,7 @@ const TREE_UPGS = {
 		cap: new ExpantaNum(1),
 		desc: "引力子的加成效果翻倍。",
 		effect: function(bought) { return new ExpantaNum(2).times(bought).max(1) },
-		effD: function(e) { return showNum(e)+"倍" },
+		effD: function(e) { return showNum(e)+" 倍" },
 	},
 	22: {
 		unl: function() { return hasDE(5) },
@@ -527,7 +527,7 @@ const TREE_UPGS = {
 		cap: new ExpantaNum(10),
 		desc: "不进行净化也能获得净化能量，但获取量减少。",
 		effect: function(bought) { return ExpantaNum.mul(0.1, bought) },
-		effD: function(e) { return showNum(e)+"倍" },
+		effD: function(e) { return showNum(e)+" 倍" },
 	},
 	29: {
 		unl: function() { return player.elementary.hc.unl },
@@ -536,7 +536,7 @@ const TREE_UPGS = {
 		cap: new ExpantaNum(20),
 		desc: "根据净化能量数值，增加天堂碎片和恶魔灵魂的产量。",
 		effect: function(bought) { return ExpantaNum.pow(ExpantaNum.mul(0.001, bought).plus(1), player.inf.pantheon.purge.power).times(ExpantaNum.pow(player.inf.pantheon.purge.power.max(1), ExpantaNum.sqrt(bought))) },
-		effD: function(e) { return showNum(e)+"倍" },
+		effD: function(e) { return showNum(e)+" 倍" },
 	},
 	30: {
 		unl: function() { return player.elementary.hc.unl },
@@ -545,7 +545,7 @@ const TREE_UPGS = {
 		cap: new ExpantaNum(5),
 		desc: "根据强子数值，增加纠缠弦的获取量。",
 		effect: function(bought) { return ExpantaNum.pow(player.elementary.hc.hadrons.plus(1), ExpantaNum.sqrt(bought).div(2)) },
-		effD: function(e) { return showNum(e)+"倍" },
+		effD: function(e) { return showNum(e)+" 倍" },
 	},
 	31: {
 		unl: function() { return player.elementary.hc.unl },
@@ -554,7 +554,7 @@ const TREE_UPGS = {
 		cap: new ExpantaNum(4),
 		desc: "根据最高的认可数值，增加强子的获取量。",
 		effect: function(bought) { return ExpantaNum.pow(ExpantaNum.add(1, ExpantaNum.mul(0.05, bought)), player.bestEnd) },
-		effD: function(e) { return showNum(e)+"倍" },
+		effD: function(e) { return showNum(e)+" 倍" },
 	},
 	32: {
 		unl: function() { return player.elementary.hc.unl },
@@ -922,7 +922,7 @@ const SKY_FIELDS = {
 		costMult: new ExpantaNum(20),
 		pionEff(bought) { return ExpantaNum.mul(ExpantaNum.sqrt(bought), 0.15).plus(1).pow(0.8) },
 		spinorEff(bought) { return ExpantaNum.mul(ExpantaNum.sqrt(bought), 0.4).plus(1).pow(0.9) },
-		desc(eff) { return "增加"+showNum(eff.sub(1).times(100))+"%" },
+		desc(eff) { return "增加 "+showNum(eff.sub(1).times(100))+"%" },
 	},
 	3: {
 		req: 5,
@@ -932,7 +932,7 @@ const SKY_FIELDS = {
 		costMult: new ExpantaNum(100),
 		pionEff(bought) { return player.elementary.sky.amount.plus(1).log10().plus(1).log10().times(ExpantaNum.sqrt(bought)).sqrt().plus(1) },
 		spinorEff(bought) { return player.elementary.sky.amount.plus(1).log10().times(ExpantaNum.sqrt(bought)).plus(1).sqrt() },
-		desc(eff) { return showNum(eff)+"倍" },
+		desc(eff) { return showNum(eff)+" 倍" },
 	},
 	4: {
 		req: 20,
@@ -942,7 +942,7 @@ const SKY_FIELDS = {
 		costMult: new ExpantaNum(10),
 		pionEff(bought) { return ExpantaNum.mul(ExpantaNum.sqrt(bought), .2).plus(1) },
 		spinorEff(bought) { return ExpantaNum.mul(ExpantaNum.pow(bought, .4), .25).plus(1) },
-		desc(eff) { return "增加"+showNum(eff.sub(1).times(100))+"%" },
+		desc(eff) { return "增加 "+showNum(eff.sub(1).times(100))+"%" },
 	},
 	5: {
 		req: 20,
@@ -952,7 +952,7 @@ const SKY_FIELDS = {
 		costMult: new ExpantaNum(10),
 		pionEff(bought) { return player.elementary.sky.amount.plus(1).pow(bought).pow(400) },
 		spinorEff(bought) { return player.elementary.sky.amount.plus(1).pow(bought).pow(10) },
-		desc(eff) { return showNum(eff)+"倍" },
+		desc(eff) { return showNum(eff)+" 倍" },
 	},
 	6: {
 		req: 100,
@@ -962,7 +962,7 @@ const SKY_FIELDS = {
 		costMult: new ExpantaNum(1e3),
 		pionEff(bought) { return player.rank.max(1).pow(bought) },
 		spinorEff(bought) { return player.elementary.particles.plus(1).log10().times(50).plus(1).pow(bought) },
-		desc(eff) { return showNum(eff)+"倍" },
+		desc(eff) { return showNum(eff)+" 倍" },
 	},
 	7: {
 		req: 100,
@@ -972,7 +972,7 @@ const SKY_FIELDS = {
 		costMult: new ExpantaNum(15),
 		pionEff(bought) { return player.inf.derivatives.unlocks.div(10).times(bought).plus(1).sqrt() },
 		spinorEff(bought) { return tmp.elm.entropy.omega.div(10).times(bought).plus(1).sqrt() },
-		desc(eff) { return "增加"+showNum(eff.sub(1).times(100))+"%" },
+		desc(eff) { return "增加 "+showNum(eff.sub(1).times(100))+"%" },
 	},
 	8: {
 		req: 750,
@@ -982,7 +982,7 @@ const SKY_FIELDS = {
 		costMult: new ExpantaNum(1e5),
 		pionEff(bought) { return ExpantaNum.pow(100, bought) },
 		spinorEff(bought) { return ExpantaNum.pow(100, bought) },
-		desc(eff) { return "便宜"+showNum(eff)+"倍" },
+		desc(eff) { return "便宜 "+showNum(eff)+" 倍" },
 	},
 	9: {
 		req: 750,
@@ -1002,7 +1002,7 @@ const SKY_FIELDS = {
 		costMult: new ExpantaNum(1e5),
 		pionEff(bought) { return ExpantaNum.sub(.8, ExpantaNum.div(.8, ExpantaNum.add(ExpantaNum.mul(bought, 2), 1).log10().div(2).plus(1))) },
 		spinorEff(bought) { return ExpantaNum.sub(.75, ExpantaNum.div(.75, ExpantaNum.add(ExpantaNum.mul(bought, 2), 1).log10().plus(1))) },
-		desc(eff) { return "缓和"+showNum(eff.times(100))+"%" },
+		desc(eff) { return "缓和 "+showNum(eff.times(100))+"%" },
 	},
 	11: {
 		req: 2500,
@@ -1032,7 +1032,7 @@ const SKY_FIELDS = {
 		costMult: new ExpantaNum(1e12),
 		pionEff(bought) { return player.elementary.theory.inflatons.amount.plus(1).log10().div(1e3).sqrt().times(bought).plus(1).root(5) },
 		spinorEff(bought) { return player.inf.ascension.power.plus(1).log10().div(1e3).sqrt().times(bought).plus(1).sqrt() },
-		desc(eff) { return "增加"+showNum(eff.sub(1).times(100))+"%" },
+		desc(eff) { return "增加 "+showNum(eff.sub(1).times(100))+"%" },
 	},
 }
 const GREEK_LETTERS = [null, "alpha", "beta", "gamma", "delta", "epsilon", "zeta", "eta", "theta", "iota", "kappa", "lambda", "mu", "nu", "xi", "omicron", "pi", "rho", "sigmaf", "sigma", "tau", "upsilon", "phi", "chi", "psi", "omega"];

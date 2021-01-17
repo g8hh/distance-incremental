@@ -831,7 +831,7 @@ const STADIUM_REWARDS = {
 			return "+" + showNum(STADIUM_REWARDS.effects.solaris());
 		},
 		eternity: function () {
-			return showNum(STADIUM_REWARDS.effects.eternity()) + "倍";
+			return showNum(STADIUM_REWARDS.effects.eternity()) + " 倍";
 		},
 		drigganiz: function () {
 			return "+" + showNum(STADIUM_REWARDS.effects.drigganiz().times(100)) + "%";
@@ -933,7 +933,7 @@ const EXTREME_STADIUM_DATA = {
 			let ret = ExpantaNum.pow(4.8, x);
 			return ret;
 		},
-		disp: function() { return showNum(EXTREME_STADIUM_DATA.cranius.effect())+"倍" },
+		disp: function() { return showNum(EXTREME_STADIUM_DATA.cranius.effect())+" 倍" },
 	},
 	spectra: {
 		descs: [
@@ -954,7 +954,7 @@ const EXTREME_STADIUM_DATA = {
 			new ExpantaNum("1e4650").times(DISTANCES.宇宙),
 		],
 		effect: function() { return player.rankCheap.times(tmp.rankCheap.manPow).times(tmp.rankCheap.pow).pow(0.4).plus(1) },
-		disp: function() { return "减少"+showNum(EXTREME_STADIUM_DATA.spectra.effect())+"倍" },
+		disp: function() { return "减少 "+showNum(EXTREME_STADIUM_DATA.spectra.effect())+" 倍" },
 	},
 	aqualon: {
 		descs: [

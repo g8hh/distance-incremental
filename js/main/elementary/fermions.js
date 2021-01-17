@@ -41,7 +41,7 @@ function updateTempQuarks() {
 	};
 	if (!tmp.elm.ferm.quarkDesc) tmp.elm.ferm.quarkDesc = function (name) {
 		let desc = QUARK_DESCS[name];
-		desc += "目前： " + showNum(tmp.elm.ferm.quarkEff(name)) + "倍";
+		desc += "目前： " + showNum(tmp.elm.ferm.quarkEff(name)) + " 倍";
 		return desc;
 	};
 	if (!tmp.elm.ferm.changeQuark) tmp.elm.ferm.changeQuark = function () {
@@ -103,7 +103,7 @@ function updateTempLeptons() {
 		let eff = tmp.elm.ferm.leptonEff(name);
 		if (name == "电" || name == "中微" || name == "振荡") desc += "+" + showNum(eff.sub(1).times(100)) + "%";
 		else if (name == "缪") desc += "^" + showNum(eff);
-		else desc += showNum(eff) + "倍";
+		else desc += showNum(eff) + " 倍";
 		return desc;
 	};
 	if (!tmp.elm.ferm.changeLepton) tmp.elm.ferm.changeLepton = function () {

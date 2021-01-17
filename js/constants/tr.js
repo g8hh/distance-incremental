@@ -8,7 +8,7 @@ const TR_UPGS = {
 			return tr1Eff();
 		},
 		disp: function (x) {
-			return showNum(x) + "倍";
+			return showNum(x) + " 倍";
 		}
 	},
 	2: {
@@ -20,7 +20,7 @@ const TR_UPGS = {
 			return tr2Eff();
 		},
 		disp: function (x) {
-			return showNum(x) + "倍";
+			return showNum(x) + " 倍";
 		}
 	},
 	3: { cost: function(){return new ExpantaNum(1000)}, desc: "The Rank requirement formula is 10% slower." },
@@ -33,7 +33,7 @@ const TR_UPGS = {
 			return tr4Eff();
 		},
 		disp: function (x) {
-			return showNum(x) + "倍";
+			return showNum(x) + " 倍";
 		}
 	},
 	5: { cost: function(){return new ExpantaNum(15000)}, desc: "Rocket Fuel is 10% stronger." },
@@ -46,7 +46,7 @@ const TR_UPGS = {
 			return tr6Eff();
 		},
 		disp: function (x) {
-			return showNum(x) + "倍";
+			return showNum(x) + " 倍";
 		}
 	},
 	7: {
@@ -58,7 +58,7 @@ const TR_UPGS = {
 			return tr7Eff();
 		},
 		disp: function (x) {
-			return showNum(x) + "倍";
+			return showNum(x) + " 倍";
 		}
 	},
 	8: {
@@ -70,7 +70,7 @@ const TR_UPGS = {
 			return tr8Eff();
 		},
 		disp: function (x) {
-			return showNum(x) + "倍";
+			return showNum(x) + " 倍";
 		}
 	},
 	9: {
@@ -82,7 +82,7 @@ const TR_UPGS = {
 			return tr9Eff();
 		},
 		disp: function (x) {
-			return showNum(x) + "倍";
+			return showNum(x) + " 倍";
 		}
 	},
 	10: {
@@ -94,7 +94,7 @@ const TR_UPGS = {
 			return tr10Eff();
 		},
 		disp: function (x) {
-			return showNum(x) + "倍";
+			return showNum(x) + " 倍";
 		}
 	},
 	11: {
@@ -106,7 +106,7 @@ const TR_UPGS = {
 			return tr11Eff();
 		},
 		disp: function (g) {
-			return "时间方盒：" + showNum(g.cg) + "倍，黑暗流：" + showNum(g.dcf) + "倍";
+			return "时间方盒： " + showNum(g.cg) + " 倍，黑暗流： " + showNum(g.dcf) + " 倍";
 		}
 	},
 	12: {
@@ -118,7 +118,7 @@ const TR_UPGS = {
 			return tr12Eff();
 		},
 		disp: function (x) {
-			return showNum(x) + "倍";
+			return showNum(x) + " 倍";
 		}
 	},
 	13: {
@@ -143,7 +143,7 @@ const TR_UPGS = {
 			return tr14Eff();
 		},
 		disp: function (g) {
-			return "阶层折算：延迟" + showNum(g.ss) + "次，残骸：" + showNum(g.cd) + "倍";
+			return "阶层折算：延迟 " + showNum(g.ss) + " 次，残骸： " + showNum(g.cd) + " 倍";
 		}
 	},
 	15: {
@@ -156,7 +156,7 @@ const TR_UPGS = {
 			return tr15Eff();
 		},
 		disp: function (x) {
-			return showNum(x) + "倍";
+			return showNum(x) + " 倍";
 		}
 	},
 	16: {
@@ -168,7 +168,7 @@ const TR_UPGS = {
 			return { tc: player.furnace.coal.plus(1).log10().sqrt().plus(1), co: player.tr.cubes.plus(1) };
 		},
 		disp: function (g) {
-			return "时间方盒：" + showNum(g.tc) + "倍，煤：" + showNum(g.co) + "倍";
+			return "时间方盒： " + showNum(g.tc) + " 倍，煤： " + showNum(g.co) + " 倍";
 		}
 	},
 	17: {
@@ -180,7 +180,7 @@ const TR_UPGS = {
 			return player.tr.cubes.plus(1).times(10).slog(10);
 		},
 		disp: function (x) {
-			return showNum(x) + "倍";
+			return showNum(x) + " 倍";
 		}
 	},
 	18: {
@@ -192,7 +192,7 @@ const TR_UPGS = {
 			return ExpantaNum.pow(2, player.rankCheap.sqrt());
 		},
 		disp: function (x) {
-			return showNum(x) + "倍";
+			return showNum(x) + " 倍";
 		}
 	},
 	19: {
@@ -204,7 +204,7 @@ const TR_UPGS = {
 			return tr19Eff();
 		},
 		disp: function (x) {
-			return showNum(x) + "倍";
+			return showNum(x) + " 倍";
 		}
 	},
 	20: {
@@ -216,7 +216,7 @@ const TR_UPGS = {
 			return player.rankCheap.plus(1).log10().plus(1).log10().plus(1);
 		},
 		disp: function (x) {
-			return "阶层花费提升速度减少" + showNum(x) + "倍";
+			return "阶层花费提升速度减少 " + showNum(x) + " 倍";
 		}
 	},
 	21: { cost: function(){ return new ExpantaNum(1e13)}, desc: "Automate The Furnace." },
@@ -229,7 +229,7 @@ const TR_UPGS = {
 			return player.collapse.cadavers.plus(1).times(10).slog(10).sqrt();
 		},
 		disp: function (x) {
-			return showNum(x) + "倍";
+			return showNum(x) + " 倍";
 		}
 	},
 	23: {
@@ -241,7 +241,7 @@ const TR_UPGS = {
 			return ExpantaNum.pow(2.5, player.furnace.blueFlame);
 		},
 		disp: function (x) {
-			return showNum(x) + "倍";
+			return showNum(x) + " 倍";
 		}
 	},
 	24: { cost: function(){return new ExpantaNum(1.2e30)}, desc: "The 'Time Doesnt Exist' achievement effect is 75% stronger." },
@@ -256,7 +256,7 @@ const TR_UPGS = {
 			return ret;
 		},
 		disp: function (x) {
-			return showNum(x) + "倍";
+			return showNum(x) + " 倍";
 		}
 	},
 	27: {
@@ -282,7 +282,7 @@ const TR_UPGS = {
 			return player.furnace.coal.plus(1).pow(0.15);
 		},
 		disp: function (x) {
-			return showNum(x) + "倍";
+			return showNum(x) + " 倍";
 		}
 	},
 	29: {
@@ -294,7 +294,7 @@ const TR_UPGS = {
 			return player.rockets.plus(1).logBase(2).pow(player.dc.fluid.plus(1).times(10).slog(10).pow(2).max(1));
 		},
 		disp: function (x) {
-			return showNum(x) + "倍";
+			return showNum(x) + " 倍";
 		}
 	},
 	30: {
@@ -331,7 +331,7 @@ const TR_UPGS = {
 			return ExpantaNum.pow(10, player.furnace.blueFlame.pow(1.725));
 		},
 		disp: function(x) {
-			return showNum(x)+"倍"
+			return showNum(x)+" 倍"
 		},
 	},
 	35: { 

@@ -981,8 +981,8 @@ function updatePhotonsHTML(){
 			locked: player.elementary.bosons.gauge.photons.amount.lt(tmp.elm.bos.photonCost[i]),
 			light: player.elementary.bosons.gauge.photons.amount.gte(tmp.elm.bos.photonCost[i])
 		});
-		tmp.el["photonLvl" + i].setTxt(getScalingName("photons", i)+"Level: "+showNum(player.elementary.bosons.gauge.photons.upgrades[i - 1]));
-		tmp.el["photonDesc" + i].setTxt(showNum(tmp.elm.bos.photonEff(i)) + "x");
+		tmp.el["photonLvl" + i].setTxt(getScalingName("photons", i)+"等级： "+showNum(player.elementary.bosons.gauge.photons.upgrades[i - 1]));
+		tmp.el["photonDesc" + i].setTxt(showNum(tmp.elm.bos.photonEff(i)) + " 倍");
 		tmp.el["photonCost" + i].setTxt(showNum(tmp.elm.bos.photonCost[i]));
 	}
 }
@@ -1049,24 +1049,24 @@ function updateScalarBosonsHTML(){
 				let ac = extra.active()
 				if (ac) text = extra.desc[ac]
 			}
-			tmp.el["higgs"+name].setHTML(text+"<br>Cost: "+showNum(data.cost)+" Higgs Bosons.")
+			tmp.el["higgs"+name].setHTML(text+"<br>花费： "+showNum(data.cost)+" 希格斯玻色子。")
 		}
-		tmp.el["higgs1;1;0"].setTooltip("目前： "+showNum(tmp.elm.bos["higgs_1;1;0"](true))+"倍")
-		tmp.el["higgs0;1;1"].setTooltip("目前： "+showNum(tmp.elm.bos["higgs_0;1;1"](true))+"倍")
-		tmp.el["higgs3;0;0"].setTooltip("目前： "+showNum(tmp.elm.bos["higgs_3;0;0"](true))+"倍")
+		tmp.el["higgs1;1;0"].setTooltip("目前： "+showNum(tmp.elm.bos["higgs_1;1;0"](true))+" 倍")
+		tmp.el["higgs0;1;1"].setTooltip("目前： "+showNum(tmp.elm.bos["higgs_0;1;1"](true))+" 倍")
+		tmp.el["higgs3;0;0"].setTooltip("目前： "+showNum(tmp.elm.bos["higgs_3;0;0"](true))+" 倍")
 		tmp.el["higgs0;2;1"].setTooltip("目前：+"+showNum(tmp.elm.bos["higgs_0;2;1"](true))+"%")
-		tmp.el["higgs0;0;4"].setTooltip("目前： "+showNum(tmp.elm.bos["higgs_0;0;4"](true))+"倍")
-		tmp.el["higgs1;3;0"].setTooltip("目前： "+showNum(tmp.elm.bos["higgs_1;3;0"](true))+"倍")
-		tmp.el["higgs0;3;1"].setTooltip("目前： "+showNum(tmp.elm.bos["higgs_0;3;1"](true))+"倍")
-		tmp.el["higgs0;0;5"].setTooltip("目前： "+showNum(tmp.elm.bos["higgs_0;0;5"](true))+"次延迟")
+		tmp.el["higgs0;0;4"].setTooltip("目前： "+showNum(tmp.elm.bos["higgs_0;0;4"](true))+" 倍")
+		tmp.el["higgs1;3;0"].setTooltip("目前： "+showNum(tmp.elm.bos["higgs_1;3;0"](true))+" 倍")
+		tmp.el["higgs0;3;1"].setTooltip("目前： "+showNum(tmp.elm.bos["higgs_0;3;1"](true))+" 倍")
+		tmp.el["higgs0;0;5"].setTooltip("目前： "+showNum(tmp.elm.bos["higgs_0;0;5"](true))+" 次延迟")
 	}
 }
 
 function updateElementaryMainDisplaysHTML(){
 	tmp.el.elmReset.setHTML(
-		player.elementary.theory.active?(tmp.elm.can?("Exit The Theoriverse to gain "+showNum(tmp.elm.theory.gain)+" Theory Points."):"Reach the end of this Elementary run to gain Theory Points."):("Reset all previous progress to gain <span class='eltxt'>" +
+		player.elementary.theory.active?(tmp.elm.can?("退出当前的学说宇宙以获得 "+showNum(tmp.elm.theory.gain)+" 学说点数。"):"Reach the end of this Elementary run to gain Theory Points."):("重置之前所有进度，并获得 <span class='eltxt'>" +
 			showNum(tmp.elm.layer.gain) +
-			"</span> Elementary Particles."+(tmp.elm.layer.gain.gte(tmp.elm.softcap)?"<span class='sc'>(已达软上限)</span>":""))
+			"</span> 基本粒子。"+(tmp.elm.layer.gain.gte(tmp.elm.softcap)?"<span class='sc'>(已达软上限)</span>":""))
 	);
 	tmp.el.elmReset.setClasses({ btn: true, locked: !tmp.elm.can, elm: (tmp.elm.can&&!player.elementary.theory.active), th: (tmp.elm.can&&player.elementary.theory.active) });
 	tmp.el.elmt.setTxt(showNum(player.elementary.times));
@@ -1108,8 +1108,8 @@ function updateTheoryTreeHTML(){
 				tmp.el["gTreeSect"+i].setDisplay(unl)
 			}
 		}
-		tmp.el.treeRespec.setTxt("Reset your Theory Tree (and Elementary reset) for "+showNum(player.elementary.theory.tree.spent)+" Theory Points back.")
-		tmp.el.ach152Eff.setHTML(tmp.ach[152].has?('"Useless Theories" effect: Upgrades are '+showNum(ach152Eff())+'x cheaper.<br><br>'):"")
+		tmp.el.treeRespec.setTxt("重置学说树的升级(且强制进行一次基本重置)并退还 "+showNum(player.elementary.theory.tree.spent)+" 学说点数。")
+		tmp.el.ach152Eff.setHTML(tmp.ach[152].has?('“无用的学说”效果：升级便宜 '+showNum(ach152Eff())+' 倍。<br><br>'):"")
 	}
 }
 
@@ -1119,7 +1119,7 @@ function updateTheoryTreeHTMLPerSec() {
 			let bought = tmp.elm.theory.tree.bought(i)
 			let cap = getTreeUpgCap(i)
 			let pref = player.options.tht?"gTree":"tree"
-			tmp.el[pref+i].setTooltip(TREE_UPGS[i].desc+"\n"+(bought.gte(cap)?"":("Cost: "+showNum(TREE_UPGS[i].cost(bought).div(tmp.elm.theory.tree.costReduc).round())+" Theory Points"))+"\nCurrently: "+TREE_UPGS[i].effD(TREE_UPGS[i].effect(ExpantaNum.add(bought, i==7?TREE_UPGS[11].effect(player.elementary.theory.tree.upgrades[11]||0):0))))
+			tmp.el[pref+i].setTooltip(TREE_UPGS[i].desc+"\n"+(bought.gte(cap)?"":("花费： "+showNum(TREE_UPGS[i].cost(bought).div(tmp.elm.theory.tree.costReduc).round())+" 学说点数"))+"\n目前： "+TREE_UPGS[i].effD(TREE_UPGS[i].effect(ExpantaNum.add(bought, i==7?TREE_UPGS[11].effect(player.elementary.theory.tree.upgrades[11]||0):0))))
 		}
 	}
 }
@@ -1135,10 +1135,10 @@ function updateStringsHTML(){
 			tmp.el["str"+i+"gain"].setTxt(formatGain(player.elementary.theory.strings.amounts[i-1], getStringGain(i), "str", true))
 		}
 		let lastStr = player.elementary.theory.strings.amounts.findIndex(x => new ExpantaNum(x).eq(0))+1
-		tmp.el.nextStr.setTxt((lastStr<=1||lastStr>UNL_STR())?"":("Next String unlocks when your "+STR_NAMES[lastStr-1]+" String reaches a length of "+formatDistance(STR_REQS[lastStr])))
+		tmp.el.nextStr.setTxt((lastStr<=1||lastStr>UNL_STR())?"":("下一个弦将在"+STR_NAMES[lastStr-1]+"弦长度达到 "+formatDistance(STR_REQS[lastStr]+" 时解锁")))
 		tmp.el.entangleDiv.setDisplay(lastStr>=3||lastStr==0||player.elementary.theory.strings.entangled.gt(0))
 		tmp.el.entangle.setClasses({btn: true, locked: lastStr<3&&lastStr!=0, th: lastStr>=3||lastStr==0})
-		tmp.el.entangle.setTxt("Entangle your Strings (which resets them) to gain "+formatDistance(getEntangleGain())+" of Entangled Strings.")
+		tmp.el.entangle.setTxt("纠缠您的弦(并重置它们)以获得 "+formatDistance(getEntangleGain())+" 长度的纠缠弦。")
 		tmp.el.entangleAmt.setTxt(formatDistance(player.elementary.theory.strings.entangled))
 		tmp.el.entangleEff.setTxt(showNum(getEntangleEff()))
 	}
@@ -1332,7 +1332,7 @@ function updateOverallElementaryHTML(){
 
 function updateMiscHTML(){
 	tmp.el.ts.setHTML(
-		tmp.timeSpeed.eq(1) || nerfActive("noTS") ? "" : "时间速度: " + showNum(tmp.timeSpeed) + "倍<br>"
+		tmp.timeSpeed.eq(1) || nerfActive("noTS") ? "" : "时间速度: " + showNum(tmp.timeSpeed) + " 倍<br>"
 	);
 	tmp.el.body.changeStyle("background", tmp.bc);
 	let root = document.documentElement;
