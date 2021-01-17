@@ -659,6 +659,8 @@ var cnItems = {
     'Height': '高度',
     'Width': '宽度',
     'Depth': '深度',
+    'Auto: ON': '自动：开启',
+    'Auto: OFF': '自动：关闭',
     'Force Entropy Reset': '强制熵重置',
     'Unlock Auto-Foam Unlocks (in automation tab': '解锁自动泡沫解锁(在自动化页面',
     'Gain more of all types of Foam based on your Theoriverse completions': '根据学说宇宙的完成次数，增加所有类型的泡沫获取量',

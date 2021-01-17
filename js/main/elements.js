@@ -1349,25 +1349,25 @@ function updateMiscHTML(){
 	tmp.el.footer.setDisplay(player.tab == "options");
 	tmp.el.newsticker.changeStyle('visibility', player.options.newst?'visible':'hidden');
 	tmp.el.hotkeys.setAttr("widetooltip", 
-		"R -> Rank Reset\n"+
-		(modeActive("extreme")?"Shift + C -> Rank Cheapener Reset\n":"")+
-		(modeActive("hikers_dream")?"J -> Rejuvenate\n":"")+
-		"T -> Tier Reset\n"+
-		(TABBTN_SHOWN.rockets()?"Shift + R -> Rocket Reset\n":"")+
-		(TABBTN_SHOWN.rockets()?"F -> Rocket Fuel Reset\n":"")+
-		((TABBTN_SHOWN.furnace()&&tmp.fn)?"Shift + F -> Blue Flame Reset\n":"")+
-		(TABBTN_SHOWN.tr()?"U -> Time Reversal\n":"")+
-		(TABBTN_SHOWN.collapse()?"C -> Collapse Reset\n":"")+
-		(TABBTN_SHOWN.pathogens()?"P -> Max All Pathogen Upgrades\n":"")+
-		(TABBTN_SHOWN.dc()?"D -> Buy Dark Core\n":"")+
-		((TABBTN_SHOWN.inf() && player.inf.endorsements.gte(10))?"E -> Get Endorsement\n":"")+
-		(INF_TABS.ascension()?"1, 2, 3, 4 -> Toggle Perks\n":"")+
-		(INF_TABS.derivatives()?"Shift + P -> Toggle Purge\n":"")+
-		(INF_TABS.derivatives()?"Shift + D -> Derivative Shift/Boost\n":"")+
-		(TABBTN_SHOWN.elementary()?"Shift + E -> Elementary Reset\n":"")+
-		(ELM_TABS.theory()?"Shift + T -> Toggle Theoriverse\n":"")+
-		(TH_TABS.strings()?"S -> Entangled String reset\n":"")+
-		(ELM_TABS.sky()?"Shift + S -> Skyrmion reset":"")
+		"R -> 级别重置\n"+
+		(modeActive("extreme")?"Shift + C -> 级别降价器重置\n":"")+
+		(modeActive("hikers_dream")?"J -> 复原能量\n":"")+
+		"T -> 阶层重置\n"+
+		(TABBTN_SHOWN.rockets()?"Shift + R -> 火箭重置\n":"")+
+		(TABBTN_SHOWN.rockets()?"F -> 火箭燃料重置\n":"")+
+		((TABBTN_SHOWN.furnace()&&tmp.fn)?"Shift + F -> 蓝色火焰重置\n":"")+
+		(TABBTN_SHOWN.tr()?"U -> 时间反演\n":"")+
+		(TABBTN_SHOWN.collapse()?"C -> 坍缩重置\n":"")+
+		(TABBTN_SHOWN.pathogens()?"P -> 最大化购买所有病原体升级\n":"")+
+		(TABBTN_SHOWN.dc()?"D -> 购买黑暗核心\n":"")+
+		((TABBTN_SHOWN.inf() && player.inf.endorsements.gte(10))?"E -> 获得认可\n":"")+
+		(INF_TABS.ascension()?"1, 2, 3, 4 -> 切换特权\n":"")+
+		(INF_TABS.derivatives()?"Shift + P -> 切换净化\n":"")+
+		(INF_TABS.derivatives()?"Shift + D -> 导数变换/提升\n":"")+
+		(TABBTN_SHOWN.elementary()?"Shift + E -> 基本重置\n":"")+
+		(ELM_TABS.theory()?"Shift + T -> 切换学说宇宙\n":"")+
+		(TH_TABS.strings()?"S -> 纠缠弦重置\n":"")+
+		(ELM_TABS.sky()?"Shift + S -> 斯格明子重置":"")
 	);
 }
 
