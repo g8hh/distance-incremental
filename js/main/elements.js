@@ -1467,7 +1467,7 @@ function updateSkyHTML() {
 			tmp.el.skyrmionAmt.setTxt(showNum(player.elementary.sky.amount))
 			tmp.el.skyrmionEff.setTxt(showNum(tmp.elm.sky.eff))
 		} else if (skyTab == "pions") {
-			tmp.el.nextPionUpgs.setTxt(player.elementary.sky.amount.gte(SKY_FIELD_UPGS_REQS[SKY_FIELD_UPGS_REQS.length-1])?"":("More upgrades at "+showNum(nextFieldReq)+" Skyrmions"))
+			tmp.el.nextPionUpgs.setTxt(player.elementary.sky.amount.gte(SKY_FIELD_UPGS_REQS[SKY_FIELD_UPGS_REQS.length-1])?"":("到达 "+showNum(nextFieldReq)+" 斯格明子后可解锁更多升级"))
 			tmp.el.pionAmt.setTxt(showNum(player.elementary.sky.pions.amount))
 			tmp.el.pionGain.setTxt(formatGain(player.elementary.sky.pions.amount, tmp.elm.sky.pionGain, "sky"))
 			for (let id=1;id<=SKY_FIELDS.upgs;id++) {
@@ -1477,10 +1477,10 @@ function updateSkyHTML() {
 				})
 				tmp.el["pionUpg"+id].changeStyle("visibility", player.elementary.sky.amount.gte(SKY_FIELDS[id].req)?"visible":"hidden")
 			}
-			tmp.el.pionData.setHTML(pionSel==0?"":("Pion Upgrade &"+GREEK_LETTERS[pionSel]+"; ("+showNum(player.elementary.sky.pions.field[pionSel]||0)+")<br>"+SKY_FIELDS[pionSel].pionDesc+"<br>Currently: "+SKY_FIELDS[pionSel].desc(tmp.elm.sky.pionEff[pionSel])+"<br>Cost: "+showNum(getFieldUpgCost("pions", pionSel))+" Pions"))
+			tmp.el.pionData.setHTML(pionSel==0?"":("π介子升级 &"+GREEK_LETTERS[pionSel]+"; ("+showNum(player.elementary.sky.pions.field[pionSel]||0)+")<br>"+SKY_FIELDS[pionSel].pionDesc+"<br>目前： "+SKY_FIELDS[pionSel].desc(tmp.elm.sky.pionEff[pionSel])+"<br>花费： "+showNum(getFieldUpgCost("pions", pionSel))+" π介子"))
 			tmp.el.maxPion.setDisplay(player.elementary.entropy.upgrades.includes(20))
 		} else if (skyTab == "spinors") {
-			tmp.el.nextSpinorUpgs.setTxt(player.elementary.sky.amount.gte(SKY_FIELD_UPGS_REQS[SKY_FIELD_UPGS_REQS.length-1])?"":("More upgrades at "+showNum(nextFieldReq)+" Skyrmions"))
+			tmp.el.nextSpinorUpgs.setTxt(player.elementary.sky.amount.gte(SKY_FIELD_UPGS_REQS[SKY_FIELD_UPGS_REQS.length-1])?"":("到达 "+showNum(nextFieldReq)+" 斯格明子后可解锁更多升级"))
 			tmp.el.spinorAmt.setTxt(showNum(player.elementary.sky.spinors.amount))
 			tmp.el.spinorGain.setTxt(formatGain(player.elementary.sky.spinors.amount, tmp.elm.sky.spinorGain, "sky"))
 			for (let id=1;id<=SKY_FIELDS.upgs;id++) {
@@ -1490,7 +1490,7 @@ function updateSkyHTML() {
 				})
 				tmp.el["spinorUpg"+id].changeStyle("visibility", player.elementary.sky.amount.gte(SKY_FIELDS[id].req)?"visible":"hidden")
 			}
-			tmp.el.spinorData.setHTML(spinorSel==0?"":("Spinor Upgrade &"+GREEK_LETTERS[spinorSel]+"; ("+showNum(player.elementary.sky.spinors.field[spinorSel]||0)+")<br>"+SKY_FIELDS[spinorSel].spinorDesc+"<br>Currently: "+SKY_FIELDS[spinorSel].desc(tmp.elm.sky.spinorEff[spinorSel])+"<br>Cost: "+showNum(getFieldUpgCost("spinors", spinorSel))+" Spinors"))
+			tmp.el.spinorData.setHTML(spinorSel==0?"":("旋量升级 &"+GREEK_LETTERS[spinorSel]+"; ("+showNum(player.elementary.sky.spinors.field[spinorSel]||0)+")<br>"+SKY_FIELDS[spinorSel].spinorDesc+"<br>目前： "+SKY_FIELDS[spinorSel].desc(tmp.elm.sky.spinorEff[spinorSel])+"<br>花费： "+showNum(getFieldUpgCost("spinors", spinorSel))+" 旋量"))
 			tmp.el.maxSpinor.setDisplay(player.elementary.entropy.upgrades.includes(20))
 		}
 	}

@@ -724,6 +724,7 @@ var cnItems = {
     'The Skyrmion effect is multiplied.': '斯格明子的效果变为某个数值的倍数。',
     'The Perk Accelerator is stronger based on your Inflatons.': '根据暴胀子数值，使特权加速器的效果变得更好。',
     'The second Inflaton effect is stronger based on your Ascension Power.': '根据飞升能量数值，使暴胀子的第二个效果变得更好。',
+    'All Features Unlocked!': '所有机制都解锁了！',
     'Dear Player,': '亲爱的玩家，',
     'Welp you\'ve done it, you\'ve reached the end of the multiverse!': '很好，您终于到达了多宇宙的终点！',
     'Sadly, more content won\'t be available for the time being...': '很遗憾的是，目前没有更多新内容了……',
