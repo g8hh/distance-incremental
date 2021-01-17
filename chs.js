@@ -302,6 +302,8 @@ var cnItems = {
     //自动化结束
 
     //时间反演
+    'Bring Time back to normal.': '将时间变回正常。',
+    'Reverse Time.': '反演时间。',
     'Increase Time Cube gain by 10% for each Rank or Tier.': '每次提升级别或阶层都使时间方盒的获取量增加10%。',
     'Time goes by (log(n+1)) times faster, where n is your Time Cubes.': '时间加快log(n+1)倍，其中n为时间方盒数值。',
     'The Rank requirement formula is 10% slower.': '级别需求的公式缓和10%。',
