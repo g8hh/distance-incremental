@@ -321,7 +321,7 @@ var cnItems = {
     'Time goes by faster based on your Rank Cheapeners.': '根据级别降价器数值，使时间加快。',
     'Rank Cheapener-bot\'s interval boosts its magnitude.': '根据级别降价器机器人的间隔数值，增加它的数量数值。',
     'Rank Cheapeners also cheapen Tiers, but at a very reduced rate.': '级别降价器也可以使阶层降价，但倍率极低。',
-    'Automate The Furnace.': '解锁自动熔炉。',
+    'Automate The Furnace.': '解锁自动熔炉。就这样，这是这些升级中最短的描述了，所以我决定加上一点废话。不然显示效果不太好。',
     'Rank Cheapeners are stronger based on your Cadavers (not retroactive).': '根据残骸数值，使级别降价器的效果变得更好(不追溯之前的)。',
     'Blue Flame boosts Time Speed.': '根据蓝色火焰数值，增加时间速度的数值。',
     'The \'Time Doesnt Exist\' achievement effect is 75% stronger.': '“时骨无存”成就的奖励增加75%。',
