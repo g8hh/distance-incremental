@@ -278,7 +278,7 @@ function refillEnergy() {
 
 function respecEnergyUpgs() {
 	if (player.energyUpgs.length==0) return
-	if (!confirm("Are you sure you want to respec your Energy Upgrades to get your Motive back? This will also perform a Quick Reset.")) return
+	if (!confirm("您确定要洗点能量升级并返还动力吗？这将同时进行一次快速重置。")) return
 	player.spentMotive = new ExpantaNum(0);
 	player.energyUpgs = [];
 	quickReset();
@@ -416,7 +416,7 @@ function buyGen() {
 
 function respecGens() {
 	if (player.genLvl.plus(player.geners).eq(1)) return
-	if (!confirm("Are you sure you want to respec The Generators to get your Motive back? This will also perform a Quick Reset.")) return
+	if (!confirm("您确定要洗点发生器并返还动力吗？这将同时进行一次快速重置。")) return
 	player.spentMotiveGens = new ExpantaNum(0);
 	player.genLvl = new ExpantaNum(0);
 	player.geners = new ExpantaNum(1);

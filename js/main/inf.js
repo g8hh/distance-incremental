@@ -38,7 +38,7 @@ function updateTempInfUpgs() {
 		if (!force)
 			if (
 				!confirm(
-					"Warning! Doing this will reset your Infinity Upgrades without giving you anything in return, and will force an Infinity reset! Are you sure you want to do this?"
+					"注意！这么做除了重置无限升级以外，您什么也得不到，并且会强制进行一次无限重置！您确定要这么做吗？"
 				)
 			)
 				return;
@@ -53,62 +53,62 @@ function updateTempInfUpgs() {
 		if (id=="4;10") return "^"+showNum(INF_UPGS.effects[id]())
 		else if (id == "2;3")
 			return (
-				"Time Cubes: " +
+				"时间方盒： " +
 				showNum(INF_UPGS.effects[id]()["cubes"]) +
-				"x, Knowledge: " +
+				" 倍，知识： " +
 				showNum(INF_UPGS.effects[id]()["knowledge"]) +
-				"x"
+				" 倍"
 			);
-		else if (id=="10;1") return "Superscaled Pathogen Upgrades: "+showNum(INF_UPGS.effects[id]("pth").times(100))+" % weaker, Snap: +"+formatDistance(INF_UPGS.effects[id]("snp"))+"/秒"
+		else if (id=="10;1") return "超级折算的病原体升级：减少 "+showNum(INF_UPGS.effects[id]("pth").times(100))+"%，加加加速度：+"+formatDistance(INF_UPGS.effects[id]("snp"))+"/秒"
 		else if (id == "2;7" || id == "8;6" || id == "9;6" || id=="1;10")
-			return showNum(INF_UPGS.effects[id]().times(100)) + "% weaker";
+			return "减少 " + showNum(INF_UPGS.effects[id]().times(100)) + "%";
 		else if (id == "3;2")
 			return (
-				"Cadavers: " +
+				"残骸： " +
 				showNum(INF_UPGS.effects[id]()["cadavers"]) +
-				"x, Knowledge: " +
+				" 倍，知识： " +
 				showNum(INF_UPGS.effects[id]()["knowledge"]) +
-				"x"
+				" 倍"
 			);
 		else if (id == "5;7" || id == "9;2") return "+" + showNum(INF_UPGS.effects[id]());
 		else if (id == "7;2")
 			return (
-				"Ascension Power: " +
+				"飞升能量： " +
 				showNum(INF_UPGS.effects[id]()["power"]) +
-				"x, Dark Flow: " +
+				" 倍，黑暗流： " +
 				showNum(INF_UPGS.effects[id]()["flow"]) +
-				"x"
+				" 倍"
 			);
 		else if (id == "1;8" || id == "7;4" || id == "7;5") return "^" + showNum(INF_UPGS.effects[id]());
 		else if (id == "7;7")
 			return (
-				"Accelerational Energy: " +
+				"加速能量： " +
 				showNum(INF_UPGS.effects[id]()["ae"]) +
-				"x, Velocital Energy: " +
+				" 倍，速度能量： " +
 				showNum(INF_UPGS.effects[id]()["ve"]) +
-				"x, Time Speed: " +
+				" 倍，时间速度： " +
 				showNum(INF_UPGS.effects[id]()["ts"]) +
-				"x"
+				" 倍"
 			);
 		else if (id == "8;2")
 			return (
-				"Purge Power: " +
+				"净化能量： " +
 				showNum(INF_UPGS.effects[id]()["power"]) +
-				"x, Accelerational Energy: " +
+				" 倍，加速能量： " +
 				showNum(INF_UPGS.effects[id]()["energy"]) +
-				"x"
+				" 倍"
 			);
 		else if (id == "8;8" || id=="9;10") return "+" + showNum(INF_UPGS.effects[id]().sub(1).times(100)) + "%";
 		else if (id == "9;3")
 			return (
-				"Angels: " +
+				"天使： " +
 				showNum(INF_UPGS.effects[id]()["angels"]) +
-				"x, Demons: " +
+				" 倍，恶魔： " +
 				showNum(INF_UPGS.effects[id]()["demons"]) +
-				"x"
+				" 倍"
 			);
-		else if (id=="5;10") return "Pathogens: "+showNum(INF_UPGS.effects[id]().pth)+"x, Higgs Bosons: "+showNum(INF_UPGS.effects[id]().hb)+"x"
-		return showNum(INF_UPGS.effects[id]()) + "x";
+		else if (id=="5;10") return "病原体： "+showNum(INF_UPGS.effects[id]().pth)+" 倍，希格斯玻色子： "+showNum(INF_UPGS.effects[id]().hb)+" 倍"
+		return showNum(INF_UPGS.effects[id]()) + " 倍";
 	};
 	if (!tmp.inf.upgs.hover) tmp.inf.upgs.hover = function (id) {
 		tmp.infSelected = id;
@@ -127,25 +127,25 @@ function updateTempInfUpgs() {
 			INF_UPGS.descs[sel] +
 			"<br>" +
 			(!tmp.inf.upgs.has(sel)
-				? "Cost: " +
+				? "花费： " +
 				  showNum(ExpantaNum.mul(INF_UPGS.costs[sel], tmp.inf.upgCostMult(sel))) +
-				  " knowledge<br>" +
+				  " 知识<br>" +
 				  (INF_UPGS.reqs[sel]
-						? "Req: inf" +
+						? "需求：无限" +
 						  INF_UPGS.reqs[sel].reduce(
-								(x, y, i) => x + (i == INF_UPGS.reqs[sel].length ? "" : ", ") + "inf" + y
+								(x, y, i) => x + (i == INF_UPGS.reqs[sel].length ? "" : "，") + "无限" + y
 						  ) +
 						  "<br>"
 						: "") +
 				  (INF_UPGS.repeals[sel]
-						? "Repeals: inf" +
+						? "撤销：无限" +
 						  INF_UPGS.repeals[sel].reduce(
-								(x, y, i) => x + (i == INF_UPGS.repeals[sel].length ? "" : ", ") + "inf" + y
+								(x, y, i) => x + (i == INF_UPGS.repeals[sel].length ? "" : "，") + "无限" + y
 						  ) +
 						  "<br>"
 						: "")
 				: "") +
-			(INF_UPGS.effects[sel] ? "Currently: " + tmp.inf.upgs.current(sel) : "")
+			(INF_UPGS.effects[sel] ? "目前： " + tmp.inf.upgs.current(sel) : "")
 		);
 	};
 	if (!tmp.inf.upgs.buy) tmp.inf.upgs.buy = function (id) {
