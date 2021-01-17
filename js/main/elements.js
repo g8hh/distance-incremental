@@ -1135,7 +1135,7 @@ function updateStringsHTML(){
 			tmp.el["str"+i+"gain"].setTxt(formatGain(player.elementary.theory.strings.amounts[i-1], getStringGain(i), "str", true))
 		}
 		let lastStr = player.elementary.theory.strings.amounts.findIndex(x => new ExpantaNum(x).eq(0))+1
-		tmp.el.nextStr.setTxt((lastStr<=1||lastStr>UNL_STR())?"":("下一个弦将在"+STR_NAMES[lastStr-1]+"弦长度达到 "+formatDistance(STR_REQS[lastStr]+" 时解锁")))
+		tmp.el.nextStr.setTxt((lastStr<=1||lastStr>UNL_STR())?"":("下一个弦将在"+STR_NAMES[lastStr-1]+"弦长度达到 "+formatDistance(STR_REQS[lastStr])+" 时解锁"))
 		tmp.el.entangleDiv.setDisplay(lastStr>=3||lastStr==0||player.elementary.theory.strings.entangled.gt(0))
 		tmp.el.entangle.setClasses({btn: true, locked: lastStr<3&&lastStr!=0, th: lastStr>=3||lastStr==0})
 		tmp.el.entangle.setTxt("纠缠您的弦(并重置它们)以获得 "+formatDistance(getEntangleGain())+" 长度的纠缠弦。")
