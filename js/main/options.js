@@ -24,7 +24,7 @@ function save(sav=player, force=false) {
 		all[sav.savePos - 1] = ENString(sav);
 	} else all.push(ENString(sav));
 	localStorage.setItem("dist-inc-saves" + betaID, btoa(JSON.stringify(all)));
-	if (document.hasFocus()) notifier.success("Game saved!");
+	if (document.hasFocus()) notifier.success("游戏已保存！");
 }
 
 function setSave(ns, cod=false) {
@@ -34,7 +34,7 @@ function setSave(ns, cod=false) {
 }
 
 function deleteSave(loc) {
-	if (!confirm("Are you sure you want to delete this save? You will not be able to undo this!")) return;
+	if (!confirm("您确定要删除此存档吗？您将无法恢复此存档！")) return;
 	let all = getAllSaves();
 	let isCurrent = all[loc].saveID == player.saveID;
 	all[loc] = null;
@@ -48,7 +48,7 @@ function deleteSave(loc) {
 
 function hardReset(force=false) {
 	if (!force)
-		if (!confirm("Are you sure you want to reset? You will lose all of your progress if you do this!!!"))
+		if (!confirm("您确定要硬重置吗？您将失去目前的所有进度！！！"))
 			return;
 	let s = transformToEN(DEFAULT_START, DEFAULT_START)
 	let all = getAllSaves();
@@ -62,12 +62,12 @@ function hardReset(force=false) {
 }
 
 function importSave() {
-	let prmpt = prompt("Paste your save here.");
+	let prmpt = prompt("在此处粘贴存档。");
 	let sav;
 	if (prmpt) {
 		try {
 			sav = JSON.parse(atob(prmpt));
-			notifier.info("Save imported");
+			notifier.info("存档已导入");
 			let s = transformToEN(sav);
 			let all = getAllSaves();
 			if (player.options.saveImp=="overwrite" || s.saveID==player.saveID) s.savePos = deepCopy(player.savePos)
@@ -78,14 +78,14 @@ function importSave() {
 			}
 			setSave(s);
 		} catch (e) {
-			notifier.error("Invalid Save");
+			notifier.error("存档无法识别");
 		}
 	}
 }
 
 function exportSave() {
 	let toExport = btoa(JSON.stringify(ENString(player)));
-	notifier.info("Save exported");
+	notifier.info("存档已导出");
 	copyToClipboard(toExport);
 }
 
@@ -97,7 +97,7 @@ function startModes(modes) {
 	if (all.indexOf(null) > -1 && all[all.indexOf(null)] === null) s.savePos = all.indexOf(null) + 1;
 	else s.savePos = all.length + 1;
 	if (s.savePos > MAX_SAVES) {
-		alert("You have too many saves! You need to delete one in order to make a new one!");
+		alert("您的存档太多了！您需要先删除任何一个存档才行！");
 		return;
 	}
 	save(s);
@@ -162,7 +162,7 @@ function changeOpt(name, type) {
 			};
 	} else if (type == 3) {
 		let old = deepCopy(player.options[name])
-		player.options[name] = window.prompt("Change the " + name + ".", player.options[name]);
+		player.options[name] = window.prompt("在此处修改名称(" + name + ")。", player.options[name]);
 		if (player.options[name]===null || player.options[name]===undefined) player.options[name] = old
 		let d2 = new Element("dropDown2")
 		d2.changeStyle("display", "none");
@@ -178,85 +178,92 @@ function changeOpt(name, type) {
 
 function getInfo(sav) {
 	let mds = "";
-	if (sav.modes.length > 1) mds = sav.modes.reduce((x, y) => capitalFirst(x) + ", " + capitalFirst(y));
+	if (sav.modes.length > 1) mds = sav.modes.reduce((x, y) => capitalFirst(x) + "，" + capitalFirst(y));
 	else if (sav.modes.length > 0) mds = capitalFirst(sav.modes[0].replace("_"," "));
-	else mds = "None";
-	let info = "Modes: " + mds + "<br>";
+	else mds = "无";
+	mds = mds.replace("Hard","困难");
+	mds = mds.replace("Aau","全成就");
+	mds = mds.replace("Na","无成就");
+	mds = mds.replace("Absurd","荒诞");
+	mds = mds.replace("Easy","容易");
+	mds = mds.replace("Extreme","极限");
+	mds = mds.replace("Hikers_dream","旅人之梦");
+	let info = "模式：" + mds + "<br>";
 	if (sav.elementary?(sav.elementary.sky?sav.elementary.sky.unl:false):false) {
-		info += "Skyrmions: "+showNum(new ExpantaNum(sav.elementary.sky.amount))+", Pions: "+showNum(new ExpantaNum(sav.elementary.sky.pions.amount))+", Spinors: "+showNum(new ExpantaNum(sav.elementary.sky.spinors.amount))+", "
+		info += "斯格明子： "+showNum(new ExpantaNum(sav.elementary.sky.amount))+" ，π介子： "+showNum(new ExpantaNum(sav.elementary.sky.pions.amount))+" ，旋量： "+showNum(new ExpantaNum(sav.elementary.sky.spinors.amount))+" ， "
 	} else if (sav.elementary?(sav.elementary.foam?sav.elementary.foam.unl:false):false) {
-		info += "Quantum Foam: "+showNum(new ExpantaNum(sav.elementary.foam.amounts[0]))+", "
+		info += "量子泡沫： "+showNum(new ExpantaNum(sav.elementary.foam.amounts[0]))+" ， "
 		if (sav.elementary.entropy?sav.elementary.entropy.unl:false) {
-			info += "Entropy: "+showNum(new ExpantaNum(sav.elementary.entropy.amount))+", "
+			info += "熵： "+showNum(new ExpantaNum(sav.elementary.entropy.amount))+" ， "
 		}
 	} else if (sav.elementary?(sav.elementary.hc?sav.elementary.hc.unl:false):false) {
-		info += "Best Hadronic Score: "+showNum(new ExpantaNum(sav.elementary.hc.best))+", Hadrons: "+showNum(new ExpantaNum(sav.elementary.hc.hadrons))+", "
+		info += "最高强子分数： "+showNum(new ExpantaNum(sav.elementary.hc.best))+" ，强子： "+showNum(new ExpantaNum(sav.elementary.hc.hadrons))+" ， "
 	} else if (sav.elementary?(sav.elementary.theory?sav.elementary.theory.unl:false):false) {
-		info += "Theory Points: "+showNum(new ExpantaNum(sav.elementary.theory.points))+", Theoriverse Depth: "+showNum(new ExpantaNum(sav.elementary.theory.depth))+", "
+		info += "学说点数： "+showNum(new ExpantaNum(sav.elementary.theory.points))+" ，学说宇宙深度： "+showNum(new ExpantaNum(sav.elementary.theory.depth))+" ， "
 	} else if (sav.elementary?new ExpantaNum(sav.elementary.times).gt(0):false)
-		info += "Elementaries: "+showNum(new ExpantaNum(sav.elementary.times))+", Fermions: "+showNum(new ExpantaNum(sav.elementary.fermions.amount))+", Bosons: "+showNum(new ExpantaNum(sav.elementary.bosons.amount))+", "
+		info += "基本重置次数： "+showNum(new ExpantaNum(sav.elementary.times))+" ，费米子： "+showNum(new ExpantaNum(sav.elementary.fermions.amount))+" ，玻色子： "+showNum(new ExpantaNum(sav.elementary.bosons.amount))+" ， "
 	else if (sav.inf.derivatives.unl)
-		info += "Derivative Shifts/Boosts: " + showNum(new ExpantaNum(sav.inf.derivatives.unlocks)) + ", ";
+		info += "导数变换/提升： " + showNum(new ExpantaNum(sav.inf.derivatives.unlocks)) + " ， ";
 	else if (new ExpantaNum(sav.inf.endorsements).gte(21))
 		info +=
-			"Total Spectral Gems: " +
+			"幽冥宝石总量： " +
 			showNum(
 				new ExpantaNum(sav.inf.pantheon.gems).plus(sav.inf.pantheon.angels).plus(sav.inf.pantheon.demons)
 			) +
-			", ";
+			" ， ";
 	else if (new ExpantaNum(sav.inf.endorsements).gte(15))
-		info += "Stadium Challenge completions: " + sav.inf.stadium.completions.length + ", ";
+		info += "竞技场挑战完成数量： " + sav.inf.stadium.completions.length + " ， ";
 	else if (new ExpantaNum(sav.inf.endorsements).gte(10)) {
 		let enl = new ExpantaNum(0);
 		for (let i = 0; i < sav.inf.ascension.enlightenments.length; i++)
 			enl = enl.plus(sav.inf.ascension.enlightenments[i]);
 		info +=
-			"Ascension Power: " +
+			"飞升能量： " +
 			showNum(new ExpantaNum(sav.inf.ascension.power)) +
-			", Total Enlightenments: " +
+			" ，启迪总量： " +
 			showNum(enl) +
-			", ";
+			" ， ";
 	} else if (sav.inf.unl)
 		info +=
-			"Knowledge: " +
+			"知识： " +
 			showNum(new ExpantaNum(sav.inf.knowledge)) +
-			", Endorsements: " +
+			" ，认可： " +
 			showNum(new ExpantaNum(sav.inf.endorsements)) +
-			", ";
-	else if (sav.dc.unl) info += "Dark Cores: " + showNum(new ExpantaNum(sav.dc.cores)) + ", ";
-	else if (sav.pathogens.unl) info += "Pathogens: " + showNum(new ExpantaNum(sav.pathogens.amount)) + ", ";
+			" ， ";
+	else if (sav.dc.unl) info += "黑暗核心： " + showNum(new ExpantaNum(sav.dc.cores)) + " ， ";
+	else if (sav.pathogens.unl) info += "病原体： " + showNum(new ExpantaNum(sav.pathogens.amount)) + " ， ";
 	else if (sav.collapse.unl)
 		info +=
-			"Cadavers: " +
+			"残骸： " +
 			showNum(new ExpantaNum(sav.collapse.cadavers)) +
-			", Life Essence: " +
+			" ，生命精华： " +
 			showNum(new ExpantaNum(sav.collapse.lifeEssence)) +
-			", ";
-	else if (sav.tr.unl) info += "Time Cubes: " + showNum(new ExpantaNum(sav.tr.cubes)) + ", ";
+			" ， ";
+	else if (sav.tr.unl) info += "时间方盒： " + showNum(new ExpantaNum(sav.tr.cubes)) + " ， ";
 	else if (sav.automation.unl)
 		info +=
-			"Scraps: " +
+			"碎屑： " +
 			showNum(new ExpantaNum(sav.automation.scraps)) +
-			", Intelligence: " +
+			" ，智慧： " +
 			showNum(new ExpantaNum(sav.automation.intelligence)) +
-			", ";
+			" ， ";
 	else if (new ExpantaNum(sav.rf).gt(0)) {
 		if (sav.modes.includes("extreme"))
 			info +=
-				"Coal: " +
+				"煤： " +
 				showNum(new ExpantaNum(sav.furnace.coal)) +
-				", Blue Flame: " +
+				" ，蓝色火焰： " +
 				showNum(new ExpantaNum(sav.furnace.blueFlame)) +
-				", ";
-		else info += "Rocket Fuel: " + showNum(new ExpantaNum(sav.rf)) + ", ";
-	} else if (new ExpantaNum(sav.rockets).gt(0)) info += "Rockets: " + showNum(new ExpantaNum(sav.rockets)) + ", ";
+				" ， ";
+		else info += "火箭燃料： " + showNum(new ExpantaNum(sav.rf)) + " ， ";
+	} else if (new ExpantaNum(sav.rockets).gt(0)) info += "火箭： " + showNum(new ExpantaNum(sav.rockets)) + " ， ";
 	else {
-		info += "Tier " + showNum(new ExpantaNum(sav.tier)) + ", ";
+		info += "阶层 " + showNum(new ExpantaNum(sav.tier)) + " ， ";
 		if (sav.modes.includes("extreme"))
-			info += "Rank Cheapener " + showNum(new ExpantaNum(sav.rankCheap || 0)) + ", ";
-		info += "Rank " + showNum(new ExpantaNum(sav.rank)) + ", ";
+			info += "级别降价器 " + showNum(new ExpantaNum(sav.rankCheap || 0)) + " ， ";
+		info += "级别 " + showNum(new ExpantaNum(sav.rank)) + " ， ";
 	}
-	info += "Distance: " + formatDistance(new ExpantaNum(sav.distance));
+	info += "距离： " + formatDistance(new ExpantaNum(sav.distance));
 	return info;
 }
 
@@ -269,11 +276,11 @@ function loads() {
 		if (all[x] === undefined || all[x] === null) continue;
 		let active = player.saveID == all[x].saveID && player.savePos == all[x].savePos;
 		let name =
-			all[x].options.name == "Save #"
-				? "Save #" + (all[x].savePos ? all[x].savePos : "???")
+			all[x].options.name == "存档 #"
+				? "存档 #" + (all[x].savePos ? all[x].savePos : "???")
 				: all[x].options.name;
 		els[x] = {
-			name: name + (active ? " (Active)" : ""),
+			name: name + (active ? " (使用中)" : ""),
 			info: getInfo(all[x]),
 			onclick1: "setSave(&quot;" + btoa(JSON.stringify(all[x])) + "&quot;, true)",
 			txt1: "Load",
@@ -289,21 +296,21 @@ function exportAll() {
 	save()
 	let all = getAllSaves();
 	copyToClipboard(btoa(JSON.stringify(all)));
-	notifier.info("All saves exported");
+	notifier.info("所有存档已导出");
 }
 
 function importAll() {
-	let input = prompt("Paste your saves here.");
+	let input = prompt("在此处粘贴存档。");
 	if (input) {
-		if (!confirm("Are you sure you want to import all saves? This will overwrite any saves currently in your game!")) return
+		if (!confirm("您确定要导入全部存档吗？目前游戏中的所有存档都将被覆盖！")) return
 		try {
 			saves = JSON.parse(atob(input));
-			notifier.info("Saves imported");
+			notifier.info("存档已导入");
 			localStorage.setItem("dist-inc-saves"+betaID, input)
 			let s = transformToEN(saves[saves.findIndex(x => x!=null)]);
 			setSave(s);
 		} catch (e) {
-			notifier.error("Invalid Saves");
+			notifier.error("存档无法识别");
 		}
 	}
 }
@@ -336,7 +343,7 @@ function confirmModes() {
 			if (modeData.balanceCheck)
 				if (!confirm("This mode is " + modeData.balancing + ". Are you sure you want to enter this run?"))
 					return;
-		} else if (!confirm("You have selected an unbalanced mode. Are you sure you want to enter this run?")) return;
+		} else if (!confirm("您选择了一个平衡情况未知的模式。您确定要选择此模式开始游戏吗？")) return;
 		startModes(modesSelected);
 	} else if (modesSelected.length == 2) startModes(modesSelected);
 	else {
@@ -348,7 +355,7 @@ function confirmModes() {
 			}
 		} else if (
 			!confirm(
-				"You have selected an unbalanced mode combination. Are you sure you want to enter this run?"
+				"您选择了一个平衡情况未知的模式组合。您确定要选择此模式组合开始游戏吗？"
 			)
 		)
 			return;

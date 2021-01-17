@@ -267,14 +267,14 @@ function updateTempInfLayer() {
 		infActive = true;
 		let amActive = player.inf.endorsements.eq(9);
 		let message =
-			"至高神<span class='infinity'>Infinity</span> has seen your power, and would like to endorse you" +
-			".<br><button class='btn inf' onclick='tmp.inf.layer.reset(false, false)'>Allow <span class='infinity'>Infinity</span> to endorse you</button>";
+			"至高神<span class='infinity'>Infinity</span>已经见证了您的力量，并愿意认可您" +
+			"。<br><button class='btn inf' onclick='tmp.inf.layer.reset(false, false)'>允许 <span class='infinity'>Infinity</span> 认可您</button>";
 		if (amActive)
 			message =
-				"至高神<span class='infinity'>Infinity</span> has admired your prowess, and would like to give you the ability to ascend this world and become a 至高神 yourself.<br><button class='btn inf' onclick='tmp.inf.layer.reset(false, false)'>Allow <span class='infinity'>Infinity</span> to endorse you and turn you into a 至高神</button>";
+				"至高神<span class='infinity'>Infinity</span>很钦佩您的非凡造诣，想要给您飞升成为至高神的机会。<br><button class='btn inf' onclick='tmp.inf.layer.reset(false, false)'>允许 <span class='infinity'>Infinity</span> 认可您并让您成为至高神</button>";
 		showHiddenDiv({
 			color: "orange",
-			title: "You have reached <span class='infinity'>Infinity</span>!",
+			title: "您已经到达了 <span class='infinity'>Infinity</span> ！",
 			body: message,
 			tab: "inf"
 		});
@@ -535,7 +535,7 @@ function updateTempEnlightenments() {
 function updateTempStadium() {
 	if (!tmp.inf.stadium) tmp.inf.stadium = {};
 	if (!tmp.inf.stadium.reset) tmp.inf.stadium.reset = function () {
-		if (!confirm("Are you sure you want to do this? You will lose all of your Stadium completions!")) return;
+		if (!confirm("您确定要这么做吗？竞技场挑战的完成进度将全部丢失！")) return;
 		player.inf.stadium.completions = [];
 		if (modeActive("extreme")) player.extremeStad = []
 		tmp.inf.layer.reset(true);
@@ -592,10 +592,10 @@ function updateTempStadium() {
 		let l = Math.min(player.inf.stadium.completions.length + 1, descs.length);
 		if (player.inf.stadium.completions.includes(name))
 			l = Math.min(player.inf.stadium.completions.indexOf(name) + 1, l);
-		let tooltip = "Difficulty Level "+l+"\n";
+		let tooltip = "难度等级"+l+"\n";
 		for (let i = 0; i < l; i++) {
 			tooltip += descs[i];
-			if (i < l - 1) tooltip += ", ";
+			if (i < l - 1) tooltip += "，";
 		}
 		return tooltip;
 	};
@@ -679,7 +679,7 @@ function updateTempPantheon() {
 		if (!player.inf.pantheon.angels.plus(player.inf.pantheon.demons).gt(0)) return;
 		if (
 			!confirm(
-				"Respeccing your Angels & Demons will reset your Angels, Demons, Heavenly Chips, and Demonic Souls, and will perform an Infinity reset. Are you sure you want to do this?"
+				"洗点天使和恶魔将重置您的天使，恶魔，天堂碎片，恶魔灵魂，并且会强制进行一次无限重置。您确定要这么做吗？"
 			)
 		)
 			return;

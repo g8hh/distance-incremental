@@ -47,6 +47,7 @@ var cnItems = {
     'Other': '其它',
     'Save': '保存',
     'Load': '读取',
+    'Delete': '删除',
     'Import': '导入',
     'Export': '导出',
     'HARD RESET': '硬重置',
