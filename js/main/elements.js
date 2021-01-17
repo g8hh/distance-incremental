@@ -220,12 +220,12 @@ function updateRobotsHTML(){
 	tmp.el.buyRobotInterval.setHTML(
 		player.automation.open == "none"
 			? ""
-			: "Upgrade Interval<br>花费： " + showNum(tmp.auto[player.automation.open].intCost) + "智慧。"
+			: "Upgrade Interval<br>花费： " + showNum(tmp.auto[player.automation.open].intCost) + " 智慧。"
 	);
 	tmp.el.buyRobotMagnitude.setHTML(
 		player.automation.open == "none"
 			? ""
-			: "Upgrade Magnitude<br>花费： " + showNum(tmp.auto[player.automation.open].magCost) + "智慧。"
+			: "Upgrade Magnitude<br>花费： " + showNum(tmp.auto[player.automation.open].magCost) + " 智慧。"
 	);
 	if (player.automation.open != "none") {
 		tmp.el.buyRobotInterval.setClasses({
@@ -271,7 +271,7 @@ function updateTimeReversalHTML(){
 			if (!tr2Pow().eq(1) && i == 2) desc += "<span class='grossminitxt'>(^" + showNum(tr2Pow()) + ")</span>";
 			if (!tr11Pow().eq(1) && i == 11)
 				desc += "<span class='grossminitxt'>(^" + showNum(tr11Pow()) + ")</span>";
-			tmp.el["tr" + i].setHTML(desc + "<br>花费： " + showNum(upg.cost()) + "时间方盒。");
+			tmp.el["tr" + i].setHTML(desc + "<br>花费： " + showNum(upg.cost()) + " 时间方盒。");
 			if (upg.current !== undefined && (i > 15 ? modeActive("extreme") : true))
 				tmp.el["tr" + i].setTooltip("目前： " + upg.disp(upg.current()));
 			tmp.el["tr" + i].setClasses({
@@ -344,7 +344,7 @@ function upadtePathogenUpgradesHTML(){
 					: "") +
 				"<br>花费： " +
 				showNum(tmp.pathogens[i].cost) +
-				"病原体。"
+				" 病原体。"
 		);
 	}
 }
@@ -508,12 +508,12 @@ function updateAscensionHTML(){
 				tmp.el["perk" + i].setHTML(
 					capitalFirst(PERK_NAMES[i - 1]) +
 						"特权" +
-						(tmp.inf.asc.perkActive(i) ? (": " + formatTime(player.inf.ascension.time[i - 1])+(player.automators["perks"]?"":"<br>(click to disable)")) : "")
+						(tmp.inf.asc.perkActive(i) ? (": " + formatTime(player.inf.ascension.time[i - 1])+(player.automators["perks"]?"":"<br>(点击以取消)")) : "")
 				);
 				tmp.el["perkEff" + i].setTxt(showNum(tmp.inf.asc.perkEff(i)));
 				tmp.el["enl" + i].setTxt(showNum(player.inf.ascension.enlightenments[i - 1]));
 				tmp.el["enleff" + i].setTxt(showNum(tmp.inf.asc.enlEff(i).times(100)));
-				tmp.el["buyEnl" + i].setTxt("Cost: " + showNum(tmp.inf.asc.enlCost(i)) + " Ascension Power");
+				tmp.el["buyEnl" + i].setTxt("花费： " + showNum(tmp.inf.asc.enlCost(i)) + " 飞升能量");
 				tmp.el["buyEnl" + i].setClasses({
 					btn: true,
 					inf: player.inf.ascension.power.gte(tmp.inf.asc.enlCost(i)),
@@ -522,14 +522,14 @@ function updateAscensionHTML(){
 				let name = getScalingName("enlightenments", i);
 				tmp.el["enlScale" + i].setTxt(name == "" ? "" : name + " ");
 			}
-			tmp.el.perkPower.setTxt("Perk Strength: " + showNum(tmp.inf.asc.perkStrength.times(100)) + "%");
+			tmp.el.perkPower.setTxt("特权效果：" + showNum(tmp.inf.asc.perkStrength.times(100)) + "%");
 			tmp.el.perkPower.setDisplay(!tmp.inf.asc.perkStrength.eq(1));
 			tmp.el.ascPower.setHTML(
-				"Ascension Power: <span style='font-size: 25px; color: red;'>" +
+				"飞升能量： <span style='font-size: 25px; color: red;'>" +
 					showNum(player.inf.ascension.power) +
 					"</span> "+formatGain(player.inf.ascension.power, tmp.inf.asc.powerGain, "ascension")
 			);
-			tmp.el.perkAccel.setHTML(tmp.elm.pa.active?("Your "+(tmp.elm.pa.state==""?"":(capitalFirst(tmp.elm.pa.state)+" "))+"Perk Accelerator is making Perks be used up <span style='font-size: 25px; color: red;'>"+showNum(tmp.elm.pa.speedBoost)+"</span>x as fast, but in return, your Perks are <span style='font-size: 25px; color: red;'>"+showNum(tmp.elm.pa.boost)+"</span>x as strong."):"")
+			tmp.el.perkAccel.setHTML(tmp.elm.pa.active?("您"+(tmp.elm.pa.state==""?"":(capitalFirst(tmp.elm.pa.state)))+"的特权加速器使特权的时间流逝速度变为 <span style='font-size: 25px; color: red;'>"+showNum(tmp.elm.pa.speedBoost)+"</span> 倍，但同时特权的效果也变为原来的 <span style='font-size: 25px; color: red;'>"+showNum(tmp.elm.pa.boost)+"</span> 倍。"):"")
 		}
 }
 
@@ -553,16 +553,16 @@ function updateNormalStadiumHTML(){
 		});
 		let showCurrent = STADIUM_REWARDS.effects[name] !== undefined;
 		tmp.el[name + "Btm"].setHTML(
-			"Goal: " +
+			"目标： " +
 				formatDistance(tmp.inf.stadium.goal(name)) +
-				"<br>Reward: " +
+				"<br>奖励： " +
 				STADIUM_REWARDS[name] +
 				"<br>" +
-				(showCurrent ? "Currently: " + STADIUM_REWARDS.disp[name]() : "")
+				(showCurrent ? "目前： " + STADIUM_REWARDS.disp[name]() : "")
 		);
 	}
 	tmp.el.exitStad.setDisplay(player.inf.stadium.current != "");
-	tmp.el.stadiumProg.setTxt(player.inf.stadium.current==""?"":"Progress to Completion: "+showNum(tmp.inf.stadium.progress())+"%")
+	tmp.el.stadiumProg.setTxt(player.inf.stadium.current==""?"":"完成进度的比例："+showNum(tmp.inf.stadium.progress())+"%")
 }
 
 function updateExtremeStadiumHTML(){
@@ -588,12 +588,12 @@ function updateExtremeStadiumHTML(){
 			});
 			let showCurrent = EXTREME_STADIUM_DATA[name].effect !== undefined;
 			tmp.el[name + "Btm"].setHTML(
-				"Goal: " +
+				"目标： " +
 					formatDistance(extremeStadiumGoal(name)) + // extremeStadiumGoal
-					"<br>Reward: " +
+					"<br>奖励： " +
 					EXTREME_STADIUM_DATA[name].reward +
 					"<br>" +
-					(showCurrent ? "Currently: " + EXTREME_STADIUM_DATA[name].disp() : "")
+					(showCurrent ? "目前： " + EXTREME_STADIUM_DATA[name].disp() : "")
 			);
 		}
 	}
