@@ -704,14 +704,14 @@ function updateRankCheapenersHTML(){
 	);
 	tmp.el.rankCheapUp.setClasses({ btn: true, locked: !tmp.rankCheap.can });
 	tmp.el.rankCheapReq.setTxt(formatDistance(tmp.rankCheap.req));
-	tmp.el.rankCheapName.setTxt(getScalingName("rankCheap") + "Rank Cheapener");
+	tmp.el.rankCheapName.setTxt(getScalingName("rankCheap") + "级别降价器");
 }
 
 function updateNormalFurnace(){
 	if (fnTab=="nfn") {
 		tmp.el.coal.setTxt(
 			showNum(player.furnace.coal) +
-				" Coal " + formatGain(player.furnace.coal, tmp.fn.gain, "fn")
+				" 煤 " + formatGain(player.furnace.coal, tmp.fn.gain, "fn")
 		);
 		tmp.el.coalEff.setTxt(showNum(tmp.fn.eff));
 		for (let i = 1; i <= 5; i++) {
@@ -751,7 +751,7 @@ function updateNormalFurnace(){
 function updateEnhanceFurnace(){
 	if (fnTab=="efn") {
 		tmp.el.eCoal.setTxt(
-			showNum(player.furnace.enhancedCoal) + " Enhanced Coal " + formatGain(player.furnace.enhancedCoal, tmp.fn.enh.gain, "fn")
+			showNum(player.furnace.enhancedCoal) + " 强化煤 " + formatGain(player.furnace.enhancedCoal, tmp.fn.enh.gain, "fn")
 		);
 		tmp.el.eCoalEff.setTxt(showNum(tmp.fn.enh.eff));
 		tmp.el.eCoalEff2.setTxt(showNum(tmp.fn.enh.eff2))
@@ -797,7 +797,7 @@ function updateMagma() {
 		tmp.el.magmaReformReq.setTxt(showNum(req2));
 		tmp.el.magmaReformReq2.setTxt(showNum(req2b));
 		tmp.el.rMagmaAmt.setTxt(showNum(player.magma.ref));
-		tmp.el.rMagmaEff.setHTML("<span class='magmaTxt'>"+showNum(tmp.fn.magma.eff2)+"</span>"+(player.elementary.theory.tree.unl?(" (boosted by unspent Theory Points"+(player.elementary.theory.depth.gte(6)?(" and Primary String length)"):")")):""));
+		tmp.el.rMagmaEff.setHTML("<span class='magmaTxt'>"+showNum(tmp.fn.magma.eff2)+"</span>"+(player.elementary.theory.tree.unl?(" (受到未花费的学说点数"+(player.elementary.theory.depth.gte(6)?("和一维弦长度加成)"):"加成)")):""));
 	}
 }
 
@@ -811,7 +811,7 @@ function updatePlasma() {
 		let boostReq = getPlasmaBoostReq();
 		tmp.el.plasmaBoostBtn.setDisplay(canBuyPlasmaBoost())
 		if (canBuyPlasmaBoost()) {
-			tmp.el.plasmaBoostBtn.setHTML("Unlock a new "+getPlasmaBoostType(player.plasma.boosts.plus(1), true)+" Boost<br><br>Cost: "+showNum(boostReq)+" White Flame.")
+			tmp.el.plasmaBoostBtn.setHTML("解锁一个新的"+getPlasmaBoostType(player.plasma.boosts.plus(1), true)+"加成<br><br>花费："+showNum(boostReq)+"白色火焰。")
 			tmp.el.plasmaBoostBtn.setClasses({
 				btn: true,
 				plasma: player.plasma.whiteFlame.gte(boostReq),
@@ -850,8 +850,8 @@ function updateStatisticsHTML(){
 			tmp.el.best.setTxt(formatDistance(player.bestDistance))
 			tmp.el.bestV.setTxt(formatDistance(player.bestV)+"/秒")
 			tmp.el.bestA.setHTML(formatDistance(player.bestA)+"/秒<sup>2</sup>")
-			tmp.el.maxEnd.setTxt(player.bestEnd.eq(0)?"":("Best-Ever Endorsements: "+showNum(player.bestEnd)))
-			tmp.el.maxEP.setTxt(player.bestEP.eq(0)?"":("Best-Ever Elementary Point gain in one reset: "+showNum(player.bestEP)))
+			tmp.el.maxEnd.setTxt(player.bestEnd.eq(0)?"":("最高的认可数值："+showNum(player.bestEnd)))
+			tmp.el.maxEP.setTxt(player.bestEP.eq(0)?"":("一次重置中最高的基本粒子获取量："+showNum(player.bestEP)))
 		} 
 		
 		// Always called because it determines whether the tab button is shown
@@ -859,17 +859,17 @@ function updateStatisticsHTML(){
 		for (let i=0;i<Object.keys(SCALING_STARTS).length;i++) {
 			let name = Object.keys(SCALING_STARTS)[i]
 			let tt = ""
-			if (name=="hyper") tt = "Note: Hyper scaling cannot go below 50% strength :)\n"
+			if (name=="hyper") tt = "注意：究级折算的效果不会低于50% :)\n"
 			for (let r=0;r<Object.keys(SCALING_RES).length;r++) { // NESTED LOOP, REMOVE TO REDUCE LAG
 				let func = Object.values(SCALING_RES)[r]
 				let key = Object.keys(SCALING_RES)[r]
 				let amt = func(1)
 				if (MULTI_SCALINGS.includes(key)) for (let i=1;i<=SCALING_AMTS[key];i++) amt = ExpantaNum.max(amt, func(i))
 				if (amt.eq(0)||((key=="rankCheap"||key=="fn")&&!modeActive("extreme"))) continue
-				if (amt.gte(getScalingStart(name, key))) tt += capitalFirst(REAL_SCALING_NAMES[key])+" ("+showNum(getScalingPowerDisplay(name, key).times(100))+"%): Starts at "+showNum(getScalingStart(name, key))+"\n"
+				if (amt.gte(getScalingStart(name, key))) tt += capitalFirst(REAL_SCALING_NAMES[key])+" ("+showNum(getScalingPowerDisplay(name, key).times(100))+"%)：从 "+showNum(getScalingStart(name, key))+" 开始\n"
 			}
 			let blank = ""
-			if (name=="hyper") blank = "Note: Hyper scaling cannot go below 50% strength :)\n"
+			if (name=="hyper") blank = "注意：究级折算的效果不会低于50% :)\n"
 			tmp.el[name+"Stat"].changeStyle("visibility", tt==blank?"hidden":"visible")
 			if (tt!=blank) statScalingsShown = true
 			tmp.el[name+"Stat"].setAttr("widetooltip", tt)
