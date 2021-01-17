@@ -361,7 +361,7 @@ const ACH_DATA = {
 		84: "黑暗流影响病原体的获取量，在showNum(50)倍以后效果减少。",
 		85: "boolean(hard+hikers_dream,您可以随时复原能量)boolean(extreme+hikers_dream,，且使 持久性 升级变为原来的平方)boolean(hard+hikers_dream,。)",
 		86: "boolean(extreme+hikers_dream,使时间方盒的获取量变为病原体数值的倍数，并使 信心 升级软上限的起始值变为原来的平方。)",
-		87: "boolean(extreme+hikers_dream,移除动力的基础软上限)boolean(hard+hikers_dream,，且根据时间方盒数值，加强病原体的效果。)",
+		87: "boolean(extreme+hikers_dream,移除动力的基础软上限)boolean(hard+hikers_dream,，且根据时间方盒数值，加强病原体升级的效果。)",
 		88: "购买病原体升级不再花费病原体boolean(extreme,，且解锁熔炉挑战)。",
 
 		92: "购买黑暗核心不再减少残骸数值。",
