@@ -603,14 +603,14 @@ function updateExtremeStadiumHTML(){
 function updatePurgeHTML(){
 	tmp.el.purgeDiv.setDisplay(player.inf.pantheon.purge.unl);
 	tmp.el.purgeBtn.setTxt(
-		HCCBA("purge")?"Trapped in Purge":(player.inf.pantheon.purge.active
-			? "Exit Purge run" +
+		HCCBA("purge")?"强制进行净化":(player.inf.pantheon.purge.active
+			? "退出净化" +
 				(tmp.inf.pantheon.purgeGain.gt(0)
-					? " for " + showNum(tmp.inf.pantheon.purgeGain) + " Purge Power."
-					: ". You need " +
+					? "并获得 " + showNum(tmp.inf.pantheon.purgeGain) + " 净化能量。"
+					: "。您需要到达 " +
 					formatDistance(tmp.inf.pantheon.purgeNext) +
-					" to gain more Purge Power.")
-			: "Start Purge run")
+					" 后才能获得更多净化能量。")
+			: "进行净化")
 	);
 	tmp.el.purgePower.setTxt(showNum(player.inf.pantheon.purge.power)+(player.inf.pantheon.purge.power.gte(600)?(" (已达软上限)"):""));
 	tmp.el.purgePowerEff.setTxt(showNum(tmp.inf.pantheon.ppe));
@@ -655,16 +655,16 @@ function updateDerivativeHTML(){
 		tmp.el["derv" + name].setTxt(formatDistance(tmp.inf.derv.amt(name)));
 		tmp.el["dervgain" + name].setTxt(formatGain(tmp.inf.derv.amt(name), tmp.inf.derv.gain(name), "derv", true));
 	}
-	let dervName = player.inf.derivatives.unlocks.gte(tmp.inf.derv.maxShifts) ? "Boosts" : "Shifts";
+	let dervName = player.inf.derivatives.unlocks.gte(tmp.inf.derv.maxShifts) ? "提升" : "变换";
 	tmp.el.dervUnlock.setHTML(
 		getScalingName("dervBoost") +
-			" Derivative " +
+			"导数" +
 			dervName +
 			" (" +
 			showNum(player.inf.derivatives.unlocks) +
-			")<br>Cost: " +
+			")<br>花费： " +
 			showNum(tmp.inf.derv.unlCost) +
-			" Knowledge"
+			" 知识"
 	);
 	tmp.el.dervUnlock.setClasses({
 		btn: true,
