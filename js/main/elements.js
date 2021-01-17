@@ -97,19 +97,31 @@ function updatePreRanksHTML(){
 }
 
 function updateRanksHTML(){
+	let chs = "";
+	chs = getScalingName("rank");
+	chs = chs.replace("Scaled","折算");
+	chs = chs.replace("Superscaled","超级折算");
+	chs = chs.replace("Hyper","究级折算");
+	chs = chs.replace("Atomic","原子折算");
 	tmp.el.rank.setTxt(showNum(player.rank));
 	tmp.el.rankUp.setClasses({ btn: true, locked: !tmp.ranks.canRankUp });
 	tmp.el.rankDesc.setTxt(tmp.ranks.desc);
 	tmp.el.rankReq.setTxt(formatDistance(tmp.ranks.req));
-	tmp.el.rankName.setTxt(getScalingName("rank") + "级别");
+	tmp.el.rankName.setTxt(chs + "级别");
 }
 
 function updateTiersHTML(){
+	let chs = "";
+	chs = getScalingName("tier");
+	chs = chs.replace("Scaled","折算");
+	chs = chs.replace("Superscaled","超级折算");
+	chs = chs.replace("Hyper","究级折算");
+	chs = chs.replace("Atomic","原子折算");
 	tmp.el.tier.setTxt(showNum(player.tier));
 	tmp.el.tierUp.setClasses({ btn: true, locked: !tmp.tiers.canTierUp });
 	tmp.el.tierDesc.setTxt(tmp.tiers.desc);
 	tmp.el.tierReq.setTxt(showNum(tmp.tiers.req.ceil()));
-	tmp.el.tierName.setTxt(getScalingName("tier") + "阶层");
+	tmp.el.tierName.setTxt(chs + "阶层");
 }
 
 function updateMainHTML(){
@@ -134,6 +146,12 @@ function updateMainHTML(){
 
 function updateRocketsHTML(){
 	if (player.tab == "rockets") {
+		let chs = "";
+		chs = getScalingName("rf");
+		chs = chs.replace("Scaled","折算");
+		chs = chs.replace("Superscaled","超级折算");
+		chs = chs.replace("Hyper","究级折算");
+		chs = chs.replace("Atomic","原子折算");
 		// Rockets
 		tmp.el.rocketReset.setClasses({ btn: true, locked: !tmp.rockets.canRocket, rckt: tmp.rockets.canRocket });
 		tmp.el.rocketGain.setTxt(showNum(tmp.rockets.layer.gain));
@@ -149,7 +167,7 @@ function updateRocketsHTML(){
 		tmp.el.rfReset.setClasses({ btn: true, locked: !tmp.rf.can, rckt: tmp.rf.can });
 		tmp.el.rfReq.setTxt(showNum(tmp.rf.req));
 		tmp.el.rfEff.setTxt(showNum(getFuelEff().sub(1).times(100)));
-		tmp.el.rfName.setTxt(getScalingName("rf") + "火箭燃料");
+		tmp.el.rfName.setTxt(chs + "火箭燃料");
 		tmp.el.rf2.setTxt(showNum(getFuelEff2()));
 	}
 }
@@ -323,6 +341,12 @@ function updateCollpaseHTML(){
 
 function upadtePathogenUpgradesHTML(){
 	for (let i = 1; i <= PTH_AMT; i++) {
+		let chs = "";
+		chs = getScalingName("pathogenUpg", i);
+		chs = chs.replace("Scaled","折算");
+		chs = chs.replace("Superscaled","超级折算");
+		chs = chs.replace("Hyper","究级折算");
+		chs = chs.replace("Atomic","原子折算");
 		let hidden = PTH_UPGS[i].unl ? !PTH_UPGS[i].unl() : false;
 		tmp.el["pth" + i].setDisplay(!hidden);
 		tmp.el["pth" + i].setClasses({
@@ -333,7 +357,7 @@ function upadtePathogenUpgradesHTML(){
 		tmp.el["pth" + i].setHTML(
 			PTH_UPGS[i].desc +
 				"<br>" +
-				getScalingName("pathogenUpg", i) +
+				chs +
 				"等级： " +
 				showNum(player.pathogens.upgrades[i]) +
 				(tmp.pathogens.extra(i).gt(0) ? " + " + showNum(tmp.pathogens.extra(i)) : "") +
@@ -415,9 +439,15 @@ function updateDarkCircleRssHTML(){
 
 function updateDarkCircleHTML(){
 	if (player.tab == "dc") {
+		let chs = "";
+		chs = getScalingName("darkCore");
+		chs = chs.replace("Scaled","折算");
+		chs = chs.replace("Superscaled","超级折算");
+		chs = chs.replace("Hyper","究级折算");
+		chs = chs.replace("Atomic","原子折算");
 		updateDarkCircleRssHTML()
 		tmp.el.darkCore.setHTML(
-			getScalingName("darkCore") +
+			chs +
 				"黑暗核心<br>数量： " +
 				showNum(player.dc.cores) +
 				"<br>花费： " +
@@ -649,6 +679,12 @@ function updateAngelsChipsHTML(){
 }
 
 function updateDerivativeHTML(){
+	let chs = "";
+	chs = getScalingName("dervBoost");
+	chs = chs.replace("Scaled","折算");
+	chs = chs.replace("Superscaled","超级折算");
+	chs = chs.replace("Hyper","究级折算");
+	chs = chs.replace("Atomic","原子折算");
 	for (let i = 0; i < DERV.length; i++) {
 		let name = DERV[i];
 		tmp.el["dervDiv" + name].setDisplay(tmp.inf.derv.unlocked(name));
@@ -657,7 +693,7 @@ function updateDerivativeHTML(){
 	}
 	let dervName = player.inf.derivatives.unlocks.gte(tmp.inf.derv.maxShifts) ? "提升" : "变换";
 	tmp.el.dervUnlock.setHTML(
-		getScalingName("dervBoost") +
+		chs +
 			"导数" +
 			dervName +
 			" (" +
@@ -699,12 +735,18 @@ function updateAllInfinityHTML(){
 }
 
 function updateRankCheapenersHTML(){
+	let chs = "";
+	chs = getScalingName("rankCheap");
+	chs = chs.replace("Scaled","折算");
+	chs = chs.replace("Superscaled","超级折算");
+	chs = chs.replace("Hyper","究级折算");
+	chs = chs.replace("Atomic","原子折算");
 	tmp.el.rankCheap.setTxt(
 		showNum(player.rankCheap) + (tmp.rankCheap.free.eq(0) ? "" : " + " + showNum(tmp.rankCheap.free))
 	);
 	tmp.el.rankCheapUp.setClasses({ btn: true, locked: !tmp.rankCheap.can });
 	tmp.el.rankCheapReq.setTxt(formatDistance(tmp.rankCheap.req));
-	tmp.el.rankCheapName.setTxt(getScalingName("rankCheap") + "级别降价器");
+	tmp.el.rankCheapName.setTxt(chs + "级别降价器");
 }
 
 function updateNormalFurnace(){
@@ -976,12 +1018,18 @@ function updatePhotonsHTML(){
 	tmp.el.photons.setTxt(showNum(player.elementary.bosons.gauge.photons.amount));
 	tmp.el.photonGain.setTxt(formatGain(player.elementary.bosons.gauge.photons.amount, tmp.elm.bos.photonGain, "gauge"));
 	for (let i = 1; i <= PHOTON_UPGS; i++) {
+		let chs = "";
+		chs = getScalingName("photons", i);
+		chs = chs.replace("Scaled","折算");
+		chs = chs.replace("Superscaled","超级折算");
+		chs = chs.replace("Hyper","究级折算");
+		chs = chs.replace("Atomic","原子折算");
 		tmp.el["photon" + i].setClasses({
 			btn: true,
 			locked: player.elementary.bosons.gauge.photons.amount.lt(tmp.elm.bos.photonCost[i]),
 			light: player.elementary.bosons.gauge.photons.amount.gte(tmp.elm.bos.photonCost[i])
 		});
-		tmp.el["photonLvl" + i].setTxt(getScalingName("photons", i)+"等级： "+showNum(player.elementary.bosons.gauge.photons.upgrades[i - 1]));
+		tmp.el["photonLvl" + i].setTxt(chs+"等级： "+showNum(player.elementary.bosons.gauge.photons.upgrades[i - 1]));
 		tmp.el["photonDesc" + i].setTxt(showNum(tmp.elm.bos.photonEff(i)) + " 倍");
 		tmp.el["photonCost" + i].setTxt(showNum(tmp.elm.bos.photonCost[i]));
 	}

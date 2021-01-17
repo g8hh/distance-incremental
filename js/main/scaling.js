@@ -9,7 +9,7 @@ function getScalingName(name, x=0) {
 	let amt = SCALING_RES[name](x);
 	for (let n = cap - 1; n >= 0; n--) {
 		if (scalingActive(name, amt, Object.keys(SCALING_STARTS)[n]))
-			return capitalFirst(Object.keys(SCALING_STARTS)[n]) + " ";
+			return capitalFirst(Object.keys(SCALING_STARTS)[n]);
 	}
 	return current;
 }
