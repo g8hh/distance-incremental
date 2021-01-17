@@ -59,7 +59,7 @@ var cnItems = {
     'Extreme': '极限',
     'Hard': '困难',
     'Hiker\'s Dream': '旅人之梦',
-    'Balancing: balanced up to endgame': '平衡情况：已平衡至游戏终点',
+    'Balancing: balanced up to endgame': '平衡情况：已平衡至游戏终点。',
     'Balancing: Unknown! Proceed at your own risk.': '平衡情况：未知！风险自负。',
     'Activate Modes': '激活模式',
     'Dark Circle Pulsing: ON': '黑暗圆环脉动: 开启',

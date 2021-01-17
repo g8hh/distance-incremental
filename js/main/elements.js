@@ -118,14 +118,14 @@ function updateMainHTML(){
 		updateRanksHTML()		
 		updateTiersHTML()
 		// Misc
-		tmp.el.mvName.setTxt(nerfActive("maxVelActive") ? "Maximum Velocity:" : "Velocital Energy:");
-		tmp.el.accEn.setHTML(tmp.accEn.gt(0) ? " (Accelerational Energy: " + formatDistance(tmp.accEn) + "/秒<sup>2</sup>)" : "");
+		tmp.el.mvName.setTxt(nerfActive("maxVelActive") ? "最大速度：" : "速度能量：");
+		tmp.el.accEn.setHTML(tmp.accEn.gt(0) ? " (加速能量：" + formatDistance(tmp.accEn) + "/秒<sup>2</sup>)" : "");
 		
 		// Hiker's Dream
 		let t = ""
 		if (modeActive("hikers_dream")){
-			let start = tmp.hd.incline.gt(89.999) ? "The secant of your incline is: " + showNum(tmp.hd.secant) : "Current Incline: "+showNum(tmp.hd.incline)+"&deg;"
-			t = start + ((tmp.hd.inclineRed.gt(0)&&tmp.hd.inclineRed.lt(0.001))?(", bringing Acceleration & Maximum Velocity to the "+showNum(tmp.hd.inclineRed.pow(-1))+"th root"):(", raising Acceleration & Maximum Velocity ^"+showNum(tmp.hd.inclineRed)))+", and making Energy loss "+showNum(tmp.hd.inclineRed.pow(getEnergyLossExp()))+"x faster.<br>"
+			let start = tmp.hd.incline.gt(89.999) ? "斜度的正割为：" + showNum(tmp.hd.secant) : "目前斜度："+showNum(tmp.hd.incline)+"&deg;"
+			t = start + ((tmp.hd.inclineRed.gt(0)&&tmp.hd.inclineRed.lt(0.001))?("，使加速能量和最大速度变为"+showNum(tmp.hd.inclineRed.pow(-1))+"次方根"):("，使加速度和最大速度变为^"+showNum(tmp.hd.inclineRed)))+"，而且使能量损耗变为 "+showNum(tmp.hd.inclineRed.pow(getEnergyLossExp()))+" 倍。<br>"
 		}
 		tmp.el.incline.setHTML(t)
 		tmp.el.quickReset.setDisplay(modeActive("hikers_dream"))
@@ -139,7 +139,7 @@ function updateRocketsHTML(){
 		tmp.el.rocketGain.setTxt(showNum(tmp.rockets.layer.gain));
 		tmp.el.rocketsAmt.setTxt(
 			showNum(player.rockets) +
-				" rockets " +
+				" 火箭 " +
 				(((tmp.ach[95].has||hasCollapseMilestone(9))&&!nerfActive("noRockets")) ? formatGain(player.rockets, tmp.rockets.layer.gain.div(tmp.ach[95].has?1:100)) : "")
 		);
 		tmp.el.rocketsEff.setTxt(showNum(getRocketEffect()));
@@ -149,7 +149,7 @@ function updateRocketsHTML(){
 		tmp.el.rfReset.setClasses({ btn: true, locked: !tmp.rf.can, rckt: tmp.rf.can });
 		tmp.el.rfReq.setTxt(showNum(tmp.rf.req));
 		tmp.el.rfEff.setTxt(showNum(getFuelEff().sub(1).times(100)));
-		tmp.el.rfName.setTxt(getScalingName("rf") + "Rocket Fuel");
+		tmp.el.rfName.setTxt(getScalingName("rf") + "火箭燃料");
 		tmp.el.rf2.setTxt(showNum(getFuelEff2()));
 	}
 }
