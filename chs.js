@@ -617,6 +617,7 @@ var cnItems = {
     'Cost: 10 Theory Points': '花费：10 学说点数',
     'Unlock Accelerons': '解锁加速子',
     'Cost: 84 Theory Points': '花费：84 学说点数',
+    'MAXED': '已达最大',
     'Unlock Inflatons': '解锁暴胀子',
     'Cost: 1,600 Theory Points': '花费：1600 学说点数',
     'Clear Selector Data': '清除选择器数据',

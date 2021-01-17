@@ -1151,7 +1151,7 @@ function updatePreonsHTML(){
 		tmp.el.preonAmt.setTxt(showNum(player.elementary.theory.preons.amount))
 		tmp.el.preonGain.setTxt(formatGain(player.elementary.theory.preons.amount, getPreonGain(), "preons"))
 		tmp.el.theoryBoost.setClasses({btn: true, locked: player.elementary.theory.preons.amount.lt(getTBCost()), th: player.elementary.theory.preons.amount.gte(getTBCost())})
-		tmp.el.theoryBoost.setHTML("Gain 1 Theoretical Booster (+"+showNum(getTBGain())+" Theory Points)<br>Cost: "+showNum(getTBCost())+" Preons")
+		tmp.el.theoryBoost.setHTML("获取1个学说增强器(增加 "+showNum(getTBGain())+" 学说点数)<br>花费： "+showNum(getTBCost())+" 前子")
 		tmp.el.theoryBoosters.setTxt(showNum(player.elementary.theory.preons.boosters))
 	}
 }
@@ -1168,10 +1168,10 @@ function updateAcceleronsHTML(){
 		tmp.el.accelEff.setHTML("<span class='thp'>"+showNum(accEff)+"</span> 倍出现"+(accEff.gte(2)?" <span class='sc'>(已达软上限)</span>":""))
 		let next = player.elementary.theory.accelerons.expanders.toNumber()+1
 		tmp.el.darkExp.setClasses({btn: true, locked: (player.elementary.theory.accelerons.amount.lt(DARK_EXPANDER_COSTS[next])||next-1>=MAX_DARK_EXPANDERS), th: (!(player.elementary.theory.accelerons.amount.lt(DARK_EXPANDER_COSTS[next])||next-1>=MAX_DARK_EXPANDERS))})
-		tmp.el.darkExp.setHTML((next-1>=MAX_DARK_EXPANDERS)?"MAXED":(DARK_EXPANDER_DESCS[next]+"<br>Cost: "+showNum(DARK_EXPANDER_COSTS[next])+" Accelerons"))
+		tmp.el.darkExp.setHTML((next-1>=MAX_DARK_EXPANDERS)?"MAXED":(DARK_EXPANDER_DESCS[next]+"<br>花费： "+showNum(DARK_EXPANDER_COSTS[next])+" 加速子"))
 		tmp.el.darkExpAmt.setTxt(showNum(player.elementary.theory.accelerons.expanders))
 		let past = ""
-		if (next>1) Array.from(Array(next-1), (_, i) => i + 1).forEach(n => past += "DE"+n+": "+DARK_EXPANDER_DESCS[n]+"<br>")
+		if (next>1) Array.from(Array(next-1), (_, i) => i + 1).forEach(n => past += "黑暗拓展器"+n+"："+DARK_EXPANDER_DESCS[n]+"<br>")
 		tmp.el.darkExpPast.setHTML(past)
 	}
 }
