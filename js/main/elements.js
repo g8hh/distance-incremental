@@ -262,7 +262,7 @@ function updateTimeReversalHTML(){
 		tmp.el.rt.setTxt(tmp.tr.txt);
 		tmp.el.tc.setTxt(
 			showNum(player.tr.cubes) +
-				" Time Cubes " + formatGain(player.tr.cubes, getTimeCubeGain().times(nerfActive("noTS") ? 1 : tmp.timeSpeed), "tc")
+				" 时间方盒 " + formatGain(player.tr.cubes, getTimeCubeGain().times(nerfActive("noTS") ? 1 : tmp.timeSpeed), "tc")
 		);
 		tmp.el.frf.setTxt(showNum(tmp.tr.eff));
 		for (let i = 1; i <= TR_UPG_AMT; i++) {
@@ -271,9 +271,9 @@ function updateTimeReversalHTML(){
 			if (!tr2Pow().eq(1) && i == 2) desc += "<span class='grossminitxt'>(^" + showNum(tr2Pow()) + ")</span>";
 			if (!tr11Pow().eq(1) && i == 11)
 				desc += "<span class='grossminitxt'>(^" + showNum(tr11Pow()) + ")</span>";
-			tmp.el["tr" + i].setHTML(desc + "<br>Cost: " + showNum(upg.cost()) + " Time Cubes.");
+			tmp.el["tr" + i].setHTML(desc + "<br>花费：" + showNum(upg.cost()) + "时间方盒。");
 			if (upg.current !== undefined && (i > 15 ? modeActive("extreme") : true))
-				tmp.el["tr" + i].setTooltip("Currently: " + upg.disp(upg.current()));
+				tmp.el["tr" + i].setTooltip("目前：" + upg.disp(upg.current()));
 			tmp.el["tr" + i].setClasses({
 				btn: true,
 				locked: !player.tr.upgrades.includes(i) && player.tr.cubes.lt(upg.cost()),
@@ -296,7 +296,7 @@ function updateCollpaseHTML(){
 		tmp.el.cadavers.setHTML(
 			"<span class='dead'>" +
 				showNum(player.collapse.cadavers) +
-				"</span> cadavers<span class='dead'> " +
+				"</span> 残骸<span class='dead'> " +
 				(((tmp.ach[96].has||tmp.inf.upgs.has("2;4"))&&!nerfActive("noCadavers"))?(formatGain(player.collapse.cadavers, tmp.collapse.layer.gain.div(tmp.ach[96].has?1:100))):"")+
 				"</span>"
 		);
@@ -309,13 +309,13 @@ function updateCollpaseHTML(){
 		tmp.el.lifeEssence.setHTML(
 			"<span class='alive'>" +
 				showNum(player.collapse.lifeEssence) +
-				"</span> life essence <span class='alive'>" +
+				"</span> 生命精华 <span class='alive'>" +
 				(((tmp.ach[97].has||tmp.inf.upgs.has("5;3"))&&!nerfActive("noLifeEssence"))?formatGain(player.collapse.lifeEssence, player.collapse.cadavers.times(tmp.collapse.sacEff).max(1).div(tmp.ach[97].has?1:100)):"")+"</span>"
 		);
 		for (let i = 1; i <= EM_AMT; i++) {
 			let ms = ESSENCE_MILESTONES[i];
-			tmp.el["lem" + i].setHTML(ms.desc + "<br>Req: " + showNum(ms.req) + " Life Essence.");
-			if (ms.disp !== undefined) tmp.el["lem" + i].setTooltip("Currently: " + ms.disp());
+			tmp.el["lem" + i].setHTML(ms.desc + "<br>需要：" + showNum(ms.req) + "生命精华。");
+			if (ms.disp !== undefined) tmp.el["lem" + i].setTooltip("目前：" + ms.disp());
 			tmp.el["lem" + i].setClasses({ msCont: true, r: !hasCollapseMilestone(i) });
 		}
 	}
