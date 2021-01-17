@@ -15,7 +15,7 @@ function loadGame() {
 		)
 	);
 	if (player.modes.includes("absurd"))
-		if (!confirm("Are you sure you want to continue playing in Absurd Mode?")) {
+		if (!confirm("您确定要在荒诞模式中继续玩吗？如果错过此对话框，刷新后即可再次出现。")) {
 			let s = transformToEN(DEFAULT_START);
 			if (all.indexOf(null) > -1) s.savePos = all.indexOf(null) + 1;
 			else s.savePos = all.length + 1;
@@ -90,7 +90,7 @@ function modeLoad(resetted) {
 function checkNaN() {
 	if (player.distance.isNaN()) {
 		exportSave()
-		alert("We have detected a NaN Error in your save! We have exported it to your clipboard (although it may be broken), and will hard reset the game to remove this bug as soon as possible. Please go to the discord (in the options menu) and tell someone about what happened, and hopefully your save can be salvaged. We apologize for this error.")
+		alert("我们在您的存档中发现了NaN错误！我们已将您的存档导出到了剪贴板(尽管它已经坏了)，并将硬重置您的游戏，以消除此错误。请进入Discord频道(位于选项菜单内)并告诉他们所发生的事情，希望您的存档能够恢复。我们对此错误感到非常抱歉。")
 		hardReset(true)
 	}
 }

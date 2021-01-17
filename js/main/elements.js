@@ -3,46 +3,46 @@ function calcModeAndBalanceName(modes) {
 	balanceName = ""
 	// Naming order: Absurd AAU/NA Easy (or Easy-) Hard/Extreme Dream
 	if(modes.includes("absurd")) {
-		modeName += "Absurd ";
+		modeName += "荒诞 ";
 		balanceName += "absurd_";
 	}
 	if (modes.includes("aau")) {
-		if(modes.includes("na")) modeName += "AAU/";
-		else modeName += "AAU ";
+		if(modes.includes("na")) modeName += "全成就/";
+		else modeName += "全成就 ";
 		balanceName += "aau_";
 	}
 	if (modes.includes("na")) {
-		modeName += "NA ";
+		modeName += "无成就 ";
 		balanceName += "na_";
 	}
 	if (modes.includes("easy")) {
-		if (modes.includes("hard")) modeName += "Easy-";
-		else modeName += "Easy ";
+		if (modes.includes("hard")) modeName += "容易-";
+		else modeName += "容易";
 		balanceName += "easy_";
 	}	
 	if (modes.includes("hard")) {
 		if (modes.includes("extreme")) {
-			modeName += "Extreme ";
+			modeName += "极限";
 			balanceName += "extreme_";
 		} else {
-			modeName += "Hard ";
+			modeName += "困难";
 			balanceName += "hard_";
 		}
 		}	
 	if (modes.includes("hikers_dream")) {
-		if(!modes.includes("easy") && !modes.includes("hard")) modeName += "Hikers ";
-		modeName += "Dream";
+		if(!modes.includes("easy") && !modes.includes("hard")) modeName += "旅人";
+		modeName += "之梦";
 		balanceName += "hikers_dream_";
 	}
 	if(balanceName != "") balanceName = balanceName.substring(0,balanceName.length -1);
-	if(modeName == "") modeName = "Normal";
+	if(modeName == "") modeName = "普通";
 	return {modeName: modeName, balanceName: balanceName}
 }
 
 function updateModesHTML() {
 	let data = calcModeAndBalanceName(modesSelected);
 
-	tmp.el.selectedMode.setTxt("Selected Mode: "+(data.modeName));
+	tmp.el.selectedMode.setTxt("选择模式："+(data.modeName));
 	tmp.el.selectedModeBalancing.setTxt("Balancing: "+ (MODEBALANCES[data.balanceName]?MODEBALANCES[data.balanceName].balancing:"Unknown! Proceed at your own risk."));
 }
 
@@ -101,7 +101,7 @@ function updateRanksHTML(){
 	tmp.el.rankUp.setClasses({ btn: true, locked: !tmp.ranks.canRankUp });
 	tmp.el.rankDesc.setTxt(tmp.ranks.desc);
 	tmp.el.rankReq.setTxt(formatDistance(tmp.ranks.req));
-	tmp.el.rankName.setTxt(getScalingName("rank") + "Rank");
+	tmp.el.rankName.setTxt(getScalingName("rank") + "级别");
 }
 
 function updateTiersHTML(){
@@ -109,7 +109,7 @@ function updateTiersHTML(){
 	tmp.el.tierUp.setClasses({ btn: true, locked: !tmp.tiers.canTierUp });
 	tmp.el.tierDesc.setTxt(tmp.tiers.desc);
 	tmp.el.tierReq.setTxt(showNum(tmp.tiers.req.ceil()));
-	tmp.el.tierName.setTxt(getScalingName("tier") + "Tier");
+	tmp.el.tierName.setTxt(getScalingName("tier") + "阶层");
 }
 
 function updateMainHTML(){
