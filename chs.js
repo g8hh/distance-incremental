@@ -688,7 +688,7 @@ var cnItems = {
     'Unlock Auto-Entropy, and gain 50% more Entropy (kept on Skyrmion reset': '解锁自动熵，并且熵的获取量增加50%(斯格明子重置时保留',
     'Unlock Auto-Entropy Upgrades, and all Foam types are gained 10x faster (kept on Skyrmion reset': '解锁自动熵升级，所有类型的泡沫获取量变为10倍(斯格明子重置时保留',
     'Gain 1% of Elementary Particle, Fermion, & Boson gain every second (kept on Skyrmion reset': '每秒获得当前产量1%的基本粒子，费米子和玻色子(斯格明子重置时保留',
-    'The Extreme mode nerf to pre-Infinity production is less lethal (^0.825 ->': '极限模式无限之前内容的产量减成变得更缓和(从^0.825变为^',
+    'The Extreme mode nerf to pre-Infinity production is less lethal (^0.825 -> ^': '极限模式无限之前内容的产量减成变得更缓和(从^0.825变为^',
     'Buying Theory Tree Upgrades does not spend Theory Points, and the last Inflaton effect does not become extremely softcapped (kept on Skyrmion reset': '购买学说树升级不再花费学说点数，暴胀子的最后一个效果不再变为极端软上限(斯格明子重置时保留',
     'Entropy boosts Skyrmion gain': '根据熵数值，增加斯格明子的获取量',
     'Gauge Force\'s effect uses a much better formula': '规范作用力效果的公式变得更好',
