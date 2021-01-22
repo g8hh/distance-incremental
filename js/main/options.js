@@ -188,6 +188,7 @@ function getInfo(sav) {
 	mds = mds.replace("Easy","容易");
 	mds = mds.replace("Extreme","极限");
 	mds = mds.replace("Hikers Dream","旅人之梦");
+	mds = mds.replace("Hikers_dream","旅人之梦");
 	let info = "模式：" + mds + "<br>";
 	if (sav.elementary?(sav.elementary.sky?sav.elementary.sky.unl:false):false) {
 		info += "斯格明子： "+showNum(new ExpantaNum(sav.elementary.sky.amount))+" ，π介子： "+showNum(new ExpantaNum(sav.elementary.sky.pions.amount))+" ，旋量： "+showNum(new ExpantaNum(sav.elementary.sky.spinors.amount))+" ， "
