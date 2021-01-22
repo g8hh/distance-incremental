@@ -288,11 +288,11 @@ const ACH_DATA = {
 		154: "至少获得2.5强子分数并到达formatDistance(e2.8e7)，可以不同时完成。",
 		155: "解锁暴胀子",
 		156: "学说宇宙完成深度8。",
-		157: "第一弦到达formatDistance(4.4e76)。",
+		157: "一维弦到达formatDistance(4.4e76)。",
 		158: "至少获得showNum(3.75)强子分数。",
 		
 		161: "解锁量子泡沫。",
-		162: "第一弦到达formatDistance(4.4e251)。",
+		162: "一维弦到达formatDistance(4.4e251)。",
 		163: "纠缠弦到达formatDistance(4.4e126)。",
 		164: "解锁熵。",
 		165: "至少获得showNum(8)强子分数。",
