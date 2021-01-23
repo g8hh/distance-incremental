@@ -1885,12 +1885,12 @@ table {
 	margin-bottom: 12.5px;
 }
 
-.plB.plasmic {
+.plB.等离子 {
 	background: linear-gradient(-45deg, #9b72a3, #c46dc7, #d44ed2, #ff03b7);
 	animation: plasma 6s ease infinite;
 }
 
-.plB.gleaming {
+.plB.闪光 {
 	background: linear-gradient(45deg, #404040, #8c8c8c, #9c9c9c, #a1a1a1);
 	animation: plasma 6s ease infinite;
 }
