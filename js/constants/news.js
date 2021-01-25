@@ -319,7 +319,7 @@ const NEWS_DATA = {
 		}
 	],
 	s2: [
-		"病原体更像是假亚病毒",
+		"病原体更像是旧亚病毒",
 		function () {
 			return player.pathogens.unl;
 		}
@@ -343,7 +343,7 @@ const NEWS_DATA = {
 		}
 	],
 	s6: [
-		"滚动新闻委员会注意到您开始移动了。他们目前完全不虚。",
+		"滚动新闻委员会注意到您开始行动了。他们目前完全不虚。",
 		function () {
 			return player.inf.endorsements.gt(0);
 		}
