@@ -75,9 +75,8 @@ function decimalPlaces(value, places, roundWhole=false, base = 10) {
 	}
 }
 
-function formatDistance(x) {
+function formatDistance(x, fc=multiverseCapped()) {
 	x = new ExpantaNum(x);
-	let fc = futureCapped();
 	for (i = Object.keys(DISTANCES).length - 1; i >= 0; i--) {
 		let name = Object.keys(DISTANCES)[i];
 		let val = new ExpantaNum(DISTANCES[name]);
@@ -112,6 +111,16 @@ function formatTime(x) {
 function formatGain(amt, gain, name, isDist, gainNotIncluded) {
 	let trueGain = ExpantaNum.mul(name?adjustGen(gain, name):gain, gainNotIncluded||1)
 	let func = isDist?formatDistance:showNum
-	if (trueGain.gte(1e100) && trueGain.gt(amt)) return "(+"+showNum(trueGain.max(1).log10().sub(amt.max(1).log10().max(1)).times(50/VIS_UPDS[player.options.visUpd]))+"数量级/秒)"
+	if (trueGain.gte(1e100) && trueGain.gt(amt)) return "(+"+showNum(trueGain.max(1).log10().sub(amt.max(1).log10().max(1)).times(50/VIS_UPDS[player.options.visUpd]))+" 数量级/秒)"
 	else return "(+"+func(trueGain)+"/秒)"
+}
+
+function isFunc(f) {
+	let n = {};
+	return n.toString.call(f) === '[object Function]';
+}
+
+function checkFunc(f) {
+	if (isFunc(f)) return f();
+	else return f;
 }
