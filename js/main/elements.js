@@ -714,13 +714,14 @@ function updateAngelsChipsHTML(){
 
 function updateDerivativeHTML(){
 	let chs = "";
-	chs = getDervNames();
+	chs = getScalingName("dervBoost");
 	chs = chs.replace("Scaled","折算");
 	chs = chs.replace("Superscaled","超级折算");
 	chs = chs.replace("Hyper","究级折算");
 	chs = chs.replace("Atomic","原子折算");
+	let de = getDervNames();
 	for (let i = 0; i < de.length; i++) {
-		let name = chs[i];
+		let name = de[i];
 		tmp.el["dervDiv" + name].setDisplay(tmp.inf.derv.unlocked(name));
 		tmp.el["derv" + name].setTxt(formatDistance(tmp.inf.derv.amt(name)));
 		tmp.el["dervgain" + name].setTxt(formatGain(tmp.inf.derv.amt(name), tmp.inf.derv.gain(name), "derv", true));

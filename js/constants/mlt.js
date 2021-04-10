@@ -16,36 +16,36 @@ const MULTIVERSES = 5;
 
 const MLT_DATA = {
 	0: {
-		desc: "The normal multiverse you've been accustomed to.",
+		desc: "您已经习惯的正常多宇宙。",
 		req: new ExpantaNum(0),
 	},
 	1: {
-		desc: "You can only unlock 2 of the following: Theory, Hadronic Challenge, Quantum Foam, and Skyrmions <b>(unlock them by opening their tabs)</b>. Normal Stadium Challenge completions are also reset.",
-		reward: "Normal Stadium Challenge rewards are much stronger, but their challenge goals are much higher. Distance boosts Skyrmion gain.",
+		desc: "以下的游戏内容您只能解锁其中2个：学说，强子挑战，量子泡沫，斯格明子<b>(解锁方法为开启它们的界面)</b>。普通的竞技场挑战完成情况也将被重置。",
+		reward: "普通的竞技场挑战奖励更好，但它们的目标也将变得更高。根据距离数值，增加斯格明子的获取量。",
 		effect: function() { return player.distance.plus(1).log10().plus(1).logBase(3).plus(1) },
-		effectDesc: function(e) { return showNum(e)+"x" },
+		effectDesc: function(e) { return showNum(e)+"倍" },
 		req: new ExpantaNum(5),
 	},
 	2: {
-		desc: "Maximum Velocity is forced to be active, Pion & Spinor Fields are 40% weaker, and Time Speed & Maximum Velocity are brought to the 1.3th root.",
-		reward: "Every third Derivative Boost gives you an extra Derivative Shift (maxes at 6 shifts).",
+		desc: "最大速度强制生效，π介子场和旋量场的效果减少40%，时间速度和最大速度变为原来的1.3次方根。",
+		reward: "每3次导数提升让您额外获得1次导数变换(最高为6次变换)。",
 		req: new ExpantaNum(20),
 	},
 	3: {
-		desc: "You can only unlock 1 of the following: Ascension, Stadium, Pantheon, and Derivatives <b>(unlock them by opening their tabs)</b>. Quark & Lepton exponents are set to 0, and Entropy is disabled.",
-		reward: "There are 5 new Dark Expanders",
+		desc: "以下的游戏内容您只能解锁其中1个：飞升，竞技场，万神殿，导数<b>(解锁方法为开启它们的界面)</b>。夸克和轻子的指数总是为0，熵无法使用。",
+		reward: "解锁5个新的黑暗拓展器",
 		req: new ExpantaNum(100),
 	},
 	4: {
-		desc: "You are always trapped in the Theoriverse at Depth 4.5 (unaffected by any depth reductions), which also affects Pion & Spinor gain.",
-		extremeDesc: "You are always trapped in the Theoriverse at Depth 4.25 (unaffected by any depth reductions), which also affects Pion & Spinor gain.",
-		reward: "Unlock 3 new Strings.",
+		desc: "强制进入学说宇宙深度4.5(不受任何减少深度的影响)，这同样会影响π介子和旋量的获取量。",
+		extremeDesc: "强制进入学说宇宙深度4.25(不受任何减少深度的影响)，这同样会影响π介子和旋量的获取量。",
+		reward: "解锁三个弦。",
 		req: new ExpantaNum(400),
 	},
 	5: {
-		desc: "Time Speed is brought to the 3.6th root.",
-		extremeDesc: "Time Speed is brought to the 2.7th root.",
-		reward: "The Purge Power effect goes below zero, and unlock Phantoms (a new Pantheon section). Heavenly Chip & Demonic Soul effects are much stronger.",
+		desc: "时间速度变为原来的3.6次方根。",
+		extremeDesc: "时间速度变为原来的2.7次方根。",
+		reward: "净化能量的效果可以为负数，并解锁幻象(新的万神殿可选项)。天堂芯片和恶魔灵魂的效果大大增强。",
 		req: new ExpantaNum(2e3),
 	},
 }
@@ -55,121 +55,121 @@ const MLT_MILESTONE_NUM = 24;
 const MLT_MILESTONES = [
 	{
 		req: new ExpantaNum(1),
-		desc: "Keep Higgs Upgrades on reset (except the ones that are unlocked through a Dark Expander)",
-		extremeDesc: "Keep Higgs Upgrades on reset (except the ones that are unlocked through a Dark Expander), and unlock Auto-Magma.",
+		desc: "重置时保留希格斯升级(除了需要通过黑暗拓展器解锁的以外)",
+		extremeDesc: "重置时保留希格斯升级(除了需要通过黑暗拓展器解锁的以外)，并解锁自动岩浆。",
 	}, {
 		req: new ExpantaNum(2),
-		desc: "Keep Entropy Upgrades on reset (but only the ones that are kept on Skyrmion resets), and start with 1 Elementary",
+		desc: "重置时保留熵升级(只保留可以在斯格明子重置时保留的升级)，并以一次基本重置开始",
 	}, {
 		req: new ExpantaNum(3),
-		desc: "Start with Bosons unlocked, and keep Theory Unlocks, Dark Expanders, and all Higgs Upgrades on reset",
-		hdDesc: "Start with Bosons unlocked, and keep Theory Unlocks, Dark Expanders, all Higgs Upgrades, and Energy Upgrades on reset",
+		desc: "开始时直接解锁玻色子升级，并且重置时保留解锁的学说，黑暗拓展器，和所有的希格斯升级",
+		hdDesc: "开始时直接解锁玻色子升级，并且重置时保留解锁的学说，黑暗拓展器，所有的希格斯升级，和能量升级",
 	}, {
 		req: new ExpantaNum(4),
-		desc: "Unlock Auto-Theoriverse, but you cannot enter the Theoriverse manually. Foam autobuyers are always unlocked, Reforming Foam resets nothing, and can be done in bulk.",
+		desc: "解锁自动学说宇宙，但也将无法手动进入学说宇宙。自动量子泡沫直接解锁，重构泡沫不再重置任何东西，并可以批量进行。",
 	}, {
 		req: new ExpantaNum(5),
-		desc: "Keep your best Hadronic Score on reset",
+		desc: "重置时保留最高的强子分数",
 	}, {
 		req: new ExpantaNum(6),
-		desc: "Multiversal Quilt II's second effect also affects Pion & Spinor gain.",
+		desc: "多元织物 II的第二个效果也对π介子和旋量的获取量生效。",
 	}, {
 		req: new ExpantaNum(7),
-		desc: "Gain 100% of Elementaries gained on reset every second",
+		desc: "每秒获得当前产量100%的基本重置次数",
 	}, {
 		req: new ExpantaNum(8),
-		desc: "Unlock Auto-Pion Field",
-		extremeDesc: "Unlock Auto-Pion Field & Auto-Plasma Boosts",
+		desc: "解锁自动π介子场",
+		extremeDesc: "解锁自动π介子场和自动等离子体提升",
 	}, {
 		req: new ExpantaNum(9),
-		desc: "Unlock Auto-Spinor Field",
+		desc: "解锁自动旋量场",
 	}, {
 		req: new ExpantaNum(10),
-		desc: "Gain 100% of Skyrmions gained on reset every second",
-		extremeDesc: "Gain 100% of Skyrmions gained on reset every second, and the Coal effect is squared.",
+		desc: "每秒获得当前产量100%的斯格明子",
+		extremeDesc: "每秒获得当前产量100%的斯格明子，煤的效果变为原来的平方。",
 	}, {
 		req: new ExpantaNum(12),
-		desc: "Unspent Multiversal Energy reduces base Skyrmion requirements.",
+		desc: "根据未花费的多元能量数值，减少斯格明子的基础需求。",
 		effect: function() { 
 			let e = player.mlt.energy
 			if (e.gte(100)) e = ExpantaNum.pow(10, e.log10().times(2).sqrt())
 			return e.plus(1).logBase(1.6).plus(1).sqrt().min(1e3);
 		},
-		effectDesc: function() { return "Distance: "+formatDistance(SKY_REQ[0])+" -> "+formatDistance(getSkyReqData(0, "mlt"))+"<br>Quark Req: "+showNum(SKY_REQ[1])+" -> "+showNum(getSkyReqData(1, "mlt"))+"<br>Lepton Req: "+showNum(SKY_REQ[2])+" -> "+showNum(getSkyReqData(2, "mlt")) },
+		effectDesc: function() { return "距离："+formatDistance(SKY_REQ[0])+" -> "+formatDistance(getSkyReqData(0, "mlt"))+"<br>夸克需求："+showNum(SKY_REQ[1])+" -> "+showNum(getSkyReqData(1, "mlt"))+"<br>轻子需求："+showNum(SKY_REQ[2])+" -> "+showNum(getSkyReqData(2, "mlt")) },
 	}, {
 		req: new ExpantaNum(16),
-		desc: "Total Multiversal Energy reduces the &Omega; Particle requirement increase.",
+		desc: "根据多元能量总数数值，使Ω 粒子需求提升速度减少。",
 		effect: function() { return player.mlt.totalEnergy.plus(1).log10().plus(1).log10().plus(1) },
-		effectDesc: function() { return "Currently: "+showNum(2)+" -> "+showNum(ExpantaNum.root(2, tmp.mlt.mil12reward||1)) },
+		effectDesc: function() { return "目前："+showNum(2)+" -> "+showNum(ExpantaNum.root(2, tmp.mlt.mil12reward||1)) },
 	}, {
 		req: new ExpantaNum(25),
-		desc: "The Theory Tree Upgrades that boost String effects have their limit increased by 5, and the Graviton effect is raised to the power of 15.",
-		extremeDesc: "The Theory Tree Upgrades that boost String effects have their limit increased by 5, the Graviton effect is raised to the power of 15, and increase the base Plasma exponent by your Derivative Boosts.",
+		desc: "能够增加弦效果的学说树升级，其购买上限增加5。引力子的效果变为原来的15次方。",
+		extremeDesc: "能够增加弦效果的学说树升级，其购买上限增加5。引力子的效果变为原来的15次方。根据导数提升次数，增加等离子体的基础指数。",
 	}, {
 		req: new ExpantaNum(40),
-		desc: "All Quark/Lepton effects are always active, and always gain Purge Power automatically.",
-		extremeDesc: "All Quark/Lepton effects are always active, always gain Purge Power automatically, and gain 10x more White Flame.",
+		desc: "所有夸克和轻子的效果永远生效，并且总是自动获得净化能量。",
+		extremeDesc: "所有夸克和轻子的效果永远生效，并且总是自动获得净化能量。白色火焰获取量变为原来的10倍。",
 	}, {
 		req: new ExpantaNum(100),
-		desc: "Atomic Rank scaling is weaker based on your Tiers.",
+		desc: "根据阶层数值，减少原子折算的花费提升速度。",
 		effect: function() { return ExpantaNum.div(1, player.tier.plus(1).logBase(6).plus(1)) },
-		effectDesc: function() { return "Currently: -"+showNum(ExpantaNum.sub(1, tmp.mlt.mil15reward).times(100)||0)+"%" },
+		effectDesc: function() { return "目前：-"+showNum(ExpantaNum.sub(1, tmp.mlt.mil15reward).times(100)||0)+"%" },
 	}, {
 		req: new ExpantaNum(180),
-		desc: "inf10;1 always affects the last Derivative, and its effect uses a better formula.",
+		desc: "无限10;1升级总是对最后一个导数生效，并且它效果的公式变得更好。",
 	}, {
 		req: new ExpantaNum(300),
-		desc: "Multiversal Quilt Upgrade effects are increased based on your Distance.",
-		extremeDesc: "Multiversal Quilt Upgrade effects are increased based on your Distance, and gain 100x more White Flame.",
+		desc: "根据距离数值，使多元织物升级的效果变得更好。",
+		extremeDesc: "根据距离数值，使多元织物升级的效果变得更好。白色火焰获取量变为原来的100倍。",
 		effect: function() { return player.distance.max(1).logBase(DISTANCES.多宇宙).plus(1).logBase(2).times(0.01) },
-		effectDesc: function() { return "Currently: +"+showNum(tmp.mlt.mil17reward.times(100)||0)+"%" },
+		effectDesc: function() { return "目前：+"+showNum(tmp.mlt.mil17reward.times(100)||0)+"%" },
 	}, {
 		req: new ExpantaNum(1.25e3),
-		desc: "Foam effect exponents are increased by 0.05.",
-		extremeDesc: "Foam effect exponents are increased by 0.05, and gain 20x more White Flame for each Multiverse Milestone from this point onward.",
+		desc: "量子泡沫效果的指数增加0.05。",
+		extremeDesc: "量子泡沫效果的指数增加0.05。从此成就起，每再获得一个多宇宙里程碑，白色火焰获取量就变为原来的20倍。",
 	}, {
 		req: new ExpantaNum(1.75e3),
-		desc: "The First String's effect also multiplies Acceleron gain.",
-		extremeDesc: "All String effects & Supersymmetric Particle effects multiply Acceleron gain.",
+		desc: "一维弦的效果也对加速子获取量生效。",
+		extremeDesc: "所有弦和超对称粒子的效果也对加速子获取量生效。",
 	}, {
 		req: new ExpantaNum(5e3),
-		desc: "Entangled Strings & Quantum Foam boost Pion & Spinor gain, respectively.",
+		desc: "根据纠缠弦数值，增加π介子的获取量。根据量子泡沫数值，增加旋量的获取量。",
 		effect: function() {
 			return {
 				pion: ExpantaNum.pow(10, player.elementary.theory.strings.entangled.plus(1).log10().root(4)),
 				spinor: ExpantaNum.pow(10, player.elementary.foam.amounts[0].plus(1).log10().root(4)),
 			}
 		},
-		effectDesc: function() { return "Pions: "+showNum(tmp.mlt.mil20reward.pion)+"x<br>Spinors: "+showNum(tmp.mlt.mil20reward.spinor)+"x" },
+		effectDesc: function() { return "π介子： "+showNum(tmp.mlt.mil20reward.pion)+" 倍<br>旋量： "+showNum(tmp.mlt.mil20reward.spinor)+" 倍" },
 	}, {
 		req: new ExpantaNum(1e4),
-		desc: "Auto-Foam Unlocks occur every tick instead of every second, and Re-forming Protoversal Foam cost scaling is 20% weaker.",
+		desc: "自动量子泡沫解锁从每秒发生一次变为每个时刻发生一次。重构太初泡沫的花费提升速度减少20%。",
 	}, {
 		req: new ExpantaNum(2e5),
-		desc: "Foam Size Upgrades cost less based on your total Foam Size Upgrades bought.",
+		desc: "根据量子泡沫升级购买总量数值，减少量子泡沫升级的花费。",
 		effect: function() { 
 			let total = player.elementary.foam.upgrades.reduce((a,c) => ExpantaNum.add(a, c));
 			return ExpantaNum.pow(10, total.plus(1).log10().pow(4));
 		},
-		effectDesc: function() { return "Currently: /"+showNum(tmp.mlt.mil22reward) },
+		effectDesc: function() { return "目前：/"+showNum(tmp.mlt.mil22reward) },
 	}, {
 		req: new ExpantaNum(1e6),
-		desc: "Hyper Rank scaling starts 250 later if you are in Multiverse Prime.",
+		desc: "如果您在主宇宙，则究级折算的级别延迟250次出现。",
 	}, {
 		req: new ExpantaNum(2.5e7),
-		desc: "Entropy Upgrades cost less based on your Total Multiversal Energy.",
+		desc: "根据多元能量总数数值，减少熵升级的花费。",
 		effect: function() { return player.mlt.totalEnergy.plus(1).log10().plus(1).root(5) },
-		effectDesc: function() { return "Currently: /"+showNum(tmp.mlt.mil24reward) },
+		effectDesc: function() { return "目前：/"+showNum(tmp.mlt.mil24reward) },
 	},
 ]
 
 const MLT_1_STADIUM_REWARDS = {
-	spaceon: "inf1;1 is stronger based on your Rockets & Rocket Fuel.",
-	solaris: "Superscaled Rank & Pathogen Upgrade scalings start later based on your Cadavers.",
-	infinity: "The Rocket Fuel effect is 10x as powerful, and uses a better formula.",
-	eternity: "Endorsements & Ascension Power make Ranks boost Time Speed.",
-	reality: "Rockets, Time Cubes, & Dark Cores are 8x as powerful.",
-	drigganiz: "Pathogen Upgrades are stronger based on your achievements gotten.",
+	spaceon: "根据火箭和火箭燃料数值，使无限1;1升级的效果变得更好。",
+	solaris: "根据残骸数值，使超级折算的级别和病原体升级延迟出现。",
+	infinity: "火箭燃料的效果变为原来的10倍，且公式变得更好。",
+	eternity: "根据认可和飞升能量数值，使级别可以加快时间速度。",
+	reality: "火箭，时间方盒和黑暗核心的效果变为8倍。",
+	drigganiz: "根据成就获取总数数值，使病原体升级的效果变得更好。",
 	effects: {
 		spaceon: function () {
 			let mult = tmp.inf.pantheon.chipBoost;
