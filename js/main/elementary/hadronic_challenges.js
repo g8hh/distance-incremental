@@ -16,8 +16,8 @@ function updateTempHC() {
 
 	tmp.elm.hc.hadronEff = player.elementary.hc.hadrons.max(1).logBase(tmp.elm.hc.hadInterval).floor().times(tmp.elm.hc.hadronBulk)
 	tmp.elm.hc.next = ExpantaNum.pow(tmp.elm.hc.hadInterval, new ExpantaNum(player.elementary.hc.claimed||0).div(tmp.elm.hc.hadronBulk).plus(1))
-	let rg = new ExpantaNum(getHCSelector("goal")).times(DISTANCES.uni);
-	if (getHCSelector("goalMlt")) rg = ExpantaNum.pow(DISTANCES.mlt, getHCSelector("goal"));
+	let rg = new ExpantaNum(getHCSelector("goal")).times(DISTANCES.宇宙);
+	if (getHCSelector("goalMlt")) rg = ExpantaNum.pow(DISTANCES.多宇宙, getHCSelector("goal"));
 	tmp.elm.hc.complPerc = player.distance.log10().div(rg.log10()).min(1);
 	tmp.elm.hc.infState = getInflatonState()
 	tmp.elm.hc.infGain = getInflatonGain()
@@ -89,7 +89,7 @@ function getProjectedHadronicScore() {
 	
 	// Goal Modifier
 	let goal = new ExpantaNum(getHCSelector("goal"))
-	if (getHCSelector("goalMlt")) goal = ExpantaNum.pow(DISTANCES.mlt, goal);
+	if (getHCSelector("goalMlt")) goal = ExpantaNum.pow(DISTANCES.多宇宙, goal);
 	if (goal.gte("e1e7")) goal = ExpantaNum.pow("e1e7", goal.log("e1e7").sqrt());
 	score = score.times(goal.log10().div(Math.log10(Number.MAX_VALUE)).log10().plus(1))
 	
@@ -165,8 +165,8 @@ function updateHCSelector(name) {
 }
 
 function canCompleteHC() {
-	let realGoal = ExpantaNum.mul(getHCSelector("goal"), DISTANCES.uni);
-	if (getHCSelector("goalMlt")) realGoal = ExpantaNum.pow(DISTANCES.mlt, getHCSelector("goal"))
+	let realGoal = ExpantaNum.mul(getHCSelector("goal"), DISTANCES.宇宙);
+	if (getHCSelector("goalMlt")) realGoal = ExpantaNum.pow(DISTANCES.多宇宙, getHCSelector("goal"))
 	return (!(!player.elementary.hc.active)) && player.distance.gte(realGoal);
 }
 

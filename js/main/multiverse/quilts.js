@@ -24,7 +24,7 @@ function getQuiltUpgPower() {
 function getQuiltStrength(x) {
 	if (player.mlt.times.eq(0) || HCCBA("q"+x)) return new ExpantaNum(0);
 	let base = new ExpantaNum(0);
-	if (x==1) base = player.distance.max(1).logBase(DISTANCES.mlt);
+	if (x==1) base = player.distance.max(1).logBase(DISTANCES.多宇宙);
 	else if (x==2) base = player.inf.knowledge.max(1).logBase("1e8500");
 	else if (x==3) base = player.elementary.particles.max(1).logBase(1e150);
 	

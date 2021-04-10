@@ -188,12 +188,12 @@ function checkR17Ach(){
 }
 
 function checkR18Ach() {
-	if (player.distance.gte(ExpantaNum.pow(DISTANCES.mlt, 2))) tmp.ach[181].grant();
-	if (player.distance.gte(ExpantaNum.pow(DISTANCES.mlt, 3.5)) && player.elementary.theory.depth.eq(0)) tmp.ach[182].grant();
+	if (player.distance.gte(ExpantaNum.pow(DISTANCES.多宇宙, 2))) tmp.ach[181].grant();
+	if (player.distance.gte(ExpantaNum.pow(DISTANCES.多宇宙, 3.5)) && player.elementary.theory.depth.eq(0)) tmp.ach[182].grant();
 	if (player.mlt.highestCompleted>=1) tmp.ach[183].grant();
 	if (player.elementary.entropy.amount.gte(1e5)) tmp.ach[184].grant();
 	if (mltActive(2) && tmp.inf.stadium.active("eternity", 6) && player.distance.gte("3.911111e88888915")) tmp.ach[185].grant();
-	if (player.distance.gte(ExpantaNum.pow(DISTANCES.mlt, 100))) tmp.ach[186].grant();
+	if (player.distance.gte(ExpantaNum.pow(DISTANCES.多宇宙, 100))) tmp.ach[186].grant();
 	if (player.mlt.highestCompleted>=5) tmp.ach[187].grant();
 	if (player.elementary.foam.amounts[4].gte("1e430")) tmp.ach[188].grant();
 }

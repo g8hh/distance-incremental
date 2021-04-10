@@ -196,8 +196,8 @@ function adjustGen(val, type) {
 		if (newVal.gte(start)) newVal = newVal.times(start.pow(3)).pow(.25)
 	}
 	if (preinf && modeActive("extreme") && newVal.gte("1e100000000")) newVal = newVal.times("1e400000000").pow(.2);
-	if (modeActive("extreme") && newVal.gte(ExpantaNum.pow(DISTANCES.mlt, 500))) {
-		let mlt500 = ExpantaNum.pow(DISTANCES.mlt, 500);
+	if (modeActive("extreme") && newVal.gte(ExpantaNum.pow(DISTANCES.多宇宙, 500))) {
+		let mlt500 = ExpantaNum.pow(DISTANCES.多宇宙, 500);
 		newVal = ExpantaNum.pow(mlt500, newVal.logBase(mlt500).sqrt())
 	}
 	if (modeActive("hard") && (type=="pathogens"||(extremeStadiumComplete("aqualon") && preinf))) newVal = newVal.times(3)

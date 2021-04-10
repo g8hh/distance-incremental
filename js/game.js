@@ -96,8 +96,8 @@ function tickWithTR(diff) {
 	player.distance = player.distance.plus(adjustGen(player.velocity, "dist").times(modeActive("hikers_dream")?tmp.hd.enEff:1).times(diff)).max(0);
 	let fc = multiverseCapped()
 	if (fc) {
-		player.velocity = player.velocity.min(DISTANCES.mlt)
-		player.distance = player.distance.min(DISTANCES.mlt)
+		player.velocity = player.velocity.min(DISTANCES.多宇宙)
+		player.distance = player.distance.min(DISTANCES.多宇宙)
 	}
 	player.inf.bestDist = player.inf.bestDist.max(player.distance)
 	player.bestDistance = player.bestDistance.max(player.distance)

@@ -74,10 +74,10 @@ function setMultiverseResetFunction() {
 }
 
 function updateMultiverseLayer() {
-	tmp.mlt.can = player.distance.gte(DISTANCES.mlt)
+	tmp.mlt.can = player.distance.gte(DISTANCES.多宇宙)
 	if (!tmp.mlt.gain) tmp.mlt.gain = function() { 
-		if (player.distance.lt(DISTANCES.mlt)) return new ExpantaNum(0);
-		let exp = player.distance.logBase(DISTANCES.mlt).sub(1);
+		if (player.distance.lt(DISTANCES.多宇宙)) return new ExpantaNum(0);
+		let exp = player.distance.logBase(DISTANCES.多宇宙).sub(1);
 		if (exp.gte(1)) exp = exp.sqrt();
 		let gain = ExpantaNum.pow(2, exp).times(ExpantaNum.pow(MULIVERSE_ENERGY_BASE, player.mlt.active)).times(tmp.ach[193].has?1.05:1).times(modeActive("easy")?1.5:1)
 		if (modeActive("hard") && gain.gte(1.5)) gain = gain.div(1.5);
@@ -86,7 +86,7 @@ function updateMultiverseLayer() {
 	}
 	tmp.mlt.layer = new Layer("multiverse", tmp.mlt.can, "normal", true, "mlt", true)
 	if (!tmp.mlt.doGain) tmp.mlt.doGain = function(auto=false) {
-		if (!auto && !player.options.mltnc) if (!confirm("Are you sure you want to do this? It will take some time for you to get back here!")) return "NO";
+		if (!auto && !player.options.mltnc) if (!confirm("您确定要这么做吗？您需要一些时间才能回到这里的！")) return "NO";
 		if (tmp.mlt.layer.gain.gte(1e6)) tmp.ach[195].grant();
 		if (tmp.mlt.layer.gain.gte(1e9)) tmp.ach[197].grant();
 		player.mlt.energy = player.mlt.energy.plus(tmp.mlt.layer.gain);
@@ -129,7 +129,7 @@ function mltActive(n) {
 
 function mltReset(force=false, auto=false, hc=false) {
 	let prevHC = !(!player.elementary.hc.active);
-	let c = player.distance.gte(DISTANCES.mlt);
+	let c = player.distance.gte(DISTANCES.多宇宙);
 	let L = new Layer("multiverse", c, "multi-res", true, "mlt", true);
 	L.reset(force, auto)
 	if (hc) {
@@ -153,14 +153,14 @@ function mltRewardActive(m) { return mltActive(m) || mltCompleted(m) }
 function getMltDisplay(m) {
 	if (m=="NONE") return "";
 	let data = MLT_DATA[m];
-	let display = "<span class='mltMinorTitle'>Multiverse "+(m==0?"Prime":m)+"</span><br><br>"
+	let display = "<span class='mltMinorTitle'>多宇宙 "+(m==0?"主宇宙":m)+"</span><br><br>"
 	if (mltUnlocked(m)) {
 		if (player.mlt.highestCompleted>=m) display += "<i>Completed</i><br><br>"
-		display += (m==0?"":"Effect: ")+((modeActive("extreme") && data.extremeDesc)?data.extremeDesc:data.desc)+"<br>"
-		if (data.reward) display += "<br>Reward: "+data.reward+"<br>"
-		if (data.effectDesc) display += "Currently: "+data.effectDesc(tmp.mlt["mlt"+m+"reward"]?tmp.mlt["mlt"+m+"reward"]:data.effect())+"<br>"
-		if (data.notBalanced) display += "<br><br><b>NOT BALANCED</b>"
-	} else display += "Cost: "+showNum(data.req)+" Multiversal Energy";
+		display += (m==0?"":"效果：")+((modeActive("extreme") && data.extremeDesc)?data.extremeDesc:data.desc)+"<br>"
+		if (data.reward) display += "<br>奖励："+data.reward+"<br>"
+		if (data.effectDesc) display += "目前："+data.effectDesc(tmp.mlt["mlt"+m+"reward"]?tmp.mlt["mlt"+m+"reward"]:data.effect())+"<br>"
+		if (data.notBalanced) display += "<br><br><b>暂未平衡</b>"
+	} else display += "花费："+showNum(data.req)+" 多元能量";
 	return display;
 }
 
@@ -192,7 +192,7 @@ function startMultiverse(m) {
 		player.tab = "main"
 		return;
 	}
-	if (!player.options.mltnc) if (!confirm("Are you sure you want to enter this Multiverse?")) return;
+	if (!player.options.mltnc) if (!confirm("您确定要进入此多宇宙吗？")) return;
 	if (player.mlt.active!=m) mltReset(true);
 	if (m==1) setupMlt1()
 	player.mlt.active = m;
@@ -209,7 +209,7 @@ function setupMltMilestoneTable() {
 	let data = "<table>";
 	for (let r=1;r<=MLT_MILESTONE_NUM;r++) {
 		let id = r-1;
-		data += "<tr><td id='mltMil"+r+"1' class='mltTD'>Req: "+showNum(MLT_MILESTONES[id].req)+" Total Multiversal Energy</td>"
+		data += "<tr><td id='mltMil"+r+"1' class='mltTD'>需求：总共 "+showNum(MLT_MILESTONES[id].req)+" 多元能量</td>"
 		data += "<td id='mltMil"+r+"2' class='mltTD'><span id='mltMil"+r+"desc'></span>"
 		if (MLT_MILESTONES[id].effectDesc) data += "<br><br><span id='mltMil"+r+"effDesc'></span>"
 		data += "</td>"

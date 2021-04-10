@@ -284,7 +284,7 @@ const MODEBALANCES = {
 		balanceCheck: true
 	},
 	absurd_easy_hikers_dream: { // 72
-		balancing: "balanced up toendgame",
+		balancing: "balanced up to endgame",
 		balanceCheck: false,
 	},
 	absurd_easy_hard_hikers_dream: { // 73

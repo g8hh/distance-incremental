@@ -111,7 +111,7 @@ function formatTime(x) {
 function formatGain(amt, gain, name, isDist, gainNotIncluded) {
 	let trueGain = ExpantaNum.mul(name?adjustGen(gain, name):gain, gainNotIncluded||1)
 	let func = isDist?formatDistance:showNum
-	if (trueGain.gte(1e100) && trueGain.gt(amt)) return "(+"+showNum(trueGain.max(1).log10().sub(amt.max(1).log10().max(1)).times(50/VIS_UPDS[player.options.visUpd]))+" 数量级/秒)"
+	if (trueGain.gte(1e100) && trueGain.gt(amt)) return "(+"+showNum(trueGain.max(1).log10().sub(amt.max(1).log10().max(1)).times(50/VIS_UPDS[player.options.visUpd]))+"数量级/秒)"
 	else return "(+"+func(trueGain)+"/秒)"
 }
 

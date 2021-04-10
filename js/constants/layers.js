@@ -61,7 +61,7 @@ const LAYER_REQS = {
 		["cadavers", new ExpantaNum("1e30000")],
 		["endorsements", 36]
 	],
-	multiverse: ["distance", DISTANCES.mlt],
+	multiverse: ["distance", DISTANCES.多宇宙],
 };
 
 const LAYER_FP = {

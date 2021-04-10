@@ -53,7 +53,7 @@ function updateOptionsHTML(){
 	if (player.tab == "options") {
 		if (player.options.modeComboTableActive) {
 			let data = MODE_TABLE_DATA;
-			tmp.el.modeComboCompletions.setTxt("Completions: "+completedModeCombos.length+"/"+Object.keys(MODEBALANCES).length)
+			tmp.el.modeComboCompletions.setTxt("完成情况："+completedModeCombos.length+"/"+Object.keys(MODEBALANCES).length)
 			for (let r=0;r<data.left.length;r++) {
 				for (let c=0;c<data.top.length;c++) {
 					let o = data.left[r][0].concat(data.top[c][0]);
@@ -697,11 +697,11 @@ function updateAngelsChipsHTML(){
 	tmp.el.chipGain.setTxt(formatGain(player.inf.pantheon.heavenlyChips, tmp.inf.pantheon.chipGain, "heavenlyChips"));
 	tmp.el.chipBoost.setTxt(showNum(tmp.inf.pantheon.chipBoost.sub(1).times(100)));
 	let mltr5 = mltRewardActive(5)
-	tmp.el.soulNerf.setHTML(mltr5?("multiply by <span class='spectral'>"+showNum(player.inf.pantheon.demonicSouls.pow(tmp.inf.pantheon.ppe.times(-1)).plus(1))+"</span>"):("divide by <span class='spectral'>"+showNum(player.inf.pantheon.demonicSouls.pow(tmp.inf.pantheon.ppe).plus(1))+"</span>"))
+	tmp.el.soulNerf.setHTML(mltr5?("乘以 <span class='spectral'>"+showNum(player.inf.pantheon.demonicSouls.pow(tmp.inf.pantheon.ppe.times(-1)).plus(1))+"</span>"):("除以 <span class='spectral'>"+showNum(player.inf.pantheon.demonicSouls.pow(tmp.inf.pantheon.ppe).plus(1))+"</span>"))
 	tmp.el.souls.setTxt(showNum(player.inf.pantheon.demonicSouls));
 	tmp.el.soulGain.setTxt(formatGain(player.inf.pantheon.demonicSouls, tmp.inf.pantheon.soulGain, "demonicSouls"));
 	tmp.el.soulBoost.setTxt(showNum(tmp.inf.pantheon.soulBoost.sub(1).times(100)));
-	tmp.el.chipNerf.setHTML(mltr5?("multiply by <span class='spectral'>"+showNum(player.inf.pantheon.heavenlyChips.pow(tmp.inf.pantheon.ppe.times(-1)).plus(1))+"</span>"):("divide by <span class='spectral'>"+showNum(player.inf.pantheon.heavenlyChips.pow(tmp.inf.pantheon.ppe).plus(1))+"</span>"))
+	tmp.el.chipNerf.setHTML(mltr5?("乘以 <span class='spectral'>"+showNum(player.inf.pantheon.heavenlyChips.pow(tmp.inf.pantheon.ppe.times(-1)).plus(1))+"</span>"):("除以 <span class='spectral'>"+showNum(player.inf.pantheon.heavenlyChips.pow(tmp.inf.pantheon.ppe).plus(1))+"</span>"))
 	tmp.el.phantomDiv.setDisplay(mltr5);
 	if (mltr5) {
 		tmp.el.phantoms.setTxt(showNum(tmp.inf.pantheon.phantoms));
@@ -1243,11 +1243,11 @@ function updateAcceleronsHTML(){
 		tmp.el.accelGain.setTxt(showNum(adjustGen(gain, "accelerons")))
 		tmp.el.accelerSC.setHTML(gain.gte(1e6)?"<span class='sc'>(已达软上限)</span>":"")
 		let accEff = getAccelEff()
-		tmp.el.accelEff.setHTML((hasDE(7)?" & are reducing the Hadron effect interval by ":" by ")+"<span class='thp'>"+showNum(accEff)+"</span>x"+(accEff.gte(2)?" <span class='sc'>(softcapped)</span>":""))
+		tmp.el.accelEff.setHTML((hasDE(7)?"及强子时间间隔减少":"")+"<span class='thp'>"+showNum(accEff)+"</span>倍"+(accEff.gte(2)?" <span class='sc'>(已达软上限)</span>":""))
 		let next = player.elementary.theory.accelerons.expanders.toNumber()+1
 		let cost = (modeActive("extreme")&&EXTREME_DE_COSTS[next])?EXTREME_DE_COSTS[next]:((modeActive("hikers_dream")&&HD_DE_COSTS[next])?HD_DE_COSTS[next]:DARK_EXPANDER_COSTS[next]);
 		tmp.el.darkExp.setClasses({btn: true, locked: (player.elementary.theory.accelerons.amount.lt(cost)||next-1>=getMaxDEs()), th: (!(player.elementary.theory.accelerons.amount.lt(cost)||next-1>=getMaxDEs()))})
-		tmp.el.darkExp.setHTML((next-1>=getMaxDEs())?"MAXED":(DARK_EXPANDER_DESCS[next]+"<br>Cost: "+showNum(cost)+" Accelerons"))
+		tmp.el.darkExp.setHTML((next-1>=getMaxDEs())?"MAXED":(DARK_EXPANDER_DESCS[next]+"<br>花费："+showNum(cost)+" 加速子"))
 		tmp.el.darkExpAmt.setTxt(showNum(player.elementary.theory.accelerons.expanders))
 		let past = ""
 		if (next>1) Array.from(Array(next-1), (_, i) => i + 1).forEach(n => past += "黑暗拓展器"+n+"："+DARK_EXPANDER_DESCS[n]+"<br>")
@@ -1297,8 +1297,8 @@ function updateTheoryverseMainHTML(){
 	if (elmTab=="theory") {
 		tmp.el.thp.setTxt(showNum(player.elementary.theory.points))
 		if (thTab=="tv") {
-			tmp.el.theoriverse.setHTML(HCTVal("tv").gt(-1)?"Trapped in the Theoriverse!":hasMltMilestone(4)?("Theoriverse Depth: "+showNum(player.elementary.theory.depth)+("<br>Total TP: "+showNum(tmp.elm.theory.gainMult.times(ExpantaNum.sub(1, ExpantaNum.pow(2, player.elementary.theory.depth))).times(-1)))):(player.elementary.theory.active?("Exit The Theoriverse early for no reward."):("Enter The Theoriverse at Depth "+showNum(player.elementary.theory.depth))))
-			tmp.el.theoriverse.setTooltip(hasMltMilestone(4)?("Nerf: x^"+showNum(tmp.elm.theory.nerf)):("Entering The Theoriverse does an Elementary reset, and puts you in The Theoriverse, which will make all pre-Elementary resource generation (x^"+showNum(tmp.elm.theory.nerf)+")"))
+			tmp.el.theoriverse.setHTML(HCTVal("tv").gt(-1)?"Trapped in the Theoriverse!":hasMltMilestone(4)?("学说宇宙深度："+showNum(player.elementary.theory.depth)+("<br>总学说点数："+showNum(tmp.elm.theory.gainMult.times(ExpantaNum.sub(1, ExpantaNum.pow(2, player.elementary.theory.depth))).times(-1)))):(player.elementary.theory.active?("Exit The Theoriverse early for no reward."):("进入学说宇宙深度 "+showNum(player.elementary.theory.depth))))
+			tmp.el.theoriverse.setTooltip(hasMltMilestone(4)?("弱化：x^"+showNum(tmp.elm.theory.nerf)):("进入学说宇宙时将强制进行一次基本重置，在学说宇宙中所有基本粒子之前的资源获取量变为 (x^"+showNum(tmp.elm.theory.nerf)+")"))
 		}
 		updateSuperSymetryHTML()
 		updateTheoryTreeHTML()
@@ -1320,7 +1320,7 @@ function updateHadronicChallenges(){
 		tmp.el.hadronEff.setTxt(showNum(player.elementary.hc.claimed))
 		tmp.el.hadronNext.setTxt(showNum(tmp.elm.hc.next))
 		tmp.el.hadEffBulk.setTxt(showNum(tmp.elm.hc.hadronBulk))
-		tmp.el.hadInterval.setTxt(tmp.elm.hc.hadInterval.lt(1+0.1**(player.options.sf-1))?("Hadronic Intervals per OoM: "+showNum(tmp.elm.hc.hadInterval.log10().pow(-1))):("Hadronic Interval: "+showNum(tmp.elm.hc.hadInterval)))
+		tmp.el.hadInterval.setTxt(tmp.elm.hc.hadInterval.lt(1+0.1**(player.options.sf-1))?("每数量级的强子时间间隔："+showNum(tmp.elm.hc.hadInterval.log10().pow(-1))):("强子时间间隔："+showNum(tmp.elm.hc.hadInterval)))
 		for (let s=0;s<DYNAMIC_UNLOCK_HC_SELECTORS.length;s++) {
 			let name = DYNAMIC_UNLOCK_HC_SELECTORS[s];
 			tmp.el["hcSelectorSpan"+name].setDisplay(checkFunc(HC_DATA[name][3]));
@@ -1345,10 +1345,10 @@ function updateHadronicChallenges(){
 		tmp.el["hcCurrentstring"].setTxt("目前: "+showNum(getHCSelector("string")))
 		tmp.el["hcCurrentde"].setTxt("目前: "+showNum(getHCSelector("de")))
 		tmp.el["hcCurrentrfrm"].setTxt("目前: "+showNum(getHCSelector("rfrm")))
-		tmp.el.hcPerc.setTxt(player.elementary.hc.active?(showNum(tmp.elm.hc.complPerc.times(100).max(0))+"% 已完成"):"")
+		tmp.el.hcPerc.setTxt(player.elementary.hc.active?("已完成 "+showNum(tmp.elm.hc.complPerc.times(100).max(0))+"%"):"")
 		let ach198 = tmp.ach[198].has;
 		tmp.el.mltHCTabButton.setDisplay(ach198);
-		tmp.el.hcSelectorTitlegoal.setTxt("挑战目标 (in "+((ach198&&getHCSelector("goalMlt"))?"mlt":"uni")+")")
+		tmp.el.hcSelectorTitlegoal.setTxt("挑战目标 (单位为"+((ach198&&getHCSelector("goalMlt"))?"多宇宙":"宇宙")+")")
 	}
 }
 
@@ -1364,7 +1364,7 @@ function updateMainEnergyTabHTML(){
 			locked: !player.canRefill,
 		})
 		tmp.el.motive.setTxt(showNum(tmp.hd.motive))
-		tmp.el.nextMotive.setHTML(tmp.hd.motive.lte(((player.energyUpgs.includes(24)) ? (tmp.hd.enerUpgs ? tmp.hd.enerUpgs[24] : new ExpantaNum(0)) : new ExpantaNum(0)).max(0))?("[<span class='energy'>"+showNum(player.spentMotive.plus(player.spentMotiveGens).sub(tmp.hd.totalMotive).plus((player.energyUpgs.includes(24)) ? (tmp.hd.enerUpgs ? tmp.hd.enerUpgs[24] : new ExpantaNum(0)) : new ExpantaNum(0)).max(0))+"</span> 剩下]"):"")
+		tmp.el.nextMotive.setHTML(tmp.hd.motive.lte(((player.energyUpgs.includes(24)) ? (tmp.hd.enerUpgs ? tmp.hd.enerUpgs[24] : new ExpantaNum(0)) : new ExpantaNum(0)).max(0))?("[剩下 <span class='energy'>"+showNum(player.spentMotive.plus(player.spentMotiveGens).sub(tmp.hd.totalMotive).plus((player.energyUpgs.includes(24)) ? (tmp.hd.enerUpgs ? tmp.hd.enerUpgs[24] : new ExpantaNum(0)) : new ExpantaNum(0)).max(0))+"</span>]"):"")
 		for (let i=1;i<=36;i++) {
 			let cost = getEnergyUpgCost(i)
 			tmp.el["energyUpg"+i].setClasses({
@@ -1600,9 +1600,9 @@ function updateOverallMultiverseHTML() {
 	tmp.el.mltReset.setClasses({ btn: true, locked: !tmp.mlt.can, mlt: tmp.mlt.can });
 	if (tmp.mlt.can&&(!player.options.hideMltBtn||player.mlt.times.eq(0))) {
 		tmp.el.mltReset.setHTML(
-			(player.mlt.times.eq(0)?("You have travelled across the entire multiverse, you must move on."):("Obliterate the multiverse to create <span class='mlttxt'>" +
+			(player.mlt.times.eq(0)?("您已经穿过了整个多宇宙，您必须继续前进。"):("毁灭多宇宙以产生 <span class='mlttxt'>" +
 			showNum(tmp.mlt.layer.gain) +
-			"</span> Multiversal Energy."))
+			"</span> 多元能量。"))
 		);
 	}
 	if (player.tab == "mlt") {
@@ -1613,9 +1613,9 @@ function updateOverallMultiverseHTML() {
 		tmp.el.mltReset2.setClasses({ btn: true, locked: !tmp.mlt.can, mlt: tmp.mlt.can });
 		if (tmp.mlt.can&&player.options.hideMltBtn) {
 			tmp.el.mltReset2.setHTML(
-				(player.mlt.times.eq(0)?("You have travelled across the entire multiverse, you must move on."):("Obliterate the multiverse to create <span class='mlttxt'>" +
+				(player.mlt.times.eq(0)?("您已经穿过了整个多宇宙，您必须继续前进。"):("毁灭多宇宙以产生 <span class='mlttxt'>" +
 				showNum(tmp.mlt.layer.gain) +
-				"</span> Multiversal Energy."))
+				"</span> 多元能量。"))
 			);
 		}
 		
@@ -1628,7 +1628,7 @@ function updateOverallMultiverseHTML() {
 			if (mltSelected!="NONE") {
 				tmp.el.mltDataTxt.setHTML(getMltDisplay(mltSelected));
 				tmp.el.mltStart.setDisplay(mltUnlocked(mltSelected));
-				tmp.el.mltStart.setTxt((player.mlt.active==mltSelected)?"Resume this Multiverse":"Enter the Multiverse")
+				tmp.el.mltStart.setTxt((player.mlt.active==mltSelected)?"返回此多宇宙":"进入此多宇宙")
 				tmp.el.mltUnl.setDisplay(player.mlt.highestUnlocked<mltSelected && mltSelected>0)
 				if (player.mlt.highestUnlocked<mltSelected && mltSelected>0) {
 					tmp.el.mltUnl.setClasses({btn: true, locked: player.mlt.energy.lt(MLT_DATA[mltSelected].req), mlt: player.mlt.energy.gte(MLT_DATA[mltSelected].req)})
@@ -1647,10 +1647,10 @@ function updateOverallMultiverseHTML() {
 				tmp.el["quilt"+i+"Eff"].setTxt(showNum(i==1?tmp.mlt.quilts[i].eff:tmp.mlt.quilts[i].eff.sub(1).times(100)))
 				tmp.el["quilt"+i+"Eff2"].setTxt(showNum(tmp.mlt.quilts[i].eff2))
 				tmp.el["quiltUpg"+i].setClasses({btn: true, locked: player.mlt.energy.lt(tmp.mlt.quilts[i].upgCost), mlt: player.mlt.energy.gte(tmp.mlt.quilts[i].upgCost)})
-				tmp.el["quiltUpg"+i].setHTML("Energize this Quilt by "+showNum(tmp.mlt.quilts[i].upgPow.times(10))+"%<br>Currently: +"+showNum(tmp.mlt.quilts[i].upgEff.times(100))+"%<br>Cost: "+showNum(tmp.mlt.quilts[i].upgCost)+" ME")
+				tmp.el["quiltUpg"+i].setHTML("使此项多元织物强化"+showNum(tmp.mlt.quilts[i].upgPow.times(10))+"%<br>Currently: +"+showNum(tmp.mlt.quilts[i].upgEff.times(100))+"%<br>花费："+showNum(tmp.mlt.quilts[i].upgCost)+" 多元能量")
 			}
-			tmp.el.quilt2Eff2Desc.setTxt(hasMltMilestone(6)?", Pion gain, & Spinor gain":"")
-			tmp.el.quilt3sc.setTxt(tmp.mlt.quilts[3].eff.gte(tmp.mlt.quilts[3].scStart)?" (softcapped)":"")
+			tmp.el.quilt2Eff2Desc.setTxt(hasMltMilestone(6)?"，π介子，旋量":"")
+			tmp.el.quilt3sc.setTxt(tmp.mlt.quilts[3].eff.gte(tmp.mlt.quilts[3].scStart)?"(已达软上限)":"")
 		}
 	}
 }

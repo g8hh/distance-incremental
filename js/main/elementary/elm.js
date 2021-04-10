@@ -155,7 +155,7 @@ function updateElementaryTabs() {
 					player.elementary.theory.inflatons.unl = true;
 				} 
 				if (name=="foam") player.elementary.entropy.unl = true;
-				notifier.info("Unlocked "+FULL_ELM_NAMES[name]+"!")
+				notifier.info("已解锁"+FULL_ELM_NAMES[name]+"！")
 			}
 		}
 		elmTab = name;

@@ -4,7 +4,7 @@ function updateTempPlasma() {
 	tmp.fn.pl.exp = getPlasmaExp()
 	tmp.fn.pl.wfGain = getWhiteFlameGain()
 	if (!tmp.fn.pl.boosts) tmp.fn.pl.boosts = {};
-	for (let i=1;i<=PLASMA_BOOSTS.upgs();i++) tmp.fn.pl.boosts[i] = player.plasma.boosts.gte(i)?PLASMA_BOOSTS[i].eff(player.plasma[PLASMA_BOOSTS[i].type=="plasmic"?"amount":"whiteFlame"].pow((i<9&&tmp.fn.pl.boosts[9])?tmp.fn.pl.boosts[9]:1)):PLASMA_BOOSTS[i].baseEff;
+	for (let i=1;i<=PLASMA_BOOSTS.upgs();i++) tmp.fn.pl.boosts[i] = player.plasma.boosts.gte(i)?PLASMA_BOOSTS[i].eff(player.plasma[PLASMA_BOOSTS[i].type=="等离子"?"amount":"whiteFlame"].pow((i<9&&tmp.fn.pl.boosts[9])?tmp.fn.pl.boosts[9]:1)):PLASMA_BOOSTS[i].baseEff;
 }
 
 function getPlasmaExp() {
@@ -82,7 +82,7 @@ const PLASMA_BOOSTS = {
 			if (tmp.fn.pl.boosts[11]) eff = eff.pow(tmp.fn.pl.boosts[11]);
 			return eff;
 		},
-		effD: function(e) { return showNum(e)+"x later" },
+		effD: function(e) { return "延迟 "+showNum(e)+" 倍" },
 	},
 	2: {
 		type: "闪光",
@@ -111,7 +111,7 @@ const PLASMA_BOOSTS = {
 			if (tmp.fn.pl.boosts[11]) eff = eff.times(tmp.fn.pl.boosts[11]);
 			return eff;
 		},
-		effD: function(e) { return showNum(e)+" 延迟" },
+		effD: function(e) { return "延迟 "+showNum(e)+" 次" },
 	},
 	5: {
 		type: "等离子",
@@ -153,25 +153,25 @@ const PLASMA_BOOSTS = {
 		effD: function(e) { return "+"+showNum(e.sub(1).times(100))+"%" },
 	},
 	10: {
-		type: "gleaming",
+		type: "闪光",
 		desc: "The Magma cost increases slower.",
 		baseEff: new ExpantaNum(0),
 		eff: function(amt) { return ExpantaNum.sub(0.95, ExpantaNum.div(0.95, amt.plus(1).log10().plus(1).log10().div(2).plus(1))) },
-		effD: function(e) { return showNum(e.times(100))+"% slower" },
+		effD: function(e) { return "延迟 "+showNum(e.times(100))+"%" },
 	},
 	11: {
-		type: "plasmic",
+		type: "等离子",
 		desc: "The first Plasmic Boost and the first two Gleaming Boosts are stronger based on your Best Entropy.",
 		baseEff: new ExpantaNum(1),
 		eff: function(amt) { return amt.plus(1).log10().times(player.elementary.entropy.best.plus(1)).plus(1).log10().div(10).plus(1) },
-		effD: function(e) { return showNum(e.sub(1).times(100))+"% stronger" },
+		effD: function(e) { return "增加 "+showNum(e.sub(1).times(100))+"%" },
 	},
 	12: {
-		type: "gleaming",
+		type: "闪光",
 		desc: "Multiversal Energy boosts the Plasma exponent.",
 		baseEff: new ExpantaNum(1),
 		eff: function(amt) { return player.mlt.energy.times(amt.plus(1).log10()).plus(1).log10().cbrt().plus(1) },
-		effD: function(e) { return showNum(e)+"x" },
+		effD: function(e) { return showNum(e)+" 倍" },
 	},
 }
 

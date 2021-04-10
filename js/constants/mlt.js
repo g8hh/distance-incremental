@@ -121,7 +121,7 @@ const MLT_MILESTONES = [
 		req: new ExpantaNum(300),
 		desc: "Multiversal Quilt Upgrade effects are increased based on your Distance.",
 		extremeDesc: "Multiversal Quilt Upgrade effects are increased based on your Distance, and gain 100x more White Flame.",
-		effect: function() { return player.distance.max(1).logBase(DISTANCES.mlt).plus(1).logBase(2).times(0.01) },
+		effect: function() { return player.distance.max(1).logBase(DISTANCES.多宇宙).plus(1).logBase(2).times(0.01) },
 		effectDesc: function() { return "Currently: +"+showNum(tmp.mlt.mil17reward.times(100)||0)+"%" },
 	}, {
 		req: new ExpantaNum(1.25e3),

@@ -262,15 +262,16 @@ function loadTempFeatures() {
 		}),
 		multiverse: new Feature({
 			name: "multiverse",
-			req: function() { return new ExpantaNum(DISTANCES.mlt) },
+			displayName: "多宇宙",
+			req: function() { return new ExpantaNum(DISTANCES.多宇宙) },
 			res: "distance",
 			display: formatDistance,
 			reached: function() { return false },
 			progress: function() {
 				if (player.options.featPerc=="logarithm") {
-					return player.distance.max(1).log10().div(ExpantaNum.log10(DISTANCES.mlt)).min(1);
+					return player.distance.max(1).log10().div(ExpantaNum.log10(DISTANCES.多宇宙)).min(1);
 				} else {
-					return player.distance.div(DISTANCES.mlt).min(1);
+					return player.distance.div(DISTANCES.多宇宙).min(1);
 				}
 			},
 		}),

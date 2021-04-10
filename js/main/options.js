@@ -215,11 +215,19 @@ function getInfo(sav) {
 	if (sav.modes.length > 1) mds = sav.modes.reduce((x, y) => capitalFirst(x) + "，" + capitalFirst(y));
 	else if (sav.modes.length > 0) mds = capitalFirst(sav.modes[0].replace("_"," "));
 	else mds = "无";
+	mds = mds.replace("Hard","困难");
+	mds = mds.replace("Aau","全成就");
+	mds = mds.replace("Na","无成就");
+	mds = mds.replace("Absurd","荒诞");
+	mds = mds.replace("Easy","容易");
+	mds = mds.replace("Extreme","极限");
+	mds = mds.replace("Hikers Dream","旅人之梦");
+	mds = mds.replace("Hikers_dream","旅人之梦");
 	let info = "模式: " + mds + "<br>";
 	if (sav.mlt?(sav.mlt.times?ExpantaNum.gt(sav.mlt.times, 0):false):false) {
-		info += "Total ME: "+showNum(new ExpantaNum(sav.mlt.totalEnergy))+", Unique Multiverses Completed: "+(sav.mlt.highestCompleted+1)+", Total Quilt Upgrades: "+showNum(new ExpantaNum(sav.mlt.quiltUpgs.reduce((a,c) => ExpantaNum.add(a,c))))+", "
+		info += "多元能量："+showNum(new ExpantaNum(sav.mlt.totalEnergy))+" ，独特多宇宙通过次数： "+(sav.mlt.highestCompleted+1)+" ，多元织物升级： "+showNum(new ExpantaNum(sav.mlt.quiltUpgs.reduce((a,c) => ExpantaNum.add(a,c))))+" ， "
 	} else if (sav.elementary?(sav.elementary.sky?sav.elementary.sky.unl:false):false) {
-		info += "斯格明子: "+showNum(new ExpantaNum(sav.elementary.sky.amount))+", Pions: "+showNum(new ExpantaNum(sav.elementary.sky.pions.amount))+", Spinors: "+showNum(new ExpantaNum(sav.elementary.sky.spinors.amount))+", "
+		info += "斯格明子: "+showNum(new ExpantaNum(sav.elementary.sky.amount))+" ，π介子： "+showNum(new ExpantaNum(sav.elementary.sky.pions.amount))+" ，旋量： "+showNum(new ExpantaNum(sav.elementary.sky.spinors.amount))+" ， "
 	} else if (sav.elementary?(sav.elementary.foam?sav.elementary.foam.unl:false):false) {
 		info += "量子泡沫： "+showNum(new ExpantaNum(sav.elementary.foam.amounts[0]))+" ， "
 		if (sav.elementary.entropy?sav.elementary.entropy.unl:false) {
@@ -292,7 +300,7 @@ function getInfo(sav) {
 			info += "级别降价器 " + showNum(new ExpantaNum(sav.rankCheap || 0)) + " ， ";
 		info += "级别 " + showNum(new ExpantaNum(sav.rank)) + " ， ";
 	}
-	info += "距离: " + formatDistance(new ExpantaNum(sav.distance), sav.mlt?(sav.mlt.times?ExpantaNum.lt(sav.mlt.times, 1):true):true);
+	info += "距离： " + formatDistance(new ExpantaNum(sav.distance), sav.mlt?(sav.mlt.times?ExpantaNum.lt(sav.mlt.times, 1):true):true);
 	return info;
 }
 
@@ -453,8 +461,8 @@ function getCompletedModeCombos() {
 		let m = p.modes;
 		let id = calcModeAndBalanceName(m).balanceName;
 		
-		if (MODEBALANCES[id].balancing=="balanced up to first multiverse" && ExpantaNum.gte(p.bestDistance, DISTANCES.mlt) && p.achievements.length>=136) toRet.push(m);
-		else if (ExpantaNum.gte(p.bestDistance, ExpantaNum.pow(DISTANCES.mlt, 1e3)) && p.achievements.length>=152) toRet.push(m);
+		if (MODEBALANCES[id].balancing=="balanced up to first multiverse" && ExpantaNum.gte(p.bestDistance, DISTANCES.多宇宙) && p.achievements.length>=136) toRet.push(m);
+		else if (ExpantaNum.gte(p.bestDistance, ExpantaNum.pow(DISTANCES.多宇宙, 1e3)) && p.achievements.length>=152) toRet.push(m);
 	}
 	return toRet;
 }

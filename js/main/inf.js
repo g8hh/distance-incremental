@@ -59,7 +59,7 @@ function updateTempInfUpgs() {
 				showNum(INF_UPGS.effects[id]()["knowledge"]) +
 				" 倍"
 			);
-		else if (id=="10;1") return "Superscaled Pathogen Upgrades: "+showNum(INF_UPGS.effects[id]("pth").times(100))+" % weaker, "+(hasMltMilestone(16)?"Final Derivative":"Snap")+": +"+formatDistance(INF_UPGS.effects[id]("snp"))+"/sec"
+		else if (id=="10;1") return "超级折算的病原体升级：减少 "+showNum(INF_UPGS.effects[id]("pth").times(100))+"%，"+(hasMltMilestone(16)?"最后一个导数":"加加加速度")+"：+"+formatDistance(INF_UPGS.effects[id]("snp"))+"/秒"
 		else if (id == "2;7" || id == "8;6" || id == "9;6" || id=="1;10")
 			return "减少 " + showNum(INF_UPGS.effects[id]().times(100)) + "%";
 		else if (id == "3;2")
@@ -321,7 +321,7 @@ function updateTempInfLayer() {
 		if (mltActive(3) && player.mlt.mlt3selected.length<1) {
 			if (name=="ascension"||name=="stadium"||name=="pantheon"||name=="derivatives") {
 				player.mlt.mlt3selected.push(name)
-				notifier.info("Unlocked "+capitalFirst(name)+"!")
+				notifier.info("已解锁"+capitalFirst(name)+"！")
 			}
 		}
 		infTab = name;

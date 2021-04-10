@@ -3,16 +3,16 @@ var eheheResetAmt = 0;
 var eheheResetReq = 1000;
 var ehehe = function() { 
 	eheheTimes+=eheheResetAmt+1;
-	if (eheheTimes>=eheheResetReq) return 'EHEHE '+eheheTimes+': Copy paste the following to prestige: console.log(ehehePrestige())'
-	else return 'EHEHE '+eheheTimes+': Copy paste the following into the console and press enter: console.log(ehehe())' 
+	if (eheheTimes>=eheheResetReq) return '啊哈哈 '+eheheTimes+'：将冒号后的所有内容复制到控制台并回车可以进行啊哈哈转生：console.log(ehehePrestige())'
+	else return '啊哈哈 '+eheheTimes+'：将冒号后的所有内容复制到控制台并回车：console.log(ehehe())' 
 }
 var ehehePrestige = function() {
-	if (eheheTimes<eheheResetReq) return "NOT ENOUGH EHEHE, YOU NEED "+eheheResetReq;
+	if (eheheTimes<eheheResetReq) return "啊哈哈不足，您还需要 "+eheheResetReq+" 啊哈哈";
 	else {
 		eheheTimes = 0
 		eheheResetReq = Math.round(eheheResetReq*1.2);
 		eheheResetAmt++;
-		return "EHEHE PRESTIGE POINTS: "+eheheResetAmt+": Multiply EHEHE gain by "+(eheheResetAmt+1)+" (copy paste the following into the console: console.log(ehehe()))"
+		return "啊哈哈转生点数："+eheheResetAmt+"，可使啊哈哈获取量变为 "+(eheheResetAmt+1)+" 倍(将冒号后的所有内容复制到控制台并回车：console.log(ehehe()))"
 	}
 }
 const NEWS_DATA = {
@@ -110,19 +110,19 @@ const NEWS_DATA = {
 	m91: ["是的，但事实上是的，但事实上是的，但事实上是的，但事实上是的，但事实上是的，但事实上是的，但事实上是的，但事实上是的，但事实上是的，但事实上是的，但事实上是的，但事实上是的，但事实上 -无限循环-"],
 	m92: ["点击<a href='#' onclick=&quot;console.log(ehehe())&quot;>此处</a>后打开控制台看看……"],
 	m93: ["你好啊，凡人。我穿越时间到此，是为了告诉你这游戏两天后就凉了……等等，我好像来早了？"],
-	m94: ['"If I edit a message to ping, will it actually ping the user?" - New Discord User'],
-	m95: ['"Sea urchins, malt? Whats next, cream pie?" - A food nerd'],
-	m96: ["Jacorb finds it mind-boggling that DI was first released publicly on May 1st 2020. You'd better remember that, you might see it in a Kahoot!"],
-	m97: ["Ticker: Ticker: Ticker: Ticker: Ticker: Ticker: Ticker: T- go to #spam please :)"],
-	m98: ["Paradoxes 101: This statement is false."],
-	m99: ["Paradoxes 201: The following statement is false. The previous statement is true."],
-	m100: ["Paradoxes 301: The following statement is false. The following statement is false. The first statement is false."],
-	m101: ["Jacorb's mental instability is increasing quite quickly. If he reaches 100% mental instability, the multiverse implodes."],
-	m102: ["Has this game been abandoned by its developer? "+((Math.random()>0.5)?"Obviously yes.":"Definitely not.")],
-	m103: ['"When is the egg update coming?" - The Almighty Orb about his own game'],
-	m104: ["We're lucky that our universes were never infected, I'm sure there's some parallel multiverse out there where that's an issue..."],
-	m105: ["Some people say that each multiverse does not have its own High Gods. Those people tend not to survive very long around here."],
-	m106: ["Some people say that there is only one set of High Gods. Those people tend not to survive very long around here."],
+	m94: ['“如果我给一只猫设置了它的微信头像，再拍了拍它，这到底能不能算拍了拍它？” —— 某位萌新'],
+	m95: ['“海胆，麦芽？接下来还有啥？奶油派吗？” - 某个吃货'],
+	m96: ["Jacorb发现这游戏居然是2020年5月1日发布的。记好这个时间，Kahoot上可能也会看到这个游戏的！"],
+	m97: ["提醒：提醒：提醒：提醒：提醒：提醒：提醒：提————行了，去小黑屋待着吧你 :)"],
+	m98: ["悖论 101：这句话是假话。"],
+	m99: ["悖论 201：后半句话是假话，前半句话是真话。"],
+	m100: ["悖论 301：下一句话是假话。下一句话是假话。第一句话是假话。"],
+	m101: ["Jacorb的精神越来越不安定了。如果他的不安定值达到了100%，那么多宇宙就炸了。"],
+	m102: ["这个游戏的作者会弃坑吗？"+((Math.random()>0.5)?"当然会的。":"绝对不会。")],
+	m103: ['“彩蛋升级得等到啥时候？” —— The Almighty Orb对于他自己的游戏如是说'],
+	m104: ["我们很庆幸我们的宇宙未受感染，我很肯定在某些平行多宇宙中情况可不太妙……"],
+	m105: ["有人表示多宇宙中是没有至高神的。他们大概活不过三集。"],
+	m106: ["有人表示至高神只有那么几位而已。他们大概活不过三集。"],
 
 	// Distance-based Conditions
 	d1: [
@@ -512,33 +512,33 @@ const NEWS_DATA = {
 		function() { return player.elementary.sky.unl },
 	],
 	s34: [
-		"No wait please, don't obliterate the multiverse, I need it to survive!",
-		function() { return player.distance.gte(DISTANCES.mlt)&&player.mlt.times.eq(0) },
+		"等等，别，别毁灭多宇宙，没了它我就死定了！",
+		function() { return player.distance.gte(DISTANCES.多宇宙)&&player.mlt.times.eq(0) },
 	],
 	s35: [
-		"If the world is your oyster, then the multiverse is your ocean. That's right, you own the ocean now.",
+		"如果说这个世界遍地黄金，那么多宇宙则是金之海。是的，您现在拥有它了。",
 		function() { return player.mlt.times.gt(0) },
 	],
 	s36: [
-		'"But where are the pentogens?" - Incremental Mass fan after unlocking multiverses',
+		'“就这？” —— 某个解锁了多宇宙的人',
 		function () {
 			return player.mlt.times.gt(0)
 		}
 	],
 	s37: [
-		"lOoK iT'S cRaCKlE!?!?!?!!",
+		"裂了，我裂开了！？！？！？！！",
 		function() { return player.inf.derivatives.amts.crackle!==undefined },
 	],
 	s38: [
-		'"(Derivative after the latest you have unlocked) when?" - A derivative enthusiast',
+		'“下一个导数什么时候才解锁？” —— 某个导数狂魔',
 		function() { return player.mlt.highestCompleted>=2 },
 	],
 	s39: [
-		"Even the High Gods aren't perfect. Although they're supposed to look over the multiverse, there are some threats that are just... too much.",
+		"即使至高神也有不完美之处。虽然他们很想时时巡视多宇宙，但有一些威胁实在……太大了。",
 		function() { return player.elementary.times.gte(555) && player.elementary.times.lt(777777) },
 	],
 	s40: [
-		"There are more multiverses out there, somewhere... I wonder what sort of chaos is going on over there.",
+		"那里还有更多的多宇宙……我也不知道那里会有什么样的混乱了。",
 		function() { return player.mlt.highestCompleted>=5 },
 	],
 };
