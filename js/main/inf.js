@@ -321,7 +321,12 @@ function updateTempInfLayer() {
 		if (mltActive(3) && player.mlt.mlt3selected.length<1) {
 			if (name=="ascension"||name=="stadium"||name=="pantheon"||name=="derivatives") {
 				player.mlt.mlt3selected.push(name)
-				notifier.info("已解锁"+capitalFirst(name)+"！")
+				let chs = name;
+				chs = chs.replace("ascension","飞升");
+				chs = chs.replace("stadium","竞技场");
+				chs = chs.replace("pantheon","万神殿");
+				chs = chs.replace("derivatives","导数");
+				notifier.info("已解锁"+chs+"！")
 			}
 		}
 		infTab = name;
