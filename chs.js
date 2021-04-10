@@ -539,7 +539,7 @@ var cnItems = {
     'Knowledge gain is multiplied by (n+1)^0.2, where n is your Ascension Power.': '知识的获取量变为某个数值的倍率，此数值为(n+1)^0.2，其中n为飞升能量数值。',
     'Pathogen Upgrades are stronger based on your Scalar Bosons.': '根据标量玻色子数值，使病原体升级的效果变得更好。',
     'Superscaled Pathogen Upgrade scaling is weaker based on your Ascension Power, and Distance produces Snap at a reduced rate (unaffected by Time Speed).': '根据飞升能量数值，使超级折算的病原体升级花费提升速度减少。距离能够以较低的倍率产生加加加速度(不受时间速度的影响)。',
-    'Superscaled Pathogen Upgrade scaling is weaker based on your Ascension Power, and Distance produces your last Derivative at a reduced rate (unaffected by Time Speed).': '根据飞升能量数值，使超级折算的病原体升级花费提升速度减少。距离能够以较低的倍率产生最后一个导数(不受时间速度的影响)。',
+    'Superscaled Pathogen Upgrade scaling is weaker based on your Ascension Power, and Distance produces your last Derivative at a reduced rate (unaffected by Time Speed': '根据飞升能量数值，使超级折算的病原体升级花费提升速度减少。距离能够以较低的倍率产生最后一个导数(不受时间速度的影响',
     'Velocital Energy boosts your Accelerational Energy at a reduced rate, and inf7;7\'s boost to Velocital Energy uses a better formula.': '速度能量能够以较低的倍率使加速能量的数值变得更多。无限7;7升级中，增加速度能量效果的公式变得更好。',
     'The Rocket effect also affects Time Speed.': '火箭的效果还可以影响时间速度。',
     'Robot Magnitudes boost Demonic Soul gain, and the Purge Power effect exponent is halved.': '根据机器人的数量数值，增加恶魔灵魂的获取量。净化能量的效果指数减半。',
