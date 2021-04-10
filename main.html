@@ -66,23 +66,23 @@
 			<div class="flexRow">
 				<div class="flexContainer" style="background-color: rgba(183, 0, 255, 0.4); width: 33%; min-height: 400px;">
 					<div class="mltMinorTitle">Multiversal Quilt I</div>
-					<div>Quilt Strength: <span id="quilt1Strength" class="mlttxt"></span>% (based on Distance)</div><br>
-					<div>Multiplies Time Speed by <span id="quilt1Eff" class="mlttxt"></span></div><br>
-					<div>Also multiplies the speed of all Theory subfeatures & all Foam types by <span id="quilt1Eff2" class="mlttxt"></span></div><br><br>
+					<div>Quilt Strength: <span id="quilt1Strength" class="mlttxt"></span> % (based on Distance)</div><br>
+					<div>使时间速度变为 <span id="quilt1Eff" class="mlttxt"></span> 倍</div><br>
+					<div>同时还使学说面板下的所有子分支和所有量子泡沫的速度变为 <span id="quilt1Eff2" class="mlttxt"></span> 倍</div><br><br>
 					<button id="quiltUpg1" class="btn locked" onclick="buyQuiltUpg(1)"></button>
 				</div>
 				<div class="flexContainer" style="background-color: rgba(255, 183, 0, 0.4); width: 33%; min-height: 400px;">
 					<div class="mltMinorTitle">Multiversal Quilt II</div>
-					<div>Quilt Strength: <span id="quilt2Strength" class="mlttxt"></span>% (based on Knowledge)</div><br>
-					<div>Makes Endorsements <span id="quilt2Eff" class="mlttxt"></span>% more efficient</div><br>
-					<div>Also multiplies Theory Point gain from Theoriverse completions<span id="quilt2Eff2Desc"></span> by <span id="quilt2Eff2" class="mlttxt"></span></div><br><br>
+					<div>Quilt Strength: <span id="quilt2Strength" class="mlttxt"></span> % (based on Knowledge)</div><br>
+					<div>使认可的效果增加 <span id="quilt2Eff" class="mlttxt"></span> %</div><br>
+					<div>同时还使学说宇宙深度<span id="quilt2Eff2Desc"></span>对学说点数的获取量加成变为 <span id="quilt2Eff2" class="mlttxt"></span> 倍</div><br><br>
 					<button id="quiltUpg2" class="btn locked" onclick="buyQuiltUpg(2)"></button>
 				</div>
 				<div class="flexContainer" style="background-color: rgba(0, 247, 255, 0.4); width: 33%; min-height: 400px;">
 					<div class="mltMinorTitle">Multiversal Quilt III</div>
-					<div>Quilt Strength: <span id="quilt3Strength" class="mlttxt"></span>% (based on Elementary Particles)</div><br>
-					<div>Increases Quark & Lepton exponents and Gauge Speed's efficiency by <span id="quilt3Eff" class="mlttxt"></span>%<span id="quilt3sc" class="sc dark"></span></div><br>
-					<div>Also multiplies Gauge Speed, Higgs Boson gain, & Hadron gain by <span id="quilt3Eff2" class="mlttxt"></span></div><br><br>
+					<div>Quilt Strength: <span id="quilt3Strength" class="mlttxt"></span> % (based on Elementary Particles)</div><br>
+					<div>使夸克和轻子的指数，以及规范作用力产生资源的速度增加 <span id="quilt3Eff" class="mlttxt"></span> %<span id="quilt3sc" class="sc dark"></span></div><br>
+					<div>同时还使规范作用力产生资源的速度，希格斯玻色子的获取量，以及强子获取量变为 <span id="quilt3Eff2" class="mlttxt"></span> 倍</div><br><br>
 					<button id="quiltUpg3" class="btn locked" onclick="buyQuiltUpg(3)"></button>
 				</div>
 			</div>
@@ -486,7 +486,7 @@
 						<td><button id="energyUpg32" class="btn locked" onclick="buyEnergyUpg(32)"><h2>Anti-Incline</h2><br>The Incline's Secant is reduced by 25% for each unique Multiverse completed (50% stronger in non-Prime Multiverses)<br><br>Cost: <span id="energyUpg32Cost"></span> Motive<br>Currently: -<span id="energyUpg32Current"></span>%</button></td>
 						<td><button id="energyUpg33" class="btn locked" onclick="buyEnergyUpg(33)" style="font-size: 11px;"><h2>Generator Evolution</h2><br>The cost of Purchasing/Upgrading Generators scales slower based on your Energy, and the Energy effect is raised ^20.<br><br>Cost: <span id="energyUpg33Cost"></span> Motive<br>Currently: <span id="energyUpg33Current"></span>% slower</button></td>
 						<td><button id="energyUpg34" class="btn locked" onclick="buyEnergyUpg(34)"><h2>Anti-Incline II</h2><br>The Incline's Secant is divided based on your Ranks.<br><br>Cost: <span id="energyUpg34Cost"></span> Motive<br>Currently: /<span id="energyUpg34Current"></span></button></td>
-						<td><button id="energyUpg35" class="btn locked" onclick="buyEnergyUpg(35)"><h2>Entropic Energy</h2><br>Energy boosts Entropy gain.<br><br>Cost: <span id="energyUpg35Cost"></span> Motive<br>Currently: <span id="energyUpg35Current"></span>x</button></td>
+						<td><button id="energyUpg35" class="btn locked" onclick="buyEnergyUpg(35)"><h2>Entropic Energy</h2><br>Energy boosts Entropy gain.<br><br>Cost: <span id="energyUpg35Cost"></span> Motive<br>Currently: <span id="energyUpg35Current"></span>倍</button></td>
 					</tr>
 					<tr>
 						<td></td><td></td>
@@ -508,8 +508,8 @@
 			><br /><br />
 			您有 <span id="rocketsAmt"></span> ，因此加速度和最大速度能够以此公式强化自己：(log(x+1)<sup><span id="rocketsEff"></span></sup>) <span id="rocketEffSC"></span><br /><br />
 			<button id="rfReset" class="btn locked" onclick="tmp.rf.layer.reset(false, false)">
-				Reset your rockets (but nothing else) to get 1 rocket fuel<br />Req:
-				<span id="rfReq" class="based"></span> rockets.</button
+				重置火箭(但不重置其他任何东西)以获得1点火箭燃料<br />Req:
+				<span id="rfReq" class="based"></span> 火箭。</button
 			><br /><br />
 			您拥有 <span id="rf"></span> <span id="rfName"></span> ，因此火箭的效果加强了 <span id="rfEff"></span> %，并且相当于额外有 <span id="rf2"></span> 个火箭生效。
 		</div>
@@ -1247,10 +1247,10 @@
 					<br /><button id="transferAngels" class="btn locked" onclick="tmp.inf.pantheon.transfer('angels')">
 						Transform one Spectral Gem into an Angel</button
 					><br /><br />
-					您拥有 <span id="angels" class="spectral"></span> 天使.<br /><br />
-					您拥有 <span id="chips" class="spectral"></span> 天堂碎片
-					<span id="chipGain" style="color: #9fc4bc; font-weight: bold;"></span>, translated to a
-					<span id="chipBoost" class="spectral"></span>% boost to the rewards of Spaceon, Solaris, & Eternity, but they also make Demonic Souls in their effect 
+					您拥有 <span id="angels" class="spectral"></span> 天使。<br /><br />
+					您拥有 <span id="chips" class="spectral"></span> 天堂碎片 
+					<span id="chipGain" style="color: #9fc4bc; font-weight: bold;"></span> ，因此使天奥，索拉里斯和永恒的奖励加强 
+					<span id="chipBoost" class="spectral"></span> %，但它们也使恶魔灵魂除以 
 					<span id="chipNerf" style="color: black;"></span>.
 					<br /><br /><br />
 				</div>
@@ -1258,18 +1258,18 @@
 					<br /><button id="transferDemons" class="btn locked" onclick="tmp.inf.pantheon.transfer('demons')">
 						Transform one Spectral Gem into a Demon</button
 					><br /><br />
-					您拥有 <span id="demons" class="spectral"></span> 恶魔.<br /><br />
-					您拥有 <span id="souls" class="spectral"></span> 恶魔灵魂
-					<span id="soulGain" style="color: #9fc4bc; font-weight: bold;"></span>, translated to a
-					<span id="soulBoost" class="spectral"></span>% increase to Perk Strength, but they also make Heavenly Chips in their effect 
+					您拥有 <span id="demons" class="spectral"></span> 恶魔。<br /><br />
+					您拥有 <span id="souls" class="spectral"></span> 恶魔灵魂 
+					<span id="soulGain" style="color: #9fc4bc; font-weight: bold;"></span> ，因此使特权效果加强 
+					<span id="soulBoost" class="spectral"></span> %，但它们也使天堂碎片除以 
 					<span id="soulNerf"></span>.
 					<br /><br /><br />
 				</div>
 				<div id="phantomDiv" style="background-color: #461673; color: white;">
-					<br>You have <span id="phantoms" class="spectral"></span> Phantoms (1 every 3 Spectral Gems).<br /><br />
-					You have <span id="hauntingEnergy" class="spectral"></span> Haunting Energy
-					<span id="hauntingEnergyGain" style="color: #9fc4bc; font-weight: bold;"></span>, translated to a
-					<span id="hauntingEnergyBoost" class="spectral"></span>% increase in Spectral Gem frequency, and a <span id="hauntingEnergyBoost2" class="spectral"></span>x multiplier to Heavenly Chip, Demonic Soul, & Haunting Energy gain bases.
+					<br>您拥有 <span id="phantoms" class="spectral"></span> 幻象(每3个幽冥宝石可获得1个)。<br /><br />
+					您拥有 <span id="hauntingEnergy" class="spectral"></span> 鬼魂能量 
+					<span id="hauntingEnergyGain" style="color: #9fc4bc; font-weight: bold;"></span> ，因此使幽冥宝石的获取频率增加 
+					<span id="hauntingEnergyBoost" class="spectral"></span> %，且同时使天堂碎片，恶魔灵魂和鬼魂能量的获取量变为 <span id="hauntingEnergyBoost2" class="spectral"></span> 倍。
 					<br /><br /><br />
 				</div>
 				<div id="purgeDiv" style="background-color: #259199;">
@@ -1957,17 +1957,17 @@
 					<button id="stringsUnl" class="btn th" onclick="unlockStrings()">Unlock Strings<br>Cost: 7 Theory Points</button>
 					<div id="stringsDiv">
 						<span id="nextStr"></span><br><br>
-						You have a Primary String with a length of <span id="str1amt" class="thp"></span> <span id="str1gain"></span>, translated to a <span id="str1eff" class="thp"></span>x multiplier to Supersymmetric Particle gain.<br><br>
-						<span id="str2" style="display: none">You have a Secondary String with a length of <span id="str2amt" class="thp"></span> <span id="str2gain"></span>, translated to a <span id="str2eff" class="thp"></span>x multiplier to Primary String gain.<br><br></span>
-						<span id="str3" style="display: none">You have a Tertiary String with a length of <span id="str3amt" class="thp"></span> <span id="str3gain"></span>, translated to a <span id="str3eff" class="thp"></span>x multiplier to Secondary String gain.<br><br></span>
-						<span id="str4" style="display: none">You have a Quaternary String with a length of <span id="str4amt" class="thp"></span> <span id="str4gain"></span>, translated to a <span id="str4eff" class="thp"></span>x multiplier to Tertiary String gain.<br><br></span>
-						<span id="str5" style="display: none">You have a Quinary String with a length of <span id="str5amt" class="thp"></span> <span id="str5gain"></span>, translated to a <span id="str5eff" class="thp"></span>x multiplier to Quaternary String gain.<br><br></span>
-						<span id="str6" style="display: none">You have a Senary String with a length of <span id="str6amt" class="thp"></span> <span id="str6gain"></span>, translated to a <span id="str6eff" class="thp"></span>x multiplier to Quinary String gain.<br><br></span>
-						<span id="str7" style="display: none">You have a Septenary String with a length of <span id="str7amt" class="thp"></span> <span id="str7gain"></span>, translated to a <span id="str7eff" class="thp"></span>x multiplier to Senary String gain.<br><br></span>
-						<span id="str8" style="display: none">You have an Octonary String with a length of <span id="str8amt" class="thp"></span> <span id="str8gain"></span>, translated to a <span id="str8eff" class="thp"></span>x multiplier to Septenary String gain.<br><br></span>
-						<span id="str9" style="display: none">You have a Nonary String with a length of <span id="str9amt" class="thp"></span> <span id="str9gain"></span>, translated to a <span id="str9eff" class="thp"></span>x multiplier to Octonary String gain.<br><br></span>
-						<span id="str10" style="display: none">You have a Dekanary String with a length of <span id="str10amt" class="thp"></span> <span id="str10gain"></span>, translated to a <span id="str10eff" class="thp"></span>x multiplier to Nonary String gain.<br><br></span>
-						<br><br><span id="entangleDiv"><button id="entangle" class="btn th" onclick="entangleStrings()"></button><br><br>You have <span id="entangleAmt" class="thp"></span> of Entangled Strings, translated to a <span id="entangleEff" class="thp"></span>x multiplier to the generation speed of all Strings.<br><br></span>
+						您的一维弦长度为 <span id="str1amt" class="thp"></span> <span id="str1gain"></span> ，因此超对称粒子的获取量变为 <span id="str1eff" class="thp"></span> 倍。<br><br>
+						<span id="str2" style="display: none">您的二维弦长度为 <span id="str2amt" class="thp"></span> <span id="str2gain"></span> ，因此一维弦的获取量变为 <span id="str2eff" class="thp"></span> 倍。<br><br></span>
+						<span id="str3" style="display: none">您的三维弦长度为 <span id="str3amt" class="thp"></span> <span id="str3gain"></span> ，因此二维弦的获取量变为 <span id="str3eff" class="thp"></span> 倍。<br><br></span>
+						<span id="str4" style="display: none">您的四维弦长度为 <span id="str4amt" class="thp"></span> <span id="str4gain"></span> ，因此三维弦的获取量变为 <span id="str4eff" class="thp"></span> 倍。<br><br></span>
+						<span id="str5" style="display: none">您的五维弦长度为 <span id="str5amt" class="thp"></span> <span id="str5gain"></span> ，因此四维弦的获取量变为 <span id="str5eff" class="thp"></span> 倍。<br><br></span>
+						<span id="str6" style="display: none">您的六维弦长度为 <span id="str6amt" class="thp"></span> <span id="str6gain"></span> ，因此五维弦的获取量变为 <span id="str6eff" class="thp"></span> 倍。<br><br></span>
+						<span id="str7" style="display: none">您的七维弦长度为 <span id="str7amt" class="thp"></span> <span id="str7gain"></span> ，因此六维弦的获取量变为 <span id="str7eff" class="thp"></span> 倍。<br><br></span>
+						<span id="str8" style="display: none">您的八维弦长度为 <span id="str8amt" class="thp"></span> <span id="str8gain"></span> ，因此七维弦的获取量变为 <span id="str8eff" class="thp"></span> 倍。<br><br></span>
+						<span id="str9" style="display: none">您的九维弦长度为 <span id="str9amt" class="thp"></span> <span id="str9gain"></span> ，因此八维弦的获取量变为 <span id="str9eff" class="thp"></span> 倍。<br><br></span>
+						<span id="str10" style="display: none">您的十维弦长度为 <span id="str10amt" class="thp"></span> <span id="str10gain"></span> ，因此九维弦的获取量变为 <span id="str10eff" class="thp"></span> 倍。<br><br></span>
+						<br><br><span id="entangleDiv"><button id="entangle" class="btn th" onclick="entangleStrings()"></button><br><br>您拥有 <span id="entangleAmt" class="thp"></span> 纠缠弦，因此所有弦的产量变为 <span id="entangleEff" class="thp"></span> 倍。<br><br></span>
 					</div>
 				</div>
 				<div id="preons" class="theorytab">
@@ -1976,7 +1976,7 @@
 					<div id="preonsDiv">
 						您从一维弦中获得了 <span id="preonAmt" class="thp"></span> 前子 <span id="preonGain"></span>.<br><br><br>
 						<button id="theoryBoost" class="btn locked" onclick="theoryBoost()"></button><br><br>
-						您拥有 <span id="theoryBoosters" class="thp"></span> 学说增强器, which are providing a total of <span id="theoryBoostersEff" class="thp"></span> TP.<br><br>
+						您拥有 <span id="theoryBoosters" class="thp"></span> 学说增强器，一共产生了 <span id="theoryBoostersEff" class="thp"></span> 学说点数。<br><br>
 					</div>
 				</div>
 				<div id="accelerons" class="theorytab">
@@ -1984,7 +1984,7 @@
 					<button id="acceleronsUnl" class="btn th" onclick="unlockAccelerons()">Unlock Accelerons<br>Cost: 84 Theory Points</button>
 					<div id="acceleronsDiv">
 						您从加速度中每秒获得 <span id="accelGain"></span> 加速子 <span id="accelerSC"></span>.<br><br>
-						您拥有 <span id="accel" class="thp"></span> Accelerons, which are making your Perk Accelerator get Weakened later <span id="accelEff"></span><br><br><br>
+						您拥有 <span id="accel" class="thp"></span> 加速子，因此特权加速器加速效果延迟 <span id="accelEff"></span><br><br><br>
 						<button id="darkExp" class="btn locked" onclick="darkExpand()"></button><br><br>
 						您拥有 <span id="darkExpAmt"></span> 黑暗拓展器。<br><br>
 						<span id="darkExpPast"></span><br><br><br>
@@ -1994,17 +1994,17 @@
 					<br>
 					<button id="inflatonsUnl" class="btn th" onclick="unlockInflatons()">Unlock Inflatons<br>Cost: 1,600 Theory Points</button>
 					<div id="inflatonsDiv">
-						You are gaining <span id="inflatonGain" class="thp"></span> Inflatons each second (based on Inflaton amount)<span id="inflatonSC" class="sc"></span>.<br>
-						You have <span id="inflatonAmt" class="thp"></span> Inflatons (<span id="inflatonPerc"></span>)<br><br>
-						Your Inflatons are making all Theory Tree Upgrades <span id="inflaton1" class="thp"></span>x cheaper.<br>
-						Your Inflatons are making each Hadron effect interval give <span id="inflaton2" class="thp"></span> more TP. <span id="inflaton2sc" class="sc"></span><br><br><br>
+						您每秒获得 <span id="inflatonGain" class="thp"></span> 暴胀子(基于暴胀子数值)<span id="inflatonSC" class="sc"></span>.<br>
+						您拥有 <span id="inflatonAmt" class="thp"></span> 暴胀子(<span id="inflatonPerc"></span>)<br><br>
+						暴胀子使所有学说树的升级便宜 <span id="inflaton1" class="thp"></span> 倍。<br>
+						暴胀子还使每个强子间隔额外获得 <span id="inflaton2" class="thp"></span> 学说点数。 <span id="inflaton2sc" class="sc"></span><br><br><br>
 					</div>
 				</div>
 			</div>
 			<div id="hc" class="elmtab" style="display: none;">
-				<br><b>Projected Hadronic Score: <span id="projHadScore" class="had"></span></b><br><br>
-				<b>Best Hadronic Score: <span id="bestHadScore" class="had"></span></b><br><br>
-				You have <span id="hadrons" class="had"></span> Hadrons <span id="hadronGain"></span>, which are providing you with <span id="hadronEff" class="had"></span> free TP (next <span id="hadEffBulk"></span> TP at <span id="hadronNext"></span> Hadrons)<br>
+				<br><b>预计强子分数: <span id="projHadScore" class="had"></span></b><br><br>
+				<b>最高强子分数: <span id="bestHadScore" class="had"></span></b><br><br>
+				您拥有 <span id="hadrons" class="had"></span> 强子 <span id="hadronGain"></span> ，因此额外获得了 <span id="hadronEff" class="had"></span> 学说点数(接下来在 <span id="hadronNext"></span> 强子时可以获得 <span id="hadEffBulk"></span> 学说点数)<br>
 				<span id="hadInterval"></span><br><br>
 				<br><button id="startHC" class="btn hc" onclick="startHC()"></button><br><br>
 				<button class="btn hc" onclick="exportHC()">Export</button>&nbsp;<button class="btn hc" onclick="importHC()">Import</button>&nbsp;<button class="btn hc" onclick="clearHCData()">Clear Selector Data</button><br><br>
@@ -2272,13 +2272,13 @@
 						<tr>
 							<td><button id="entropy26" class="btn locked" onclick="buyEntropyUpg(26)" style="min-height: 200px;">Theory Tree Upgrade costs scale 50% slower, and the "Useless Theories" achievement's reward is raised to an exponent based on your Entropy.<br>Cost: <span id="entropyCost26" style="color: black;"></span> Entropy<br>Currently: ^<span id="entropyEff26" style="color: black;"></span></button></td>
 							<td><button id="entropy27" class="btn locked" onclick="buyEntropyUpg(27)" style="min-height: 200px;">The Entropy effect is stronger based on your Best Entropy.<br>Cost: <span id="entropyCost27" style="color: black;"></span> Entropy<br>Currently: ^<span id="entropyEff27" style="color: black;"></span></button></td>
-							<td><button id="entropy28" class="btn locked" onclick="buyEntropyUpg(28)" style="min-height: 200px;">Pion & Spinor gain are multiplied based on your Theory Points gotten from Hadrons.<br>Cost: <span id="entropyCost28" style="color: black;"></span> Entropy<br>Currently: <span id="entropyEff28" style="color: black;"></span>x</button></td>
-							<td><button id="entropy29" class="btn locked" onclick="buyEntropyUpg(29)" style="min-height: 200px;">&Omega; Particles multiply Skyrmion gain.<br>Cost: <span id="entropyCost29" style="color: black;"></span> Entropy<br>Currently: <span id="entropyEff29" style="color: black;"></span>x</button></td>
+							<td><button id="entropy28" class="btn locked" onclick="buyEntropyUpg(28)" style="min-height: 200px;">Pion & Spinor gain are multiplied based on your Theory Points gotten from Hadrons.<br>Cost: <span id="entropyCost28" style="color: black;"></span> Entropy<br>Currently: <span id="entropyEff28" style="color: black;"></span>倍</button></td>
+							<td><button id="entropy29" class="btn locked" onclick="buyEntropyUpg(29)" style="min-height: 200px;">&Omega; Particles multiply Skyrmion gain.<br>Cost: <span id="entropyCost29" style="color: black;"></span> Entropy<br>Currently: <span id="entropyEff29" style="color: black;"></span>倍</button></td>
 							<td><button id="entropy34" class="btn locked" onclick="buyEntropyUpg(34)" style="min-height: 200px;">Entropy gain is increased by 50%.<br>Cost: <span id="entropyCost34" style="color: black;"></span> Entropy</button></td>
 						</tr>
 						<tr>
-							<td><button id="entropy30" class="btn locked" onclick="buyEntropyUpg(30)" style="min-height: 200px;">Quantum Foam boosts Skyrmion gain.<br>Cost: <span id="entropyCost30" style="color: black;"></span> Entropy<br>Currently: <span id="entropyEff30" style="color: black;"></span>x</button></td>
-							<td><button id="entropy31" class="btn locked" onclick="buyEntropyUpg(31)" style="min-height: 200px;">Entropy Upgrades bought boost Pion & Spinor gain.<br>Cost: <span id="entropyCost31" style="color: black;"></span> Entropy<br>Currently: <span id="entropyEff31" style="color: black;"></span>x</button></td>
+							<td><button id="entropy30" class="btn locked" onclick="buyEntropyUpg(30)" style="min-height: 200px;">Quantum Foam boosts Skyrmion gain.<br>Cost: <span id="entropyCost30" style="color: black;"></span> Entropy<br>Currently: <span id="entropyEff30" style="color: black;"></span>倍</button></td>
+							<td><button id="entropy31" class="btn locked" onclick="buyEntropyUpg(31)" style="min-height: 200px;">Entropy Upgrades bought boost Pion & Spinor gain.<br>Cost: <span id="entropyCost31" style="color: black;"></span> Entropy<br>Currently: <span id="entropyEff31" style="color: black;"></span>倍</button></td>
 							<td><button id="entropy32" class="btn locked" onclick="buyEntropyUpg(32)" style="min-height: 200px;">Superscaled Derivative Boost scaling starts 2 later.<br>Cost: <span id="entropyCost32" style="color: black;"></span> Entropy</button></td>
 							<td><button id="entropy33" class="btn locked" onclick="buyEntropyUpg(33)" style="min-height: 200px;">Base Pion/Spinor gain is raised to the 1.5th power.<br>Cost: <span id="entropyCost33" style="color: black;"></span> Entropy</button></td>
 							<td><button id="entropy35" class="btn locked" onclick="buyEntropyUpg(35)" style="min-height: 200px;">The "Multiverse Conquered" achievement's final effect extends to 25,000 instead of 250, and the Cadaver effect is raised ^100.<br>Cost: <span id="entropyCost35" style="color: black;"></span> Entropy</button></td>
