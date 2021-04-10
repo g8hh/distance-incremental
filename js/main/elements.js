@@ -720,7 +720,7 @@ function updateDerivativeHTML(){
 	chs = chs.replace("Hyper","究级折算");
 	chs = chs.replace("Atomic","原子折算");
 	for (let i = 0; i < de.length; i++) {
-		let name = de[i];
+		let name = chs[i];
 		tmp.el["dervDiv" + name].setDisplay(tmp.inf.derv.unlocked(name));
 		tmp.el["derv" + name].setTxt(formatDistance(tmp.inf.derv.amt(name)));
 		tmp.el["dervgain" + name].setTxt(formatGain(tmp.inf.derv.amt(name), tmp.inf.derv.gain(name), "derv", true));

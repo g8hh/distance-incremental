@@ -767,7 +767,7 @@ var cnItems = {
     'Quantum Foam boosts Skyrmion gain.': '根据量子泡沫的数值，增加斯格明子的获取量。',
     'Entropy Upgrades bought boost Pion & Spinor gain.': '根据已购买的熵升级数量，增加π介子和旋量的获取量。',
     'Superscaled Derivative Boost scaling starts 2 later.': '超级折算的导数提升延迟2次出现。',
-    '': '',
+    'Base Pion/Spinor gain is raised to the 1.5th power.': 'π介子和旋量的基础获取量变为原来的1.5次方。',
     '': '',
     '': '',
     '': '',
