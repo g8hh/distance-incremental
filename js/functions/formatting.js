@@ -81,7 +81,7 @@ function formatDistance(x, fc=multiverseCapped()) {
 		let name = Object.keys(DISTANCES)[i];
 		let val = new ExpantaNum(DISTANCES[name]);
 		if (x.lt(val) && i > 0) continue;
-		if (name=="mlt"&&fc) {
+		if (name=="多宇宙"&&fc) {
 			if (x.eq(val)) return showNum(x.div(DISTANCES.宇宙)) + "宇宙";
 			return "???宇宙"
 		}
