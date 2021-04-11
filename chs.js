@@ -308,7 +308,7 @@ var cnItems = {
     ' Knowledge': ' 知识',
     'Note: This does not reset on Elementary.': '注意：这在基本重置时仍然保留。',
     'The Extreme mode nerf to Foam gain starts later.': '极限模式对泡沫获取量的减成延迟出现。',
-    'Boost the Plasma Exponent.': '增加等离子体的幂。',
+    'Boost the Plasma Exponent.': '增加等离子体的指数。',
     'All Pion/Spinor Upgrades are stronger.': '所有π介子和旋量的升级效果变得更好。',
     'Make all Rank Cheapener cost scalings start later.': '使所有类型折算的级别降价器延迟出现。',
     'Boost Pion/Spinor gain.': '增加π介子和旋量的获取量。',
@@ -318,6 +318,7 @@ var cnItems = {
     'All previous Plasmic & Gleaming Boosts use their respective resource more effectively.': '使之前的等离子和闪光升级更有效地利用相对应的资源。',
     'The Magma cost increases slower.': '岩浆的花费提升速度减少。',
     'The first Plasmic Boost and the first two Gleaming Boosts are stronger based on your Best Entropy.': '根据最高熵数值，使第一个等离子升级和前两个闪光升级的效果变得更好。',
+    'Multiversal Energy boosts the Plasma exponent.': '根据多元能量数值，增加等离子体的指数。',
     //熔炉结束
 
     //自动化
@@ -901,7 +902,7 @@ var cnPostfix = {
 
 //需排除的，正则匹配
 var cnExcludeWhole = [
-    /^x?\d+(\.\d+)?(e[+\-]?\d+)?\s*$/, //12.34e+4
+    /^x?\d+(\.\d+)?(e[+\-]?\d+)?\/?\s*$/, //12.34e+4
     /^\s*$/, //纯空格
     /^\d+(\.\d+)?\s\+$/, //处理数字
     /^(.*)[\u4E00-\u9FFF]+(.*)$/, //不抓取内容
