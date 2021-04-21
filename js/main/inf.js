@@ -269,7 +269,7 @@ function updateTempInfLayer() {
 		infActive = true;
 		let amActive = player.inf.endorsements.eq(9);
 		let message =
-			"至高神<span class='infinity'>Infinity</span>已经见证了您的力量，并愿意认可您" +
+			"至高神<span class='infinity'>Infinity</span>已经见证了您的力量，并愿意认可您(按 E 可跳过)" +
 			"。<br><button class='btn inf' onclick='tmp.inf.layer.reset(false, false)'>允许 <span class='infinity'>Infinity</span> 认可您</button>";
 		if (amActive)
 			message =

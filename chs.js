@@ -97,6 +97,8 @@ var cnItems = {
     'Exit Hadronic Chall Confirmation: OFF': '退出强子挑战确认: 关闭',
     'Multiverse Confirmation: ON': '多宇宙重置确认: 开启',
     'Multiverse Confirmation: OFF': '多宇宙重置确认: 关闭',
+    'Multiverse Tab Shown on Reset: ON': '重置时显示多宇宙界面: 开启',
+    'Multiverse Tab Shown on Reset: OFF': '重置时显示多宇宙界面: 关闭',
     'Multiverse Reset Button: MULTIVERSE TAB': '多宇宙重置按钮位置: 多宇宙界面',
     'Multiverse Reset Button: TOP OF SCREEN': '多宇宙重置按钮位置: 屏幕顶端',
     'Significant Figures': '有效数字位数',

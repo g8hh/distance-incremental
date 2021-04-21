@@ -216,7 +216,7 @@ function startHC() {
 	}
 	if (getHCSelector("aclron") && !mltMode) player.elementary.theory.accelerons.amount = new ExpantaNum(0);
 	if (getHCSelector("infl") && !mltMode) player.elementary.theory.inflatons.amount = new ExpantaNum(0);
-	if (getHCSelector("rfrm") && !mltMode) player.elementary.foam.maxDepth = new ExpantaNum(1);
+	if ((getHCSelector("rfrm")!="0") && !mltMode) player.elementary.foam.maxDepth = new ExpantaNum(1);
 	if (getHCSelector("etrpy") && !mltMode) {
 		player.elementary.entropy.amount = new ExpantaNum(0);
 		player.elementary.entropy.best = new ExpantaNum(0);
@@ -261,7 +261,7 @@ function importHC() {
 	let toImport = prompt("在此处强子挑战数据。")
 	try {
 		let data = JSON.parse(atob(toImport))
-		player.elementary.hc.selectors = data
+		for (let d in data) if (checkFunc(HC_DATA[d][3])) player.elementary.hc.selectors[d] = data[d];
 		updateHCSelectorInputs()
 	} catch(e) {
 		notifier.warn("强子挑战数据无法识别！")
