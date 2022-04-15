@@ -1,0 +1,2449 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8" />
+	<title>距离增量 - Distance Incremental</title>
+	<link rel="icon" href="images/game_icon.ico" type="image/icon type" />
+</head>
+<body id="body" onload="loadGame()">
+<script src="chs.js?202106041511"></script>
+<script src="//g8hh.com/zh/core.js"></script>
+	<div id="loading">
+		<br><br><br><br>
+		<img src="images/game_icon.ico" style="width: 200px; height: 200px;"></img>
+		<span class="centered" style="color: white">Loading...<br><span style="font-size: 20px !important;"><a href="https://discord.gg/wwQfgPa" target="_blank">Help</a></span></span>
+	</div>
+	<div id="mltContainer" style="display: none">
+		<br><span class="mltTitle">多宇宙地图</span><br><br>
+		您拥有 <span id="mltEnergy" class="mlttxt"></span> 多元能量 (共有 <span id="totalME" class="mlttxt"></span> )<br>
+		<span style="font-size: 12px">您已经从多宇宙继续前进了 <span id="mltTimes" class="mlttxt"></span> 次。</span><br><br>
+		<div class="band pnk">
+			<button id="mltReset2" class="btn locked" onclick="mltReset()"></button>
+			<table>
+				<tr>
+					<td><button class="btn tb inf" style="visibility: hidden;"></button></td>
+				</tr>
+				<tr>
+					<td>
+						<button id="mltMaptabbtn" class="btn tb mlt main" onclick="tmp.mlt.showTab('mltMap')">
+							Multiverse Map
+						</button>
+					</td>
+					<td>
+						<button id="mltMilestonestabbtn" class="btn tb mlt main" onclick="tmp.mlt.showTab('mltMilestones')">
+							Milestones
+						</button>
+					</td>
+					<td>
+						<button id="quiltstabbtn" class="btn tb mlt main" onclick="tmp.mlt.showTab('quilts')">
+							Quilts
+						</button>
+					</td>
+				</tr>
+			</table><br>
+		</div>
+		<div id="mltMap" class="mlttab">
+			<div id="mltData" class="sideBand pnkSeeThru" style="height: 60px;">
+				<div id="mltDataTxt"></div><br><br>
+				<button id="mltUnl" class="btn locked" onclick="unlMlt(mltSelected)">Unlock</button>
+				<button id="mltStart" class="btn mlt" onclick="startMultiverse(mltSelected)">Enter the Multiverse</button>
+			</div><br>
+			<div id="mltMapContainer">
+				<button id="mltmapPrime" class="mltPrime" style="top: 12vw; left: 21.5vw;" onclick="setupMlt(0)">PRIME</button>
+				<div id="innerMltOrbit">
+					<button id="mltmap1" class="innerMltOrbit" style="top: 8vw; left: -2vw;" onclick="setupMlt(1)"><div class="uprightOrbitTxt">1</div></button>
+					<button id="mltmap2" class="innerMltOrbit" style="top: -1.2vw; left: 6vw;" onclick="setupMlt(2)"><div class="uprightOrbitTxt">2</div></button>
+					<button id="mltmap3" class="innerMltOrbit" style="top: 4vw; left: 17vw;" onclick="setupMlt(3)"><div class="uprightOrbitTxt">3</div></button>
+					<button id="mltmap4" class="innerMltOrbit" style="top: 15vw; left: 16vw;" onclick="setupMlt(4)"><div class="uprightOrbitTxt">4</div></button>
+					<button id="mltmap5" class="innerMltOrbit" style="top: 17.5vw; left: 5vw;" onclick="setupMlt(5)"><div class="uprightOrbitTxt">5</div></button>
+				</div>
+			</div>
+		</div>
+		<div id="mltMilestones" class="mlttab">
+			<br><br><div id="mltMilestoneTable"></div><br><br><br>
+		</div>
+		<div id="quilts" class="mlttab">
+			<br><br>
+			<div class="flexRow">
+				<div class="flexContainer" style="background-color: rgba(183, 0, 255, 0.4); width: 33%; min-height: 400px;">
+					<div class="mltMinorTitle">Multiversal Quilt I</div>
+					<div>Quilt Strength: <span id="quilt1Strength" class="mlttxt"></span> % (based on Distance)</div><br>
+					<div>使时间速度变为 <span id="quilt1Eff" class="mlttxt"></span> 倍</div><br>
+					<div>同时还使学说面板下的所有子分支和所有量子泡沫的速度变为 <span id="quilt1Eff2" class="mlttxt"></span> 倍</div><br><br>
+					<button id="quiltUpg1" class="btn locked" onclick="buyQuiltUpg(1)"></button>
+				</div>
+				<div class="flexContainer" style="background-color: rgba(255, 183, 0, 0.4); width: 33%; min-height: 400px;">
+					<div class="mltMinorTitle">Multiversal Quilt II</div>
+					<div>Quilt Strength: <span id="quilt2Strength" class="mlttxt"></span> % (based on Knowledge)</div><br>
+					<div>使认可的效果增加 <span id="quilt2Eff" class="mlttxt"></span> %</div><br>
+					<div>同时还使学说宇宙深度<span id="quilt2Eff2Desc"></span>对学说点数的获取量加成变为 <span id="quilt2Eff2" class="mlttxt"></span> 倍</div><br><br>
+					<button id="quiltUpg2" class="btn locked" onclick="buyQuiltUpg(2)"></button>
+				</div>
+				<div class="flexContainer" style="background-color: rgba(0, 247, 255, 0.4); width: 33%; min-height: 400px;">
+					<div class="mltMinorTitle">Multiversal Quilt III</div>
+					<div>Quilt Strength: <span id="quilt3Strength" class="mlttxt"></span> % (based on Elementary Particles)</div><br>
+					<div>使夸克和轻子的指数，以及规范作用力产生资源的速度增加 <span id="quilt3Eff" class="mlttxt"></span> %<span id="quilt3sc" class="sc dark"></span></div><br>
+					<div>同时还使规范作用力产生资源的速度，希格斯玻色子的获取量，以及强子获取量变为 <span id="quilt3Eff2" class="mlttxt"></span> 倍</div><br><br>
+					<button id="quiltUpg3" class="btn locked" onclick="buyQuiltUpg(3)"></button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="mainContainer" style="display: none">
+		<div class="band lb" style="min-height: 100px;">
+			<button id="mltReset" class="btn locked" onclick="mltReset()"></button>
+			<p class="halfline">&nbsp;</p><span id="linkToGame"></span><span id="nextFeature"></span><p class="halfline">&nbsp;</p>
+			<div id="newsticker"><div id="news"></div></div><br>
+			<div style="overflow-x: auto;">
+				<table>
+					<tr>
+						<td><button id="maintabbtn" class="btn tb main" onclick="showTab('main')">Main</button></td>
+						<td>
+							<button id="optionstabbtn" class="btn tb main" onclick="showTab('options')">Options</button>
+						</td>
+						<td>
+							<button id="statisticstabbtn" class="btn tb main" onclick="showTab('statistics')">Stats</button>
+						</td>
+						<td>
+							<button id="achievementstabbtn" class="btn tb main" onclick="showTab('achievements')">
+								Achievements
+							</button>
+						</td>
+						<td>
+							<button
+								id="energytabbtn"
+								class="btn tb en main"
+								onclick="showTab('energy')"
+								style="visibility: hidden;"
+							>
+								Energy
+							</button>
+						</td>
+						<td>
+							<button id="rocketstabbtn" class="btn tb rckt main" onclick="showTab('rockets')">
+								Rockets
+							</button>
+						</td>
+						<td>
+							<button
+								id="furnacetabbtn"
+								class="btn tb fn main"
+								onclick="showTab('furnace')"
+								style="visibility: hidden;"
+							>
+								The Furnace
+							</button>
+						</td>
+						<td>
+							<button id="autotabbtn" class="btn tb rckt main" onclick="showTab('auto')">Automation</button>
+						</td>
+						<td><button id="trtabbtn" class="btn tb rt main" onclick="showTab('tr')">Time Reversal</button></td>
+						<td>
+							<button id="collapsetabbtn" class="btn tb btndd main" onclick="showTab('collapse')">
+								Universal Collapse
+							</button>
+						</td>
+						<td>
+							<button id="pathogenstabbtn" class="btn tb gross main" onclick="showTab('pathogens')">
+								Pathogens
+							</button>
+						</td>
+						<td><button id="dctabbtn" class="btn tb dark main" onclick="showTab('dc')">Dark Circle</button></td>
+						<td><button id="inftabbtn" class="btn tb inf main" onclick="showTab('inf')">Infinity</button></td>
+						<td>
+							<button id="elementarytabbtn" class="btn tb elm eltxt main" onclick="showTab('elementary')">
+								Elementary
+							</button>
+						</td>
+						<td>
+							<button id="multiversestabbtn" class="btn tb s mlt main" onclick="player.tab = 'mlt'; mltSelected = player.mlt.active;">
+								Multiverses
+							</button>
+						</td>
+					</tr>
+				</table><br>
+			</div>
+		</div>
+		<br />
+		<div id="main" class="tab">
+			<span id="ts"></span>
+			<span id="incline"></span>
+			您已经走了 <span id="distance"></span>.<br />
+			您目前的速度为 <span id="velocity"></span> (<span id="mvName"></span>
+			<span id="maxVel"></span>/秒)。<br />
+			您目前的加速度为 <span id="acceleration"></span>/秒<sup>2</sup
+			><span id="accEn"></span>.<br /><br />
+			<table>
+				<tr>
+					<td>
+						<span id="rankName"></span><span id="rank"></span>:
+						<button id="rankUp" class="btn locked" onclick="tmp.ranks.layer.reset(false, false)">
+							重置旅程，但<span id="rankDesc" class="based"></span><br />Req:
+							<span id="rankReq" class="based"></span>.
+						</button>
+					</td>
+					<td id="rankCheapDiv">
+						&nbsp;&nbsp;&nbsp;<span id="rankCheapName"></span><span id="rankCheap"></span>:
+						<button id="rankCheapUp" class="btn locked" onclick="tmp.rankCheap.layer.reset(false, false)">
+							重置旅程，但使级别需求的公式变得更好。<br />Req:
+							<span id="rankCheapReq" class="based"></span>.
+						</button>
+					</td>
+				</tr>
+			</table>
+			<br /><br />
+			<span id="tierName"></span><span id="tier"></span>:
+			<button id="tierUp" class="btn locked" onclick="tmp.tiers.layer.reset(false, false)">
+				重置级别，但<span id="tierDesc" class="based"></span><br />Req: Rank
+				<span id="tierReq" class="based"></span>.
+			</button><br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id="quickReset" class="btn" onclick="quickReset()" style="min-width: 200px;" tooltip="进行一次级别重置(无奖励)">快速重置</button><br><br><br>
+		</div>
+		<div id="options" class="tab" style="display: none;">
+			<table>
+				<tr>
+					<td><button class="btn tb rckt main" onclick="showOptionsTab('saving')">Saving</button></td>
+					<td><button class="btn tb rckt main" onclick="showOptionsTab('modes')">Modes</button></td>
+					<td><button id="ingamebtn" class="btn tb rckt main" onclick="showOptionsTab('ingame')">In-game</button></td>
+					<td><button class="btn tb rckt main" onclick="showOptionsTab('other')">Other</button></td>
+				</tr>
+			</table>
+			<br /><br />
+			<div id="saving" class="optionstab">
+				<table>
+					<tr>
+						<td><button class="btn tb opt ob" onclick="save()">Save</button></td>
+						<td><button class="btn tb opt ob" onclick="loads()">Load</button></td>
+						<td><button class="btn tb opt ob" onclick="importSave()">Import</button></td>
+						<td><button class="btn tb opt ob" onclick="exportSave()">Export</button></td>
+						<td><button class="btn tb opt ob" onclick="hardReset()">HARD RESET</button></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td><button class="btn tb opt ob" onclick="importAll()">Import All</button></td>
+						<td><button class="btn tb opt ob" onclick="exportAll()">Export All</button></td>
+						</td>
+					</tr>
+				</table>
+				<br />
+				<div
+					class="dropdown"
+					style="width: 100%; min-height: 400px; max-height: 400px; left: 0%; position: absolute;"
+				>
+					<div id="dropDown2" class="dropdown-content2"></div>
+				</div>
+			</div>
+			<div id="modes" class="optionstab" style="display: none;">
+				<div id="mcta">
+					<b><span id="modeComboCompletions"></span></b><br><br>
+					<div id="modeComboTable" class="flexContainer"></div>
+				</div>
+				<div id="mctna">
+					<table>
+						<tr>
+							<td>
+								<button id="aauMode" class="btn tb opt ob" onclick="selectMode('aau')" style="z-index: 0">AAU</button>
+							</td>
+							<td>
+								<button id="easyMode" class="btn tb opt ob" onclick="selectMode('easy')" style="z-index: 0">Easy</button>
+							</td>
+							<td>
+								<button id="absurdMode" class="btn tb opt ob" onclick="selectMode('absurd')" style="z-index: 0">Absurd</button>
+							</td>
+							<td>
+								<button id="naMode" class="btn tb opt ob" onclick="selectMode('na')" style="z-index: 0">NA</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button id="extremeMode" class="btn tb opt ob" onclick="selectMode('extreme')" style="z-index: 0">Extreme</button>
+							</td>
+							<td>
+								<button id="hardMode" class="btn tb opt ob" onclick="selectMode('hard')" style="z-index: 0">Hard</button>
+							</td>
+							<td>
+								<button id="hikers_dreamMode" class="btn tb opt ob" onclick="selectMode('hikers_dream')" style="z-index: 0">Hiker's Dream</button>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<br /><br />
+				<span id="selectedMode"></span>
+				<br />
+				<span id="selectedModeBalancing"></span>
+				<br /><br />
+				<button class="btn tb opt" onclick="confirmModes()">Activate Modes</button>
+			</div>
+			<div id="ingame" class="optionstab" style="display: none;">
+				<div class="flexContainer">
+					<div class="flexRow">
+						<button id="dcPulse" class="btn tb opt ob" onclick="changeOpt('dcPulse', 0)">
+							Dark Circle Pulsing: ON
+						</button>
+						<button id="elc" class="btn tb opt ob" onclick="changeOpt('elc', 0)">
+							Elementary Confirmation: ON
+						</button>
+						<button id="tht" class="btn tb opt ob" onclick="changeOpt('tht', 0)">
+							Theory Tree Display: GROUPS
+						</button>
+						<button id="hcc" class="btn tb opt ob" onclick="changeOpt('hcc', 0)">
+							Exit Hadronic Chall Confirmation: ON
+						</button>
+					</div>
+					<div class="flexRow">
+						<button id="mltnc" class="btn tb opt ob" onclick="changeOpt('mltnc', 0)">
+							Multiverse Confirmation: ON
+						</button>
+						<button id="mltforcetab" class="btn tb opt ob" onclick="changeOpt('mltforcetab', 0)">
+							Multiverse Tab Shown on Reset: ON
+						</button>
+						<button id="hideMltBtn" class="btn tb opt ob" onclick="changeOpt('hideMltBtn', 0)">
+							Multiverse Reset Button: TOP OF SCREEN
+						</button>
+					</div>
+				</div>
+			</div>
+			<div id="other" class="optionstab" style="display: none;">
+				<div class="flexContainer">
+					<div class="flexRow">
+						<button id="sf" class="btn tb opt ob" onclick="changeOpt('sf', 1)">
+							Significant Figures: X
+						</button>
+						<button id="not" class="btn tb opt ob" onclick="changeOpt('not', 2)">
+							Notation: X
+						</button>
+						<button id="fonts" class="btn tb opt ob" onclick="changeOpt('fonts', 2)">
+							Font: X
+						</button>
+						<button id="theme" class="btn tb opt ob" onclick="changeOpt('theme', 2)">
+							Theme: X
+						</button>
+						<button id="name" class="btn tb opt ob" onclick="changeOpt('name', 3)">
+							Rename Save
+						</button>
+					</div><div class="flexRow">
+						<button id="hot" class="btn tb opt ob" onclick="changeOpt('hot', 0)">
+							Hotkeys: ON
+						</button>
+						<button id="newst" class="btn tb opt ob" onclick="changeOpt('newst', 0)">
+							News Ticker: ON
+						</button>
+						<button id="featPerc" class="btn tb opt ob" onclick="changeOpt('featPerc', 2)">
+							Feature Percentage: X
+						</button>
+						<button id="saveImp" class="btn tb opt ob" onclick="changeOpt('saveImp', 2)">
+							Imports: X
+						</button>
+						<button id="autoSave" class="btn tb opt ob" onclick="changeOpt('autoSave', 0)">
+							Auto-Save: ON
+						</button>
+					</div><div class="flexRow">
+						<button id="hideAch" class="btn tb opt ob" onclick="changeOpt('hideAch', 0)">
+							Hide Completed Ach Rows: OFF
+						</button>
+						<button id="visUpd" class="btn tb opt ob" onclick="changeOpt('visUpd', 2)">
+							Visual Updates: X
+						</button>
+						<button id="tabsHidden" class="btn tb opt ob" onclick="changeOpt('tabsHidden', 4)">
+							Show/Hide Tabs
+						</button>
+						<button id="modeComboTableActive" class="btn tb opt ob" onclick="changeOpt('modeComboTableActive', 0)">
+							Mode Combination Table: OFF
+						</button>
+					</div>
+				</div>
+				<br />
+				<div class="dropdown" style="z-index: 10"><div id="dropDown" class="dropdown-content"></div></div>
+			</div>
+			<br /><br />
+			<div id="footer">
+				Notice: You are currently playing in v<span id="version"></span>. This game was inspired by <a href="https://ivark.github.io/" target="_blank">Antimatter Dimensions</a> by Hevipelle, and it uses <a href="https://jquery.com/" target="_blank">jQuery.js</a>，<a href="https://notifyjs.jpillora.com/" target="_blank">notify.js</a>，以及<a href="https://naruyoko.github.io/OmegaNum.js/index.html" target="_blank">OmegaNum.js</a>, none of which I take credit for. If you would like to create a mod of this game, that's fine, just give credit, let me know in the discord (preferrably with a game link), and name it something slightly different (like Distance Incremental NG+ or something of the sort)...<br /><br />
+				<a href="changelog.html" target="_blank">Changelog</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
+					href="key.html"
+					target="_blank"
+					>Distances</a
+				>&nbsp;&nbsp;&nbsp;&nbsp;<span id="hotkeys" style="z-index: 0" widetooltip="">Hotkeys</span>
+				&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://discord.gg/wwQfgPa" target="_blank">Discord</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.patreon.com/Jacorb90?fan_landing=true" target="_blank">Donate</a>
+			</div>
+		</div>
+		<div id="statistics" class="tab" style="display: none;">
+			<div class="band">
+				<table>
+					<tr>
+						<td><button class="btn tb inf" style="visibility: hidden;"></button></td>
+					</tr>
+					<tr>
+						<td>
+							<button id="mainStatsbtn" class="btn tb rckt" onclick="showStatTab('mainStats')">
+								Main
+							</button>
+						</td>
+						<td>
+							<button id="scalingsbtn" class="btn tb rckt" onclick="showStatTab('scalings')">
+								Scalings
+							</button>
+						</td>
+						<td>
+							<button id="rankTiersbtn" class="btn tb rckt" onclick="showStatTab('rankTiers')">
+								Rank/Tier Rewards
+							</button>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div id="mainStats" class="stattab">
+				最远到达的距离: <span id="best"></span><br>
+				最高速度: <span id="bestV"></span><br>
+				最高加速度: <span id="bestA"></span><br>
+				<span id="maxEnd"></span><br>
+				<span id="maxEP"></span><br><br>
+			</div><div id="scalings" class="stattab" style="display: none;">
+				<div align="center" style="min-width: 100%;">
+					<b>Scaling Levels</b><br><br>
+					<span id="scaledStat">Scaled</span>&nbsp;
+					<span id="superscaledStat">Superscaled</span>&nbsp;
+					<span id="hyperStat">Hyper</span>&nbsp;
+					<span id="atomicStat">Atomic</span>
+				</div>
+			</div><div id="rankTiers" class="stattab" style="display: none;">
+				<div class="flexContainer">
+					<div id="rankTierStats"></div>
+				</div>
+			</div>
+		</div>
+		<div id="achievements" class="tab" style="display: none;">
+			<div id="achDesc" class="band gn"></div>
+			<table id="achTable"></table>
+			<div id="achFin"></div>
+		</div>
+		<div id="energy" class="tab" style="display: none;">
+			<div class="band ylw">
+				<table>
+					<tr>
+						<td><button class="btn tb inf" style="visibility: hidden;"></button></td>
+					</tr>
+					<tr>
+						<td>
+							<button id="mainENtabbtn" class="btn tb en main" onclick="showENTab('mainEN')">
+								Main
+							</button>
+						</td>
+						<td>
+							<button id="generatortabbtn" class="btn tb en main" onclick="showENTab('generator')">
+								The Generators
+							</button>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div id="mainEN" class="enTab">
+				您拥有 <span id="energyAmt" class="energy"></span> 能量，因此速度变为 <span id="energyEff" class="energy"></span> 倍。<br><br>
+				<button id="energyRefill" class="btn en" onclick="refillEnergy()">复原能量 <div id="energyRefillOnce" style="color: black;">(每次重置只能进行一次)</div></button><br><br>
+				您拥有 <span id="motive" class="energy"></span> 动力(基于级别，阶层和斜度) <span id="nextMotive"></span><br><br>
+				<button class="btn en" onclick="respecEnergyUpgs()">洗点能量升级</button><br><br>
+				<table>
+					<tr>
+						<td><button id="energyUpg1" class="btn locked" onclick="buyEnergyUpg(1)"><h2>Optimization</h2><br>The energy effect is boosted by your Motive<br><br>Cost: <span id="energyUpg1Cost"></span> Motive<br>Currently: <span id="energyUpg1Current"></span>倍<br></button></td>
+						<td><button id="energyUpg2" class="btn locked" onclick="buyEnergyUpg(2)"><h2>Endurance</h2><br>Energy decreases slower based on your Motive<br><br>Cost: <span id="energyUpg2Cost"></span> Motive<br>Currently: /<span id="energyUpg2Current"></span></button></td>
+						<td><button id="energyUpg3" class="btn locked" onclick="buyEnergyUpg(3)"><h2>Confidence</h2><br>Your Motive is higher based on the Incline<br><br>Cost: <span id="energyUpg3Cost"></span> Motive<br>Currently: <span id="energyUpg3Current"></span>倍</button></td>
+						<td><button id="energyUpg4" class="btn locked" onclick="buyEnergyUpg(4)"><h2>Thrusters</h2><br>The Incline nerf to max velocity & acceleration is reduced based on your Rockets<br><br>Cost: <span id="energyUpg4Cost"></span> Motive<br>Currently: <span id="energyUpg4Current"></span>th root</button></td>
+						<td><button id="energyUpg13" class="btn locked" onclick="buyEnergyUpg(13)"><h2>Hill-Bending</h2><br>All Energy Upgrades that are based on The Incline have a better incline in their effect<br><br>Cost: <span id="energyUpg13Cost"></span> Motive<br>Currently: +<span id="energyUpg13Current"></span>&deg;</button></td>
+					</tr>
+					<tr>
+						<td><button id="energyUpg5" class="btn locked" onclick="buyEnergyUpg(5)"><h2>Optimization II</h2><br>The above upgrade is stronger based on your Energy<br><br>Cost: <span id="energyUpg5Cost"></span> Motive<br>Currently: <span id="energyUpg5Current"></span>% stronger<br></button></td>
+						<td><button id="energyUpg6" class="btn locked" onclick="buyEnergyUpg(6)"><h2>Endurance II</h2><br>The above upgrade is stronger based on your Energy<br><br>Cost: <span id="energyUpg6Cost"></span> Motive<br>Currently: <span id="energyUpg6Current"></span>% stronger<br></button></td>
+						<td><button id="energyUpg7" class="btn locked" onclick="buyEnergyUpg(7)"><h2>Confidence II</h2><br>The above upgrade is stronger based on your Total Motive<br><br>Cost: <span id="energyUpg7Cost"></span> Motive<br>Currently: <span id="energyUpg7Current"></span>% stronger<br></button></td>
+						<td><button id="energyUpg8" class="btn locked" onclick="buyEnergyUpg(8)"><h2>Thrusters II</h2><br>The above upgrade is stronger based on the Incline<br><br>Cost: <span id="energyUpg8Cost"></span> Motive<br>Currently: <span id="energyUpg8Current"></span>% stronger<br></button></td>
+						<td><button id="energyUpg14" class="btn locked" onclick="buyEnergyUpg(14)"><h2>Hill-Bending II</h2><br>The above upgrade is stronger based on your Pathogens<br><br>Cost: <span id="energyUpg14Cost"></span> Motive<br>Currently: <span id="energyUpg14Current"></span>% stronger</button></td>
+					</tr>
+					<tr>
+						<td><button id="energyUpg9" class="btn locked" onclick="buyEnergyUpg(9)"><h2>Optimization III</h2><br>The above upgrade is stronger based on your Time Cubes<br><br>Cost: <span id="energyUpg9Cost"></span> Motive<br>Currently: <span id="energyUpg9Current"></span>% stronger<br></button></td>
+						<td><button id="energyUpg10" class="btn locked" onclick="buyEnergyUpg(10)"><h2>Endurance III</h2><br>The above upgrade is stronger based on your Time Cubes<br><br>Cost: <span id="energyUpg10Cost"></span> Motive<br>Currently: <span id="energyUpg10Current"></span>% stronger<br></button></td>
+						<td><button id="energyUpg11" class="btn locked" onclick="buyEnergyUpg(11)"><h2>Confidence III</h2><br>The above upgrade is stronger based on your Time Cubes<br><br>Cost: <span id="energyUpg11Cost"></span> Motive<br>Currently: <span id="energyUpg11Current"></span>% stronger<br></button></td>
+						<td><button id="energyUpg12" class="btn locked" onclick="buyEnergyUpg(12)"><h2>Thrusters III</h2><br>The above upgrade is stronger based on your Time Cubes<br><br>Cost: <span id="energyUpg12Cost"></span> Motive<br>Currently: <span id="energyUpg12Current"></span>% stronger<br></button></td>
+						<td><button id="energyUpg15" class="btn locked" onclick="buyEnergyUpg(15)"><h2>Hill-Bending III</h2><br>The above upgrade is stronger based on your Pathogens<br><br>Cost: <span id="energyUpg15Cost"></span> Motive<br>Currently: <span id="energyUpg15Current"></span>% stronger</button></td>
+					</tr>
+					<tr>
+						<td><button id="energyUpg16" class="btn locked" onclick="buyEnergyUpg(16)"><h2>Optimization IV</h2><br>The above upgrade is stronger based on your Cadavers<br><br>Cost: <span id="energyUpg16Cost"></span> Motive<br>Currently: <span id="energyUpg16Current"></span>% stronger<br></button></td>
+						<td><button id="energyUpg17" class="btn locked" onclick="buyEnergyUpg(17)"><h2>Endurance IV</h2><br>The above upgrade is stronger based on your Life Essence<br><br>Cost: <span id="energyUpg17Cost"></span> Motive<br>Currently: <span id="energyUpg17Current"></span>% stronger<br></button></td>
+						<td><button id="energyUpg18" class="btn locked" onclick="buyEnergyUpg(18)"><h2>Confidence IV</h2><br>The above upgrade is stronger based on your Pathogens<br><br>Cost: <span id="energyUpg18Cost"></span> Motive<br>Currently: <span id="energyUpg18Current"></span>% stronger<br></button></td>
+						<td><button id="energyUpg19" class="btn locked" onclick="buyEnergyUpg(19)"><h2>Thrusters IV</h2><br>The above upgrade is stronger based on your Pathogens<br><br>Cost: <span id="energyUpg19Cost"></span> Motive<br>Currently: <span id="energyUpg19Current"></span>% stronger<br></button></td>
+						<td><button id="energyUpg20" class="btn locked" onclick="buyEnergyUpg(20)"><h2>Omnipotence</h2><br>All other upgrades in this row are stronger based on your Motive and Energy<br><br>Cost: <span id="energyUpg20Cost"></span> Motive<br>Currently: <span id="energyUpg20Current"></span>% stronger<br></button></td>
+					</tr>
+					<tr>
+						<td><button id="energyUpg21" class="btn locked" onclick="buyEnergyUpg(21)"><h2>Omnipotence II</h2><br><b>Omnipotence</b> is stronger based on your Super-Energy<br><br>Cost: <span id="energyUpg21Cost"></span> Motive<br>Currently: <span id="energyUpg21Current"></span>% stronger<br></button></td>
+						<td><button id="energyUpg22" class="btn locked" onclick="buyEnergyUpg(22)"><h2>Omnipotence III</h2><br><b>Omnipotence II</b> is stronger based on your Super-Energy<br><br>Cost: <span id="energyUpg22Cost"></span> Motive<br>Currently: <span id="energyUpg22Current"></span>% stronger<br></button></td>
+						<td><button id="energyUpg23" class="btn locked" onclick="buyEnergyUpg(23)"><h2>Omnipotence IV</h2><br><b>Omnipotence II</b> and <b>Omnipotence III</b> are stronger based on your Super-Energy<br><br>Cost: <span id="energyUpg23Cost"></span> Motive<br>Currently: <span id="energyUpg23Current"></span>% stronger<br></button></td>
+						<td><button id="energyUpg24" class="btn locked" onclick="buyEnergyUpg(24)"><h2>Consistency</h2><br>Your Motive cannot be lower than X, which is based on your Best-Ever Motive<br><br>Cost: <span id="energyUpg24Cost"></span> Motive<br>Currently: <span id="energyUpg24Current"></span><br></button></td>
+						<td><button id="energyUpg25" class="btn locked" onclick="buyEnergyUpg(25)"><h2>Storage</h2><br>The Energy cap is increased based on your Best-Ever Motive<br><br>Cost: <span id="energyUpg25Cost"></span> Motive<br>Currently: <span id="energyUpg25Current"></span>倍<br></button></td>
+					</tr>
+					<tr>
+						<td><button id="energyUpg29" class="btn locked" onclick="buyEnergyUpg(29)"><h2>Energy Evolution</h2><br>The Super Energy amount & first effect are raised to an exponent based on your Energy<br><br>Cost: <span id="energyUpg29Cost"></span> Motive<br>Currently: ^<span id="energyUpg29Current"></span></button></td>
+						<td><button id="energyUpg27" class="btn locked" onclick="buyEnergyUpg(27)"><h2>Godlike</h2><br>Your Best Hadronic Score powers Optimization I and multiplies hadron gain<br><br>Cost: <span id="energyUpg27Cost"></span> Motive<br>Currently: <span id="energyUpg27Current"></span></button></td>
+						<td><button id="energyUpg26" class="btn locked" onclick="buyEnergyUpg(26)"><h2>Meta Omnipotence</h2><br>Super-Energy's second effect is stronger based on your Best-Ever Motive<br><br>Cost: <span id="energyUpg26Cost"></span> Motive<br>Currently: <span id="energyUpg26Current"></span>% stronger<br></button></td>
+						<td><button id="energyUpg28" class="btn locked" onclick="buyEnergyUpg(28)"><h2>Super-Confidence</h2><br>Your Motive is multiplied by your Hadrons<br><br>Cost: <span id="energyUpg28Cost"></span> Motive<br>Currently: <span id="energyUpg28Current"></span>倍</button></td>
+						<td><button id="energyUpg30" class="btn locked" onclick="buyEnergyUpg(30)"><h2>Omnipotence V</h2><br><b>Omnipotence I-IV</b> are stronger based on your Best Entropy<br><br>Cost: <span id="energyUpg30Cost"></span> Motive<br>Currently: <span id="energyUpg30Current"></span>% stronger</button></td>
+					</tr>
+					<tr>
+						<td><button id="energyUpg31" class="btn locked" onclick="buyEnergyUpg(31)"><h2>Omnipotence VI</h2><br><b>Omnipotence I-V</b> are stronger based on your Total Multiversal Energy<br><br>Cost: <span id="energyUpg31Cost"></span> Motive<br>Currently: <span id="energyUpg31Current"></span>% stronger</button></td>
+						<td><button id="energyUpg32" class="btn locked" onclick="buyEnergyUpg(32)"><h2>Anti-Incline</h2><br>The Incline's Secant is reduced by 25% for each unique Multiverse completed (50% stronger in non-Prime Multiverses)<br><br>Cost: <span id="energyUpg32Cost"></span> Motive<br>Currently: -<span id="energyUpg32Current"></span>%</button></td>
+						<td><button id="energyUpg33" class="btn locked" onclick="buyEnergyUpg(33)" style="font-size: 11px;"><h2>Generator Evolution</h2><br>The cost of Purchasing/Upgrading Generators scales slower based on your Energy, and the Energy effect is raised ^20.<br><br>Cost: <span id="energyUpg33Cost"></span> Motive<br>Currently: <span id="energyUpg33Current"></span>% slower</button></td>
+						<td><button id="energyUpg34" class="btn locked" onclick="buyEnergyUpg(34)"><h2>Anti-Incline II</h2><br>The Incline's Secant is divided based on your Ranks.<br><br>Cost: <span id="energyUpg34Cost"></span> Motive<br>Currently: /<span id="energyUpg34Current"></span></button></td>
+						<td><button id="energyUpg35" class="btn locked" onclick="buyEnergyUpg(35)"><h2>Entropic Energy</h2><br>Energy boosts Entropy gain.<br><br>Cost: <span id="energyUpg35Cost"></span> Motive<br>Currently: <span id="energyUpg35Current"></span>倍</button></td>
+					</tr>
+					<tr>
+						<td></td><td></td>
+						<td><button id="energyUpg36" class="btn locked" onclick="buyEnergyUpg(36)"><h2>Thrusters V</h2><br><b>Thrusters I-IV</b> are exponentially stronger based on your Distance.<br><br>Cost: <span id="energyUpg36Cost"></span> Motive<br>Currently: <span id="energyUpg36Current"></span>% stronger</button></td>
+					</tr>
+				</table><br><br><br>
+			</div><div id="generator" class="enTab">
+				<br><br><span id="geners"></span>目前为等级 <span id="genLvl" class="energy"></span> ，因此每秒可以产生 <span id="energyGen" class="energy"></span> 能量，上限为 <span id="energyLim" class="energy"></span> 能量<br><br>
+				您同时还从发生器上获得了 <span id="superEn" class="energy"></span> 超级能量，因此您可以获得 <span id="superEnEff" class="energy"></span> 倍的动力。<br>
+				<span id="superEnEff2Div">您的超级能量同时还使前25个能量升级效果加强了 <span id="superEnEff2" class="energy"></span> %。</span><br><br>
+				<button class="btn en" onclick="respecGens()">Respec The Generators</button><br><br>
+				<button id="buyGen" class="btn locked" onclick="buyGen()"><h2>Upgrade Generators</h2><br><h3>Cost: <span id="genCost"></span> Motive</h3></button>&nbsp;&nbsp;&nbsp;<button id="newGen" class="btn locked" onclick="newGen()"><h2>Buy a new Generator</h2><br><h3>Cost: <span id="newGenCost"></span> Motive</h3></button><br><br>
+			</div>
+		</div>
+		<div id="rockets" class="tab" style="display: none;">
+			<button id="rocketReset" class="btn locked" onclick="tmp.rockets.layer.reset()">
+				重置之前所有进度，并获得 <span id="rocketGain" class="based2"></span> 火箭
+				<span id="rocketGainSC"></span></button
+			><br /><br />
+			您有 <span id="rocketsAmt"></span> ，因此加速度和最大速度能够以此公式强化自己：(log(x+1)<sup><span id="rocketsEff"></span></sup>) <span id="rocketEffSC"></span><br /><br />
+			<button id="rfReset" class="btn locked" onclick="tmp.rf.layer.reset(false, false)">
+				重置火箭(但不重置其他任何东西)以获得1点火箭燃料<br />Req:
+				<span id="rfReq" class="based"></span> 火箭。</button
+			><br /><br />
+			您拥有 <span id="rf"></span> <span id="rfName"></span> ，因此火箭的效果加强了 <span id="rfEff"></span> %，并且相当于额外有 <span id="rf2"></span> 个火箭生效。
+		</div>
+		<div id="furnace" class="tab" style="display: none;">
+			<div class="band or">
+				<table>
+					<tr>
+						<td><button class="btn tb fn" style="visibility: hidden;"></button></td>
+					</tr>
+					<tr>
+						<td>
+							<button id="nfntabbtn" class="btn tb fn main" onclick="showFurnaceTab('nfn')">
+								The Furnace
+							</button>
+						</td>
+						<td>
+							<button id="efntabbtn" class="btn tb fn main" onclick="showFurnaceTab('efn')">
+								Enhanced Furnace
+							</button>
+						</td>
+						<td>
+							<button id="magmatabbtn" class="btn tb magma main" onclick="showFurnaceTab('magma')">
+								Magma Search
+							</button>
+						</td>
+						<td>
+							<button id="plasmatabbtn" class="btn tb plasma main" onclick="showFurnaceTab('plasma')">
+								Plasma
+							</button>
+						</td>
+					</tr>
+				</table><br>
+			</div><br>
+			<div id="nfn" class="furnaceTab">
+				您拥有 <span id="coal" class="char"></span> ，因此相当于额外有 <span id="coalEff" class="char"></span> 个火箭生效。<br /><br />
+				<table>
+					<tr>
+						<td>
+							<button
+								id="fnu1"
+								class="btn locked"
+								onclick="tmp.fn.upgs[1].buy()"
+								style="min-height: 100px; max-height: 100px; font-size: 10px;"
+							>
+								使煤产量变为 <span id="fnu1eff"></span> 倍(在极限模式的减成之前生效)<br />Cost:
+								<span id="fnu1cost"></span> Coal<br /><span id="fnu1name"></span>Level:
+								<span id="fnu1lvl"></span>
+							</button>
+						</td>
+						<td>
+							<button
+								id="fnu2"
+								class="btn locked"
+								onclick="tmp.fn.upgs[2].buy()"
+								style="min-height: 100px; max-height: 100px;"
+							>
+								额外获得1个级别降价器<br />Cost: <span id="fnu2cost"></span> Coal<br /><span
+									id="fnu2name"
+								></span
+								>Level: <span id="fnu2lvl"></span>
+							</button>
+						</td>
+						<td>
+							<button
+								id="fnu3"
+								class="btn locked"
+								onclick="tmp.fn.upgs[3].buy()"
+								style="min-height: 100px; max-height: 100px;"
+							>
+								火箭的获取量翻倍<br />Cost: <span id="fnu3cost"></span> Coal<br /><span
+									id="fnu3name"
+								></span
+								>Level: <span id="fnu3lvl"></span>
+							</button>
+						</td>
+						<td>
+							<button
+								id="fnu4"
+								class="btn locked"
+								onclick="tmp.fn.upgs[4].buy()"
+								style="min-height: 100px; max-height: 100px;"
+							>
+								使熔炉升级 1的效果变为原来的 <span id="fnu4eff"></span> 次幂<br />Cost: <span id="fnu4cost"></span> Coal<br /><span
+									id="fnu4name"
+								></span
+								>Level: <span id="fnu4lvl"></span>
+							</button>
+						</td>
+						<td>
+							<button
+								id="fnu5"
+								class="btn locked"
+								onclick="tmp.fn.upgs[5].buy()"
+								style="min-height: 100px; max-height: 100px;"
+							>
+								残骸的获取量翻倍<br />Cost: <span id="fnu5cost"></span> Coal<br /><span
+									id="fnu5name"
+								></span
+								>Level: <span id="fnu5lvl"></span>
+							</button>
+						</td>
+					</tr>
+				</table>
+				<br /><br /><br />
+				<button id="bf" class="btn locked" onclick="tmp.fn.bfReset()">
+					Reset all Furnace progress to gain a Blue Flame<br />Req: <span id="bfReq"></span> Coal</button
+				><br /><br />
+				您拥有 <span id="bfAmt" class="blfl"></span> <span id="blueFlameName"></span>蓝色火焰，因此所有熔炉升级花费的提升速度减少 <span id="bfEff" class="blfl"></span> %。<br><br><br>
+				<div id="furnChalls">
+					Notice: Furnace Challenges will perform a Collapse reset. When in a Furnace Challenge, Furnace Upgrade 4<span id="fu4dc">does nothing</span>.<br>
+					<table><tr>
+						<td class="furnChall"><br><b>Blue Flame does nothing.</b><br>Goal: <span id="fnc1goal"></span> Blue Flame<br><button id="fns1" class="btn fn" onclick="startFurnChall(1)"></button><br><br>Reward: Superscaled & Hyper Furnace Upgrade scalings are 90% weaker.<br><br></td>
+						<td id="fnc2" class="furnChall"><br><b>Coal gain is raised to the power of 0.075 (before reduction)</b><br>Goal: <span id="fnc2goal"></span> Blue Flame<br><button id="fns2" class="btn fn" onclick="startFurnChall(2)"></button><br><br>Reward: Furnace Upgrade 1's effect is increased by 25x.<br><br></td>
+						<td id="fnc3" class="furnChall"><br><b>Time Reversal Upgrade 16 does not affect Coal gain, and Hyper Furnace Upgrade scaling is stuck at 9,999% strength</b><br>Goal: <span id="fnc3goal"></span> Blue Flame<br><button id="fns3" class="btn fn" onclick="startFurnChall(3)"></button><br><br>Reward: Scaled Rank Cheapener scaling is 90% weaker, and Knowledge gain is 3.2x faster.<br><br></td>
+						<td id="fnc4" class="furnChall"><br><b>Furnace Upgrade 1 does nothing, and the Blue Flame cost formula is faster</b><br>Goal: <span id="fnc4goal"></span> Blue Flame<br><button id="fns4" class="btn fn" onclick="startFurnChall(4)"></button><br><br>Reward: The Extreme Mode reduction to pre-Infinity generation is less lethal (^0.75 -> ^0.825)<br><br></td>
+						<td id="fnc5" class="furnChall"><br><b>All Coal generation boosts from outside The Furnace is disabled (which includes Time Speed), and Blue Flame is weaker</b><br>Goal: <span id="fnc5goal"></span> Blue Flame<br><button id="fns5" class="btn fn" onclick="startFurnChall(5)"></button><br><br>Reward: Furnace Upgrade 4's effect is increased by 0.0001x for each Furnace Upgrade 1 bought, and unlock Furnace Upgrade 5<br><br></td>
+						<td id="fnc6" class="furnChall"><br><b>Furnace Upgrades are 99.99% weaker, Enhanced Furnace Upgrades are 50% weaker, and Blue Flame & Enhanced Furnace Upgrades cost scale much faster. This challenge forces an Elementary reset instead of a Collapse reset.</b><br>Goal: <span id="fnc6goal"></span> Blue Flame<br><button id="fns6" class="btn fn" onclick="startFurnChall(6)"></button><br><br>Reward: Blue Flame affects Enhanced Furnace Upgrades at a reduced rate<br><br></td>
+					</tr></table>
+				</div>
+			</div>
+			<div id="efn" class="furnaceTab" style="display: none;">
+				您拥有 <span id="eCoal" class="char"></span> ，因此相当于额外有 <span id="eCoalEff" class="char"></span> 蓝色火焰，并将时间速度变为 <span id="eCoalEff2" class="char"></span> 倍。<br /><br />
+				<table>
+					<tr>
+						<td>
+							<button
+								id="efnu1"
+								class="btn locked"
+								onclick="tmp.fn.enh.upgs[1].buy()"
+								style="min-height: 100px; max-height: 100px; font-size: 9px"
+							>
+								将强化煤的获取量变为 <span id="efnu1eff"></span> 倍(在极限模式的减成之前生效，受到煤和认可数值的加成)<br />Cost:
+								<span id="efnu1cost"></span> Enhanced Coal<br /><span id="efnu1name"></span>Level:
+								<span id="efnu1lvl"></span>
+							</button>
+						</td>
+						<td>
+							<button
+								id="efnu2"
+								class="btn locked"
+								onclick="tmp.fn.enh.upgs[2].buy()"
+								style="min-height: 100px; max-height: 100px;"
+							>
+								非额外的级别降价器效果加强 <span id="efnu2eff"></span>%(效果叠加)<br />Cost: <span id="efnu2cost"></span> Enhanced Coal<br /><span
+									id="efnu2name"
+								></span
+								>Level: <span id="efnu2lvl"></span>
+							</button>
+						</td>
+						<td>
+							<button
+								id="efnu3"
+								class="btn locked"
+								onclick="tmp.fn.enh.upgs[3].buy()"
+								style="min-height: 100px; max-height: 100px;"
+							>
+								使熔炉升级 4的效果变为原来的 <span id="efnu3eff"></span> 次幂<br />Cost: <span id="efnu3cost"></span> Enhanced Coal<br /><span
+									id="efnu3name"
+								></span
+								>Level: <span id="efnu3lvl"></span>
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button
+								id="efnu4"
+								class="btn locked"
+								onclick="tmp.fn.enh.upgs[4].buy()"
+								style="min-height: 100px; max-height: 100px;"
+							>
+								Add an extra level to the above upgrade<br />Cost:
+								<span id="efnu4cost"></span> Enhanced Coal<br /><span id="efnu4name"></span>Level:
+								<span id="efnu4lvl"></span>
+							</button>
+						</td>
+						<td>
+							<button
+								id="efnu5"
+								class="btn locked"
+								onclick="tmp.fn.enh.upgs[5].buy()"
+								style="min-height: 100px; max-height: 100px;"
+							>
+								Add an extra level to the above upgrade<br />Cost: <span id="efnu5cost"></span> Enhanced Coal<br /><span
+									id="efnu5name"
+								></span
+								>Level: <span id="efnu5lvl"></span>
+							</button>
+						</td>
+						<td>
+							<button
+								id="efnu6"
+								class="btn locked"
+								onclick="tmp.fn.enh.upgs[6].buy()"
+								style="min-height: 100px; max-height: 100px;"
+							>
+								Add an extra level to the above upgrade<br />Cost: <span id="efnu6cost"></span> Enhanced Coal<br /><span
+									id="efnu6name"
+								></span
+								>Level: <span id="efnu6lvl"></span>
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button
+								id="efnu7"
+								class="btn locked"
+								onclick="tmp.fn.enh.upgs[7].buy()"
+								style="min-height: 100px; max-height: 100px;"
+							>
+								Add an extra level to the above upgrade<br />Cost:
+								<span id="efnu7cost"></span> Enhanced Coal<br /><span id="efnu7name"></span>Level:
+								<span id="efnu7lvl"></span>
+							</button>
+						</td>
+						<td>
+							<button
+								id="efnu8"
+								class="btn locked"
+								onclick="tmp.fn.enh.upgs[8].buy()"
+								style="min-height: 100px; max-height: 100px;"
+							>
+								Add an extra level to the above upgrade<br />Cost: <span id="efnu8cost"></span> Enhanced Coal<br /><span
+									id="efnu8name"
+								></span
+								>Level: <span id="efnu8lvl"></span>
+							</button>
+						</td>
+						<td>
+							<button
+								id="efnu9"
+								class="btn locked"
+								onclick="tmp.fn.enh.upgs[9].buy()"
+								style="min-height: 100px; max-height: 100px;"
+							>
+								Add an extra level to the above upgrade<br />Cost: <span id="efnu9cost"></span> Enhanced Coal<br /><span
+									id="efnu9name"
+								></span
+								>Level: <span id="efnu9lvl"></span>
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button
+								id="efnu10"
+								class="btn locked"
+								onclick="tmp.fn.enh.upgs[10].buy()"
+								style="min-height: 100px; max-height: 100px;"
+							>
+								Add two extra levels to the above upgrade<br />Cost:
+								<span id="efnu10cost"></span> Enhanced Coal<br /><span id="efnu10name"></span>Level:
+								<span id="efnu10lvl"></span>
+							</button>
+						</td>
+						<td>
+							<button
+								id="efnu11"
+								class="btn locked"
+								onclick="tmp.fn.enh.upgs[11].buy()"
+								style="min-height: 100px; max-height: 100px;"
+							>
+								Add two extra levels to the above upgrade<br />Cost: <span id="efnu11cost"></span> Enhanced Coal<br /><span
+									id="efnu11name"
+								></span
+								>Level: <span id="efnu11lvl"></span>
+							</button>
+						</td>
+						<td>
+							<button
+								id="efnu12"
+								class="btn locked"
+								onclick="tmp.fn.enh.upgs[12].buy()"
+								style="min-height: 100px; max-height: 100px;"
+							>
+								Add two extra levels to the above upgrade<br />Cost: <span id="efnu12cost"></span> Enhanced Coal<br /><span
+									id="efnu12name"
+								></span
+								>Level: <span id="efnu12lvl"></span>
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<button
+								id="efnu13"
+								class="btn locked"
+								onclick="tmp.fn.enh.upgs[13].buy()"
+								style="min-height: 100px; max-height: 100px; font-size: 10px;"
+							>
+								使强化煤对时间速度的指数增加 (+<span id="efnu13eff"></span>) 并使之前所有的升级额外增加1级<br />Cost: <span id="efnu13cost"></span> Enhanced Coal<br /><span
+									id="efnu13name"
+								></span
+								>Level: <span id="efnu13lvl"></span>
+							</button>
+						</td>
+						<td></td>
+					</tr>
+					</tr>
+				</table><br><br>
+				<span id="moltBr">您从强化煤上获得了 <span id="moltBrAmt" class="char"></span> 熔融砖块，因此病原体和强化煤的获取量变为 <span id="moltBrEff" class="char"></span> 倍，并且知识的获取量变为 <span id="moltBrEff2" class="char"></span> 倍</span><br><br>
+			</div>
+			<div id="magma" class="furnaceTab" style="display: none;">
+				<br><br><table>
+					<tr>
+						<td><button id="magmaSearch" class="btn locked" onclick="magmaSearch()" style="min-height: 150px; max-height: 150px;"><h2>Search for Magma</h2><br>Req: <span id="magmaReq"></span> Enhanced Coal</button></td>
+						<td><button id="reformMagma" class="btn locked" onclick="reformMagma()" style="min-height: 150px; max-height: 150px;"><h2>Reform your Magma</h2><br>Req: <span id="magmaReformReq"></span> Magma & <span id="magmaReformReq2"></span> Knowledge</button></td>
+					</tr>
+				</table><br><br>
+				您拥有 <span id="magmaAmt" class="magmaTxt"></span> 岩浆，因此熔炉和强化熔炉的升级效果加强 <span id="magmaEff" class="magmaTxt"></span> %<br><br>
+				您拥有 <span id="rMagmaAmt" class="magmaTxt"></span> 重构岩浆，因此熔融砖块数值变为 <span id="rMagmaEff"></span> 倍<br><br>
+				Note: This does not reset on Elementary.
+			</div>
+			<div id="plasma" class="furnaceTab" style="display: none;">
+				<br><br>
+				您每秒产生1个等离子体，您的斯格明子将等离子体变为原来的 <span id="plasmaExp" class="plasmaTxt"></span> 次幂。<br><br>
+				您拥有 <span id="plasmaAmt" class="plasmaTxt"></span> 等离子体。<br><br><br>
+				您从等离子体和蓝色火焰上获得 <span id="whiteFlameAmt" class="whiteFlame"></span> 白色火焰 <span id="whiteFlameGen"></span><br><br>
+				<button id="plasmaBoostBtn" class="btn locked" onclick="buyPlasmaBoost()"></button><br><br>
+				<div id="plasmaBoosts" class="flexContainer"></div><br><br>
+			</div>
+		</div>
+		<div id="auto" class="tab" style="display: none;">
+			<table>
+				<tr>
+					<td>您拥有 <span id="scraps"></span>.</td>
+					<td>&emsp;</td>
+					<td>您拥有 <span id="intAmt"></span>.</td>
+				</tr>
+			</table>
+			<table>
+				<tr>
+					<td><button id="rankbot" class="btn locked" onclick="tmp.auto['rankbot'].btn()"></button></td>
+					<td>
+						<button id="rankCheapbot" class="btn locked" onclick="tmp.auto['rankCheapbot'].btn()"></button>
+					</td>
+					<td><button id="tierbot" class="btn locked" onclick="tmp.auto['tierbot'].btn()"></button></td>
+					<td><button id="fuelbot" class="btn locked" onclick="tmp.auto['fuelbot'].btn()"></button></td>
+				</tr>
+			</table>
+			<br /><br />
+			<div id="robotTab">
+				<br /><b><span id="robotName"></span></b><br /><br />
+				<button id="robotMax" class="btn rckt" onclick="tmp.auto[player.automation.open].maxAll()">
+					Max All
+				</button>
+				<table>
+					<tr>
+						<td><b>Interval</b>: <span id="robotInterval"></span></td>
+						<td><b>Magnitude</b>: <span id="robotMagnitude"></span></td>
+					</tr>
+					<tr>
+						<td>
+							<button
+								id="buyRobotInterval"
+								class="btn locked"
+								onclick="tmp.auto[player.automation.open].buy(0)"
+								tooltip="间隔为机器人购买升级的间隔时间。"
+							></button>
+						</td>
+						<td>
+							<button
+								id="buyRobotMagnitude"
+								class="btn locked"
+								onclick="tmp.auto[player.automation.open].buy(1)"
+								tooltip="数量为机器人一次购买的升级数量。"
+							></button>
+						</td>
+					</tr>
+				</table><br><br>
+				<button id="robotToggle" class="btn rckt" onclick="toggleRobot(player.automation.open)"></button>
+			</div>
+			<br />
+			<div id="automator" class="flexRow"></div>
+		</div>
+		<div id="tr" class="tab" style="display: none;">
+			<br /><button
+				id="rt"
+				class="btn rt"
+				onclick="reverseTime()"
+				widetooltip="当进行时间反演时，之前所有的资源从产生资源改为失去资源！但您可以获得时间方盒。"
+			></button
+			><br /><br />
+			您拥有 <span id="tc"></span> ，因此相当于额外有 <span id="frf"></span> 点火箭燃料生效
+			<span id="timeCubeEffSC"></span><br /><br />
+			<table id="trTable"></table>
+			<br>
+		</div>
+		<div id="collapse" class="tab" style="display: none;">
+			<button id="collapseReset" class="btn locked" onclick="tmp.collapse.layer.reset()">
+				重置之前所有进度，并获得 <span id="cadaverGain" class="dead"></span> 残骸
+				<span id="cadaverGainSC"></span></button
+			><br /><br />
+			您拥有 <span id="cadavers"></span> ，因此时间速度变为 <span id="cadaverEff" class="dead"></span> 倍
+			<span id="cadaverEffSC"></span><br /><br />
+			<button id="sacrificeCadavers" class="btn locked" onclick="sacrificeToLifeEssence()">
+				Sacrifice all your cadavers into life essence.</button
+			><br /><br />
+			您拥有 <span id="lifeEssence"></span>.<br /><br />
+			<table id="cmTable"></table>
+			<br /><br />
+		</div>
+		<div id="pathogens" class="tab" style="display: none;">
+			<span id="tdeEff"></span>
+			您拥有 <span id="pathogensAmt"></span> <span id="pthGainSC"></span><br /><br />
+			<button class="btn gross" onclick="tmp.pathogens.maxAll()">Max All</button><br /><br />
+			<span id="pthUpgPow" class="grosstxt"></span>
+			<div id="pthUpgs"></div>
+			<br /><br />
+		</div>
+		<div id="dc" class="tab" style="display: none;">
+			黑暗流: <span id="darkFlow" style="font-weight: bold;"></span> 倍<br />
+			<table>
+				<tr>
+					<td class="darkcircleHidden"></td>
+					<td class="darkcircleHidden"></td>
+					<td id="darkMatter" class="darkcircle"></td>
+					<td class="darkcircleHidden"></td>
+					<td class="darkcircleHidden"></td>
+				</tr>
+				<tr>
+					<td class="darkcircleHidden"></td>
+					<td class="darkcircleHidden"></td>
+					<td class="darkcircleHidden dcArrow">
+						<div style="position: relative; top: -15px;" id="arrowToDarkMatter" class="dcArrowTxt"></div>
+					</td>
+					<td class="darkcircleHidden"></td>
+					<td class="darkcircleHidden"></td>
+				</tr>
+				<tr>
+					<td class="darkcircleHidden"></td>
+					<td class="darkcircleHidden"></td>
+					<td><button
+						id="darkCore"
+						class="darkcore locked inactive"
+						onclick="tmp.dc.buyCore(true)"
+						widetooltip="黑暗圆环中产生物质的情况以箭头表示。例如，黑暗核心产生黑暗物质，以向上的箭头表示。"
+					></button></td>
+					<td class="darkcircleHidden"></td>
+					<td class="darkcircleHidden"></td>
+				</tr>
+				<tr>
+					<td id="darkFluid" class="darkcircle" style="font-size: 8px;"></td>
+					<td class="darkcircleHidden"></td>
+					<td class="darkcircleHidden"></td>
+					<td class="darkcircleHidden"></td>
+					<td id="darkEnergy" class="darkcircle"></td>
+				</tr>
+			</table>
+			<br /><br /><br /><br /><br /><br />
+		</div>
+		<div id="inf" class="tab" style="display: none;">
+			<div id="forceInf">
+				<button class="btn inf" onclick="tmp.inf.layer.reset(true)">
+					进行 <span class="infinity">Infinity</span> 重置且不获得任何奖励。</button
+				><br /><br />
+			</div>
+			<div id="endorsementManual">
+				<button id="emInner" class="btn inf" onclick="tmp.inf.manualReset()">
+					允许 <span class="infinity">Infinity</span> 认可您。</button
+				><br /><br />
+			</div>
+			<div class="band or">
+				<table>
+					<tr>
+						<td><button class="btn tb inf" style="visibility: hidden;"></button></td>
+					</tr>
+					<tr>
+						<td>
+							<button id="infinitytabbtn" class="btn tb inf main" onclick="tmp.inf.showTab('infinity')">
+								Infinity
+							</button>
+						</td>
+						<td>
+							<button id="ascensiontabbtn" class="btn tb asc main" onclick="tmp.inf.showTab('ascension')">
+								Ascension
+							</button>
+						</td>
+						<td>
+							<button id="stadiumtabbtn" class="btn tb std main" onclick="tmp.inf.showTab('stadium')">
+								The Stadium
+							</button>
+						</td>
+						<td>
+							<button id="pantheontabbtn" class="btn tb pnth main" onclick="tmp.inf.showTab('pantheon')">
+								The Pantheon
+							</button>
+						</td>
+						<td>
+							<button
+								id="derivativestabbtn"
+								class="btn tb drv main"
+								onclick="tmp.inf.showTab('derivatives')"
+							>
+								Derivatives
+							</button>
+						</td>
+					</tr>
+				</table>
+				<span id="nextIUs" style="font-weight: bold;"></span><br><br>
+			</div>
+			<div id="infinity" class="inftab">
+				<span id="endorsementName"></span>Endorsements:
+				<span id="endorsements" style="font-size: 25px;"></span> ，因此产生了 
+				<span id="knowledgeBase" style="font-size: 25px;"></span> 基础知识<br />
+				到达 <span id="nextEndorsement" style="font-size: 25px;"></span> 后可以再度被认可。<br /><br />
+				<span id="tudeEff"></span>
+				您拥有 <span id="knowledge" style="font-size: 25px;"></span> 知识 
+				<span style="font-size: 25px;"><span id="knowledgeGain"></span></span>.<br /><br />
+				<button class="btn inf" onclick="tmp.inf.upgs.reset()">Reset Infinity Upgrades</button><br /><br />
+				<div id="infUpgData" class="bandBig or"></div>
+				<br /><br />
+				<div style="overflow-x: auto;"><table id="infUpgs"></table><br><br></div>
+				<br /><br />
+			</div>
+			<div id="ascension" class="inftab">
+				<br />
+				<span id="perkPower"></span><br />
+				<table>
+					<tr>
+						<td>
+							<button
+								id="perk1"
+								class="btn perk"
+								onclick="tmp.inf.asc.activatePerk(1)"
+								style="min-height: 40px !important;"
+							>
+								神格特权
+							</button>
+						</td>
+						<td>
+							<button
+								id="perk2"
+								class="btn perk"
+								onclick="tmp.inf.asc.activatePerk(2)"
+								style="min-height: 40px !important;"
+							>
+								神圣特权
+							</button>
+						</td>
+						<td>
+							<button
+								id="perk3"
+								class="btn perk"
+								onclick="tmp.inf.asc.activatePerk(3)"
+								style="min-height: 40px !important;"
+							>
+								圣徒特权
+							</button>
+						</td>
+						<td>
+							<button
+								id="perk4"
+								class="btn perk"
+								onclick="tmp.inf.asc.activatePerk(4)"
+								style="min-height: 40px !important;"
+							>
+								荣光特权
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td>黑暗流变为 <span id="perkEff1" style="font-size: 25px;"></span> 倍。</td>
+						<td>
+							使每个病原体升级额外增加 <span id="perkEff2" style="font-size: 25px;"></span> 级。
+						</td>
+						<td>
+							残骸效果软上限延迟 <span id="perkEff3" style="font-size: 25px;"></span> 倍出现。
+						</td>
+						<td>残骸获取量的软上限延迟 <span id="perkEff4" style="font-size: 25px;"></span> 倍出现。</td>
+					</tr>
+				</table>
+				<br /><br />
+				<span id="ascPower"></span><br>
+				<span id="perkAccel"></span><br><br><br>
+				<table>
+					<tr>
+						<td>
+							您拥有 <span id="enl1" style="font-size: 25px;"></span> 
+							<span id="enlScale1"></span>神格启迪，因此神格特权效果加强 
+							<span id="enleff1" style="font-size: 25px;"></span> %。
+						</td>
+						<td>
+							您拥有 <span id="enl2" style="font-size: 25px;"></span> <span id="enlScale2"></span>神圣启迪，因此神圣特权效果加强 <span id="enleff2" style="font-size: 25px;"></span> %。
+						</td>
+						<td>
+							您拥有 <span id="enl3" style="font-size: 25px;"></span> 
+							<span id="enlScale3"></span>圣徒启迪，因此圣徒特权效果加强 
+							<span id="enleff3" style="font-size: 25px;"></span> %。
+						</td>
+						<td>
+							您拥有 <span id="enl4" style="font-size: 25px;"></span> <span id="enlScale4"></span>荣光启迪，因此荣光特权效果加强 <span id="enleff4" style="font-size: 25px;"></span> %。
+						</td>
+					</tr>
+					<tr>
+						<td><button id="buyEnl1" class="btn locked" onclick="tmp.inf.asc.buyEnl(1, true)"></button></td>
+						<td><button id="buyEnl2" class="btn locked" onclick="tmp.inf.asc.buyEnl(2, true)"></button></td>
+						<td><button id="buyEnl3" class="btn locked" onclick="tmp.inf.asc.buyEnl(3, true)"></button></td>
+						<td><button id="buyEnl4" class="btn locked" onclick="tmp.inf.asc.buyEnl(4, true)"></button></td>
+					</tr>
+				</table>
+				<br /><br />
+			</div>
+			<div id="stadium" class="inftab">
+				<br /><button class="btn inf" onclick="tmp.inf.stadium.reset()">Reset Stadium completions</button>&nbsp;&nbsp;<button id="extremeStadReset" class="btn inf" onclick="resetExtremeStad()">Reset Second-Row Stadium completions</button
+				><br /><br />
+				<button id="exitStad" class="btn inf" onclick="tmp.inf.stadium.exit()">Exit Stadium Challenge</button
+				><br /><br />
+				Note: Perks do nothing in Stadium Challenges<br />
+				Note 2: Each Challenge completion makes the others<span id="extremeStadDesc"></span> harder, with the exception being Reality, which actually gets easier.<br />
+				<span id="stadiumProg"></span><br><br>
+				<table>
+					<tr>
+						<td id="spaceonDiv" class="stadiumChall" tooltip="Spaceon Challenge Description">
+							<div class="spaceon">Spaceon</div><br /><button
+								id="spaceonChall"
+								class="btn locked"
+								onclick="tmp.inf.stadium.start('spaceon')"
+							>
+								Start</button
+							><br /><br /><span id="spaceonBtm" class="stadiumDesc"></span>
+						</td>
+						<td id="solarisDiv" class="stadiumChall" tooltip="Solaris Challenge Description">
+							<div class="solaris">Solaris</div><br /><button
+								id="solarisChall"
+								class="btn locked"
+								onclick="tmp.inf.stadium.start('solaris')"
+							>
+								Start</button
+							><br /><br /><span id="solarisBtm" class="stadiumDesc"></span>
+						</td>
+						<td id="infinityDiv" class="stadiumChall" tooltip="Infinity Challenge Description">
+							<div class="infinity">Infinity</div><br /><button
+								id="infinityChall"
+								class="btn locked"
+								onclick="tmp.inf.stadium.start('infinity')"
+							>
+								Start</button
+							><br /><br /><span id="infinityBtm" class="stadiumDesc"></span>
+						</td>
+						<td id="eternityDiv" class="stadiumChall" tooltip="Eternity Challenge Description">
+							<div class="eternity">Eternity</div><br /><button
+								id="eternityChall"
+								class="btn locked"
+								onclick="tmp.inf.stadium.start('eternity')"
+							>
+								Start</button
+							><br /><br /><span id="eternityBtm" class="stadiumDesc"></span>
+						</td>
+						<td id="realityDiv" class="stadiumChall" tooltip="Reality Challenge Description">
+							<div class="reality">Reality</div><br /><button
+								id="realityChall"
+								class="btn locked"
+								onclick="tmp.inf.stadium.start('reality')"
+							>
+								Start</button
+							><br /><br /><span id="realityBtm" class="stadiumDesc"></span>
+						</td>
+						<td id="drigganizDiv" class="stadiumChall" tooltip="Drigganiz Challenge Description">
+							<div class="drigganiz">Drigganiz</div><br /><button
+								id="drigganizChall"
+								class="btn locked"
+								onclick="tmp.inf.stadium.start('drigganiz')"
+							>
+								Start</button
+							><br /><br /><span id="drigganizBtm" class="stadiumDesc"></span>
+						</td>
+					</tr>
+					<tr id="extremeStadium">
+						<td id="flamisDiv" class="stadiumChall" tooltip="Flamis Challenge Description">
+							<div class="flamis">Flamis</div><br /><button
+								id="flamisChall"
+								class="btn locked"
+								onclick="startExtremeStadium('flamis')"
+							>
+								Start</button
+							><br /><br /><span id="flamisBtm" class="stadiumDesc"></span>
+						</td>
+						<td id="craniusDiv" class="stadiumChall" tooltip="Cranius Challenge Description">
+							<div class="cranius">Cranius</div><br /><button
+								id="craniusChall"
+								class="btn locked"
+								onclick="startExtremeStadium('cranius')"
+							>
+								Start</button
+							><br /><br /><span id="craniusBtm" class="stadiumDesc"></span>
+						</td>
+						<td id="spectraDiv" class="stadiumChall" tooltip="Spectra Challenge Description">
+							<div class="spectra">Spectra</div><br /><button
+								id="spectraChall"
+								class="btn locked"
+								onclick="startExtremeStadium('spectra')"
+							>
+								Start</button
+							><br /><br /><span id="spectraBtm" class="stadiumDesc"></span>
+						</td>
+						<td id="aqualonDiv" class="stadiumChall" tooltip="Aqualon Challenge Description">
+							<div class="aqualon">Aqualon</div><br /><button
+								id="aqualonChall"
+								class="btn locked"
+								onclick="startExtremeStadium('aqualon')"
+							>
+								Start</button
+							><br /><br /><span id="aqualonBtm" class="stadiumDesc"></span>
+						</td>
+						<td id="nullumDiv" class="stadiumChall" tooltip="Nullum Challenge Description">
+							<div class="nullum">Nullum</div><br /><button
+								id="nullumChall"
+								class="btn locked"
+								onclick="startExtremeStadium('nullum')"
+							>
+								Start</button
+							><br /><br /><span id="nullumBtm" class="stadiumDesc"></span>
+						</td>
+						<td id="quantronDiv" class="stadiumChall" tooltip="Quantron Challenge Description">
+							<div class="quantron">Quantron</div><br /><button
+								id="quantronChall"
+								class="btn locked"
+								onclick="startExtremeStadium('quantron')"
+							>
+								Start</button
+							><br /><br /><span id="quantronBtm" class="stadiumDesc"></span>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div id="pantheon" class="inftab">
+				您拥有 <span id="spectralGems" class="spectral"></span> <span id="spectralGemName"></span>幽冥宝石。可以在 <span id="nextSpectralGem" class="spectral"></span> 认可时获得下一块。<br /><br />
+				<button id="respecSpectralGems" class="btn locked" onclick="tmp.inf.pantheon.respec()">
+					Respec Angels & Demons back into Spectral Gems</button
+				><br /><br />
+				<div style="background-color: #e0ffb5; color: black;">
+					<br /><button id="transferAngels" class="btn locked" onclick="tmp.inf.pantheon.transfer('angels')">
+						Transform one Spectral Gem into an Angel</button
+					><br /><br />
+					您拥有 <span id="angels" class="spectral"></span> 天使。<br /><br />
+					您拥有 <span id="chips" class="spectral"></span> 天堂碎片 
+					<span id="chipGain" style="color: #9fc4bc; font-weight: bold;"></span> ，因此使天奥，索拉里斯和永恒的奖励加强 
+					<span id="chipBoost" class="spectral"></span> %，但它们也使恶魔灵魂除以 
+					<span id="chipNerf" style="color: black;"></span>.
+					<br /><br /><br />
+				</div>
+				<div style="background-color: #a31414;">
+					<br /><button id="transferDemons" class="btn locked" onclick="tmp.inf.pantheon.transfer('demons')">
+						Transform one Spectral Gem into a Demon</button
+					><br /><br />
+					您拥有 <span id="demons" class="spectral"></span> 恶魔。<br /><br />
+					您拥有 <span id="souls" class="spectral"></span> 恶魔灵魂 
+					<span id="soulGain" style="color: #9fc4bc; font-weight: bold;"></span> ，因此使特权效果加强 
+					<span id="soulBoost" class="spectral"></span> %，但它们也使天堂碎片除以 
+					<span id="soulNerf"></span>.
+					<br /><br /><br />
+				</div>
+				<div id="phantomDiv" style="background-color: #461673; color: white;">
+					<br>您拥有 <span id="phantoms" class="spectral"></span> 幻象(每3个幽冥宝石可获得1个)。<br /><br />
+					您拥有 <span id="hauntingEnergy" class="spectral"></span> 鬼魂能量 
+					<span id="hauntingEnergyGain" style="color: #9fc4bc; font-weight: bold;"></span> ，因此使幽冥宝石的获取频率增加 
+					<span id="hauntingEnergyBoost" class="spectral"></span> %，且同时使天堂碎片，恶魔灵魂和鬼魂能量的获取量变为 <span id="hauntingEnergyBoost2" class="spectral"></span> 倍。
+					<br /><br /><br />
+				</div>
+				<div id="purgeDiv" style="background-color: #259199;">
+					<br /><button
+						id="purgeBtn"
+						class="btn purge"
+						onclick="tmp.inf.pantheon.startPurge()"
+						tooltip="进行净化后将同时进行一次无限重置，无法使用病原体，同时启用所有除了现实以外的竞技场挑战效果(难度为1级)。另外，速度的获取量变为原来的立方根。"
+					></button
+					><br /><br />
+					您拥有 <span id="purgePower" class="spectral"></span> 净化能量，因此天堂碎片和恶魔灵魂彼此效果削弱程度变为原来的 
+					<span id="purgePowerEff" class="spectral"></span> 次幂。<br /><br /><br /><br />
+				</div>
+			</div>
+			<div id="derivatives" class="inftab">
+				<div id="derivs"></div>
+				<br /><br />
+				<button id="dervUnlock" class="btn locked" onclick="tmp.inf.derv.doUnl()"></button><br><br>
+			</div>
+		</div>
+		<div id="elementary" class="tab" style="display: none;">
+			<button id="elmReset" class="btn locked" onclick="elmReset()" style="min-height: 150px;"></button><br /><br />
+			您拥有 <span id="elmp" class="elmp"></span> 基本粒子。<br />
+			您已经进行了 <span id="elmt" style="font-weight: bold;"></span> 次基本重置。<br /><br />
+			<div class="band r">
+				<table>
+					<tr>
+						<td><button class="btn tb inf" style="visibility: hidden;"></button></td>
+					</tr>
+					<tr>
+						<td>
+							<button id="fermionstabbtn" class="btn tb elm main" onclick="tmp.elm.showTab('fermions')">
+								Fermions
+							</button>
+						</td>
+						<td>
+							<button id="bosonstabbtn" class="btn tb elm main" onclick="tmp.elm.showTab('bosons')">
+								Bosons
+							</button>
+						</td>
+						<td>
+							<button id="theorytabbtn" class="btn tb th main" onclick="tmp.elm.showTab('theory')">
+								Theories
+							</button>
+						</td>
+						<td>
+							<button id="hctabbtn" class="btn tb hc main" onclick="tmp.elm.showTab('hc')">
+								Hadronic Challenge
+							</button>
+						</td>
+						<td>
+							<button id="foamtabbtn" class="btn tb foam main" onclick="tmp.elm.showTab('foam')">
+								Quantum Foam
+							</button>
+						</td>
+						<td>
+							<button id="skytabbtn" class="btn tb sky main" onclick="tmp.elm.showTab('sky')">
+								Skyrmions
+							</button>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div id="fermions" class="elmtab">
+				<br />
+				<button id="transfer1Fermions" class="btn locked" onclick="tmp.elm.ferm.transfer1()">
+					Transform one of your Elementary Particles into a Fermion
+				</button>
+				<button id="transfer10pFermions" class="btn locked" onclick="tmp.elm.ferm.transfer(0.1)">
+					Transform 10% of your Elementary Particles into Fermions
+				</button>
+				<button id="transfer50pFermions" class="btn locked" onclick="tmp.elm.ferm.transfer(0.5)">
+					Transform 50% of your Elementary Particles into Fermions
+				</button>
+				<button id="transfer100pFermions" class="btn locked" onclick="tmp.elm.ferm.transfer(1)">
+					Transform 100% of your Elementary Particles into Fermions
+				</button>
+				<br /><br />您拥有 <span id="fermionsamt" class="elmp"></span> 费米子。<br /><br />
+				<div style="width: 50%; min-height: 300px; background-color: #964035; float: left;">
+					您从费米子和认可上每秒获得 
+					<span id="quarkGain" class="quark"></span> 夸克。<br />
+					您拥有 <span id="quarks" class="quark"></span>.<br /><br />
+					<button id="quarkRewards" class="btn elm" onclick="tmp.elm.ferm.changeQuark()">
+						Hover to see current Quark effect<br />Click to change Quark Type
+					</button>
+				</div>
+				<div style="width: 50%; min-height: 300px; background-color: #e34430; float: right; color: black;">
+					您从费米子和幽冥宝石总量上每秒获得 
+					<span id="leptonGain" class="lepton"></span> 轻子。<br />
+					您拥有 <span id="leptons" class="lepton"></span>.<br /><br />
+					<button id="leptonRewards" class="btn elm" onclick="tmp.elm.ferm.changeLepton()">
+						Hover to see current Lepton effect<br />Click to change Lepton Type
+					</button>
+				</div>
+			</div>
+			<div id="bosons" class="elmtab" style="display: none;">
+				<br />
+				<button id="transfer1Bosons" class="btn locked" onclick="tmp.elm.bos.transfer1()">
+					Transform one of your Elementary Particles into a Boson
+				</button>
+				<button id="transfer10pBosons" class="btn locked" onclick="tmp.elm.bos.transfer(0.1)">
+					Transform 10% of your Elementary Particles into Bosons
+				</button>
+				<button id="transfer50pBosons" class="btn locked" onclick="tmp.elm.bos.transfer(0.5)">
+					Transform 50% of your Elementary Particles into Bosons
+				</button>
+				<button id="transfer100pBosons" class="btn locked" onclick="tmp.elm.bos.transfer(1)">
+					Transform 100% of your Elementary Particles into Bosons
+				</button>
+				<br /><br />您拥有 <span id="bosonsamt" class="elmp"></span> 玻色子。<br /><br />
+				<div class="band or">
+					<table>
+						<tr>
+							<td><button class="btn tb inf" style="visibility: hidden;"></button></td>
+						</tr>
+						<tr>
+							<td>
+								<button id="gaugetabbtn" class="btn tb elm" onclick="tmp.elm.bos.showTab('gauge')">
+									Gauge Bosons
+								</button>
+							</td>
+							<td>
+								<button id="scalartabbtn" class="btn tb elm" onclick="tmp.elm.bos.showTab('scalar')">
+									Scalar Bosons
+								</button>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div id="gauge" class="bostab" style="min-height: 400px;">
+					您从玻色子和飞升能量上每秒获得 <span id="gaugeGain" class="gauge"></span> 规范玻色子。<br />
+					您拥有 <span id="gaugeAmt" class="gauge"></span> 规范玻色子。<br />
+					您拥有 <span id="gaugeForce" class="gauge"></span> 规范作用力 <span id="gaugeForceGain"></span
+					> ，因此下方资源的产生速度变为 
+					<span id="gaugeForceEff" class="gauge"></span> 倍。<br /><br />
+					<div style="width: 50%; min-height: 300px; background-color: #f9ff8f; float: left; color: black;">
+						<br />
+						您拥有 <span id="photons" class="gauge"></span> 光子 <span
+							id="photonGain"
+							style="color: black;"
+						></span
+						><br /><br />
+						<table>
+							<tr>
+								<td>
+									<button id="photon1" class="btn locked" onclick="tmp.elm.bos.buyLU(1)">
+										Triple Pathogen gain<br />
+										<span id="photonLvl1"></span><br />Currently:
+										<span id="photonDesc1"></span><br />Cost:
+										<span id="photonCost1"></span> Photons
+									</button>
+								</td>
+								<td>
+									<button id="photon2" class="btn locked" onclick="tmp.elm.bos.buyLU(2)">
+										Boost Knowledge gain by 50%<br />
+										<span id="photonLvl2"></span><br />Currently:
+										<span id="photonDesc2"></span><br />Cost:
+										<span id="photonCost2"></span> Photons
+									</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<button id="photon3" class="btn locked" onclick="tmp.elm.bos.buyLU(3)">
+										Double Photon & Gluon gain<br /><span id="photonLvl3"></span
+										><br />Currently: <span id="photonDesc3"></span
+										><br />Cost: <span id="photonCost3"></span> Photons
+									</button>
+								</td>
+								<td>
+									<button id="photon4" class="btn locked" onclick="tmp.elm.bos.buyLU(4)">
+										Double Elementary Particle gain<br /><span id="photonLvl4"></span
+										><br />Currently: <span id="photonDesc4"></span
+										><br />Cost: <span id="photonCost4"></span> Photons
+									</button>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div style="width: 50%; min-height: 300px; background-color: #9d3bff; float: right; color: black;">
+						<br />
+						您拥有 <span id="w" class="gauge"></span> W玻色子 <span
+							id="wg"
+							style="color: black;"
+						></span
+						>，因此Z玻色子的获取量变为 <span id="w1" class="gauge"></span> 倍，并且飞升能量的获取量变为 
+						<span id="w2" class="gauge"></span> 倍。<br /><br />
+						您拥有 <span id="z" class="gauge"></span> Z玻色子 <span
+							id="zg"
+							style="color: black;"
+						></span
+						>，因此W玻色子的获取量变为 <span id="z1" class="gauge"></span> 倍，并且黑暗流变为 
+						<span id="z2" class="gauge"></span> 倍。
+					</div>
+					<br />
+					<div style="width: 50%; min-height: 300px; background-color: #38003b; float: left; color: white;">
+						<table>
+							<tr>
+								<td>
+									<button id="rtabbtn" class="btn tb elm" onclick="tmp.elm.bos.showGluonTab('r')">
+										Red
+									</button>
+								</td>
+								<td>
+									<button id="gtabbtn" class="btn tb elm" onclick="tmp.elm.bos.showGluonTab('g')">
+										Green
+									</button>
+								</td>
+								<td>
+									<button id="btabbtn" class="btn tb elm" onclick="tmp.elm.bos.showGluonTab('b')">
+										Blue
+									</button>
+								</td>
+								<td>
+									<button id="artabbtn" class="btn tb elm" onclick="tmp.elm.bos.showGluonTab('ar')">
+										Anti-Red
+									</button>
+								</td>
+								<td>
+									<button id="agtabbtn" class="btn tb elm" onclick="tmp.elm.bos.showGluonTab('ag')">
+										Anti-Green
+									</button>
+								</td>
+								<td>
+									<button id="abtabbtn" class="btn tb elm" onclick="tmp.elm.bos.showGluonTab('ab')">
+										Anti-Blue
+									</button>
+								</td>
+							</tr>
+						</table>
+						<div id="r" class="gluontab">
+							<br />
+							您拥有 <b><span id="rg" style="color: red;"></span></b> 红胶子 <span
+								id="rgg"
+								style="color: red;"
+							></span
+							>.<br /><br />
+							<table id="r_table"></table>
+						</div>
+						<div id="g" class="gluontab" style="display: none;">
+							<br />
+							您拥有 <b><span id="gg" style="color: green;"></span></b> 绿胶子 <span
+								id="ggg"
+								style="color: green;"
+							></span
+							>.<br /><br />
+							<table id="g_table"></table>
+						</div>
+						<div id="b" class="gluontab" style="display: none;">
+							<br />
+							您拥有 <b><span id="bg" style="color: #6e72ff;"></span></b> 蓝胶子 <span
+								id="bgg"
+								style="color: #6e72ff;"
+							></span
+							>.<br /><br />
+							<table id="b_table"></table>
+						</div>
+						<div id="ar" class="gluontab" style="display: none;">
+							<br />
+							您拥有 <b><span id="arg" style="color: red; filter: invert(1);"></span></b> 反红胶子 <span id="argg" style="color: red; filter: invert(1);"></span>.<br /><br />
+							<table id="ar_table"></table>
+						</div>
+						<div id="ag" class="gluontab" style="display: none;">
+							<br />
+							您拥有 <b><span id="agg" style="color: green; filter: invert(1);"></span></b> 反绿胶子 <span id="aggg" style="color: green; filter: invert(1);"></span>.<br /><br />
+							<table id="ag_table"></table>
+						</div>
+						<div id="ab" class="gluontab" style="display: none;">
+							<br />
+							您拥有 <b><span id="abg" style="color: blue; filter: invert(1);"></span></b> 反蓝胶子 <span id="abgg" style="color: blue; filter: invert(1);"></span>.<br /><br />
+							<table id="ab_table"></table>
+						</div>
+					</div>
+					<div style="width: 50%; min-height: 300px; background-color: #595959; float: right; color: white;">
+						<br />
+						您拥有 <span id="grav" class="gauge"></span> 引力子 <span id="gravGain"></span> ，因此规范作用力的获取量变为 <span id="gravMult" class="gauge"></span> 倍(受到基本重置数值的加成)。<br><br>
+						<div id="gravBoostDiv">
+							您从引力子上获得了 <span id="gravBoosts" class="gauge"></span> 引力子加成(下次加成于 <span id="gravBoostNext" class="gauge"></span>)，因此重置时基本粒子的获取量变为 <span id="gravBoostMult" class="gauge"></span> 倍。(每次引力子加成的倍率: <span id="gravBoostEach" class="gauge"></span>)
+						</div>
+					</div>
+				</div>
+				<div id="scalar" class="bostab" style="display: none; min-height: 400px;">
+					您从玻色子上每秒获得 <span id="scalarGain" class="scalar"></span> 标量玻色子。<br />
+					您拥有 <span id="scalarAmt" class="scalar"></span> 标量玻色子。<br><br>
+					您拥有 <span id="higgs" class="scalar"></span> 希格斯玻色子 <span id="higgsGain"></span>.<br><br>
+					<div style="overflow-x: auto;"><table>
+						<tr>
+							<td><button id="higgs2;2;2" class="btn higgsL" onclick="tmp.elm.bos.buyHiggs('2;2;2')"></button></td>
+							<td><button class="btn" style="visibility: hidden"></button></td>
+							<td><button id="higgs0;2;0" class="btn higgsL" onclick="tmp.elm.bos.buyHiggs('0;2;0')"></button></td>
+							<td><button class="btn" style="visibility: hidden"></button></td>
+							<td><button id="higgs2;2;1" class="btn higgsL" onclick="tmp.elm.bos.buyHiggs('2;2;1')"></button></td>
+						</tr>
+					</table><table>
+						<tr>
+							<td class="btn" style="visibility: hidden;"></td>
+						</tr>
+					</table><table>
+						<tr>
+							<td><button id="higgs1;2;0" class="btn higgsL" onclick="tmp.elm.bos.buyHiggs('1;2;0')"></button></td>
+							<td><button class="btn" style="visibility: hidden"></button></td>
+							<td><button id="higgs0;1;0" class="btn higgsL" onclick="tmp.elm.bos.buyHiggs('0;1;0')"></button></td>
+							<td><button class="btn" style="visibility: hidden"></button></td>
+							<td><button id="higgs0;2;1" class="btn higgsL" onclick="tmp.elm.bos.buyHiggs('0;2;1')"></button></td>
+						</tr>
+					</table><table>
+						<tr>
+							<td class="btn" style="visibility: hidden;"></td>
+						</tr>
+					</table><table>
+						<tr>
+							<td><button id="higgs1;1;0" class="btn higgsL" onclick="tmp.elm.bos.buyHiggs('1;1;0')"></button></td>
+							<td class="btn" style="visibility: hidden;"></td>
+							<td><button id="higgs1;3;0" class="btn higgsL" onclick="tmp.elm.bos.buyHiggs('1;3;0')"></button></td>
+							<td class="btn" style="visibility: hidden;"></td>
+							<td><button id="higgs0;0;0" class="btn higgsL" onclick="tmp.elm.bos.buyHiggs('0;0;0')"></button></td>
+							<td class="btn" style="visibility: hidden;"></td>
+							<td><button id="higgs0;3;1" class="btn higgsL" onclick="tmp.elm.bos.buyHiggs('0;3;1')"></button></td>
+							<td class="btn" style="visibility: hidden;"></td>
+							<td><button id="higgs0;1;1" class="btn higgsL" onclick="tmp.elm.bos.buyHiggs('0;1;1')"></button></td>
+						</tr>
+					</table><table>
+						<tr>
+							<td><button id="higgs6;0;0" class="btn higgsL" onclick="tmp.elm.bos.buyHiggs('6;0;0')"></button></td>
+							<td class="btn" style="visibility: hidden;"></td>
+							<td><button id="higgs1;0;0" class="btn higgsL" onclick="tmp.elm.bos.buyHiggs('1;0;0')"></button></td>
+							<td class="btn" style="visibility: hidden;"></td>
+							<td><button id="higgs1;1;1" class="btn higgsL" onclick="tmp.elm.bos.buyHiggs('1;1;1')"></button></td>
+							<td class="btn" style="visibility: hidden;"></td>
+							<td><button id="higgs0;0;1" class="btn higgsL" onclick="tmp.elm.bos.buyHiggs('0;0;1')"></button></td>
+							<td class="btn" style="visibility: hidden;"></td>
+							<td><button id="higgs0;0;6" class="btn higgsL" onclick="tmp.elm.bos.buyHiggs('0;0;6')"></button></td>
+						</tr>
+					</table><table>
+						<tr>
+							<td><button id="higgs6;1;0" class="btn higgsL" onclick="tmp.elm.bos.buyHiggs('6;1;0')"></button></td>
+							<td class="btn" style="visibility: hidden;"></td>
+							<td><button id="higgs2;0;0" class="btn higgsL" onclick="tmp.elm.bos.buyHiggs('2;0;0')"></button></td>
+							<td class="btn" style="visibility: hidden;"></td>
+							<td><button id="higgs1;0;1" class="btn higgsL" onclick="tmp.elm.bos.buyHiggs('1;0;1')"></button></td>
+							<td class="btn" style="visibility: hidden;"></td>
+							<td><button id="higgs0;0;2" class="btn higgsL" onclick="tmp.elm.bos.buyHiggs('0;0;2')"></button></td>
+							<td class="btn" style="visibility: hidden;"></td>
+							<td><button id="higgs0;1;6" class="btn higgsL" onclick="tmp.elm.bos.buyHiggs('0;1;6')"></button></td>
+						</tr>
+					</table><table>
+						<tr>
+							<td><button id="higgs3;0;0" class="btn higgsL" onclick="tmp.elm.bos.buyHiggs('3;0;0')"></button></td>
+							<td class="btn" style="visibility: hidden;"></td>
+							<td><button id="higgs4;0;0" class="btn higgsL" onclick="tmp.elm.bos.buyHiggs('4;0;0')"></button></td>
+							<td class="btn" style="visibility: hidden;"></td>
+							<td><button id="higgs0;0;4" class="btn higgsL" onclick="tmp.elm.bos.buyHiggs('0;0;4')"></button></td>
+							<td class="btn" style="visibility: hidden;"></td>
+							<td><button id="higgs0;0;3" class="btn higgsL" onclick="tmp.elm.bos.buyHiggs('0;0;3')"></button></td>
+						</tr>
+					</table><table>
+						<tr>
+							<td><button id="higgs4;1;0" class="btn higgsL" onclick="tmp.elm.bos.buyHiggs('4;1;0')"></button></td>
+							<td class="btn" style="visibility: hidden;"></td>
+							<td><button id="higgs5;0;0" class="btn higgsL" onclick="tmp.elm.bos.buyHiggs('5;0;0')"></button></td>
+							<td class="btn" style="visibility: hidden;"></td>
+							<td><button id="higgs5;0;5" class="btn higgsL" onclick="tmp.elm.bos.buyHiggs('5;0;5')"></button></td>
+							<td class="btn" style="visibility: hidden;"></td>
+							<td><button id="higgs0;0;5" class="btn higgsL" onclick="tmp.elm.bos.buyHiggs('0;0;5')"></button></td>
+							<td class="btn" style="visibility: hidden;"></td>
+							<td><button id="higgs0;1;4" class="btn higgsL" onclick="tmp.elm.bos.buyHiggs('0;1;4')"></button></td>
+						</tr>
+					</table><table>
+						<tr>
+							<td><button id="higgs3;2;2" class="btn higgsL" onclick="tmp.elm.bos.buyHiggs('3;2;2')"></button></td>
+						</tr>
+					</table> <br></div><br><br><br>
+				</div>
+			</div>
+			<div id="theory" class="elmtab" style="display: none;">
+				您拥有 <span id="thp" class='thp'>1</span> 学说点数。
+				<br><br>
+				<div class="band or">
+					<table>
+						<tr>
+							<td><button class="btn tb inf" style="visibility: hidden;"></button></td>
+						</tr>
+						<tr>
+							<td>
+								<button id="tvtabbtn" class="btn tb th" onclick="tmp.elm.theory.showTab('tv')">
+									The Theoriverse
+								</button>
+							</td>
+							<td>
+								<button id="sstabbtn" class="btn tb th" onclick="tmp.elm.theory.showTab('ss')">
+									Supersymmetry
+								</button>
+							</td>
+							<td>
+								<button id="treetabbtn" class="btn tb th" onclick="tmp.elm.theory.showTab('tree')">
+									The Theory Tree
+								</button>
+							</td>
+							<td>
+								<button id="stringstabbtn" class="btn tb th" onclick="tmp.elm.theory.showTab('strings')">
+									Strings
+								</button>
+							</td>
+							<td>
+								<button id="preonstabbtn" class="btn tb th" onclick="tmp.elm.theory.showTab('preons')">
+									Preons
+								</button>
+							</td>
+							<td>
+								<button id="acceleronstabbtn" class="btn tb th" onclick="tmp.elm.theory.showTab('accelerons')">
+									Accelerons
+								</button>
+							</td>
+							<td>
+								<button id="inflatonstabbtn" class="btn tb th" onclick="tmp.elm.theory.showTab('inflatons')">
+									Inflatons
+								</button>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div id="tv" class="theorytab">
+					<br>
+					<button id="theoriverse" onclick="tmp.elm.theory.start()"></button><br><br>
+				</div>
+				<div id="ss" class="theorytab">
+					<br>
+					<button id="ssUnl" class="btn th" onclick="tmp.elm.theory.ss.unl()">Unlock Supersymmetry<br>Cost: 1 Theory Point</button>
+					<div id="ssDiv">
+						您拥有 <span id="squarks" class="thp"></span> 超夸克 <span id="squarkGain"></span> ，因此夸克的获取量变为 <span id="squarkEff" class="thp"></span> 倍。<br><br>
+						您拥有 <span id="sleptons" class="thp"></span> 超轻子 <span id="sleptonGain"></span> ，因此轻子的获取量变为 <span id="sleptonEff" class="thp"></span> 倍。<br><br>
+						您拥有 <span id="neutralinos" class="thp"></span> 超中性子 <span id="neutralinoGain"></span> ，因此引力子的获取量变为 <span id="neutralinoEff" class="thp"></span> 倍。<br><br>
+						您拥有 <span id="charginos" class="thp"></span> 带电微子 <span id="charginoGain"></span> ，因此光子的获取量变为 <span id="charginoEff" class="thp"></span> 倍。<br><br><br><br>
+						您从超对称粒子中获得了 <span id="wavelength" class="thp"></span> 长度的超对称波，因此所有基本粒子之前的资源获取量变为 <span id="waveEff" class="thp"></span> 倍。<br><br>
+					</div>
+				</div>
+				<div id="tree" class="theorytab">
+					<br>
+					<button id="treeUnl" class="btn th" onclick="tmp.elm.theory.tree.unl()">Unlock The Theory Tree<br>Cost: 1 Theory Point</button>
+					<div id="treeDiv">
+						<span id="ach152Eff"></span>
+						<button id="treeRespec" class="btn th" onclick="resetTheoryTree()"></button><br><br>
+						<button class="btn th" onclick="exportTree()">Export</button>&nbsp;<button class="btn th" onclick="importTree()">Import</button><br><br>
+						<div id="mainTree">
+							<table><tr>
+								<td><button id="tree1" class="tree locked" onclick="tmp.elm.theory.tree.buy(1)"></button></td>
+							</tr></table>
+							<table><tr>
+								<td><button id="tree2" class="tree locked" onclick="tmp.elm.theory.tree.buy(2)"></button></td>
+								<td><button id="tree3" class="tree locked" onclick="tmp.elm.theory.tree.buy(3)"></button></td>
+							</tr></table>
+							<table><tr>
+								<td><button id="tree4" class="tree locked" onclick="tmp.elm.theory.tree.buy(4)"></button></td>
+								<td><button id="tree40" class="tree locked" onclick="tmp.elm.theory.tree.buy(40)"></button></td>
+								<td><button id="tree5" class="tree locked" onclick="tmp.elm.theory.tree.buy(5)"></button></td>
+							</tr></table>
+							<table><tr>
+								<td><button id="tree6" class="tree locked" onclick="tmp.elm.theory.tree.buy(6)"></button></td>
+								<td><button class="tree locked" style="visibility: hidden;"></button></td>
+								<td><button class="tree locked" style="visibility: hidden;"></button></td>
+								<td><button id="tree7" class="tree locked" onclick="tmp.elm.theory.tree.buy(7)"></button></td>
+							</tr></table>
+							<table><tr>
+								<td><button id="tree8" class="tree locked" onclick="tmp.elm.theory.tree.buy(8)"></button></td>
+								<td><button id="tree9" class="tree locked" onclick="tmp.elm.theory.tree.buy(9)"></button></td>
+								<td><button id="tree24" class="tree locked" onclick="tmp.elm.theory.tree.buy(24)"></button></td>
+								<td><button id="tree10" class="tree locked" onclick="tmp.elm.theory.tree.buy(10)"></button></td>
+								<td><button id="tree11" class="tree locked" onclick="tmp.elm.theory.tree.buy(11)"></button></td>
+							</tr></table>
+							<table><tr>
+								<td><button id="tree12" class="tree locked" onclick="tmp.elm.theory.tree.buy(12)"></button></td>
+								<td><button id="tree28" class="tree locked" onclick="tmp.elm.theory.tree.buy(28)"></button></td>
+								<td><button class="tree locked" style="visibility: hidden;"></button></td>
+								<td><button class="tree locked" style="visibility: hidden;"></button></td>
+								<td><button id="tree29" class="tree locked" onclick="tmp.elm.theory.tree.buy(29)"></button></td>
+								<td><button id="tree13" class="tree locked" onclick="tmp.elm.theory.tree.buy(13)"></button></td>
+							</tr></table>
+							<table><tr>
+								<td><button id="tree20" class="tree locked" onclick="tmp.elm.theory.tree.buy(20)"></button></td>
+								<td><button id="tree41" class="tree locked" onclick="tmp.elm.theory.tree.buy(41)"></button></td>
+								<td><button id="tree30" class="tree locked" onclick="tmp.elm.theory.tree.buy(30)"></button></td>
+								<td><button class="tree locked" style="visibility: hidden;"></button></td>
+								<td><button id="tree31" class="tree locked" onclick="tmp.elm.theory.tree.buy(31)"></button></td>
+								<td><button id="tree42" class="tree locked" onclick="tmp.elm.theory.tree.buy(42)"></button></td>
+								<td><button id="tree21" class="tree locked" onclick="tmp.elm.theory.tree.buy(21)"></button></td>
+							</tr></table>
+							<table><tr>
+								<td><button id="tree25" class="tree locked" onclick="tmp.elm.theory.tree.buy(25)"></button></td>
+								<td><button class="tree locked" style="visibility: hidden;"></button></td>
+								<td><button class="tree locked" style="visibility: hidden;"></button></td>
+								<td><button id="tree32" class="tree locked" onclick="tmp.elm.theory.tree.buy(32)"></button></td>
+								<td><button id="tree33" class="tree locked" onclick="tmp.elm.theory.tree.buy(33)"></button></td>
+								<td><button class="tree locked" style="visibility: hidden;"></button></td>
+								<td><button class="tree locked" style="visibility: hidden;"></button></td>
+								<td><button id="tree26" class="tree locked" onclick="tmp.elm.theory.tree.buy(26)"></button></td>
+							</tr></table>
+							<table><tr>
+								<td><button id="tree14" class="tree locked" onclick="tmp.elm.theory.tree.buy(14)"></button></td>
+								<td><button id="tree15" class="tree locked" onclick="tmp.elm.theory.tree.buy(15)"></button></td>
+								<td><button id="tree16" class="tree locked" onclick="tmp.elm.theory.tree.buy(16)"></button></td>
+								<td><button id="tree22" class="tree locked" onclick="tmp.elm.theory.tree.buy(22)"></button></td>
+								<td><button id="tree27" class="tree locked" onclick="tmp.elm.theory.tree.buy(27)"></button></td>
+								<td><button id="tree23" class="tree locked" onclick="tmp.elm.theory.tree.buy(23)"></button></td>
+								<td><button id="tree17" class="tree locked" onclick="tmp.elm.theory.tree.buy(17)"></button></td>
+								<td><button id="tree18" class="tree locked" onclick="tmp.elm.theory.tree.buy(18)"></button></td>
+								<td><button id="tree19" class="tree locked" onclick="tmp.elm.theory.tree.buy(19)"></button></td>
+							</tr></table>
+							<table><tr>
+								<td><button id="tree34" class="tree locked" onclick="tmp.elm.theory.tree.buy(34)"></button></td>
+								<td><button id="tree35" class="tree locked" onclick="tmp.elm.theory.tree.buy(35)"></button></td>
+								<td><button id="tree36" class="tree locked" onclick="tmp.elm.theory.tree.buy(36)"></button></td>
+							</tr></table>
+							<table><tr>
+								<td><button id="tree38" class="tree locked" onclick="tmp.elm.theory.tree.buy(38)"></button></td>
+								<td><button id="tree37" class="tree locked" onclick="tmp.elm.theory.tree.buy(37)"></button></td>
+								<td><button id="tree39" class="tree locked" onclick="tmp.elm.theory.tree.buy(39)"></button></td>
+							</tr></table>
+						</div><div id="groupTree">
+							<div class="flexContainer">
+								<div class="flexRowThird">
+									<div id="gTreeSect11">
+										<h3>Cadavers</h3><br>
+										<table>
+											<tr>
+												<td><button id="gTree27" class="tree locked" onclick="tmp.elm.theory.tree.buy(27)"></button></td>
+											</tr>
+										</table>
+									</div>
+									<div id="gTreeSect8">
+										<h3>Pathogen Upgrades</h3><br>
+										<table>
+											<tr>
+												<td><button id="gTree13" class="tree locked" onclick="tmp.elm.theory.tree.buy(13)"></button></td>
+												<td><button id="gTree25" class="tree locked" onclick="tmp.elm.theory.tree.buy(25)"></button></td>
+											</tr>
+										</table>
+									</div>
+								</div><div class="flexRowThird">
+									<div id="gTreeSect2">
+										<h3>Knowledge & Higgs</h3><br>
+										<table>
+											<tr>
+												<td><button id="gTree2" class="tree locked" onclick="tmp.elm.theory.tree.buy(2)"></button></td>
+												<td><button id="gTree3" class="tree locked" onclick="tmp.elm.theory.tree.buy(3)"></button></td>
+												<td><button id="gTree42" class="tree locked" onclick="tmp.elm.theory.tree.buy(42)"></button></td>
+											</tr>
+										</table>
+									</div>
+									<div id="gTreeSect3">
+										<h3>Theoriverse & Endorsements</h3><br>
+										<table>
+											<tr>
+												<td><button id="gTree4" class="tree locked" onclick="tmp.elm.theory.tree.buy(4)"></button></td>
+												<td><button id="gTree7" class="tree locked" onclick="tmp.elm.theory.tree.buy(7)"></button></td>
+												<td><button id="gTree11" class="tree locked" onclick="tmp.elm.theory.tree.buy(11)"></button></td>
+											</tr>
+										</table>
+									</div>
+									<div id="gTreeSect12">
+										<h3>Pantheon</h3><br>
+										<table>
+											<tr>
+												<td><button id="gTree28" class="tree locked" onclick="tmp.elm.theory.tree.buy(28)"></button></td>
+												<td><button id="gTree29" class="tree locked" onclick="tmp.elm.theory.tree.buy(29)"></button></td>
+											</tr>
+										</table>
+									</div>
+								</div>
+								<div class="flexRowThird">
+									<div id="gTreeSect10">
+										<h3>EP Gain & Elementaries</h3><br>
+										<table>
+											<tr>
+												<td><button id="gTree20" class="tree locked" onclick="tmp.elm.theory.tree.buy(20)"></button></td>
+												<td><button id="gTree21" class="tree locked" onclick="tmp.elm.theory.tree.buy(21)"></button></td>
+												<td><button id="gTree41" class="tree locked" onclick="tmp.elm.theory.tree.buy(41)"></button></td>
+											</tr>
+										</table>
+									</div>
+									<div id="gTreeSect1">
+										<h3>Supersymmetry</h3><br>
+										<table>
+											<tr>
+												<td><button id="gTree1" class="tree locked" onclick="tmp.elm.theory.tree.buy(1)"></button></td>
+												<td><button id="gTree5" class="tree locked" onclick="tmp.elm.theory.tree.buy(5)"></button></td>
+												<td><button id="gTree22" class="tree locked" onclick="tmp.elm.theory.tree.buy(22)"></button></td>
+											</tr>
+											<tr>
+												<td><button id="gTree23" class="tree locked" onclick="tmp.elm.theory.tree.buy(23)"></button></td>
+												<td><button id="gTree24" class="tree locked" onclick="tmp.elm.theory.tree.buy(24)"></button></td>
+												<td><button id="gTree26" class="tree locked" onclick="tmp.elm.theory.tree.buy(26)"></button></td>
+											</tr>
+										</table>
+									</div>
+									<div id="gTreeSect9">
+										<h3>Strings</h3><br>
+										<table>
+											<tr>
+												<td><button id="gTree14" class="tree locked" onclick="tmp.elm.theory.tree.buy(14)"></button></td>
+												<td><button id="gTree15" class="tree locked" onclick="tmp.elm.theory.tree.buy(15)"></button></td>
+												<td><button id="gTree16" class="tree locked" onclick="tmp.elm.theory.tree.buy(16)"></button></td>
+											</tr>
+											<tr>
+												<td><button id="gTree17" class="tree locked" onclick="tmp.elm.theory.tree.buy(17)"></button></td>
+												<td><button id="gTree18" class="tree locked" onclick="tmp.elm.theory.tree.buy(18)"></button></td>
+												<td><button id="gTree19" class="tree locked" onclick="tmp.elm.theory.tree.buy(19)"></button></td>
+											</tr>
+										</table>
+									</div>
+									<div id="gTreeSect4">
+										<h3>Entangled Strings</h3><br>
+										<table>
+											<tr>
+												<td><button id="gTree6" class="tree locked" onclick="tmp.elm.theory.tree.buy(6)"></button></td>
+												<td><button id="gTree30" class="tree locked" onclick="tmp.elm.theory.tree.buy(30)"></button></td>
+											</tr>
+										</table>
+									</div>
+								</div><div class="flexRowThird">
+									<div id="gTreeSect6">
+										<h3>Preons</h3><br>
+										<table>
+											<tr>
+												<td><button id="gTree9" class="tree locked" onclick="tmp.elm.theory.tree.buy(9)"></button></td>
+												<td><button id="gTree10" class="tree locked" onclick="tmp.elm.theory.tree.buy(10)"></button></td>
+												<td><button id="gTree40" class="tree locked" onclick="tmp.elm.theory.tree.buy(40)"></button></td>
+											</tr>
+										</table>
+									</div>
+									<div id="gTreeSect7">
+										<h3>Accelerons</h3><br>
+										<table>
+											<tr>
+												<td><button id="gTree12" class="tree locked" onclick="tmp.elm.theory.tree.buy(12)"></button></td>
+											</tr>
+										</table>
+									</div>
+								</div><div class="flexRowThird">
+									<div id="gTreeSect13">
+										<h3>Hadrons</h3><br>
+										<table>
+											<tr>
+												<td><button id="gTree31" class="tree locked" onclick="tmp.elm.theory.tree.buy(31)"></button></td>
+												<td><button id="gTree33" class="tree locked" onclick="tmp.elm.theory.tree.buy(33)"></button></td>
+											</tr>
+										</table>
+									</div>
+									<div id="gTreeSect14">
+										<h3>Magma</h3><br>
+										<table>
+											<tr>
+												<td><button id="gTree34" class="tree locked" onclick="tmp.elm.theory.tree.buy(34)"></button></td>
+												<td><button id="gTree35" class="tree locked" onclick="tmp.elm.theory.tree.buy(35)"></button></td>
+												<td><button id="gTree36" class="tree locked" onclick="tmp.elm.theory.tree.buy(36)"></button></td>
+											</tr>
+										</table>
+									</div>
+									<div id="gTreeSect15">
+										<h3>Quantum Foam</h3><br>
+										<table>
+											<tr>
+												<td><button id="gTree38" class="tree locked" onclick="tmp.elm.theory.tree.buy(38)"></button></td>
+												<td><button id="gTree39" class="tree locked" onclick="tmp.elm.theory.tree.buy(39)"></button></td>
+											</tr>
+										</table>
+									</div>
+									<div id="gTreeSect5">
+										<h3>Misc.</h3><br>
+										<table>
+											<tr>
+												<td><button id="gTree8" class="tree locked" onclick="tmp.elm.theory.tree.buy(8)"></button></td>
+												<td><button id="gTree32" class="tree locked" onclick="tmp.elm.theory.tree.buy(32)"></button></td>
+												<td><button id="gTree37" class="tree locked" onclick="tmp.elm.theory.tree.buy(37)"></button></td>
+											</tr>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+						<br><br><br><br><br>
+					</div>
+				</div>
+				<div id="strings" class="theorytab">
+					<br>
+					<button id="stringsUnl" class="btn th" onclick="unlockStrings()">Unlock Strings<br>Cost: 7 Theory Points</button>
+					<div id="stringsDiv">
+						<span id="nextStr"></span><br><br>
+						您的一维弦长度为 <span id="str1amt" class="thp"></span> <span id="str1gain"></span> ，因此超对称粒子的获取量变为 <span id="str1eff" class="thp"></span> 倍。<br><br>
+						<span id="str2" style="display: none">您的二维弦长度为 <span id="str2amt" class="thp"></span> <span id="str2gain"></span> ，因此一维弦的获取量变为 <span id="str2eff" class="thp"></span> 倍。<br><br></span>
+						<span id="str3" style="display: none">您的三维弦长度为 <span id="str3amt" class="thp"></span> <span id="str3gain"></span> ，因此二维弦的获取量变为 <span id="str3eff" class="thp"></span> 倍。<br><br></span>
+						<span id="str4" style="display: none">您的四维弦长度为 <span id="str4amt" class="thp"></span> <span id="str4gain"></span> ，因此三维弦的获取量变为 <span id="str4eff" class="thp"></span> 倍。<br><br></span>
+						<span id="str5" style="display: none">您的五维弦长度为 <span id="str5amt" class="thp"></span> <span id="str5gain"></span> ，因此四维弦的获取量变为 <span id="str5eff" class="thp"></span> 倍。<br><br></span>
+						<span id="str6" style="display: none">您的六维弦长度为 <span id="str6amt" class="thp"></span> <span id="str6gain"></span> ，因此五维弦的获取量变为 <span id="str6eff" class="thp"></span> 倍。<br><br></span>
+						<span id="str7" style="display: none">您的七维弦长度为 <span id="str7amt" class="thp"></span> <span id="str7gain"></span> ，因此六维弦的获取量变为 <span id="str7eff" class="thp"></span> 倍。<br><br></span>
+						<span id="str8" style="display: none">您的八维弦长度为 <span id="str8amt" class="thp"></span> <span id="str8gain"></span> ，因此七维弦的获取量变为 <span id="str8eff" class="thp"></span> 倍。<br><br></span>
+						<span id="str9" style="display: none">您的九维弦长度为 <span id="str9amt" class="thp"></span> <span id="str9gain"></span> ，因此八维弦的获取量变为 <span id="str9eff" class="thp"></span> 倍。<br><br></span>
+						<span id="str10" style="display: none">您的十维弦长度为 <span id="str10amt" class="thp"></span> <span id="str10gain"></span> ，因此九维弦的获取量变为 <span id="str10eff" class="thp"></span> 倍。<br><br></span>
+						<br><br><span id="entangleDiv"><button id="entangle" class="btn th" onclick="entangleStrings()"></button><br><br>您拥有 <span id="entangleAmt" class="thp"></span> 纠缠弦，因此所有弦的产量变为 <span id="entangleEff" class="thp"></span> 倍。<br><br></span>
+					</div>
+				</div>
+				<div id="preons" class="theorytab">
+					<br>
+					<button id="preonsUnl" class="btn th" onclick="unlockPreons()">Unlock Preons<br>Cost: 10 Theory Points</button>
+					<div id="preonsDiv">
+						您从一维弦中获得了 <span id="preonAmt" class="thp"></span> 前子 <span id="preonGain"></span>.<br><br><br>
+						<button id="theoryBoost" class="btn locked" onclick="theoryBoost()"></button><br><br>
+						您拥有 <span id="theoryBoosters" class="thp"></span> 学说增强器，一共产生了 <span id="theoryBoostersEff" class="thp"></span> 学说点数。<br><br>
+					</div>
+				</div>
+				<div id="accelerons" class="theorytab">
+					<br>
+					<button id="acceleronsUnl" class="btn th" onclick="unlockAccelerons()">Unlock Accelerons<br>Cost: 84 Theory Points</button>
+					<div id="acceleronsDiv">
+						您从加速度中每秒获得 <span id="accelGain"></span> 加速子 <span id="accelerSC"></span>.<br><br>
+						您拥有 <span id="accel" class="thp"></span> 加速子，因此特权加速器加速效果延迟 <span id="accelEff"></span><br><br><br>
+						<button id="darkExp" class="btn locked" onclick="darkExpand()"></button><br><br>
+						您拥有 <span id="darkExpAmt"></span> 黑暗拓展器。<br><br>
+						<span id="darkExpPast"></span><br><br><br>
+					</div>
+				</div>
+				<div id="inflatons" class="theorytab">
+					<br>
+					<button id="inflatonsUnl" class="btn th" onclick="unlockInflatons()">Unlock Inflatons<br>Cost: 1,600 Theory Points</button>
+					<div id="inflatonsDiv">
+						您每秒获得 <span id="inflatonGain" class="thp"></span> 暴胀子(基于暴胀子数值)<span id="inflatonSC" class="sc"></span>.<br>
+						您拥有 <span id="inflatonAmt" class="thp"></span> 暴胀子(<span id="inflatonPerc"></span>)<br><br>
+						暴胀子使所有学说树的升级便宜 <span id="inflaton1" class="thp"></span> 倍。<br>
+						暴胀子还使每个强子间隔额外获得 <span id="inflaton2" class="thp"></span> 学说点数。 <span id="inflaton2sc" class="sc"></span><br><br><br>
+					</div>
+				</div>
+			</div>
+			<div id="hc" class="elmtab" style="display: none;">
+				<br><b>预计强子分数: <span id="projHadScore" class="had"></span></b><br><br>
+				<b>最高强子分数: <span id="bestHadScore" class="had"></span></b><br><br>
+				您拥有 <span id="hadrons" class="had"></span> 强子 <span id="hadronGain"></span> ，因此额外获得了 <span id="hadronEff" class="had"></span> 学说点数(接下来在 <span id="hadronNext"></span> 强子时可以获得 <span id="hadEffBulk"></span> 学说点数)<br>
+				<span id="hadInterval"></span><br><br>
+				<br><button id="startHC" class="btn hc" onclick="startHC()"></button><br><br>
+				<button class="btn hc" onclick="exportHC()">Export</button>&nbsp;<button class="btn hc" onclick="importHC()">Import</button>&nbsp;<button class="btn hc" onclick="clearHCData()">Clear Selector Data</button><br><br>
+				<span id="hcPerc"></span><br><br>
+				<div class="band ylw">
+					<table>
+						<tr>
+							<td><button class="btn tb inf" style="visibility: hidden;"></button></td>
+						</tr>
+						<tr>
+							<td>
+								<button class="btn tb hc" onclick="showHCTab('mainHC')">
+									Main Selectors
+								</button>
+							</td>
+							<td>
+								<button class="btn tb hc" onclick="showHCTab('preHC')">
+									Pre-Collapse Selectors
+								</button>
+							</td>
+							<td>
+								<button class="btn tb hc" onclick="showHCTab('colHC')">
+									Collapse Selectors
+								</button>
+							</td>
+							<td>
+								<button class="btn tb hc" onclick="showHCTab('infHC')">
+									Infinity Selectors
+								</button>
+							</td>
+							<td>
+								<button class="btn tb hc" onclick="showHCTab('elmHC')">
+									Elementary Selectors
+								</button>
+							</td>
+							<td>
+								<button id="mltHCTabButton" class="btn tb mlthc" onclick="showHCTab('mltHC')">
+									Multiversal Selectors
+								</button>
+							</td>
+						</tr>
+					</table>
+				</div><br><br>
+				<div id="mainHC" class="hcTab"></div>
+				<div id="preHC" class="hcTab"></div>
+				<div id="colHC" class="hcTab"></div>
+				<div id="infHC" class="hcTab"></div>
+				<div id="elmHC" class="hcTab"></div>
+				<div id="mltHC" class="hcTab"></div>
+				<br><br>
+			</div>
+			<div id="foam" class="elmtab" style="display: none;">
+				<div class="band pnk">
+					<table>
+						<tr>
+							<td><button class="btn tb inf" style="visibility: hidden;"></button></td>
+						</tr>
+						<tr>
+							<td>
+								<button id="foamBooststabbtn" class="btn tb foam" onclick="tmp.elm.qf.showTab('foamBoosts')">
+									Boosts
+								</button>
+							</td>
+							<td>
+								<button id="qf1tabbtn" class="btn tb foam" onclick="tmp.elm.qf.showTab('qf1')">
+									Quantum Foam
+								</button>
+							</td>
+							<td>
+								<button id="entropytabbtn" class="btn tb foam" onclick="tmp.elm.qf.showTab('entropy')">
+									Entropy
+								</button>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<br><br><br>
+				<div id="foamBoosts" class="foamTab" style="display: none;">
+					<span id="ach162span">"完全无用的学说"：使所有类型的泡沫产量变为 <span id="ach162eff"></span> 倍。<br><br></span>
+				
+					<span id="qfb1">量子加成 [<span id="qfb1amt"></span>]：将量子泡沫的获取量变为 <span id="qfb1eff"></span> 倍。</span><br>
+					<span id="qfb2">费米子加成 [<span id="qfb2amt"></span>]：将夸克和轻子的获取量变为 <span id="qfb2eff"></span> 倍。</span><br>
+					<span id="qfb3">纠缠加成 [<span id="qfb3amt"></span>]：将纠缠弦的获取量变为 <span id="qfb3eff"></span> 倍。</span><br>
+					<span id="qfb4">暴胀子加成 [<span id="qfb4amt"></span>]：将暴胀子的获取量变为 <span id="qfb4eff"></span> 倍。</span><br>
+					<span id="qfb5">多元加成 [<span id="qfb5amt"></span>]：将上方的所有加成增加 <span id="qfb5eff"></span> 级(基于知识)。</span><br><br>
+					
+					<span id="qfb6">亚普朗克加成 [<span id="qfb6amt"></span>]：将亚普朗克泡沫的获取量变为 <span id="qfb6eff"></span> 倍(基于量子泡沫).</span><br>
+					<span id="qfb7">强子加成 [<span id="qfb7amt"></span>]：将强子的获取量变为 <span id="qfb7eff"></span> 倍。</span><br>
+					<span id="qfb8">学说加成 [<span id="qfb8amt"></span>]：将学说树升级需求除以 <span id="qfb8eff"></span>.</span><br>
+					<span id="qfb9">超对称加成 [<span id="qfb9amt"></span>]：将超对称粒子的获取量变为 <span id="qfb9eff"></span> 倍。</span><br>
+					<span id="qfb10">认可加成 [<span id="qfb10amt"></span>]：超级折算的认可延迟 <span id="qfb10eff"></span> 次出现。</span><br><br>
+					
+					<span id="qfb11">子空间加成 [<span id="qfb11amt"></span>]：将子空间泡沫的获取量变为 <span id="qfb11eff"></span> 倍(基于亚普朗克泡沫)。</span><br>
+					<span id="qfb12">基本粒子加成 [<span id="qfb12amt"></span>]：将基本粒子的获取量变为 <span id="qfb12eff"></span> 倍(不受软上限影响)。</span><br>
+					<span id="qfb13">多元加成 II [<span id="qfb13amt"></span>]：将上方的所有加成增加 <span id="qfb13eff"></span> 级(基于量子泡沫)。</span><br>
+					<span id="qfb14">飞升加成 [<span id="qfb14amt"></span>]：将飞升能量的获取量变为 <span id="qfb14eff"></span> 倍。</span><br>
+					<span id="qfb15">弦加成 [<span id="qfb15amt"></span>]：将弦的获取量变为 <span id="qfb15eff"></span> 倍。</span><br><br>
+					
+					<span id="qfb16">无穷小加成 [<span id="qfb16amt"></span>]：将无穷小泡沫的获取量变为 <span id="qfb16eff"></span> 倍(基于子空间泡沫)。</span><br>
+					<span id="qfb17">高级学说加成 [<span id="qfb17amt"></span>]：部分学说树升级上限增加 <span id="qfb17eff"></span> 级。</span><br>
+					<span id="qfb18">规范加成 [<span id="qfb18amt"></span>]：将规范作用力的获取量变为 <span id="qfb18eff"></span> 倍(基于量子泡沫)。</span><br>
+					<span id="qfb19">玻色子加成 [<span id="qfb19amt"></span>]：将胶子，W玻色子和Z玻色子的获取量变为 <span id="qfb19eff"></span> 倍(基于量子泡沫)。</span><br>
+					<span id="qfb20">火箭加成 [<span id="qfb20amt"></span>]：将火箭效果的指数变为 <span id="qfb20eff"></span> 倍。</span><br><br>
+					
+					<span id="qfb21">泡沫加成 [<span id="qfb21amt"></span>]：将所有类型的泡沫获取量变为 <span id="qfb21eff"></span> 倍(基于无穷小泡沫)。</span><br>
+					<span id="qfb22">特权加速器加成 [<span id="qfb22amt"></span>]：特权加速器弱化效果和破碎效果延迟 <span id="qfb22eff"></span> 倍出现。</span><br>
+					<span id="qfb23">泡沫加成 II [<span id="qfb23amt"></span>]：将所有类型的泡沫获取量变为 <span id="qfb23eff"></span> 倍。</span><br>
+					<span id="qfb24">病原体加成 [<span id="qfb24amt"></span>]：将规范作用力的获取量变为 <span id="qfb24eff"></span> 倍(基于量子泡沫)。</span><br>
+					<span id="qfb25">多元加成 III [<span id="qfb25amt"></span>]：将上方的所有加成增加 <span id="qfb25eff"></span> 级。</span><br><br>
+					<br><br><br><br>
+				</div>
+				<div id="qf1" class="foamTab">
+					<table style="margin: auto; max-width: 80%;">
+						<tr>
+							<td class="foamTextThing">您拥有 <span id="qf1Amt" class="foamtxt"></span> 量子泡沫 <span id="qf1Gain"></span>.</td>
+							<td><button id="qf1Boost1" class="btn locked" onclick="qfBoost(1, 1)">Enlarge Quantum Foam by 1m in height<br>Cost: <span id="qf1Cost1" style="color: black !important;"></span> Quantum Foam</button></td>
+							<td><button id="qf1Boost2" class="btn locked" onclick="qfBoost(1, 2)">Enlarge Quantum Foam by 1m in width<br>Cost: <span id="qf1Cost2" style="color: black !important;"></span> Quantum Foam</button></td>
+							<td><button id="qf1Boost3" class="btn locked" onclick="qfBoost(1, 3)">Enlarge Quantum Foam by 1m in depth<br>Cost: <span id="qf1Cost3" style="color: black !important;"></span> Quantum Foam</button></td>
+							<td><button id="qf1NextUnl" class="btn locked" onclick="qfUnl(1)">Unlock a new type of Foam<br>Cost: <span id="qf1Cost4" style="color: black !important;"></span> Quantum Foam</button></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><button id="qf1Auto1" class="btn foam" onclick="toggleAutoFoam(1, 1)"></button></td>
+							<td><button id="qf1Auto2" class="btn foam" onclick="toggleAutoFoam(1, 2)"></button></td>
+							<td><button id="qf1Auto3" class="btn foam" onclick="toggleAutoFoam(1, 3)"></button></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>Height: <span id="qf1Bought1"></span></td>
+							<td>Width: <span id="qf1Bought2"></span></td>
+							<td>Depth: <span id="qf1Bought3"></span></td>
+						</tr>
+
+						<tr height="50"></tr>
+
+						<tr class="qf2row">
+							<td class="foamTextThing">您拥有 <span id="qf2Amt" class="foamtxt"></span> 亚普朗克泡沫 <span id="qf2Gain"></span> ，因此量子泡沫的获取量变为 <span id="qf2Eff" class="foamtxt"></span> 倍。</td>
+							<td><button id="qf2Boost1" class="btn locked" onclick="qfBoost(2, 1)">Enlarge Subplanck Foam by 1m in height<br>Cost: <span id="qf2Cost1" style="color: black !important;"></span> Subplanck Foam</button></td>
+							<td><button id="qf2Boost2" class="btn locked" onclick="qfBoost(2, 2)">Enlarge Subplanck Foam by 1m in width<br>Cost: <span id="qf2Cost2" style="color: black !important;"></span> Subplanck Foam</button></td>
+							<td><button id="qf2Boost3" class="btn locked" onclick="qfBoost(2, 3)">Enlarge Subplanck Foam by 1m in depth<br>Cost: <span id="qf2Cost3" style="color: black !important;"></span> Subplanck Foam</button></td>
+							<td><button id="qf2NextUnl" class="btn locked" onclick="qfUnl(2)">Unlock a new type of Foam<br>Cost: <span id="qf2Cost4" style="color: black !important;"></span> Subplanck Foam</button></td>
+						</tr>
+						<tr class="qf2row">
+							<td></td>
+							<td><button id="qf2Auto1" class="btn foam" onclick="toggleAutoFoam(2, 1)"></button></td>
+							<td><button id="qf2Auto2" class="btn foam" onclick="toggleAutoFoam(2, 2)"></button></td>
+							<td><button id="qf2Auto3" class="btn foam" onclick="toggleAutoFoam(2, 3)"></button></td>
+						</tr>
+						<tr class="qf2row">
+							<td></td>
+							<td>Height: <span id="qf2Bought1"></span></td>
+							<td>Width: <span id="qf2Bought2"></span></td>
+							<td>Depth: <span id="qf2Bought3"></span></td>
+						</tr>
+
+						<tr height="50"></tr>
+						
+						<tr class="qf3row">
+							<td>您拥有 <span id="qf3Amt" class="foamtxt"></span> 子空间泡沫 <span id="qf3Gain"></span> ，因此亚普朗克泡沫和量子泡沫的获取量变为 <span id="qf3Eff" class="foamtxt"></span> 倍。</td>
+							<td><button id="qf3Boost1" class="btn locked" onclick="qfBoost(3, 1)">Enlarge Subspatial Foam by 1m in height<br>Cost: <span id="qf3Cost1" style="color: black !important;"></span> Subspatial Foam</button></td>
+							<td><button id="qf3Boost2" class="btn locked" onclick="qfBoost(3, 2)">Enlarge Subspatial Foam by 1m in width<br>Cost: <span id="qf3Cost2" style="color: black !important;"></span> Subspatial Foam</button></td>
+							<td><button id="qf3Boost3" class="btn locked" onclick="qfBoost(3, 3)">Enlarge Subspatial Foam by 1m in depth<br>Cost: <span id="qf3Cost3" style="color: black !important;"></span> Subspatial Foam</button></td>
+							<td><button id="qf3NextUnl" class="btn locked" onclick="qfUnl(3)">Unlock a new type of Foam<br>Cost: <span id="qf3Cost4" style="color: black !important;"></span> Subspatial Foam</button></td>
+						</tr>
+						<tr class="qf3row">
+							<td></td>
+							<td><button id="qf3Auto1" class="btn foam" onclick="toggleAutoFoam(3, 1)"></button></td>
+							<td><button id="qf3Auto2" class="btn foam" onclick="toggleAutoFoam(3, 2)"></button></td>
+							<td><button id="qf3Auto3" class="btn foam" onclick="toggleAutoFoam(3, 3)"></button></td>
+						</tr>
+						<tr class="qf3row">
+							<td></td>
+							<td>Height: <span id="qf3Bought1"></span></td>
+							<td>Width: <span id="qf3Bought2"></span></td>
+							<td>Depth: <span id="qf3Bought3"></span></td>
+						</tr>
+
+						<tr height="50"></tr>
+						
+						<tr class="qf4row">
+							<td>您拥有 <span id="qf4Amt" class="foamtxt"></span> 无穷小泡沫 <span id="qf4Gain"></span> ，因此之前所有泡沫的获取量变为 <span id="qf4Eff" class="foamtxt"></span> 倍。</td>
+							<td><button id="qf4Boost1" class="btn locked" onclick="qfBoost(4, 1)">Enlarge Infinitesimal Foam by 1m in height<br>Cost: <span id="qf4Cost1" style="color: black !important;"></span> Infinitesimal Foam</button></td>
+							<td><button id="qf4Boost2" class="btn locked" onclick="qfBoost(4, 2)">Enlarge Infinitesimal Foam by 1m in width<br>Cost: <span id="qf4Cost2" style="color: black !important;"></span> Infinitesimal Foam</button></td>
+							<td><button id="qf4Boost3" class="btn locked" onclick="qfBoost(4, 3)">Enlarge Infinitesimal Foam by 1m in depth<br>Cost: <span id="qf4Cost3" style="color: black !important;"></span> Infinitesimal Foam</button></td>
+							<td><button id="qf4NextUnl" class="btn locked" onclick="qfUnl(4)">Unlock a new type of Foam<br>Cost: <span id="qf4Cost4" style="color: black !important;"></span> Infinitesimal Foam</button></td>
+						</tr>
+						<tr class="qf4row">
+							<td></td>
+							<td><button id="qf4Auto1" class="btn foam" onclick="toggleAutoFoam(4, 1)"></button></td>
+							<td><button id="qf4Auto2" class="btn foam" onclick="toggleAutoFoam(4, 2)"></button></td>
+							<td><button id="qf4Auto3" class="btn foam" onclick="toggleAutoFoam(4, 3)"></button></td>
+						</tr>
+						<tr class="qf4row">
+							<td></td>
+							<td>Height: <span id="qf4Bought1"></span></td>
+							<td>Width: <span id="qf4Bought2"></span></td>
+							<td>Depth: <span id="qf4Bought3"></span></td>
+						</tr>
+						
+						<tr height="50"></tr>
+						
+						<tr class="qf5row">
+							<td>您拥有 <span id="qf5Amt" class="foamtxt"></span> 太初<span id="qf5type"></span> 泡沫 <span id="qf5Gain"></span> ，因此之前所有泡沫的获取量变为 <span id="qf5Eff" class="foamtxt"></span> 倍。</td>
+							<td><button id="qf5Boost1" class="btn locked" onclick="qfBoost(5, 1)">Enlarge Protoversal Foam by 1m in height<br>Cost: <span id="qf5Cost1" style="color: black !important;"></span> Protoversal Foam</button></td>
+							<td><button id="qf5Boost2" class="btn locked" onclick="qfBoost(5, 2)">Enlarge Protoversal Foam by 1m in width<br>Cost: <span id="qf5Cost2" style="color: black !important;"></span> Protoversal Foam</button></td>
+							<td><button id="qf5Boost3" class="btn locked" onclick="qfBoost(5, 3)">Enlarge Protoversal Foam by 1m in depth<br>Cost: <span id="qf5Cost3" style="color: black !important;"></span> Protoversal Foam</button></td>
+							<td><button id="qf5NextUnl" class="btn locked" onclick="refoam()">Re-form your Protoversal Foam<br>Cost: <span id="qf5Cost4" style="color: black !important;"></span> Protoversal Foam</button></td>
+						</tr>
+						<tr class="qf5row">
+							<td></td>
+							<td><button id="qf5Auto1" class="btn foam" onclick="toggleAutoFoam(5, 1)"></button></td>
+							<td><button id="qf5Auto2" class="btn foam" onclick="toggleAutoFoam(5, 2)"></button></td>
+							<td><button id="qf5Auto3" class="btn foam" onclick="toggleAutoFoam(5, 3)"></button></td>
+						</tr>
+						<tr class="qf5row">
+							<td></td>
+							<td>Height: <span id="qf5Bought1"></span></td>
+							<td>Width: <span id="qf5Bought2"></span></td>
+							<td>Depth: <span id="qf5Bought3"></span></td>
+						</tr>
+					</table>
+				</div>
+				<div id="entropy" class="foamTab">
+					<button id="entropyReset" class="btn locked" onclick="entropyReset()">重置所有泡沫进度并获得 <span id="entropyGain" style="color: black;"></span> 熵<br><span id="entropyNext" style="color: black;"></span></button><br>
+					<button class="btn foam" onclick="forceEntropyReset()">Force Entropy Reset</button><br><br>
+					您拥有 <span id="entropyAmt" class="entropy"></span> 熵。<br>
+					您最高拥有 <span id="entropyBest" class="entropy"></span> 熵，因此所有类型的泡沫产量变为 <span id="entropyEff" class="entropy"></span> 倍。<br><br>
+					您拥有 <span id="omegaParticles" class="entropy"></span> &Omega; 粒子(到达 <span id="nextOmega"></span> 熵后可获取下一个粒子)，因此所有泡沫加成增加了 <span id="omegaEff" class="entropy"></span> 级。<br><br><br>
+					<table>
+						<tr>
+							<td><button id="entropy1" class="btn locked" onclick="buyEntropyUpg(1)" style="min-height: 100px;">Unlock Auto-Foam Unlocks (in automation tab)<br>Cost: <span id="entropyCost1" style="color: black;"></span> Entropy</button></td>
+							<td><button id="entropy2" class="btn locked" onclick="buyEntropyUpg(2)" style="min-height: 100px;">Gain more of all types of Foam based on your Theoriverse completions<br>Cost: <span id="entropyCost2" style="color: black;"></span> Entropy<br>Currently: <span id="entropyEff2" style="color: black;"></span>倍</button></td>
+							<td><button id="entropy3" class="btn locked" onclick="buyEntropyUpg(3)" style="min-height: 100px;">Rocket Fuel boosts Entropy Gain<br>Cost: <span id="entropyCost3" style="color: black;"></span> Entropy<br>Currently: <span id="entropyEff3" style="color: black;"></span>倍</button></td>
+							<td><button id="entropy4" class="btn locked" onclick="buyEntropyUpg(4)" style="min-height: 100px;">Hyper Pathogen Upgrade scaling starts later based on your &Omega; Particles<br>Cost: <span id="entropyCost4" style="color: black;"></span> Entropy<br>Currently: <span id="entropyEff4" style="color: black;"></span>次延迟</button></td>
+							<td><button id="entropy21" class="btn locked" onclick="buyEntropyUpg(21)" style="min-height: 100px;">Magma makes the Entropy effect stronger<br>Cost: <span id="entropyCost21" style="color: black;"></span> Entropy<br>Currently: <span id="entropyEff21" style="color: black;"></span>% stronger</button></td>
+						</tr>
+						<tr>
+							<td><button id="entropy5" class="btn locked" onclick="buyEntropyUpg(5)" style="min-height: 100px;">Theoretical Boosters make &Omega; Particles require less Entropy<br>Cost: <span id="entropyCost5" style="color: black;"></span> Entropy<br>Currently: <span id="entropyEff5" style="color: black;"></span>倍减少</button></td>
+							<td><button id="entropy6" class="btn locked" onclick="buyEntropyUpg(6)" style="min-height: 100px;">The "Actually Useless Theories" achievement reward uses a better formula<br>Cost: <span id="entropyCost6" style="color: black;"></span> Entropy</td>
+							<td><button id="entropy7" class="btn locked" onclick="buyEntropyUpg(7)" style="min-height: 100px;">&Omega; Particles are stronger based on your Hadrons<br>Cost: <span id="entropyCost7" style="color: black;"></span> Entropy<br>Currently: <span id="entropyEff7" style="color: black;"></span>% stronger</button></td>
+							<td><button id="entropy8" class="btn locked" onclick="buyEntropyUpg(8)" style="min-height: 100px;">Accelerons & Inflatons boost Entropy gain<br>Cost: <span id="entropyCost8" style="color: black;"></span> Entropy<br>Currently: <span id="entropyEff8" style="color: black;"></span>倍</button></td>
+							<td><button id="entropy22" class="btn locked" onclick="buyEntropyUpg(22)" style="min-height: 100px;">The Fermion Boost & the Inflaton Boost are 8.5% stronger<br>Cost: <span id="entropyCost22" style="color: black;"></span> Entropy</button></td>
+						</tr>
+						<tr>
+							<td><button id="entropy9" class="btn locked" onclick="buyEntropyUpg(9)" style="min-height: 125px;">Skyrmions make &Omega; Particles require less Entropy<br>Cost: <span id="entropyCost9" style="color: black;"></span> Entropy<br>Currently: <span id="entropyEff9" style="color: black;"></span>倍减少</button></td>
+							<td><button id="entropy10" class="btn locked" onclick="buyEntropyUpg(10)" style="min-height: 125px;">Unlock Auto-Entropy, and gain 50% more Entropy (kept on Skyrmion reset)<br>Cost: <span id="entropyCost10" style="color: black;"></span> Entropy</button></td>
+							<td><button id="entropy11" class="btn locked" onclick="buyEntropyUpg(11)" style="min-height: 125px;">Unlock Auto-Entropy Upgrades, and all Foam types are gained 10x faster (kept on Skyrmion reset)<br>Cost: <span id="entropyCost11" style="color: black;"></span> Entropy</button></td>
+							<td><button id="entropy12" class="btn locked" onclick="buyEntropyUpg(12)" style="min-height: 125px;">Gain 1% of Elementary Particle, Fermion, & Boson gain every second (kept on Skyrmion reset)<br>Cost: <span id="entropyCost12" style="color: black;"></span> Entropy</button></td>
+							<td><button id="entropy23" class="btn locked" onclick="buyEntropyUpg(23)" style="min-height: 125px;">The Extreme mode nerf to pre-Infinity production is less lethal (^0.825 -> ^0.875)<br>Cost: <span id="entropyCost23" style="color: black;"></span> Entropy</button></td>
+						</tr>
+						<tr>
+							<td><button id="entropy13" class="btn locked" onclick="buyEntropyUpg(13)" style="min-height: 150px;">Buying Theory Tree Upgrades does not spend Theory Points, and the last Inflaton effect does not become extremely softcapped (kept on Skyrmion reset)<br>Cost: <span id="entropyCost13" style="color: black;"></span> Entropy</button></td>
+							<td><button id="entropy14" class="btn locked" onclick="buyEntropyUpg(14)" style="min-height: 150px;">Entropy boosts Skyrmion gain<br>Cost: <span id="entropyCost14" style="color: black;"></span> Entropy<br>Currently: <span id="entropyEff14" style="color: black;"></span>倍</button></td>
+							<td><button id="entropy15" class="btn locked" onclick="buyEntropyUpg(15)" style="min-height: 150px;">Gauge Force's effect uses a much better formula<br>Cost: <span id="entropyCost15" style="color: black;"></span> Entropy</button></td>
+							<td><button id="entropy16" class="btn locked" onclick="buyEntropyUpg(16)" style="min-height: 150px;">Pions & Spinors make each other increase in cost 75% less (kept on Skyrmion reset)<br>Cost: <span id="entropyCost16" style="color: black;"></span> Entropy</button></td>
+							<td><button id="entropy24" class="btn locked" onclick="buyEntropyUpg(24)" style="min-height: 150px;">The Plasma Exponent is boosted by your Best Entropy<br>Cost: <span id="entropyCost24" style="color: black;"></span> Entropy<br>Currently: <span id="entropyEff24" style="color: black;"></span>倍</button></td>
+						</tr>
+						<tr>
+							<td><button id="entropy17" class="btn locked" onclick="buyEntropyUpg(17)" style="min-height: 200px;">Unlock Auto-Theoretical Boosters, and Theoretical Boosters give many more Theory Points, but Theoretical Boosters are reset on Skyrmion reset (kept on Skyrmion reset)<br>Cost: <span id="entropyCost17" style="color: black;"></span> Entropy</button></td>
+							<td><button id="entropy18" class="btn locked" onclick="buyEntropyUpg(18)" style="min-height: 200px;">一维弦的效果变为原来的5次方<br>Cost: <span id="entropyCost18" style="color: black;"></span> Entropy</button></td>
+							<td><button id="entropy19" class="btn locked" onclick="buyEntropyUpg(19)" style="min-height: 200px;">The Perk Accelerator never goes Weakened or Broken, and the Hadron effect interval is smaller based on your Hadrons<br>Cost: <span id="entropyCost19" style="color: black;"></span> Entropy<br>Currently: <span id="entropyEff19" style="color: black;"></span>th root</button></td>
+							<td><button id="entropy20" class="btn locked" onclick="buyEntropyUpg(20)" style="min-height: 200px;">The first Inflaton effect uses a better formula, Pions & Spinors do not make each other increase in cost, and you can buy max Pion/Spinor Fields (kept on Skyrmion reset)<br>Cost: <span id="entropyCost20" style="color: black;"></span> Entropy</button></td>
+							<td><button id="entropy25" class="btn locked" onclick="buyEntropyUpg(25)" style="min-height: 200px;">FU4 & EFU3 also multiply the upgrade's effect (but only at 20% upgrade power).<br>Cost: <span id="entropyCost25" style="color: black;"></span> Entropy</button></td>
+						</tr>
+						<tr>
+							<td><button id="entropy26" class="btn locked" onclick="buyEntropyUpg(26)" style="min-height: 200px;">Theory Tree Upgrade costs scale 50% slower, and the "Useless Theories" achievement's reward is raised to an exponent based on your Entropy.<br>Cost: <span id="entropyCost26" style="color: black;"></span> Entropy<br>Currently: ^<span id="entropyEff26" style="color: black;"></span></button></td>
+							<td><button id="entropy27" class="btn locked" onclick="buyEntropyUpg(27)" style="min-height: 200px;">The Entropy effect is stronger based on your Best Entropy.<br>Cost: <span id="entropyCost27" style="color: black;"></span> Entropy<br>Currently: ^<span id="entropyEff27" style="color: black;"></span></button></td>
+							<td><button id="entropy28" class="btn locked" onclick="buyEntropyUpg(28)" style="min-height: 200px;">Pion & Spinor gain are multiplied based on your Theory Points gotten from Hadrons.<br>Cost: <span id="entropyCost28" style="color: black;"></span> Entropy<br>Currently: <span id="entropyEff28" style="color: black;"></span>倍</button></td>
+							<td><button id="entropy29" class="btn locked" onclick="buyEntropyUpg(29)" style="min-height: 200px;">&Omega; Particles multiply Skyrmion gain.<br>Cost: <span id="entropyCost29" style="color: black;"></span> Entropy<br>Currently: <span id="entropyEff29" style="color: black;"></span>倍</button></td>
+							<td><button id="entropy34" class="btn locked" onclick="buyEntropyUpg(34)" style="min-height: 200px;">Entropy gain is increased by 50%.<br>Cost: <span id="entropyCost34" style="color: black;"></span> Entropy</button></td>
+						</tr>
+						<tr>
+							<td><button id="entropy30" class="btn locked" onclick="buyEntropyUpg(30)" style="min-height: 200px;">Quantum Foam boosts Skyrmion gain.<br>Cost: <span id="entropyCost30" style="color: black;"></span> Entropy<br>Currently: <span id="entropyEff30" style="color: black;"></span>倍</button></td>
+							<td><button id="entropy31" class="btn locked" onclick="buyEntropyUpg(31)" style="min-height: 200px;">Entropy Upgrades bought boost Pion & Spinor gain.<br>Cost: <span id="entropyCost31" style="color: black;"></span> Entropy<br>Currently: <span id="entropyEff31" style="color: black;"></span>倍</button></td>
+							<td><button id="entropy32" class="btn locked" onclick="buyEntropyUpg(32)" style="min-height: 200px;">Superscaled Derivative Boost scaling starts 2 later.<br>Cost: <span id="entropyCost32" style="color: black;"></span> Entropy</button></td>
+							<td><button id="entropy33" class="btn locked" onclick="buyEntropyUpg(33)" style="min-height: 200px;">Base Pion/Spinor gain is raised to the 1.5th power.<br>Cost: <span id="entropyCost33" style="color: black;"></span> Entropy</button></td>
+							<td><button id="entropy35" class="btn locked" onclick="buyEntropyUpg(35)" style="min-height: 200px;">The "Multiverse Conquered" achievement's final effect extends to 25,000 instead of 250, and the Cadaver effect is raised ^100.<br>Cost: <span id="entropyCost35" style="color: black;"></span> Entropy</button></td>
+						</tr>
+					</table>
+					<br><br><br><br><br>
+				</div>
+			</div>
+			<div id="sky" class="elmtab" style="display: none;">
+				<div class="band bl">
+					<table>
+						<tr>
+							<td><button class="btn tb inf" style="visibility: hidden;"></button></td>
+						</tr>
+						<tr>
+							<td>
+								<button id="skyrmionstabbtn" class="btn tb sky" onclick="tmp.elm.sky.showTab('skyrmions')">
+									Skyrmions
+								</button>
+							</td>
+							<td>
+								<button id="pionstabbtn" class="btn tb sky" onclick="tmp.elm.sky.showTab('pions')">
+									Pions
+								</button>
+							</td>
+							<td>
+								<button id="spinorstabbtn" class="btn tb sky" onclick="tmp.elm.sky.showTab('spinors')">
+									Spinors
+								</button>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<br><br>
+				<div id="skyrmions" class="skyTab">
+					动摇多宇宙的拓扑结构将强制进行一次熵和基本重置，您的净化能量，基本粒子，费米子，玻色子，光子和胶子的升级，超对称粒子，学说树升级，弦(及纠缠弦)，前子数量，加速子数量，暴胀子，强子，熵及熵升级(除了第1个以外)将全部被重置。<br><br>
+					<button id="skyrmionReset" class="btn locked" onclick="skyrmionReset()">>动摇多宇宙的拓扑结构并获得 <span id="skyrmionGain"></span> 斯格明子</button><br><br>
+					您拥有 <span id="skyrmionAmt" class="skytxt"></span> 斯格明子，因此夸克和轻子的指数变为 <span id="skyrmionEff" class="skytxt"></span> 倍<br>
+					π介子和旋量的基础获取量：每秒<span id="skyrmionEff2" class="skytxt"></span>。<br><br>
+					<button id="maxBothFields" onclick="maxBothFields()" class="btn sky">最大化π介子场和旋量场</button>
+					<button onclick="respecBothFields()" class="btn sky">Reset Pion & Spinor Fields</button>
+				</div>
+				<div id="pions" class="skyTab" style="display: none;">
+					您拥有 <span id="pionAmt" class="skytxt"></span> π介子 <span id="pionGain"></span><br><br>
+					<div id="pionData" class="bandBig lb"></div><br>
+					<div id="nextPionUpgs"></div><br>
+					<button onclick="respecField('pions')" class="btn sky">Reset Pion Field</button>&nbsp;&nbsp;<button id="maxPion" onclick="maxField('pions')" class="btn sky">Max Pion Field</button><br><br>
+					<button onclick="importField('pions')" class="btn sky">Import Pion Field</button>&nbsp;&nbsp;<button onclick="exportField('pions')" class="btn sky">Export Pion Field</button><br><br>
+					<div id="pionField"></div>
+				</div>
+				<div id="spinors" class="skyTab" style="display: none;">
+					您拥有 <span id="spinorAmt" class="skytxt"></span> 旋量 <span id="spinorGain"></span><br><br>
+					<div id="spinorData" class="bandBig lb"></div><br>
+					<div id="nextSpinorUpgs"></div><br>
+					<button onclick="respecField('spinors')" class="btn sky">Reset Spinor Field</button>&nbsp;&nbsp;<button id="maxSpinor" onclick="maxField('spinors')" class="btn sky">Max Spinor Field</button><br><br>
+					<button onclick="importField('spinors')" class="btn sky">Import Spinor Field</button>&nbsp;&nbsp;<button onclick="exportField('spinors')" class="btn sky">Export Spinor Field</button><br><br>
+					<div id="spinorField"></div>
+				</div>
+				<br><br><br><br><br>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Links -->
+	<link rel="stylesheet" type="text/css" href="style.css" />
+
+	<!-- Initial Stuff -->
+	<script type="text/javascript" src="js/jQuery.min.js"></script>
+	<script type="text/javascript" src="js/notify.min.js"></script>
+	<script type="text/javascript" src="js/classes/Notifier.js"></script>
+	<script type="text/javascript" src="js/classes/OmegaNum.js"></script>
+	
+	<!-- Functions -->
+	<script type="text/javascript" src="js/functions/formatting.js"></script>
+	<script type="text/javascript" src="js/functions/tabs.js"></script>
+	<script type="text/javascript" src="js/functions/achievements.js"></script>
+	<script type="text/javascript" src="js/functions/important.js"></script>
+	<script type="text/javascript" src="js/functions/misc.js"></script>
+
+	<!-- Constants -->
+	<script type="text/javascript" src="js/constants/default.js"></script>
+	<script type="text/javascript" src="js/constants/format.js"></script>
+	<script type="text/javascript" src="js/constants/rankTier.js"></script>
+	<script type="text/javascript" src="js/constants/layers.js"></script>
+	<script type="text/javascript" src="js/constants/tabs.js"></script>
+	<script type="text/javascript" src="js/constants/achievements.js"></script>
+	<script type="text/javascript" src="js/constants/automation.js"></script>
+	<script type="text/javascript" src="js/constants/tr.js"></script>
+	<script type="text/javascript" src="js/constants/collapse.js"></script>
+	<script type="text/javascript" src="js/constants/modes.js"></script>
+	<script type="text/javascript" src="js/constants/pathogens.js"></script>
+	<script type="text/javascript" src="js/constants/scaling.js"></script>
+	<script type="text/javascript" src="js/constants/options_notations.js"></script>
+	<script type="text/javascript" src="js/constants/dc.js"></script>
+	<script type="text/javascript" src="js/constants/inf.js"></script>
+	<script type="text/javascript" src="js/constants/elm.js"></script>
+	<script type="text/javascript" src="js/constants/mlt.js"></script>
+	<script type="text/javascript" src="js/constants/news.js"></script>
+
+	<!-- Primary Classes -->
+	<script type="text/javascript" src="js/classes/Element.js"></script>
+
+	<!-- Notations -->
+	<script type="text/javascript" src="js/notations.js"></script>
+
+	<!-- Secondary Classes -->
+	<script type="text/javascript" src="js/classes/Layer.js"></script>
+	<script type="text/javascript" src="js/classes/Feature.js"></script>
+	<script type="text/javascript" src="js/classes/Achievement.js"></script>
+	<script type="text/javascript" src="js/classes/Robot.js"></script>
+
+	<!-- Main Game -->
+	<script type="text/javascript" src="js/game.js"></script>
+
+	<!-- File Data -->
+	<script type="text/javascript" src="js/main/multiverse/quilts.js"></script>
+	<script type="text/javascript" src="js/main/multiverse/mlt.js"></script>
+	<script type="text/javascript" src="js/main/elementary/bosons.js"></script>
+	<script type="text/javascript" src="js/main/elementary/elm.js"></script>
+	<script type="text/javascript" src="js/main/elementary/fermions.js"></script>
+	<script type="text/javascript" src="js/main/elementary/foam.js"></script>
+	<script type="text/javascript" src="js/main/elementary/hadronic_challenges.js"></script>
+	<script type="text/javascript" src="js/main/elementary/skyrmion.js"></script>
+	<script type="text/javascript" src="js/main/elementary/theory.js"></script>
+	<script type="text/javascript" src="js/main/elements.js"></script>
+	<script type="text/javascript" src="js/main/options.js"></script>
+	<script type="text/javascript" src="js/main/nerfs.js"></script>
+	<script type="text/javascript" src="js/main/scaling.js"></script>
+	<script type="text/javascript" src="js/main/effects.js"></script>
+	<script type="text/javascript" src="js/main/early_game.js"></script>
+	<script type="text/javascript" src="js/main/ranks.js"></script>
+	<script type="text/javascript" src="js/main/tiers.js"></script>
+	<script type="text/javascript" src="js/main/rockets.js"></script>
+	<script type="text/javascript" src="js/main/special.js"></script>
+	<script type="text/javascript" src="js/main/rf.js"></script>
+	<script type="text/javascript" src="js/main/auto.js"></script>
+	<script type="text/javascript" src="js/main/tr.js"></script>
+	<script type="text/javascript" src="js/main/collapse.js"></script>
+	<script type="text/javascript" src="js/main/pathogens.js"></script>
+	<script type="text/javascript" src="js/main/dc.js"></script>
+	<script type="text/javascript" src="js/main/inf.js"></script>
+	<script type="text/javascript" src="js/main/misc.js"></script>
+	<script type="text/javascript" src="js/main/timeSpeed.js"></script>
+	<script type="text/javascript" src="js/main/hd.js"></script>
+
+	<!-- Extreme Mode File Data -->
+
+	<script type="text/javascript" src="js/main/extreme/rankCheap.js"></script>
+	<script type="text/javascript" src="js/main/extreme/fn.js"></script>
+	<script type="text/javascript" src="js/main/extreme/stadium.js"></script>
+	<script type="text/javascript" src="js/main/extreme/magma.js"></script>
+	<script type="text/javascript" src="js/main/extreme/plasma.js"></script>
+
+	<!-- Update -->
+	<script type="text/javascript" src="js/update.js"></script>
+	
+<!--客服 开始-->
+<link rel="stylesheet" href="//g8hh.com/static/css/kf.css" type="text/css" media="screen" charset="utf-8">
+<script src="//g8hh.com/static/js/kf.js"></script>
+<!-- 客服 结束 -->
+<!--站长统计-->
+    <div style="display: none">
+       <script type="text/javascript" src="https://v1.cnzz.com/z_stat.php?id=1280006740&web_id=1280006740"></script>
+    </div>
+</body>
