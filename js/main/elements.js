@@ -1468,7 +1468,7 @@ function updateMiscHTML(){
 		(TABBTN_SHOWN.elementary()?"Shift + E -> 基本重置\n":"")+
 		(ELM_TABS.theory()?"Shift + T -> 切换学说宇宙\n":"")+
 		(TH_TABS.strings()?"S -> 纠缠弦重置\n":"")+
-		(ELM_TABS.sky()?"Shift + S -> 斯格明子重置\n":"")
+		(ELM_TABS.sky()?"Shift + S -> 斯格明子重置\n":"")+
 		(player.achievements.includes(178)?"M -> 多宇宙重置":"")
 	);
 }
